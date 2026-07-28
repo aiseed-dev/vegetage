@@ -529,9 +529,14 @@ def build_root_index():
 
 
 def main():
-    if DIST_DIR.exists():
-        shutil.rmtree(DIST_DIR)
-    DIST_DIR.mkdir(parents=True)
+    # 掃除するのは**このビルダーの出力だけ**(カテゴリ配下とルートindex)。
+    # web/site/ を丸ごと消すと、別カタログ(build_dict.py の vegetables/)を
+    # 巻き込んでしまう。
+    DIST_DIR.mkdir(parents=True, exist_ok=True)
+    for cat_key in CATEGORIES:
+        cat_out = DIST_DIR / cat_key
+        if cat_out.exists():
+            shutil.rmtree(cat_out)
     build_root_index()
 
     total = 0

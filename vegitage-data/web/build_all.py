@@ -5,7 +5,8 @@
   build_dict.py  … 世界の伝統野菜辞典(JSON・332) → web/site/vegetables/
 
 build.py がルート index と italian/ を、build_dict.py が vegetables/ を書く。
-出力先が分かれているので順序に依存しない。
+各ビルダーは**自分の出力だけ**を掃除するので、片方だけ流しても
+もう片方の出力は残る(web/site/ を丸ごと消してはいけない)。
 
 Usage: python3 web/build_all.py
 """
