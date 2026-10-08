@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Apply saved theme immediately to avoid FOUC -->
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem('aiseed-theme');
+          if (t === 'light' || t === 'dark') {
+            document.documentElement.setAttribute('data-theme', t);
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9FLQ963JXM"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-9FLQ963JXM');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://static.cloudflareinsights.com https://challenges.cloudflare.com 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://cloudflareinsights.com https://challenges.cloudflare.com">
+    <meta name="description" content="About Masanobu Fukuoka's natural farming and regenerative agriculture. The four principles — no tillage, no fertilizer, no pesticides, no weeding — and symbiosis with soil microbes. Natural farming as a choice for an age when fertilizer no longer arrives.">
+    <link rel="canonical" href="https://aiseed.dev/en/natural-farming/">
+    <link rel="alternate" hreflang="ja" href="https://aiseed.dev/natural-farming/">
+    <link rel="alternate" hreflang="en" href="https://aiseed.dev/en/natural-farming/">
+    <link rel="alternate" hreflang="x-default" href="https://aiseed.dev/natural-farming/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Living in the AI Era">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="ja_JP">
+    <meta property="og:title" content="What Is Natural Farming? | Living in the AI Era">
+    <meta property="og:description" content="About Masanobu Fukuoka's natural farming and regenerative agriculture. The four principles — no tillage, no fertilizer, no pesticides, no weeding — and symbiosis with soil microbes. Natural farming as a choice for an age when fertilizer no longer arrives.">
+    <meta property="og:url" content="https://aiseed.dev/en/natural-farming/">
+    <meta property="og:image" content="https://aiseed.dev/images/IMG_3141.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="What Is Natural Farming? | Living in the AI Era">
+    <meta name="twitter:description" content="About Masanobu Fukuoka's natural farming and regenerative agriculture. The four principles — no tillage, no fertilizer, no pesticides, no weeding — and symbiosis with soil microbes. Natural farming as a choice for an age when fertilizer no longer arrives.">
+    <meta name="twitter:image" content="https://aiseed.dev/images/IMG_3141.jpg">
+    <title>What Is Natural Farming? | Living in the AI Era</title>
+    <link rel="stylesheet" href="../../css/style.css?v=36fe4824">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-inner">
+            <a href="/en/" class="logo">
+                Living in the AI Era
+                <span>aiseed.dev</span>
+            </a>
+            <nav class="nav">
+                <a href="/en/">Home</a>
+                <div class="nav-group">
+                    <button type="button" class="nav-parent" aria-haspopup="true" aria-expanded="false">Articles<span class="nav-caret" aria-hidden="true">▾</span></button>
+                    <div class="nav-submenu" role="menu">
+                        <a href="/en/insights/" role="menuitem">Structural Analysis</a>
+                        <a href="/en/ai-native-software/" role="menuitem">AI-Native Software Development</a>
+                        <a href="/en/claude-debian/" role="menuitem">Learning Debian with Claude</a>
+                        <a href="/en/debian-server/" role="menuitem">Growing a Debian Server with Claude</a>
+                    </div>
+                </div>
+                <a href="/en/blog/">Blog</a>
+                <a href="/en/natural-farming/" class="active">Natural Farming</a>
+                <a href="/en/light-farming/">Light Farming</a>
+                <a href="/gallery/">Field Notes</a>
+                <a href="/natural-farming/" class="lang-switch" hreflang="ja" aria-label="日本語版を表示">🌐 日本語</a>
+                <button type="button" class="theme-toggle" aria-label="Switch theme" title="Theme (Light / Dark)">
+                    <span class="theme-icon theme-icon-sun" aria-hidden="true">☀</span>
+                    <span class="theme-icon theme-icon-moon" aria-hidden="true">☾</span>
+                </button>
+            </nav>
+            <button class="nav-toggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="page-hero-image" style="background-image: url('../../images/IMG_3141.jpg');"></div>
+        <div class="page-hero-content">
+            <p class="hero-label">About Natural Farming</p>
+            <h1 class="hero-title">What Is Natural Farming?</h1>
+            <p class="hero-subtitle">
+                Fukuoka's philosophy, and the farming method to choose in an era of fertilizer crisis
+            </p>
+        </div>
+    </section>
+
+    <!-- Introduction -->
+    <section class="section">
+        <div class="container-narrow">
+            <div class="prose">
+                <h2>Why Natural Farming, Now?</h2>
+                <p>
+                    In 2026, the petrochemical facilities of the Persian Gulf were destroyed in war, and a significant share of the world's fertilizer supply has been lost for years.
+                    Both nitrogen and phosphate fertilizers are "byproducts" of oil and natural gas refining. When refineries stop, fertilizer feedstocks stop too.
+                </p>
+                <p>
+                    If fertilizer won't return for years, farmland must be planted without chemical fertilizer. This is not a choice — it is physical necessity.
+                    But one man foresaw <a href="/en/blog/fertilizer-crisis-natural-farming/">exactly this situation</a> fifty years ago and established a farming method that depends on no chemical inputs. His name was Masanobu Fukuoka.
+                </p>
+
+                <h2>Masanobu Fukuoka's Natural Farming</h2>
+                <p>
+                    Masanobu Fukuoka (1913–2008) was a Japanese agricultural scientist and philosopher.
+                    He established a farming method known as "do-nothing farming" and influenced people around the world.
+                </p>
+                <p>
+                    His book <em>The One-Straw Revolution</em> has been translated into more than twenty languages and forms a philosophical foundation for permaculture and organic farming movements.
+                    Using his own bred "Happy Hill" rice variety in no-till cultivation, Fukuoka harvested approximately 5.5 tons of rice per hectare with no fertilizer — yields comparable to conventional agriculture, achieved with zero chemical inputs.
+                </p>
+
+                <div class="quote-block">
+                    <p class="quote-text">
+                        Natural farming is returning to nature, following nature, and observing nature.
+                    </p>
+                    <p class="quote-author">— Masanobu Fukuoka</p>
+                </div>
+
+                <h2>Why It Matters in the AI Era</h2>
+                <p>
+                    AI is replacing much of desk work. Accounting, legal, translation, marketing, programming — for the price of a monthly subscription, a single person can now perform the work of an entire company.
+                    If AI takes over work, what does a human do?
+                </p>
+                <p>
+                    One answer: spend time on what AI cannot do. Touch the soil. Converse with plants. Read weather and seasons. Observe the life of soil microorganisms.
+                    AI can identify pests by image recognition and suggest optimal work days from weather data, but smelling the earth and feeling a leaf's texture remains human work.
+                </p>
+                <p>
+                    In a world where AI handles efficiency, <strong>time spent in dialogue with nature becomes work only humans can do.</strong>
+                    Natural farming is not merely a means of food production — it is a redefinition of the human role in the AI era.
+                </p>
+
+                <h2>The Four Principles</h2>
+                <p>Fukuoka's natural farming is based on four principles:</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Four Principles -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="card-grid">
+                <div class="card fade-in">
+                    <div class="card-number">01</div>
+                    <h3 class="card-title">No Tillage</h3>
+                    <p class="card-text">
+                        Don't till the soil. Tilling destroys soil aggregate structure and fragments microbial networks.
+                        No one tills the soil in nature, yet forests thrive for thousands of years.
+                    </p>
+                </div>
+
+                <div class="card fade-in">
+                    <div class="card-number">02</div>
+                    <h3 class="card-title">No Fertilizer</h3>
+                    <p class="card-text">
+                        Apply neither chemical fertilizer nor compost.
+                        In healthy soil, mycorrhizal fungi and microbes supply the nutrients plants need.
+                        External fertilizer inputs disrupt the balance of the soil ecosystem.
+                    </p>
+                </div>
+
+                <div class="card fade-in">
+                    <div class="card-number">03</div>
+                    <h3 class="card-title">No Pesticides</h3>
+                    <p class="card-text">
+                        Use no pesticides or herbicides.
+                        In a diverse ecosystem, the balance between pests and their natural enemies maintains itself.
+                        Pesticides destroy not only that balance but also soil microbial diversity.
+                    </p>
+                </div>
+
+                <div class="card fade-in">
+                    <div class="card-number">04</div>
+                    <h3 class="card-title">No Weeding</h3>
+                    <p class="card-text">
+                        Don't treat grass as the enemy — this is Fukuoka's distinctive principle, setting him apart from other organic farming and permaculture approaches.
+                        "Weeds" cover the soil with green, maximize photosynthetic area, and continuously send liquid carbon from their roots to soil microbes.
+                        Dr. Christine Jones's <a href="/en/light-farming/">Light Farming</a> scientifically validated this principle fifty years later.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Method of "Not Doing" -->
+    <section class="section">
+        <div class="container-narrow">
+            <div class="prose">
+                <h2>The Method of "Not Doing" — Humility Before Complex Systems</h2>
+                <p>
+                    Look carefully at the four principles and you'll notice they all take the form "<strong><em>do not</em> ___</strong>."
+                    Don't till. Don't fertilize. Don't spray. Don't weed.
+                    This is not laziness. It is <strong>the conclusion of long observation: nature does the work better than human intervention does.</strong>
+                </p>
+                <p>
+                    Soil microbiomes, plant physiology, the balance between pests and predators — these are <strong>complex systems</strong>. They have feedback loops, emergence, irreversibility, and path dependence, and they cannot be decomposed into parts. "Solve" and "optimize" are not the right verbs here.
+                </p>
+                <p>
+                    This is the point that most contradicts the AI community's intuition. AI has evolved by defining an objective function and optimizing it. Bring that methodology straight into a complex system, and what you mean as "management" often ends as destruction. A <a href="/en/light-farming/">mycorrhizal network</a> takes a year to destroy and decades to restore — this <strong>asymmetry of irreversibility</strong> is one of the structures AI finds hardest to imagine.
+                </p>
+                <p>
+                    Fukuoka saw this <strong>in practice in 1975</strong>. Dr. Christine Jones backed it up <strong>in science in 2018</strong>. And in <strong>2026</strong>, in an age when fertilizer does not arrive, this "let-go-of-control" method is the only one that can keep producing food.
+                </p>
+                <div class="quote-block">
+                    <p class="quote-text">
+                        "Do-nothing farming" is the opposite of laziness.<br>
+                        <strong>It is the wisest human posture possible in the face of a complex system.</strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Regenerative Agriculture -->
+    <section class="section">
+        <div class="container">
+            <div class="two-col">
+                <div class="two-col-image fade-in">
+                    <img src="../../images/IMG_3285.jpg" alt="A field with diverse plants">
+                </div>
+                <div class="two-col-content fade-in">
+                    <p class="section-label">Regenerative Agriculture</p>
+                    <h2>Regenerative Agriculture</h2>
+                    <p>
+                        Regenerative agriculture is a farming approach aimed at restoring soil health and regenerating ecosystems.
+                        It shares much with Fukuoka's natural farming and has gained attention as a climate response in recent years.
+                    </p>
+                    <p>
+                        Now, a second urgent reason has been added: <strong>the age when fertilizer is unavailable.</strong>
+                        The petrochemical facilities destroyed in the 2026 Middle East war will take 3–5 years to rebuild.
+                        Even when chemical fertilizer returns, permanent transit fees and reconstruction costs will make "farming that buys fertilizer" far more expensive than before.
+                        A farming method that doesn't depend on external inputs is no longer a philosophy — it is economic rationality.
+                    </p>
+                    <a href="/en/light-farming/" class="btn btn-primary">Learn about Light Farming</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Concepts -->
+    <section class="section section-dark">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">Key Concepts</p>
+                <h2 class="section-title">Key Concepts</h2>
+            </div>
+
+            <div class="card-grid">
+                <div class="principle-card fade-in">
+                    <h3 class="card-title" style="color: var(--sand-light);">Soil Microorganisms</h3>
+                    <p class="card-text" style="color: var(--clay);">
+                        Healthy soil hosts a remarkably diverse community of microorganisms — bacteria, fungi, protozoa, and more.
+                        They help plants absorb nutrients and protect them from disease.
+                    </p>
+                </div>
+
+                <div class="principle-card fade-in">
+                    <h3 class="card-title" style="color: var(--sand-light);">Mycorrhizal Networks</h3>
+                    <p class="card-text" style="color: var(--clay);">
+                        Mycorrhizal fungi that live in symbiosis with plant roots form vast underground networks.
+                        Through these networks, plants exchange nutrients and information with each other.
+                    </p>
+                </div>
+
+                <div class="principle-card fade-in">
+                    <h3 class="card-title" style="color: var(--sand-light);">Carbon Sequestration</h3>
+                    <p class="card-text" style="color: var(--clay);">
+                        Plants absorb CO2 through photosynthesis and send it into the soil through their roots as "liquid carbon."
+                        When this carbon is stably stored in soil, it can mitigate climate change.
+                    </p>
+                </div>
+
+                <div class="principle-card fade-in">
+                    <h3 class="card-title" style="color: var(--sand-light);">Biodiversity</h3>
+                    <p class="card-text" style="color: var(--clay);">
+                        Growing diverse plants increases soil microbial diversity too.
+                        Diverse ecosystems are more resilient to pests and better able to adapt to environmental change.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section section-green">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">Our Practice</p>
+                <h2 class="section-title">Our Practice</h2>
+            </div>
+            <p class="cta-text">
+                On the green chlorite schist soils of Tokushima, Japan,<br>
+                we practice natural farming combined with Light Farming.
+            </p>
+            <div class="text-center">
+                <a href="/en/about/" class="btn btn-light">Our Approach</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-about">
+                <h3>Living in the AI Era</h3>
+                <p>AI changes how we work, farm, and live. Fossil resources, food, energy, AI, healthcare, pensions — every structure connects.</p>
+            </div>
+            <div class="footer-nav">
+                <h4>Pages</h4>
+                <ul>
+                    <li><a href="/en/">Home</a></li>
+                    <li><a href="/en/insights/">Structural Analysis</a></li>
+                    <li><a href="/en/ai-native-software/">AI-Native Software Development</a></li>
+                    <li><a href="/en/claude-debian/">Learning Debian with Claude</a></li>
+                    <li><a href="/en/debian-server/">Growing a Debian Server with Claude</a></li>
+                    <li><a href="/en/blog/">Blog</a></li>
+                    <li><a href="/en/natural-farming/">Natural Farming</a></li>
+                    <li><a href="/en/light-farming/">Light Farming</a></li>
+                    <li><a href="/en/about/">Our Approach</a></li>
+                    <li><a href="/gallery/">Field Notes</a></li>
+                    <li><a href="/en/privacy/">Privacy</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Related Sites</h4>
+                <ul>
+                    <li><a href="https://aiai.aiseed.dev/">aiai — Learning in the AI Era</a></li>
+                    <li><a href="https://weather.time-j.net/">Personal Weather Statistics for Japan</a></li>
+                </ul>
+                <h4 style="margin-top: 1.5rem;">Community</h4>
+                <ul>
+                    <li><a href="https://www.facebook.com/groups/vegitage" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: -2px; margin-right: 4px;"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>AISeed — Biodiversity, Food, AI and Living</a></li>
+                    <li><a href="https://www.amazingcarbon.com/" target="_blank" rel="noopener noreferrer">Amazing Carbon</a></li>
+                    <li><a href="https://github.com/aiseed-dev/website" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                    <li><a href="/natural-farming/">日本語版</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copyright">&copy; 2026 aiseed.dev — <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">CC BY 4.0</a></p>
+        </div>
+    </footer>
+
+    <script src="../../js/main.js?v=36fe4824"></script>
+</body>
+
+</html>

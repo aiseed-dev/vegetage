@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <!-- Apply saved theme immediately to avoid FOUC -->
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem('aiseed-theme');
+          if (t === 'light' || t === 'dark') {
+            document.documentElement.setAttribute('data-theme', t);
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9FLQ963JXM"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-9FLQ963JXM');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Light Farming: 農業土壌への炭素、有機窒素、生物多様性の回復 - Christine Jones博士による論文の日本語全訳（後半）">
+    <title>Light Farming 全訳（2） | AI時代の暮らし</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <style>
+        .article-header {
+            text-align: center;
+            padding: 2rem 0;
+            border-bottom: 1px solid var(--root-tan);
+            margin-bottom: 3rem;
+        }
+
+        .article-title {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .article-author {
+            font-size: 1.1rem;
+            color: var(--soil-rich);
+            margin-bottom: 0.5rem;
+        }
+
+        .article-source {
+            font-size: 0.9rem;
+            color: var(--moss-green);
+        }
+
+        .article-body {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .article-body h2 {
+            font-size: 1.6rem;
+            margin: 3rem 0 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--moss-green);
+        }
+
+        .article-body h3 {
+            font-size: 1.3rem;
+            margin: 2.5rem 0 1rem;
+            color: var(--leaf-dark);
+        }
+
+        .article-body p {
+            font-size: 1.05rem;
+            line-height: 2;
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        .article-body ul,
+        .article-body ol {
+            margin: 1.5rem 0;
+            padding-left: 1.5rem;
+        }
+
+        .article-body li {
+            margin-bottom: 0.8rem;
+            line-height: 1.8;
+        }
+
+        .highlight-box {
+            background: var(--sand-light);
+            border-left: 4px solid var(--moss-green);
+            padding: 1.5rem 2rem;
+            margin: 2rem 0;
+        }
+
+        .highlight-box p {
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .figure {
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .figure img {
+            max-width: 100%;
+            margin-bottom: 1rem;
+        }
+
+        .figure-caption {
+            font-size: 0.9rem;
+            color: var(--soil-rich);
+            font-style: italic;
+        }
+
+        .references {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 2px solid var(--root-tan);
+        }
+
+        .references h2 {
+            border-bottom: none;
+        }
+
+        .references ol {
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        .references li {
+            margin-bottom: 1rem;
+            word-break: break-word;
+        }
+
+        .data-list {
+            background: var(--sand-light);
+            padding: 1.5rem 2rem;
+            margin: 1.5rem 0;
+        }
+
+        .data-list p {
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .nav-article {
+            display: flex;
+            justify-content: space-between;
+            padding: 2rem 0;
+            border-top: 1px solid var(--root-tan);
+            margin-top: 3rem;
+        }
+
+        .nav-article a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-inner">
+            <a href="/" class="logo">
+                AI時代の暮らし
+                <span>aiseed.dev</span>
+            </a>
+            <nav class="nav">
+                <a href="/">ホーム</a>
+                <a href="/insights/">Insights</a>
+                <a href="/blog/">Blog</a>
+                <a href="/natural-farming/">自然農法とは</a>
+                <a href="/light-farming/" class="active">Light Farming</a>
+                <a href="/gallery/">畑の記録</a>
+                <a href="/en/light-farming/" class="lang-switch" hreflang="en" aria-label="View in English">🌐 EN</a>
+                <button type="button" class="theme-toggle" aria-label="テーマを切り替え" title="テーマ切り替え (Light / Dark)">
+                    <span class="theme-icon theme-icon-sun" aria-hidden="true">☀</span>
+                    <span class="theme-icon theme-icon-moon" aria-hidden="true">☾</span>
+                </button>
+            </nav>
+            <button class="nav-toggle" aria-label="メニュー">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Article -->
+    <article class="section">
+        <div class="container-narrow">
+
+            <div class="article-header">
+                <p class="article-source">Light Farming 全訳（続き）</p>
+                <h1 class="article-title">土壌回復のための5つの原則</h1>
+            </div>
+
+            <div class="article-body">
+
+                <h2>1. 緑は良い—そして一年中緑はさらに良い</h2>
+
+                <p>毎年、光合成は大気から数千億トンのCO2を引き下ろしています。この引き下ろしの影響は、2014年にNASAが公開した素晴らしい可視化で劇的に示されました(10)。緑の植物を介した大気から土壌への炭素の移動は、土壌機能の回復と大気中のCO2レベルの削減のために私たちが自由に使える最も強力なツールです。
+                </p>
+
+                <p>すべての緑の植物は太陽エネルギーで動く炭素ポンプですが、安定した土壌炭素の生物学的隔離を駆動するのは、生きた植物の光合成能力と光合成速度（バイオマスではなく）です。</p>
+
+                <div class="highlight-box">
+                    <p><strong>光合成能力：</strong>特定の面積で緑の葉が遮断する光の量。キャノピー被覆率、植物の高さ、葉面積、葉の形状、季節的な成長パターンによって決定されます。農地では、多種被覆、コンパニオンクロッピング、多種牧草地、戦略的放牧を使用することで光合成能力を改善できます。公園や庭園では、植物の多様性と刈り込みの高さが重要な要因です。<strong>裸地の光合成能力はゼロです。</strong>裸地は純炭素ソースであるだけでなく、風や水による浸食にも脆弱です。
+                    </p>
+                </div>
+
+                <div class="highlight-box">
+                    <p><strong>光合成速度：</strong>植物が光エネルギーを糖に変換できる速度。光強度、水分、温度、栄養素の利用可能性、植物種の豊富さ、微生物共生体によって宿主に課される需要など、多くの要因によって決定されます。菌根菌やトリコデルマによるコロニー形成は、光合成速度を著しく増加させることができます。光合成速度が高い植物は、糖とミネラル含有量が高く、病害虫に罹りにくく、家畜の増体に貢献します。光合成速度は、屈折計でBrixレベルを測定することで評価できます。
+                    </p>
+                </div>
+
+                <p>世界の光合成能力および/または光合成速度が約5%増加すれば、余分な炭素が安定した形で土壌に隔離される限り、化石燃料の燃焼からのCO2フラックスに対抗するのに十分です。これは実行可能です。平均して、世界の農地は毎年約半分の期間裸地です(11)。<strong>土壌が見えていれば、それは炭素—と窒素！！—を失っています。</strong>
+                </p>
+
+                <p>光合成能力と光合成速度の両方が管理によって強く影響されます。最先端の「光の農家」たちは、栄養密度の高い食料と高品質の繊維を生産しながら、土壌を覆い、生かしておく革新的で非常に生産的な方法を開発しています。
+                </p>
+
+                <p>近年出てきた最も重要な発見の1つは、裸休閑が多種被覆に置き換えられたときの浸透、保水能力、干ばつへの回復力の改善です。この改善は、特に降水量の少ない地域や乾燥した年に顕著でした(12)。</p>
+
+                <p>健全な農業システムは、あらゆる形態の生命を支えるものです。あまりにも多くの場合、土壌中の多くの生命形態は不要と考えられてきました。より正確に言えば、まったく考慮されてこなかったのです。</p>
+
+                <h2>2. 微生物が重要！！</h2>
+
+                <p>土壌中の炭素の移転と安定化における植物-微生物の架け橋の重要性がますます認識されるようになり、土壌微生物叢は土壌研究の次のフロンティアとして称賛されています。</p>
+
+                <p>植物依存性の土壌形成微生物の最も重要なグループの1つは菌根菌です。これらの並外れた生態系エンジニアは、水にアクセスし、宿主を病害虫から保護し、液体炭素と引き換えに、有機窒素、リン、硫黄、カリウム、カルシウム、マグネシウム、鉄、銅、コバルト、亜鉛、モリブデン、マンガン、ホウ素などの微量元素を含む栄養素を輸送します。これらの元素の多くは、病害虫への抵抗性や、干ばつ、浸水、霜などの気候極端への回復力に不可欠です。
+                </p>
+
+                <p>菌根共生が効果的に機能しているとき、緑の葉で固定された炭素の20〜60%が土壌の菌糸ネットワークに直接送られ、その一部は生物学的に固定された窒素と結合して安定した腐植化合物に変換されます。土壌プロファイルの深い場所でこれが起こるほど、より良いのです。土壌マトリックス内で土壌生物によって形成された腐植ポリマーは、土壌構造、孔隙率、陽イオン交換容量、植物の成長を改善します。
+                </p>
+
+                <p>土壌機能はまた、その構造によっても強く影響されます。土壌がよく構造化されるためには、生きていなければなりません。土壌中の生命は、土壌粒子が団粒と呼ばれる豆粒大の塊にくっつくことを可能にする糊や粘液を提供します。団粒間のスペースにより、水分がより容易に浸透できます。土壌団粒に吸収された水分は蒸発から保護されるため、雨や灌漑の後も土壌はより長く湿った状態を保ちます。これは農場の生産性と利益を向上させます。
+                </p>
+
+                <p>よく構造化された土壌は、浸食や圧密にも強く、バイオフィルターとしてより効果的に機能します。</p>
+
+                <p>悲しいことに、土壌機能にとって重要な微生物の多くが行方不明になっています。それらを取り戻すことはできるでしょうか？一部の生産者は、比較的短い時間で土壌の健康に大きな改善を達成しています。これらの農家は何を違うことをしているのでしょうか？
+                </p>
+
+                <p><strong>彼らは多様化しています。</strong></p>
+
+                <h2>3. 多様性は不可欠！！！</h2>
+
+                <p>すべての植物は、糖、酵素、フェノール、アミノ酸、核酸、オーキシン、ジベレリン、その他の生物学的化合物の独自のブレンドを滲出し、その多くは土壌微生物へのシグナルとして機能します。根滲出液は、植物の即時の必要性に応じて時間とともに継続的に変化します。植物の多様性が高いほど、微生物の多様性が高くなり、土壌生態系はより堅牢になります。
+                </p>
+
+                <p>単一栽培と集約的に管理されたシステムが多様な生物学ベースのシステムよりも収益性が高いという信念は、実践では成り立ちません。単一栽培は、土壌の生物学的活動を阻害する高く、しばしば増加するレベルの肥料、殺菌剤、殺虫剤、その他の化学物質によってサポートされる必要があります。その結果、発生する害虫、雑草、病気、肥沃度の「問題」を制御しようとして、農薬への支出がさらに増加します。
+                </p>
+
+                <p>かつてオーストラリア、北米、南米、サハラ以南のアフリカ大陸の広大な地帯—さらにヨーロッパの「草地」—を覆っていた自然の草原には、数百種類の異なる種類の草やフォーブが含まれていました。これらの多様な草原と草地は、過放牧や耕作による単純化の前は非常に生産的でした。北米のプレーリー植物のさまざまな根の構造の変異は、図2に示されています。
+                </p>
+
+                <p class="figure-caption">図2. 北米プレーリー植物の根の構造の変異、イリノイ州、米国(13)。</p>
+
+                <p>革新的な農家は、土壌回復に最適な組み合わせを見つけるために、60〜70種類もの異なる植物種を実験しています。一部の穀物・野菜生産者は、現金作物面積の最大50%を多種「土壌プライマー」に割り当てています。彼らはメリットがコストをはるかに上回ると信じています。多種被覆の2シーズン完全版が土壌の健康に関して奇跡を起こすことができると報告されています。
+                </p>
+
+                <p>しかし、複雑である必要はありません。現金作物に1つか2つのコンパニオンを含めるだけで、大きな違いを生むことができます。実際、キャノーラとエンドウ豆、小麦とクローバーまたはレンズ豆、トウモロコシと大豆・キマメ（ピジョンピー）・ソラマメ・緑豆・ベッチ、ひよこ豆と亜麻、じゃがいもとそば・エンドウ豆...などの組み合わせがますます一般的になっています。単一栽培は、できれば近いうちに過去のものになるでしょう。
+                </p>
+
+                <p>土壌機能の改善に加えて、コンパニオン植物は昆虫捕食者に生息地と食料を提供します。最近の研究(14)では、作物や牧草地の昆虫の多様性が増加すると、害虫の発生率が低下し、殺虫剤の必要性が回避されることが示されています。
+                </p>
+
+                <p>植物生産は多様なコミュニティでしばしばより高く(15,16,17,18)、多様性は肥料よりも収量に大きな影響を与えると報告されています(15)。植物種の豊富さを増加させた（1、2、4、8、または16種）78の実験的草地コミュニティに、0、100、200
+                    kg N/ha/年の割合で窒素を施用した効果に関する研究では、高い植物多様性でゼロ肥料の方が、低い多様性で200 kg N/ha/年よりも良い収量を生み出すことがわかりました(15)。</p>
+
+                <p>多様なコミュニティでの植物生産の増加は、炭素と有機窒素の両方の隔離と密接に関連しています(17,18,19,20)。「11種以上」の植物種を持つ残存在来プレーリーの高い炭素貯蔵能力は、初期コストが高くても、CRP（米国保全休耕地プログラム）プランティングの多様性を現在の5〜6種から増やすことに経済的、生態学的、環境的利点があることを示唆していると言われています(20)。
+                </p>
+
+                <h3>共通菌根ネットワーク</h3>
+
+                <p>ますます研究の注目を集めている植物群落構造の側面は、多様な牧草地、作物、家庭菜園における「共通菌根ネットワーク（CMN）」の存在です。コミュニティ内の植物は、炭素、水、栄養素を交換できる広大な地下スーパーハイウェイを通じてリンクすることで互いを助け合っていることがわかっています(21,
+                    22)。共通菌根ネットワークは、病害虫に対する植物の抵抗力を高め(23)、植物の活力を向上させ、土壌の健康を改善します。</p>
+
+                <p>有益な腐生菌も植物の多様性によって刺激されます。根由来の有機投入物、特に滲出液の量と多様性の増加は、菌類バイオマスを増加させ、菌類対細菌バイオマス比に有意なシフトをもたらします(24)。</p>
+
+                <p>私の旅の中で、単一栽培が深刻な水ストレスに苦しんでいる一方で、隣の多様な多種作物は緑のままである例を多く見てきました（図3）。</p>
+
+                <p class="figure-caption">図3.
+                    左前景のトリティケール単一栽培が深刻な水ストレスに苦しんでいる一方で、他の種と一緒に播種されたトリティケール（背景と右）は力強く成長している。トリティケールに加えて、この「混植作物」にはオーツ麦、ティレージラディッシュ（土壌改良用大根）、ヒマワリ、エンドウ豆、ソラマメ、ひよこ豆、キビ（プロソミレット）、アワ（フォックステールミレット）が含まれていた。Chinook
+                    Applied Research Association (CARA)、オイエン、アルバータ州。</p>
+
+                <p>多様な植物の混合が土壌生物と協力して土壌を若返らせ、干ばつ耐性を向上させる方法についてのユーモラスな洞察については、この文書の最後の参考文献25を参照してください。</p>
+
+                <p>混合種の植え付けでは、暖地型草類（ソルガムやトウモロコシなど）が土壌炭素プールへの最も寛大な「与え手」であり、広葉植物は栄養素の利用可能性の増加から最も恩恵を受けます。</p>
+
+                <h2>4. 化学物質の使用を制限する</h2>
+
+                <p>土壌が生きているとき、ミネラル循環は著しく改善されます。例えば、菌根菌が植物のNとPの必要量の最大90%を供給できることが示されています(26)。作物ローテーションにコンパニオンや多種被覆を含めることに加えて、生きた土壌を維持するには、微生物が最も得意なことをできるように、高分析合成肥料やその他の化学物質の割合を減らす必要があることがしばしばあります。
+                </p>
+
+                <p>利益は支出と収入の差です。将来、機能不全の土壌で作物を栽培しようとし、ますます高価になる合成投入物のみに依存することの無益さに気づくのになぜこれほど時間がかかったのか、不思議に思うことでしょう。</p>
+
+                <p>NPK肥料をどれだけ多く施しても、低い濡れ性と低い保水能力を持つ圧密した、生命のない土壌を補うことはできません。実際、より多くの化学肥料を追加すると、しばしば事態が悪化します。これは特に無機窒素（N）と無機リン（P）に当てはまります。高率のNとPの施用でしばしば見落とされる結果は、植物がこれらの必須元素を得るために土壌微生物群集に液体炭素を送る必要がなくなることです。炭素フローの減少は土壌団粒化に悪影響を及ぼし、重要なミネラルと微量元素の獲得に関与する微生物が利用できるエネルギーを制限します。微量元素の不足は、植物と動物の病害虫への感受性を高めます。
+                </p>
+
+                <h3>無機窒素</h3>
+
+                <p>高分析N肥料の使用は、農家と環境の両方に大きなコストをもたらします。施用されたNの10〜40%のみが植物に吸収され、残りの60〜90%は揮発と浸出の組み合わせにより失われます(27)。</p>
+
+                <p>窒素は肥料または豆科植物からのみ来ると一般的に想定されています。しかし、すべての緑の植物は窒素固定微生物と共生して成長することができます。N肥料が施用されていても、植物は多くのNを微生物との共生から得ています。
+                </p>
+
+                <p>高い多様性を取り入れた「一年中緑」の農法を実験している農家は、彼らの土壌が大気窒素を固定する本来の能力を発達させることを発見しています。しかし、高率のN肥料がしばらく使用されてきた場合、自由生活窒素固定細菌が再確立するのに時間が必要なため、Nを徐々に減らすことが重要です(27)。
+                </p>
+
+                <p>窒素肥料の使用による多くの意図しない結果の1つは、浸水した土壌や圧密した土壌での亜酸化窒素の生成です。亜酸化窒素は、二酸化炭素の約300倍の地球温暖化係数を持つ温室効果ガスです。</p>
+
+                <h3>無機リン</h3>
+
+                <p>MAP、DAP、過リン酸石灰に見られるような大量の水溶性Pの施用は、重要な植物ホルモンであるストリゴラクトンの生成を阻害します。ストリゴラクトンは、根の成長、根毛の発達、菌根菌によるコロニー形成を増加させ、植物が土壌Pによりよくアクセスできるようにします(28)。ストリゴラクトンの阻害の長期的な結果には、土壌団粒の不安定化、土壌圧密の増加、ミネラル欠乏（例：低セレン）の植物と動物が含まれます。
+                </p>
+
+                <p>土壌構造と食品の栄養密度に悪影響を与えることに加えて、無機水溶性リンの施用は非常に非効率的です。施用されたPの少なくとも80%は、アルミニウムや鉄の酸化物に急速に吸着されたり、カルシウム、アルミニウム、マンガン、または鉄のリン酸塩を形成したりします。微生物活動がない場合、これらの形態のPは植物が利用できません(28)。
+                </p>
+
+                <div class="highlight-box">
+                    <p><strong>P肥料の10〜15%のみが施用年に作物や牧草に吸収されることは広く認識されています。</strong>過去10年間P肥料が施用されていた場合、土壌に最初にどれだけあったかに関係なく、今後100年間は十分にあるでしょう。継続的にPを追加するよりも、被覆作物や間作ミックスにP捕捉植物種を組み込み、「閉じ込められた」土壌Pにアクセスできる土壌微生物をサポートする方法で土地を管理する方が経済的である可能性があります。
+                    </p>
+                </div>
+
+                <p>菌根菌は土壌Pの利用可能性を高めるために非常に重要です。その豊富さは、多年生植物の存在、多様な被覆作物の使用、現金作物へのコンパニオンの組み込み、適切な放牧管理によって著しく改善できます。</p>
+
+                <h2>5. 動物の統合</h2>
+
+                <p>農業の集約化以前は、多くの動物種が土壌と接触していました。動物の存在が土壌機能を改善することに疑いの余地はありません。動物を農地に再統合することは、土壌と動物の両方にとって非常に有益です。例えば、多種被覆を家畜で放牧することは、種子コストの回収を助け、土壌と動物の両方の健康を改善します。
+                </p>
+
+                <p>家畜の管理方法は土壌機能に大きな影響を与えます。活発に成長している多年生牧草地では、利用可能な緑の葉の50%未満が一度に放牧されることが極めて重要です（図1）。適切な葉面積を保持することで、放牧が光合成能力に与える影響が軽減され、バイオマスが放牧前のレベルに急速に回復できるようになります。牧草地が「短く」ではなく「高く」放牧されると、成長期間中に著しく多くの飼料が生産され、より多くの炭素が土壌に隔離されます。葉面積の管理を通じて光合成能力を維持することに加えて、牧草の高さは水分保持、栄養循環、水質に大きな影響を与えます。
+                </p>
+
+                <p>光合成速度を維持することも重要です。牧草地のBrixレベルが高いほど、飼料変換効率の改善、1日平均増体量の向上、乳生産量の増加につながります。植物の根とその滲出液が安定した土壌炭素隔離の主要な経路を表していることを考えると(8,
+                    9, 24)、より高いBrixレベルがより高い炭素変換効率（CCE）にもつながる可能性が十分にあります。</p>
+
+                <p class="figure-caption">図1. 一回の放牧イベントで緑の葉の50%以上が除去されると、地上部と根の両方の成長が著しく阻害される(29)。</p>
+
+                <div class="data-list">
+                    <p><strong>除去された葉面積と根への影響の関係(30)：</strong></p>
+                    <p>葉面積40%まで除去 = 根の成長に影響なし</p>
+                    <p>葉面積50%除去 = 2〜4%の根の成長阻害</p>
+                    <p>葉面積60%除去 = 50%の根の成長阻害</p>
+                    <p>葉面積70%除去 = 78%の根の成長阻害</p>
+                    <p>葉面積80%除去 = 100%の根の成長阻害</p>
+                    <p>葉面積90%除去 = 100%の根の成長阻害</p>
+                </div>
+
+                <p>再生的放牧は、特に多年生牧草地において、深部の土壌炭素レベルを回復させるのに非常に効果的です。炭素が深いほど、酸化的・微生物的分解から保護されます。「重要な隔離」とは、30cm以下で起こるものです(31)。
+                </p>
+
+                <h2>結論</h2>
+
+                <p>すべての食料・繊維生産者—穀物、牛肉、牛乳、羊肉、羊毛、綿花、砂糖、ナッツ、果物、野菜、花、干し草、サイレージ、木材のいずれを生産するかにかかわらず—はまず第一に「光の農家」です。</p>
+
+                <p>悲しいことに、産業革命以来の農業活動の集約化により、地球表面の光合成能力—つまり緑の地被植物—が著しく減少し、残っている地被植物の光合成速度にも影響を与えています。</p>
+
+                <p>私たちが属する生物コミュニティにおける私たちの役割は、緑の植物を管理する方法によって、できるだけ多くの光エネルギーが土壌バッテリー—安定した土壌炭素として—に移転され、維持されるようにすることです。土壌炭素のレベルを上げることは、農場の生産性を向上させ、景観機能を回復し、人為的排出の影響を減らし、気候変動への回復力を高めます。
+                </p>
+
+                <p>問題は、特定の方法で特定の場所で「どれだけ」の炭素を隔離できるかではなく、「いくつの」土壌が炭素を隔離しているかです。すべての農業、庭園、公共の土地が炭素の正味シンクであれば、化石燃料の燃焼からの排出に対抗するのに十分なCO2を容易に引き下ろすことができます。
+                </p>
+
+                <p>土壌が正味炭素シンクであるとき、誰もが恩恵を受けます。食の選択や農業・園芸の実践を通じて、私たち全員が土壌の管理方法に影響を与える機会があります。収益性のある農業、栄養密度の高い食品、きれいな水、活気あるコミュニティは私たちのものになり得ます...それが私たちの選択であれば。
+                </p>
+
+                <div class="highlight-box">
+                    <p><strong>私たちの未来と、子どもたちと孫たちの未来のために、今日から土壌の物語を書き換えてみませんか？？</strong></p>
+                </div>
+
+                <p><em>謝辞：この記事で使用された写真の専門的な技術支援について、Sarah Troisi氏に特別な感謝を申し上げます。</em></p>
+
+                <div class="references">
+                    <h2>引用文献</h2>
+                    <ol>
+                        <li>Jones, C.E. (2008). Liquid carbon pathway. Australian Farm Journal, July 2008, pp. 15-17.
+                            www.amazingcarbon.com</li>
+                        <li>Kaiser, C., Kilburn, M. R., Clode, P. L., Fuchslueger, L., Koranda, M., Cliff, J. B.,
+                            Solaiman, Z. M. and Murphy, D. V. (2015), Exploring the transfer of recent plant
+                            photosynthates to soil microbes: mycorrhizal pathway vs direct root exudation. New
+                            Phytologist, 205: 1537–1551.</li>
+                        <li>Lal, R., Follett, R.F., Stewart, B.A. and Kimble, J.M. (2007). Soil carbon sequestration to
+                            mitigate climate change and advance food security. Soil Science, 172 (12), pp. 943-956.</li>
+                        <li>Pimentel, D. and Burgess, M. (2013). Soil erosion threatens food production. Agriculture
+                            2013, 3, 443-463; doi:10.3390/agriculture3030443</li>
+                        <li>Thomas, D.E. (2003). A study of the mineral depletion of foods available to us as a nation
+                            over the period 1940 to 1991. Nutrition and Health, 17: 85–115.</li>
+                        <li>Thomas, D.E. (2007). The mineral depletion of foods available to us as a nation (1940-2002)
+                            a review of the 6th Edition of McCance and Widdowson. Nutrition and Health, 19: 21-55.</li>
+                        <li>Latham, J. (2016). Why the food movement is unstoppable. Independent Science News.
+                            https://www.independentsciencenews.org/health/why-the-food-movement-is-unstoppable/</li>
+                        <li>Rasse, D.P., Rumpel C. and Dignac M-F. (2005). Is soil carbon mostly root carbon? Mechanisms
+                            for a specific stabilisation. Plant and Soil 269:341–56. DOI 10.1007/s11104-004-0907-y</li>
+                        <li>Jackson, R.B., Lajtha, K., Crow, S.E., Hugelius, G., Kramer, M.G. and Pineiro, G. (2017).
+                            The ecology of soil carbon: pools, vulnerabilities and biotic and abiotic controls. Annual
+                            Review of Ecology, Evolution, and Systematics, 48:419–45.</li>
+                        <li>Miller, P. (2014). Stunning NASA visualization reveals secret swirlings of carbon dioxide.
+                            http://news.nationalgeographic.com/news/2014/11/141118-nasa-video-carbon-dioxide-globalwarming-climate-environment/
+                        </li>
+                        <li>Siebert, S.; Portmann, F.T.; Döll, P. Global patterns of cropland use intensity. (2010).
+                            Remote Sensing, 2(7), 1625-1643; doi:10.3390/rs2071625</li>
+                        <li>Weller, J. (2015). Testimony to House of Representatives Committee on Agriculture bipartisan
+                            subcommittee on Conservation, Energy and Forestry hearing on the 'Benefits of Promoting Soil
+                            Health in Agriculture and Rural America'.</li>
+                        <li>Natura, H. (undated). Illinois Native Plant Guide. Root systems of prairie plants.
+                            https://www.nrcs.usda.gov/wps/portal/nrcs/detail/il/plantsanimals/?cid=nrcs141p2_030726</li>
+                        <li>Lundgren, J.G and Fausti S.W. (2015). Trading biodiversity for pest problems. Science
+                            Advances 1(6). doi: 10.1126/sciadv.1500558</li>
+                        <li>Weigelt, A., Weisser, W. W., Buchmann, N. and Scherer-Lorenzen, M. (2009). Biodiversity for
+                            multifunctional grasslands: equal productivity in high-diversity low-input and low-diversity
+                            high-input systems. Biogeosciences, 6: 1695-1706, doi:10.5194/bg-6-1695-2009</li>
+                        <li>Bullock, J.M., Pywell, R.F. and Walker, K.J. (2007). Long-term enhancement of agricultural
+                            production by restoration of biodiversity. Journal of Applied Ecology: 44: 6-12.</li>
+                        <li>Cong, W.-F., van Ruijven, J., Mommer, L., De Deyn, G. B., Berendse, F. and Hoffland, E.
+                            (2014), Plant species richness promotes soil carbon and nitrogen stocks in grasslands
+                            without legumes. J Ecol, 102: 1163–1170. doi:10.1111/1365-2745.12280</li>
+                        <li>Skinner, R.H. and Dell, C.J (2016). Yield and soil carbon sequestration in grazed pastures
+                            sown with two or five forage species. Crop Science 56: 2035-2044.</li>
+                        <li>Weisser, W. W. et al. (2017). Biodiversity effects on ecosystem functioning in a 15-year
+                            grassland experiment: Patterns, mechanisms and open questions. Basic and Applied Ecology,
+                            23:1-73. https://doi.org/10.1016/j.baae.2017.06.002</li>
+                        <li>Hungate, B. A., Barbier, E. B., Ando, A.W., Marks, S.P., Reich, P.B., van Gestel, N.,
+                            Tilman, D., Knops, J.M.H., Hooper, D.U., Butterfield B.J. and Cardinale, B.J. (2017). The
+                            economic value of grassland species for carbon storage. Science Advances.
+                            http://advances.sciencemag.org/content/advances/3/4/e1601880.full.pdf</li>
+                        <li>The Plant Guy (2012). Plant "Social Networks"- is this why companion planting &
+                            inter-cropping work?
+                            http://www.howplantswork.com/2012/06/13/plant-social-networks-is-this-why-companion-planting-inter-cropping-work/
+                        </li>
+                        <li>Walder, F., Niemann, H., Natarajan, M., Lehmann, M.F., Boller, T. and Wiemken, A. (2012).
+                            Mycorrhizal networks: Common goods of plants shared under unequal terms of trade. Plant
+                            Physiology, 159(2): 789–797. doi: 10.1104/pp.112.195727</li>
+                        <li>Johnson, D. and Gilbert, L. (2014). Interplant signalling through hyphal networks. New
+                            Phytologist, 205(4): 1448-1453. doi: 10.1111/nph.13115</li>
+                        <li>Eisenhauer, N., Lanoue, A., Strecker, T., Scheu, S., Steinauer, K., Thakur, M.P. and Mommer,
+                            L. (2017). Root biomass and exudates link plant diversity with soil bacterial and fungal
+                            biomass. Nature Scientific Reports 7: 44641. doi:10.1038/srep44641</li>
+                        <li>Kelly (2014). Who knew? Cover crop cocktails are commune hippies.
+                            https://farmingsweetbay.wordpress.com/2014/06/24/who-knew-cover-crop-cocktails-are-commune-hippies/
+                        </li>
+                        <li>Smith, S.E. and Read, D.J. (2008). Mycorrhizal Symbiosis, 3rd Edition. Academic Press.</li>
+                        <li>Jones, C.E. (2014). Nitrogen: the double-edged sword. WANTFA New Frontiers in Agriculture.
+                            Winter 2014., pp 58-61. www.amazingcarbon.com</li>
+                        <li>Czarnecki, O., Yang, J., Weston D.J., Tuskan, G.A. and Chen, J.G. (2013). A dual role of
+                            strigolactones in phosphate acquisition and utilization in plants. International Journal of
+                            Molecular Sciences, 14: 7681-7701; doi:10.3390/ijms14047681</li>
+                        <li>Voth, K. (2015). Great "Grass Farmers" Grow Roots. National Grazing Lands Coalition.
+                            http://onpasture.com/2015/11/09/great-grass-farmers-grow-roots/#!prettyPhoto</li>
+                        <li>Crider, F.J. (1955). Root growth stoppage resulting from defoliation of grass. U.S.
+                            Department of Agriculture Technical Bulletin 1102, 23 p.
+                            http://babel.hathitrust.org/cgi/pt?id=uiug.30112019332508;view=1up;seq=1</li>
+                        <li>Jones, C.E. (2011). Carbon that counts. New England and North West 'Landcare Adventure'
+                            16-17 March 2011. www.amazingcarbon.com</li>
+                    </ol>
+                </div>
+
+                <div class="nav-article">
+                    <a href="../full/">← 前半へ戻る</a>
+                    <a href="../">概要ページへ →</a>
+                </div>
+
+            </div>
+        </div>
+    </article>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-about">
+                <h3>AI時代の暮らし</h3>
+                <p>福岡正信氏の自然農法とリジェネラティブ農業の実践を通じて、土壌の再生と自然との共生を目指しています。</p>
+            </div>
+            <div class="footer-nav">
+                <h4>ページ</h4>
+                <ul>
+                    <li><a href="/">ホーム</a></li>
+                    <li><a href="/natural-farming/">自然農法とは</a></li>
+                    <li><a href="/light-farming/">Light Farming</a></li>
+                    <li><a href="/gallery/">畑の記録</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>関連リンク</h4>
+                <ul>
+                    <li><a href="https://www.facebook.com/groups/vegitage" target="_blank" rel="noopener noreferrer">Facebook Group</a></li>
+                    <li><a href="https://www.amazingcarbon.com" target="_blank" rel="noopener noreferrer">Amazing Carbon</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copyright">&copy; 2026 aiseed.dev — <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">CC BY 4.0</a></p>
+        </div>
+    </footer>
+
+    <script src="../../js/main.js"></script>
+</body>
+
+</html>

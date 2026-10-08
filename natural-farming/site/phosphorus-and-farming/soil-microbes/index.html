@@ -1,0 +1,1668 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://static.cloudflareinsights.com https://challenges.cloudflare.com 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://cloudflareinsights.com https://challenges.cloudflare.com">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9FLQ963JXM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'G-9FLQ963JXM');
+</script>
+
+<title>第5章 土壌微生物という戦略 — リン資源枯渇と自然農法シリーズ | aiseed.dev</title>
+<meta name="description" content="化学肥料に頼らない農業は精神論ではない。日本の農地土壌(黒ボク土)には既に膨大な「遺産リン」が蓄積している。イングランド長期実験では、リン肥料を完全停止しても 8 年間は通常通り生育した。4 億 7,500 万年の進化が築いた菌根菌共生は、1g の土壌に最長 90m の菌糸を張り巡らせ、必要な窒素・リンの最大 90% を供給する。AMF と PSB の相乗作用で化学肥料を 80% 削減できる実証データもある。化学肥料は GA シグナルを介して共生回路を「シャットダウン」する ── これは分子レベルで解明された現象。">
+<link rel="canonical" href="https://aiseed.dev/phosphorus-and-farming/soil-microbes/">
+<link rel="alternate" hreflang="ja" href="https://aiseed.dev/phosphorus-and-farming/soil-microbes/">
+<link rel="alternate" hreflang="en" href="https://aiseed.dev/en/phosphorus-and-farming/soil-microbes/">
+<link rel="alternate" hreflang="x-default" href="https://aiseed.dev/phosphorus-and-farming/soil-microbes/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="AI時代の暮らし">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="第5章 土壌微生物という戦略">
+<meta property="og:description" content="化学肥料に頼らない農業は精神論ではない。日本の農地土壌(黒ボク土)には既に膨大な「遺産リン」が蓄積している。イングランド長期実験では、リン肥料を完全停止しても 8 年間は通常通り生育した。4 億 7,500 万年の進化が築いた菌根菌共生は、1g の土壌に最長 90m の菌糸を張り巡らせ、必要な窒素・リンの最大 90% を供給する。AMF と PSB の相乗作用で化学肥料を 80% 削減できる実証データもある。化学肥料は GA シグナルを介して共生回路を「シャットダウン」する ── これは分子レベルで解明された現象。">
+<meta property="og:url" content="https://aiseed.dev/phosphorus-and-farming/soil-microbes/">
+<meta property="og:image" content="https://aiseed.dev/images/IMG_3285.jpg">
+<meta property="article:section" content="リン資源枯渇と自然農法シリーズ">
+<meta property="article:published_time" content="2026.05.10">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="第5章 土壌微生物という戦略">
+<meta name="twitter:description" content="化学肥料に頼らない農業は精神論ではない。日本の農地土壌(黒ボク土)には既に膨大な「遺産リン」が蓄積している。イングランド長期実験では、リン肥料を完全停止しても 8 年間は通常通り生育した。4 億 7,500 万年の進化が築いた菌根菌共生は、1g の土壌に最長 90m の菌糸を張り巡らせ、必要な窒素・リンの最大 90% を供給する。AMF と PSB の相乗作用で化学肥料を 80% 削減できる実証データもある。化学肥料は GA シグナルを介して共生回路を「シャットダウン」する ── これは分子レベルで解明された現象。">
+<meta name="twitter:image" content="https://aiseed.dev/images/IMG_3285.jpg">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+
+<!-- フォントは Web 配信せず、すべて端末のローカルフォントで賄う。
+     和文: UDデジタル教科書体 → BIZ UDP明朝(いずれも Windows 標準搭載の
+     モリサワ UD 書体) → ヒラギノ明朝・游明朝などのシステム明朝。
+     等幅: 端末のシステム等幅フォント。 -->
+
+<style>
+/* ============================================================
+   LOCAL FONT: UDデジタル教科書体(モリサワ)
+   Windows・教育向け端末に無償搭載。端末にあれば local() で拾い、
+   なければ BIZ UDP明朝(同じく Windows 標準搭載)→ システム明朝へ
+   フォールバックする。R と B は別ファミリー名なので、太字(700)を
+   B 書体に明示的にマッピングして疑似ボールドを避ける。
+   ============================================================ */
+@font-face {
+  font-family: "UD Digital Kyokasho";
+  font-weight: 400;
+  src: local("UD デジタル 教科書体 NK-R"), local("UD Digital Kyokasho NK-R"),
+       local("UD デジタル 教科書体 NP-R"), local("UD Digital Kyokasho NP-R"),
+       local("UD デジタル 教科書体 N-R"), local("UD Digital Kyokasho N-R");
+}
+@font-face {
+  font-family: "UD Digital Kyokasho";
+  font-weight: 700;
+  src: local("UD デジタル 教科書体 NK-B"), local("UD Digital Kyokasho NK-B"),
+       local("UD デジタル 教科書体 NP-B"), local("UD Digital Kyokasho NP-B"),
+       local("UD デジタル 教科書体 N-B"), local("UD Digital Kyokasho N-B");
+}
+
+/* ============================================================
+   COLOR & DESIGN TOKENS
+   aiseed.dev 全体のスタイルに合わせる場合は、ここの変数を
+   既存サイトのCSS変数に差し替える。
+   ============================================================ */
+:root {
+  --ink: #1a1a1a;
+  --paper: #f4f1ea;
+  --paper-deep: #ebe6d8;
+  --accent: #c8442a;
+  --rule: #d4cdb8;
+  --whisper: #6b665a;
+  --highlight: #f7e9c8;
+}
+
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+/* 本文: 端末にあれば UDデジタル教科書体を最優先、次に BIZ UDP明朝
+   (Windows 標準搭載)、どちらもなければヒラギノ明朝等のシステム明朝 */
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "UD Digital Kyokasho",
+               "BIZ UDPMincho", "BIZ UDP明朝",
+               "Hiragino Mincho ProN", "ヒラギノ明朝 ProN",
+               "Yu Mincho", "游明朝", "YuMincho",
+               "Noto Serif CJK JP", "Noto Serif JP", serif;
+  font-size: 17px;
+  line-height: 1.9;
+  letter-spacing: 0.02em;
+  font-feature-settings: "palt";
+  overflow-x: hidden;
+}
+
+/* グレインテクスチャ(紙の質感) */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background-image: radial-gradient(rgba(0,0,0,0.04) 1px, transparent 1px);
+  background-size: 3px 3px;
+  opacity: 0.5;
+  mix-blend-mode: multiply;
+}
+
+.container {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0 32px;
+  position: relative;
+  z-index: 2;
+}
+
+/* ============================================================
+   MASTHEAD(シリーズ名・章番号)
+   ============================================================ */
+.masthead {
+  border-bottom: 3px double var(--ink);
+  padding: 24px 0 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--whisper);
+}
+.masthead-left  { font-weight: 700; color: var(--ink); }
+.masthead-left a { color: inherit; text-decoration: none; }
+.masthead-left a:hover { color: var(--accent); }
+.masthead-home { color: var(--whisper); }
+.masthead-sep { margin: 0 10px; color: var(--whisper); font-weight: 400; }
+.masthead-right { font-style: italic; }
+
+/* ============================================================
+   HERO(タイトル領域)
+   ============================================================ */
+.hero {
+  padding: 80px 0 60px;
+}
+.hero-meta {
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  color: var(--accent);
+  margin-bottom: 32px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.hero-meta::before {
+  content: "";
+  width: 40px;
+  height: 1px;
+  background: var(--accent);
+}
+.hero-title {
+  font-family: "UD Digital Kyokasho", "BIZ UDPMincho", "BIZ UDP明朝", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  font-weight: 800;
+  font-size: clamp(32px, 5.5vw, 56px);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  margin-bottom: 24px;
+}
+.hero-title .accent {
+  color: var(--accent);
+}
+.hero-subtitle {
+  font-size: 18px;
+  line-height: 1.85;
+  color: var(--whisper);
+  max-width: 580px;
+  border-left: 2px solid var(--accent);
+  padding-left: 20px;
+  margin-top: 32px;
+}
+.hero-byline {
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid var(--rule);
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--whisper);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* ============================================================
+   ARTICLE BODY
+   ============================================================ */
+article p {
+  margin-bottom: 24px;
+}
+
+article h2 {
+  font-family: "UD Digital Kyokasho", "BIZ UDPMincho", "BIZ UDP明朝", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 1.4;
+  margin: 72px 0 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--ink);
+  position: relative;
+}
+article h2::before {
+  content: "§";
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+  color: var(--accent);
+  margin-right: 16px;
+  font-size: 22px;
+}
+
+article h3 {
+  font-family: "UD Digital Kyokasho", "BIZ UDPMincho", "BIZ UDP明朝", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  font-weight: 600;
+  font-size: 19px;
+  margin: 40px 0 16px;
+  color: var(--ink);
+}
+article h3::before {
+  content: "—";
+  color: var(--accent);
+  margin-right: 12px;
+  font-weight: 400;
+}
+
+article strong {
+  font-weight: 700;
+  background: linear-gradient(to top, var(--highlight) 35%, transparent 35%);
+  padding: 0 2px;
+}
+
+article em {
+  font-style: normal;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+article a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  transition: color 0.2s;
+}
+article a:hover {
+  color: var(--accent);
+}
+
+/* ============================================================
+   BLOCKQUOTE
+   ============================================================ */
+blockquote {
+  margin: 40px 0;
+  padding: 32px 40px;
+  background: var(--paper-deep);
+  border-left: 4px solid var(--accent);
+  position: relative;
+  font-size: 18px;
+  line-height: 1.85;
+  font-style: normal;
+  color: var(--ink);
+}
+blockquote::before {
+  content: "「";
+  position: absolute;
+  top: 4px;
+  left: 8px;
+  font-size: 48px;
+  color: var(--accent);
+  opacity: 0.3;
+  font-family: "Hiragino Mincho ProN", serif;
+}
+blockquote p {
+  margin-bottom: 0;
+}
+
+/* ============================================================
+   TABLE
+   ============================================================ */
+article table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 32px 0;
+  font-size: 15px;
+  line-height: 1.7;
+}
+article thead th {
+  font-family: "UD Digital Kyokasho", "BIZ UDPMincho", "BIZ UDP明朝", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  font-weight: 700;
+  text-align: left;
+  padding: 14px 16px;
+  border-bottom: 2px solid var(--ink);
+  color: var(--ink);
+}
+article tbody td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+}
+article tbody tr:last-child td {
+  border-bottom: none;
+}
+@media (max-width: 720px) {
+  article table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* ============================================================
+   ORDERED LIST(番号付きリスト)
+   ============================================================ */
+article ol {
+  margin: 32px 0;
+  counter-reset: item;
+  padding: 0;
+}
+article ol li {
+  list-style: none;
+  position: relative;
+  padding: 16px 0 16px 56px;
+  border-bottom: 1px dashed var(--rule);
+  counter-increment: item;
+}
+article ol li::before {
+  content: counter(item, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 16px;
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+  font-size: 14px;
+  color: var(--accent);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+/* 通常のul(章末の関連リンクなど) */
+article ul {
+  margin: 24px 0;
+  padding-left: 1.5em;
+}
+article ul li {
+  margin-bottom: 8px;
+}
+
+/* ============================================================
+   CODE BLOCK(疑似ターミナル風)
+   ============================================================ */
+article pre {
+  margin: 40px 0;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 24px 28px;
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+  font-size: 13px;
+  line-height: 1.8;
+  position: relative;
+  overflow-x: auto;
+}
+article pre::before {
+  content: "● ● ●";
+  position: absolute;
+  top: 8px;
+  left: 12px;
+  font-size: 8px;
+  color: var(--whisper);
+  letter-spacing: 4px;
+}
+article pre code {
+  display: block;
+  padding-top: 16px;
+  white-space: pre;
+}
+
+/* インラインコード */
+article code {
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+  font-size: 0.9em;
+  background: var(--paper-deep);
+  padding: 2px 6px;
+  border-radius: 2px;
+  color: var(--ink);
+}
+article pre code {
+  background: transparent;
+  padding: 16px 0 0 0;
+  color: var(--paper);
+}
+
+/* ============================================================
+   HORIZONTAL RULE(本文中の区切り)
+   ============================================================ */
+article hr {
+  border: none;
+  text-align: center;
+  margin: 64px 0;
+  height: 1em;
+}
+article hr::before {
+  content: "◆ ◆ ◆";
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+  font-size: 14px;
+  color: var(--accent);
+  letter-spacing: 0.5em;
+}
+
+/* ============================================================
+   RELATED LINKS(章末の関連記事)
+   ============================================================ */
+.related-links {
+  margin-top: 64px;
+  padding: 32px 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.related-links h3 {
+  font-family: "UD Digital Kyokasho", "BIZ UDPMincho", "BIZ UDP明朝", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  font-size: 14px;
+  letter-spacing: 0.2em;
+  color: var(--whisper);
+  margin: 0 0 20px;
+  font-weight: 600;
+}
+.related-links h3::before {
+  content: none;
+}
+.related-links ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.related-links li {
+  padding: 10px 0;
+  border-bottom: 1px dashed var(--rule);
+  margin-bottom: 0;
+}
+.related-links li:last-child {
+  border-bottom: none;
+}
+.related-links a {
+  text-decoration: none;
+  color: var(--ink);
+  display: flex;
+  gap: 16px;
+  align-items: baseline;
+}
+.related-links .related-tag {
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+  text-transform: uppercase;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.related-links a:hover .related-title {
+  color: var(--accent);
+}
+
+/* ============================================================
+   FOOTER(サイト内メニュー+奥付)
+   ============================================================ */
+.site-footer {
+  margin-top: 96px;
+  border-top: 3px double var(--ink);
+  padding-top: 48px;
+}
+.footer-nav {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 32px 48px;
+}
+.footer-col h4 {
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--whisper);
+  font-weight: 700;
+  margin: 0 0 14px;
+}
+.footer-col ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.footer-col li {
+  padding: 6px 0;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.footer-col a {
+  color: var(--ink);
+  text-decoration: none;
+}
+.footer-col a:hover { color: var(--accent); }
+
+.colophon {
+  margin-top: 48px;
+  padding: 32px 0 40px;
+  border-top: 1px solid var(--rule);
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: var(--whisper);
+  text-align: center;
+  line-height: 2;
+}
+.colophon-mark {
+  font-family: "UD Digital Kyokasho", "BIZ UDPMincho", "Hiragino Mincho ProN", serif;
+  font-size: 32px;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+
+/* ============================================================
+   SERIES TOC(全章一覧・折りたたみ式)
+   ============================================================ */
+.series-toc {
+  margin: 24px 0 40px;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 8px 0;
+}
+.series-toc details {
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+}
+.series-toc summary {
+  cursor: pointer;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--whisper);
+  font-weight: 700;
+  padding: 8px 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.series-toc summary::-webkit-details-marker { display: none; }
+.series-toc summary::before {
+  content: "▸";
+  color: var(--accent);
+  font-size: 10px;
+  display: inline-block;
+  transition: transform 0.15s ease;
+}
+.series-toc details[open] summary::before { transform: rotate(90deg); }
+.series-toc ol {
+  list-style: none;
+  margin: 12px 0 8px;
+  padding: 0;
+  counter-reset: none;
+}
+.series-toc li {
+  list-style: none;
+  padding: 9px 0;
+  border-bottom: 1px dashed var(--rule);
+  font-family: "UD Digital Kyokasho", "BIZ UDPMincho", "BIZ UDP明朝", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  font-size: 14px;
+  line-height: 1.55;
+  display: flex;
+  gap: 16px;
+  align-items: baseline;
+}
+.series-toc li::before { content: none; }
+.series-toc li:last-child { border-bottom: none; }
+.series-toc li a {
+  display: flex;
+  gap: 16px;
+  align-items: baseline;
+  text-decoration: none;
+  color: var(--ink);
+  flex: 1;
+}
+.series-toc li a:hover .toc-title { color: var(--accent); }
+.series-toc .toc-num {
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
+  color: var(--accent);
+  text-transform: uppercase;
+  white-space: nowrap;
+  flex-shrink: 0;
+  min-width: 5em;
+}
+.series-toc li.current {
+  background: var(--paper-deep);
+  margin: 0 -12px;
+  padding: 9px 12px;
+}
+.series-toc li.current .toc-title {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+/* ============================================================
+   IMAGES
+   ============================================================ */
+article img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 32px auto;
+}
+
+/* ============================================================
+   CUSTOM BLOCKS(:::chain / :::highlight / :::quote / :::compare)
+   ============================================================ */
+.chain-diagram {
+  background: var(--paper-deep);
+  border-left: 4px solid var(--accent);
+  padding: 24px 28px;
+  margin: 32px 0;
+  font-size: 15px;
+  line-height: 2.2;
+}
+.chain-diagram .arrow {
+  color: var(--accent);
+  font-weight: 700;
+  margin: 0 0.3em;
+}
+.highlight-box {
+  background: var(--paper-deep);
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--accent);
+  padding: 24px 28px;
+  margin: 32px 0;
+}
+.highlight-box p { margin-bottom: 12px; }
+.highlight-box p:last-child { margin-bottom: 0; }
+.quote-block {
+  margin: 40px 0;
+  padding: 32px 40px;
+  background: var(--paper-deep);
+  border-left: 4px solid var(--accent);
+}
+.quote-block .quote-text {
+  font-size: 18px;
+  line-height: 1.85;
+  margin: 0;
+}
+
+/* ============================================================
+   ASCIIDOC BLOCKS(pyasciidoc が出力するクラス。.adoc 記事用)
+   admonition / 帰属つき引用 / 画像ブロック / 脚注 / ロール
+   ============================================================ */
+.admonition {
+  background: var(--paper-deep);
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--accent);
+  padding: 24px 28px;
+  margin: 32px 0;
+}
+.admonition-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+.admonition p { margin-bottom: 12px; }
+.admonition p:last-child { margin-bottom: 0; }
+.quoteblock { margin: 40px 0; }
+.quoteblock blockquote { margin: 0; }
+.quoteblock .attribution {
+  margin-top: 12px;
+  text-align: right;
+  font-size: 14px;
+  color: var(--whisper);
+}
+.quoteblock .attribution cite { font-style: normal; }
+.imageblock { margin: 32px 0; text-align: center; }
+.imageblock .content img { max-width: 100%; height: auto; }
+sup.footnote { font-size: 12px; }
+sup.footnote a { text-decoration: none; }
+.footnotes {
+  margin-top: 64px;
+  padding-top: 24px;
+  border-top: 1px solid var(--rule);
+  font-size: 14px;
+  color: var(--whisper);
+}
+.footnotes ol { padding-left: 1.5em; }
+.footnotes li { margin-bottom: 8px; }
+.footnotes .footnote-backref { text-decoration: none; margin-left: 0.3em; }
+/* ロール: [.chain](:::chain と同じ見た目)/ [.accent]#…# */
+article .chain {
+  background: var(--paper-deep);
+  border-left: 4px solid var(--accent);
+  padding: 24px 28px;
+  margin: 32px 0;
+  font-size: 15px;
+  line-height: 2.2;
+}
+article .accent { color: var(--accent); }
+
+/* ============================================================
+   CHAPTER NAV(前後の記事へのリンク)
+   ============================================================ */
+.chapter-nav {
+  margin-top: 64px;
+  padding: 24px 0;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  font-size: 14px;
+}
+.chapter-nav a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--rule);
+  text-underline-offset: 4px;
+}
+.chapter-nav a:hover { color: var(--accent); }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 640px) {
+  .container { padding: 0 20px; }
+  .hero { padding: 48px 0 40px; }
+  blockquote { padding: 24px 20px 24px 28px; }
+  article pre { padding: 20px 16px; font-size: 12px; }
+  article ol li { padding-left: 48px; }
+  .series-toc .toc-num { min-width: 4em; font-size: 10px; }
+  .series-toc li { font-size: 13px; gap: 12px; }
+}
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.hero-meta, .hero-title, .hero-subtitle, .hero-byline {
+  animation: rise 0.8s ease-out backwards;
+}
+.hero-meta     { animation-delay: 0.1s; }
+.hero-title    { animation-delay: 0.25s; }
+.hero-subtitle { animation-delay: 0.45s; }
+.hero-byline   { animation-delay: 0.65s; }
+.mermaid {
+  text-align: center;
+  margin: 2.5rem 0;
+  background: var(--paper-warm, #f5f1ea);
+  padding: 1.5rem 1rem;
+  border-radius: 4px;
+  overflow-x: auto;
+}
+.mermaid svg { max-width: 100%; height: auto; }
+
+/* ============================================================
+   WIDE LAYOUT(広い画面では目次を左サイドバーに常時展開)
+   ============================================================ */
+@media (min-width: 1200px) {
+  body.has-toc .container {
+    max-width: 1320px;
+    display: grid;
+    grid-template-columns: 280px minmax(0, 880px);
+    column-gap: 64px;
+    justify-content: center;
+  }
+  body.has-toc .masthead,
+  body.has-toc .hero {
+    grid-column: 1 / -1;
+  }
+  /* グリッドアイテム自体は行いっぱいに伸ばし、内側の details を sticky に
+     する(sticky なグリッドアイテムはグリッドエリアではなくコンテナ全体で
+     制約されるブラウザ挙動があり、フッターに重なってしまうため)。 */
+  body.has-toc .series-toc {
+    grid-column: 1;
+    grid-row: 3 / span 2;
+    margin: 0;
+    padding: 0;
+    border-top: none;
+    border-bottom: none;
+  }
+  body.has-toc .series-toc details {
+    position: sticky;
+    top: 32px;
+    max-height: calc(100vh - 64px);
+    overflow-y: auto;
+    padding: 0 12px 12px 0;
+  }
+  /* サイドバーでは折りたたみを無効化し、見出しとして表示 */
+  body.has-toc .series-toc summary {
+    pointer-events: none;
+    cursor: default;
+  }
+  body.has-toc .series-toc summary::before { content: none; }
+  body.has-toc .series-toc li { font-size: 13.5px; }
+  body.has-toc article    { grid-column: 2; grid-row: 3; }
+  body.has-toc .chapter-nav { grid-column: 2; grid-row: 4; }
+  body.has-toc .site-footer { grid-column: 1 / -1; grid-row: 5; }
+}
+
+/* ============================================================
+   DARK MODE(OS の配色設定に追従して自動で暗色に切り替え)
+   ============================================================ */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --ink: #e8e3d6;
+    --paper: #16140f;
+    --paper-deep: #211d16;
+    --accent: #e8765a;
+    --rule: #393428;
+    --whisper: #a39b88;
+    --highlight: rgba(220, 168, 78, 0.30);
+  }
+  /* 紙の質感(グレイン)を暗色背景向けに反転 */
+  body::before {
+    background-image: radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px);
+    mix-blend-mode: screen;
+    opacity: 0.4;
+  }
+  /* コードブロックは両モードとも暗いターミナル調を維持 */
+  article pre {
+    background: #0d0c0a;
+    color: #e8e3d6;
+  }
+  article pre code {
+    color: #e8e3d6;
+  }
+  /* Mermaid 図の枠を暗色に */
+  .mermaid {
+    background: #211d16;
+  }
+}
+</style>
+
+</head>
+
+<body class="has-toc">
+
+<div class="container">
+
+  <!-- MASTHEAD(ホーム › シリーズ目次) -->
+  <header class="masthead">
+    <div class="masthead-left"><a href="/" class="masthead-home">aiseed.dev</a><span class="masthead-sep">›</span><a href="/phosphorus-and-farming/">リン資源枯渇と自然農法シリーズ</a></div>
+    <div class="masthead-right">第5章 / Essay</div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-meta">第5章 № 05 · 2026</div>
+
+    <h1 class="hero-title">化学肥料を、<br><span class="accent">微生物が肩代わりする</span>。</h1>
+
+    <p class="hero-subtitle">蓄積リン、菌根菌、化学肥料が壊した共生</p>
+
+    <div class="hero-byline">
+      <span>2026.05.10</span>
+      <span><a href="https://aiseed.dev/en/phosphorus-and-farming/soil-microbes/" style="color: var(--whisper); text-decoration: underline; text-decoration-color: var(--rule);">🌐 EN</a></span>
+    </div>
+  </section>
+
+  <!-- SERIES TOC(全章一覧・現在の章をハイライト) -->
+  <nav class="series-toc" aria-label="シリーズ章一覧">
+  <details>
+    <summary>目次 — 全章</summary>
+    <ol>
+      <li><a href="/phosphorus-and-farming/prologue/"><span class="toc-num">序章</span><span class="toc-title">経済が農法を決める</span></a></li>
+      <li><a href="/phosphorus-and-farming/supply-constraint/"><span class="toc-num">第1章</span><span class="toc-title">リン酸肥料の供給制約 ── 何が起きているか</span></a></li>
+      <li><a href="/phosphorus-and-farming/no-cheap-return/"><span class="toc-num">第2章</span><span class="toc-title">リン酸肥料は安価には戻らない</span></a></li>
+      <li><a href="/phosphorus-and-farming/industrial-farming-fails/"><span class="toc-num">第3章</span><span class="toc-title">慣行農業は経済的に成立しなくなる</span></a></li>
+      <li><a href="/phosphorus-and-farming/realistic-position/"><span class="toc-num">第4章</span><span class="toc-title">現実的な立ち位置 ── どこにも組みしない</span></a></li>
+      <li class="current" aria-current="page"><span class="toc-num">第5章</span><span class="toc-title">土壌微生物という戦略</span></li>
+      <li><a href="/phosphorus-and-farming/co2-tailwind/"><span class="toc-num">第6章</span><span class="toc-title">CO2 という追い風</span></a></li>
+      <li><a href="/phosphorus-and-farming/implementation/"><span class="toc-num">第7章</span><span class="toc-title">どう実装するか ── 一反百姓と耕作放棄地</span></a></li>
+      <li><a href="/phosphorus-and-farming/operating-principles/"><span class="toc-num">第8章</span><span class="toc-title">運用原則 ── 何をして、何をしないか</span></a></li>
+      <li><a href="/phosphorus-and-farming/cuba-lessons/"><span class="toc-num">第9章</span><span class="toc-title">キューバの教訓</span></a></li>
+    </ol>
+  </details>
+</nav>
+
+  <!-- ARTICLE BODY -->
+  <article>
+    <p>第4章までで、結論はこうなった。</p>
+<ul>
+<li>化学肥料は構造的に高騰する</li>
+<li>化学肥料に依存する工業型農業は成立しない</li>
+<li>完全自給も成立しない</li>
+<li>不足分は輸入で補い、国内生産は化学肥料依存から離れた農法に移行する</li>
+</ul>
+<p>最後の「化学肥料依存から離れた農法」── これが具体的に何なのか、それを示すのがこの章だ。</p>
+<p>結論は <strong>土壌微生物の働きを利用する農業</strong> である。これは「自然農法」「再生農業(regenerative agriculture)」「リジェネラティブ農業」など、いくつかの名前で呼ばれてきた農法群の、科学的な核心部分である。</p>
+<h2>5.1 土壌にはすでにリンが大量にある ── 「レガシーリン」と生物的マイニング</h2>
+<p>最初に意外な事実を一つ示しておく。</p>
+<p><strong>ほとんどの農地には、すでにリンが大量に蓄積している</strong>。</p>
+<p>驚かれるかもしれない。「リン酸肥料が足りない時代」と言われているのに、土壌にはリンがあるのか。あるのだ。むしろ、過剰なほどある場合が多い。</p>
+<p>化学肥料を使ってきた農地では、施肥されたリンの <strong>植物吸収率は数 % 〜 20% 程度</strong> で、残りは土壌に <strong>固定</strong> される。</p>
+<p>固定されるとはどういうことか。リン酸イオンは、土壌中の鉄やアルミニウム、カルシウムと結合して <strong>不溶性のリン酸塩</strong> になる。植物は不溶性のリンを吸えない。だから、施肥した肥料の大部分は、植物が使えない形で土壌の中に残っている。これは <strong>「レガシーリン(Legacy Phosphorus)」</strong>
+と呼ばれる。</p>
+<p>数十年〜百年の化学肥料使用の結果、日本の農地の表土には、<strong>作物が数年〜十年以上育てられるだけのリンが、すでに眠っている</strong> と推定される。</p>
+<p>加えて、地質的にミネラル供給源を持つ土地では、リン以外の栄養素も潜在的に豊富である。</p>
+<ul>
+<li><strong>緑泥片岩(green chlorite schist)</strong> の風化物 ── マグネシウム・鉄を含むケイ酸塩鉱物が長期にわたって溶解</li>
+<li><strong>洪水による堆積シルト(alluvial silt)</strong> ── 上流から運ばれるミネラル豊富な堆積物</li>
+<li><strong>火山灰土壌</strong> ── リン以外の微量元素を多く含む</li>
+</ul>
+<div class="quoteblock">
+<blockquote>
+<p>問題はリンや栄養素が足りないことではない。
+<strong>すでに存在する膨大な栄養素を、植物が使える形に変えられないことである</strong>。</p>
+</blockquote>
+</div>
+<p>これを変えるアーキテクチャが、<strong>「生物的マイニング(Biological Mining)」</strong> ── 第3章の末尾で触れた、菌根菌と植物の共生による自律型栄養回収システム ── である。</p>
+<h3>イングランド長期実験 ── 8 年間は遺産リンだけで通常生育</h3>
+<p>レガシーリンの量は莫大であり、<strong>外部からのリン酸肥料の投入を完全に停止しても、作物が数年から十数年、あるいは数十年間にわたって健全に生育するのに十分な量がすでに表土に眠っている</strong> と推定されている。</p>
+<p>イングランドで行われた長期フィールド実験では、</p>
+<div class="quoteblock">
+<blockquote>
+<p>大麦の栽培でリン酸肥料の施与を半分に減らし、最終的に完全に停止した場合でも、<strong>最初の 8 年間は土壌中の余剰栄養素(遺産リン) だけで作物が通常通り生育し、収量に影響が出なかった</strong> ことが確認されている。</p>
+</blockquote>
+</div>
+<p>つまり、現代農業が抱える真の課題は、「絶対的なリンの不足」ではない。莫大に蓄積された <strong>「遺産リン」の金庫の鍵を開け、植物が使える可溶性の形に変換する生化学的メカニズムが欠如している</strong> ことにある。</p>
+<table class="comparison-table fade-in">
+<thead>
+<tr>
+<th>リンの動態指標</th>
+<th>工業型農業における現状の数値</th>
+<th>理想的な生物学的利用時の潜在能力</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>施肥リンの当年回収率</td>
+<td><strong>10〜25%</strong></td>
+<td>複数年の累積で最大 100% に接近</td>
+</tr>
+<tr>
+<td>土壌中の残留リンの扱い</td>
+<td>吸収されず無効化された「損失」</td>
+<td>微生物を介して利用可能な「遺産リン」</td>
+</tr>
+<tr>
+<td>リン不足の根本原因</td>
+<td>物理的な投入量の不足</td>
+<td>蓄積リンを可溶化する微生物群の機能不全</td>
+</tr>
+</tbody>
+</table>
+<h3>日本の黒ボク土 ── 世界的にもリン酸固定力が異常に高い</h3>
+<p>このリンの蓄積は、<strong>日本の土壌において特に顕著</strong> である。日本の農地の多くを占める <strong>火山灰土壌(黒ボク土:Andisols)</strong> は、有機炭素の貯留能力が高い一方で、極めて特異な化学的性質を有している。</p>
+<ul>
+<li>黒ボク土は <strong>非晶質のアルミニウム(Alo)および鉄(Feo)を大量に含有</strong></li>
+<li>土壌のリン酸吸収係数(リンを土壌粒子に強固に結合させ、植物が利用できない不溶性の形態にする能力)は、<strong>Alo + 1/2 Feo の含有量に比例</strong></li>
+<li>結果として、日本の土壌は <strong>世界的にもリン酸固定力が異常に高い</strong></li>
+</ul>
+<p>農業者は作物のリン酸欠乏を防ぐために長年にわたり過剰なリン酸肥料を継続的に投入してきた。<strong>実測データに基づく日本の農地土壌の有機態リン蓄積の例</strong>(全リン酸量の約 5〜6 割が有機態リンとして蓄積):</p>
+<table class="comparison-table fade-in">
+<thead>
+<tr>
+<th>土壌条件 / 処理区</th>
+<th>pH</th>
+<th>有機態リン (mg/kg)</th>
+<th>有機態リン割合</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>未熟畑(2010-UD1)</td>
+<td>5.4 ± 0.2</td>
+<td>329.0 ± 28.3</td>
+<td><strong>59.6%</strong></td>
+</tr>
+<tr>
+<td>熟畑(2010-FD1)</td>
+<td>5.8 ± 0.6</td>
+<td>321.3 ± 5.8</td>
+<td>52.4%</td>
+</tr>
+<tr>
+<td>施肥管理区(1995-D2)</td>
+<td>6.5 ± 0.5</td>
+<td>243.7 ± 25.7</td>
+<td>55.2%</td>
+</tr>
+<tr>
+<td>施肥管理区(2010-UD2)</td>
+<td>6.3 ± 0.2</td>
+<td>312.8 ± 32.8</td>
+<td><strong>62.7%</strong></td>
+</tr>
+</tbody>
+</table>
+<p>これらのリンは、物理的・化学的にそこに存在しているものの、<strong>植物単独の根からは吸収できない「不可給態リン酸(Unavailable Phosphate)」として眠っている</strong>。外部から高価なリン鉱石を輸入して投入し続ける必要性は、物理的に存在しない。<strong>いかにしてこの「既存のリン」を動員するかが、次世代農業の経済性を左右する核心となる</strong>。</p>
+<h3>自律型ループの構成</h3>
+<p>外部から精密に計算された化学肥料を補給し続ける代わりに、</p>
+<ul>
+<li>大気中の CO2 → 植物の光合成 → 根浸出物として土壌へ</li>
+<li>根浸出物が <strong>菌根菌</strong> を養う</li>
+<li>菌根菌の菌糸が土壌中の <strong>レガシーリンと風化ミネラル</strong> を溶解</li>
+<li>植物に栄養として還元</li>
+</ul>
+<p>という <strong>自律型ループ</strong> を立ち上げる。コスト構造が根本的に違う。</p>
+<table class="comparison-table fade-in">
+<thead>
+<tr>
+<th>項目</th>
+<th>工業型(精密農業含む)</th>
+<th>生物的マイニング</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>入力資源</td>
+<td>化石燃料、リン鉱石、被覆材ナフサ、センサー、クラウド</td>
+<td>太陽光、大気中 CO2、種子</td>
+</tr>
+<tr>
+<td>ランニングコスト</td>
+<td>高い(外部資材・燃料・更新費・ライセンス)</td>
+<td>ほぼゼロ</td>
+</tr>
+<tr>
+<td>制御方式</td>
+<td>センサー+アルゴリズムによる後追い制御</td>
+<td>菌根菌ネットワークによるリアルタイム最適化</td>
+</tr>
+<tr>
+<td>耐障害性</td>
+<td>サプライチェーン断絶に脆弱</td>
+<td>環境変化や物資不足に強靭</td>
+</tr>
+</tbody>
+</table>
+<p>ここで登場するのが、土壌微生物 ── 特に菌根菌である。</p>
+<h2>5.2 菌根菌 ── 植物の隠れたパートナー</h2>
+<p>植物は、根から直接栄養を吸っているように見える。しかし実態は違う。</p>
+<p><strong>維管束植物の 8 割以上の種は、菌根菌(きんこんきん、mycorrhizal fungi)と共生関係を結んでいる</strong>(Brundrett &amp; Tedersoo 2018。アーバスキュラー菌根が 72%、菌根を作らない種は 8%)。</p>
+<p>菌根菌とは、根の中または周囲に住み着く真菌(カビの仲間)である。植物の根に菌糸を伸ばし、根の細胞の中まで入り込む。そこから外に向けて無数の菌糸を伸ばし、土壌中に <strong>広大なネットワーク</strong> を作る。</p>
+<p>このネットワークは、根そのものよりはるかに広い範囲に届く。植物は、自分の根が届かない領域からも、菌根菌経由で水と栄養を集めることができる。</p>
+<h3>4 億 7,500 万年の進化が築いた普遍的共生</h3>
+<p>菌根菌と植物の共生関係の歴史は古く、<strong>約 4 億 7,500 万年前、植物が海から不毛の陸地へと進出した初期段階にまで遡る</strong>。初期の陸上植物は、土壌という概念すら存在しなかった岩石と砂の過酷な環境下で、菌類とパートナーシップを結ぶことで初めて必須ミネラルを獲得し、陸上への定着に成功した。<strong>この植物と真菌の共生進化は、地球規模の炭素循環を根本から変え、大気中の二酸化炭素(CO2)濃度を最大 90% も減少させるという地球環境の劇的な変化をもたらした</strong>。</p>
+<p>現代においても、このパートナーシップは極めて強固に維持されている。最新の推計によれば、<strong>既知の陸上植物の約 80% から 90% という圧倒的多数の種が、菌根菌と共生関係を結んでいる</strong>。樹木に多く見られる
+<strong>外生菌根菌(Ectomycorrhizae)</strong> や、トウモロコシ、小麦、大豆をはじめとする主要な農作物のほぼすべてと共生する <strong>アーバスキュラー菌根菌(AMF: Arbuscular Mycorrhizal Fungi)</strong> など、多様な分類群が存在する。</p>
+<div class="quoteblock">
+<blockquote>
+<p>自然界において植物が単独で栄養を吸収することはむしろ例外的であり、
+<strong>「菌根菌への外部委託(アウトソーシング)」が植物の生存戦略の基本(デフォルト)</strong> であることを示している。</p>
+</blockquote>
+</div>
+<h3>菌糸ネットワークの空間的拡張 ── 根の届かない所まで</h3>
+<p>植物が自らの根毛だけで探索できる土壌の体積は、土壌全体のわずか数パーセントに満たない。土壌内部の微細な隙間(微小孔隙)の大部分は、植物の根はおろか根毛すらも太すぎて侵入できない。ここで菌根菌の物理的特性が圧倒的な優位性を発揮する。</p>
+<p>アーバスキュラー菌根菌(AMF)は、植物の根の皮層細胞の内部にまで入り込み、<strong>「アーバスキュル(樹枝状体)」</strong> と呼ばれる微細な栄養交換器官を形成する。そこから根の外の土壌に向けて、顕微鏡レベルの極細の菌糸(Hyphae)を無数に放射状に伸ばし、広大な 3 次元ネットワーク(Mycelium)を構築する。</p>
+<p>この菌糸ネットワークの物理的スケールは、人間の想像を絶する広がりを持つ:</p>
+<ul>
+<li>植物の根そのものの周囲から <strong>45〜60cm 以上の広範囲</strong> に及ぶ</li>
+<li>植物の有効栄養吸収表面積を <strong>大きく</strong> 拡張</li>
+<li>わずか <strong>1 グラムの健康な土壌の中に、最長で約 90 メートルもの菌糸</strong> が含まれている</li>
+<li>小さじ 1 杯の土壌中に <strong>数キロメートルに及ぶ菌糸</strong> が張り巡らされていることも珍しくない</li>
+<li><strong>地球全体の表層 10 センチメートルの土壌に含まれる菌糸の総延長は、約 450 京キロメートル(銀河系の幅の約半分)</strong> に達すると推定されている</li>
+</ul>
+<p>菌糸は根毛よりも遥かに細いため、微細な土壌間隙に容易に侵入し、鉱物の表面に強固に結合した水分や養分に直接アクセスすることができる。植物は、自らの根が到底届かないはるか遠方の領域からも、この <strong>「世界最大のストロー」にして「巨大な地下通信網」</strong> である菌根菌ネットワークを経由して、広範囲から資源をかき集めることができる。</p>
+<h3>菌根菌は何をするか ── 高度な栄養供給メカニズム</h3>
+<p>オーストラリアの土壌科学者 Christine Jones は、論文 &quot;Light Farming&quot;
+(2018)で次のようにまとめている。</p>
+<ul>
+<li><strong>植物が必要とする窒素・リンの最大 90%</strong> が、菌根菌経由で供給されうる</li>
+<li>菌糸の先端から <strong>ホスファターゼなどの強力な酵素や有機酸を分泌</strong> することで、土壌の鉄やカルシウムと結合した難溶性リン酸塩を溶解し、植物が利用可能なリン酸イオンへと変換する</li>
+<li><strong>菌糸によるリンの吸収速度は植物の根毛の 6 倍、輸送速度は 10 倍</strong>
+に達する</li>
+<li>菌根菌は、土壌中のアミノ酸などの <strong>有機態窒素を直接吸収</strong> し、その分子構造を維持したまま菌糸ネットワークを通じて根細胞の液胞へ送り込み、さらに葉の葉緑体へと全身輸送する能力を持つ</li>
+<li>植物の <strong>耐乾性</strong> を大幅に高める(菌糸ネットワークが水を集める)</li>
+<li>病原菌に対する物理的・化学的バリアの形成、防御酵素の生成誘導、重金属や過剰な塩分の吸収抑制と隔離</li>
+</ul>
+<p>この事実は、いわば「植物は菌根菌という外注業者を使っている」と言い換えてもよい。植物は光合成で炭素を作るのが得意。菌根菌は土壌中の栄養を集めるのが得意。互いに分業して交換する。</p>
+<p>植物 → 菌根菌:<strong>炭素</strong>(光合成産物の最大 20%)
+菌根菌 → 植物:<strong>水、リン、窒素、ミネラル</strong></p>
+<p>これは 4 億 7,500 万年の進化の中で築かれてきた共生関係である。</p>
+<h3>AMF + リン溶解性細菌(PSB)の相乗的コンソーシアム</h3>
+<p>AMF は単独で機能するだけでなく、<strong>リン溶解性細菌(Phosphate Solubilizing Bacteria: PSB)</strong> と相乗的な機能的コンソーシアムを形成する。</p>
+<ul>
+<li><strong>PSB</strong> は、炭酸(H₂CO₃)、塩酸(HCl)、硝酸(HNO₃)、硫酸(H₂SO₄)
+などの無機酸や多様な有機酸を産生し、<strong>不溶性の無機リンを溶解・可溶化</strong> する能力を持つ</li>
+<li>AMF の菌糸は、これらの PSB が <strong>根圏の制限を超えて、土壌中の不溶性リンが豊富なパッチへと移動するための物理的「ハイウェイ」</strong>
+として機能する</li>
+<li>結果として、微生物群集全体の資源動員効率が劇的に向上する</li>
+</ul>
+<p>中国の塩類アルカリ土壌(BeiWuLao および XuJiaZhen)におけるトウモロコシの圃場試験では、化学肥料を削減しつつ AMF を統合した処理区
+(AHCF)において、慣行施肥区と比較して</p>
+<ul>
+<li>収量が <strong>23.5%(11,475 → 14,175 kg/ha)から最大 81.2%(7,245 → 13,125 kg/ha)</strong> も増加</li>
+<li>土壌中の <strong>有効態カリウム(AK)が 77.7% 増加</strong></li>
+<li><strong>有効態リン(AP)が 33.9% 増加</strong></li>
+<li>アンモニア態窒素(AN)が 57.3% 増加</li>
+<li>土壌有機物(SOM)が 96.4% 増加</li>
+</ul>
+<p>という劇的な土壌肥沃度の改善が確認されている。<strong>AMF を活用すれば、作物に推奨される化学リン酸肥料の施用量を最大約 80% 削減できる可能性</strong> が実証されている。</p>
+<h3>「液状炭素経路(Liquid Carbon Pathway)」── 残渣ではなく根浸出物</h3>
+<p>Jones の核心的な主張は <strong>「液状炭素経路(Liquid Carbon Pathway)」</strong>
+にある。これは農学界に対する重要な訂正でもある。</p>
+<p>工業型農業は、作物の <strong>残渣(地上部のバイオマス)</strong> を土壌にすき込むことで土壌炭素が維持されると誤解してきた。</p>
+<p>しかし、Jones が <strong>10 の実験を分析した結果</strong> はこう示している。</p>
+<table class="comparison-table fade-in">
+<thead>
+<tr>
+<th>炭素の由来</th>
+<th>土壌定着率</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>地上部のバイオマス由来</td>
+<td>平均 <strong>わずか 8.3%</strong></td>
+</tr>
+<tr>
+<td>植物の <strong>根の浸出物(Root exudates)</strong> 由来</td>
+<td>平均 <strong>46%</strong></td>
+</tr>
+</tbody>
+</table>
+<div class="quoteblock">
+<blockquote>
+<p>つまり、土壌を肥沃にするのは死んだ植物の残渣ではなく、<strong>生きている植物が光合成によって作り出し、根から分泌する液状の炭素化合物</strong> なのである。</p>
+</blockquote>
+</div>
+<p>植物は光合成を通じて生成した糖、酵素、アミノ酸などを根から分泌し、これらが土壌微生物(バクテリアおよび菌根菌)への強力なシグナルおよび食料となる。微生物はこの液状炭素をエネルギー源として、土壌鉱物中に強固に結合している無機リン酸などの栄養素を溶解させ、植物に供給する。</p>
+<p>Jones は、この生物学的交換プロセスを機能させるためには <strong>「植物の多様性」</strong> が不可欠であると強調する。<strong>単一の作物を化学肥料や殺菌剤で育てる工業型農業は、この微生物の活動を直接的に阻害し、結果として農家をさらに高価な農薬や肥料への依存へと追い込む</strong>。</p>
+<p>これは第8章で扱う <strong>「無除草」</strong> ── 福岡正信氏が示した、生きた草の根を絶やさない原則 ── を、現代の土壌生態学が独立に裏付けていることを意味する。</p>
+<h3>なぜ「最大 90%」なのか</h3>
+<p>化学肥料を使わない自然な状態では、植物は栄養を <strong>菌根菌経由で得る</strong>
+方が、自分の根で直接吸うよりはるかに効率がよい。</p>
+<p>なぜなら、</p>
+<ul>
+<li>菌糸は根よりはるかに細く、土壌の微小な隙間に入り込める</li>
+<li>菌糸ネットワークは桁違いに広い</li>
+<li>菌根菌は不溶性リンを可溶化する酵素を持つ</li>
+</ul>
+<p>進化的に見て、植物が「菌根菌に外注する」道を選んだのは、それが効率的だったからだ。</p>
+<div class="quoteblock">
+<blockquote>
+<p>化学肥料がない自然条件下では、植物の栄養供給は、根よりも菌根菌ネットワークが主役だった。</p>
+</blockquote>
+</div>
+<h2>5.3 化学肥料が共生を壊してきた</h2>
+<p>ここに、皮肉な事実がある。</p>
+<p><strong>化学肥料は、菌根菌との共生を壊す</strong>。</p>
+<p>これは「過剰使用」の話ではない。<strong>水溶性化学肥料を投入した瞬間に、分子レベルで共生回路がシャットダウンされる</strong> という事実である。</p>
+<h3>「炭素の蛇口」の閉鎖と GA シグナル</h3>
+<p>化学肥料が土壌生態系を破壊するメカニズムは、農薬のような直接的な毒性によるものではない。それは、植物と微生物の間に成立していた高度な <strong>「経済的取引のキャンセル(生態学的デカップリング)」</strong> を引き起こすことにある。</p>
+<p>植物と菌根菌の関係は、炭素と栄養(リン・窒素など)の相互交換である。しかし、</p>
+<div class="quoteblock">
+<blockquote>
+<p>高濃度の水溶性リン酸肥料や合成窒素肥料が土壌にばらまかれると、植物の根の周囲は一時的に、菌根菌のネットワークを頼るまでもなく直接吸収可能な栄養素で溢れかえる。植物のセンサーがこの過剰な栄養状態を感知すると、植物は進化化学的なコスト計算を行う。「周囲にこれほど容易に吸収できる栄養があるのなら、わざわざ貴重なエネルギー(液状炭素)を消費して菌根菌に渡す必要はない」と判断し、<strong>共生関係への投資を停止する</strong>。</p>
+</blockquote>
+</div>
+<p>この「炭素の蛇口」の閉鎖は、近年の分子生物学的研究で <strong>詳細なメカニズムが解明</strong> されている。</p>
+<p><strong>正常な共生プロセス:</strong></p>
+<ol>
+<li>植物は根からストリゴラクトン(Strigolactones)やフラボノイドといった分子シグナルを放出</li>
+<li>AMF の菌糸成長を促進</li>
+<li>AMF は <strong>「Myc ファクター(キトオリゴ糖およびリボ糖の混合物)」</strong>
+を産生</li>
+<li>植物の細胞膜で認識され、核内および核周辺の <strong>カルシウムオシレーション</strong> が引き起こされ、共生経路が活性化</li>
+</ol>
+<p><strong>化学肥料による共生回路の遮断:</strong></p>
+<ul>
+<li>高濃度のリン酸(Pi)が与えられると、植物は植物ホルモンである
+<strong>ジベレリン酸(Gibberellic Acid: GA)</strong> を介して、共生経路を自ら遮断する</li>
+<li>高リン酸条件下では、菌根化した根において <strong>GA 生合成レベルが上昇</strong>、これが AMF の共生発達に対して強力な抑制因子として働く</li>
+<li>GA メチルトランスフェラーゼを発現させて GA シグナル伝達を低下させた遺伝子組み換えタバコ系統では、<strong>高リン酸条件下でも AMF のコロニー形成レベルが上昇</strong> することが証明されている</li>
+<li>高リン酸処理は、すでに形成された微細に分岐したアーバスキュル
+(主要な養分交換部位)を直ちに破壊するわけではないが、<strong>「新しいアーバスキュルの発達」を選択的に阻害</strong></li>
+</ul>
+<p>つまり、化学肥料を与えると、植物は「外部から容易にリンを獲得できる」と感知し、エネルギー(炭素)を節約するために GA シグナル等を介して
+<strong>自発的に AMF との共生回路をシャットダウン</strong> してしまうのである。</p>
+<h3>ネットワークの死滅と「肥料依存症」</h3>
+<p>植物由来の液状炭素をエネルギー源として全面的に依存しているアーバスキュラー菌根菌は、<strong>絶対的活物寄生(Obligate Biotrophs)</strong> であるため、宿主からの炭素供給が絶たれると生き延びることができない。その結果、菌根菌の活動は鈍り、やがて広大な菌糸ネットワークは死滅し、縮小していく。</p>
+<p>菌根菌ネットワークが崩壊すると、土壌生態系全体に致命的なドミノ倒し(ネガティブループ)が発生する。</p>
+<ol>
+<li><strong>物理的構造の崩壊</strong>:菌根菌が死滅することで、土壌の接着剤であるグロマリンの継続的な生成が止まる。土壌団粒構造が徐々に崩壊し、土壌は硬く固まり(コンパクション)、水はけと通気性が極端に悪化</li>
+<li><strong>環境耐性の喪失</strong>:根よりはるかに広い菌糸ネットワークによる水分収集システムが失われるため、植物は干ばつに対して極めて脆弱になる</li>
+<li><strong>微量要素の欠乏と栄養価の低下</strong>:化学肥料は N・P・K などの主要元素を大量に供給するが、亜鉛、銅、マグネシウム、コバルトなどの多様な微量ミネラルを広範囲から集めてくる菌根菌のシステムが失われる。その結果、作物の外見は大きく育っても、内部のミネラル密度
+(栄養価)が著しく低下する <strong>「空のカロリー」化</strong> が進行する</li>
+<li><strong>肥料流出と遺産リンの固定化</strong>:土壌の保持機能(団粒と微生物バイオマス)が失われるため、多量に施与された肥料の大部分は土壌に留まらず、地下水や河川へと流出し、深刻な水質汚染(富栄養化)
+を引き起こす。同時に、土壌中に固定化された膨大な「遺産リン」をホスファターゼ酵素によって可溶化する手段も完全に失われ、農家は毎年高価な水溶性リン酸肥料を買い続けなければならなくなる</li>
+</ol>
+<p>このように数年から数十年にわたって化学肥料を使用し続けた土壌は、微生物相が著しく貧困化し、物理的にも劣化した状態に陥る。<strong>この状態では、微生物が「働かない」ことに土壌環境が最適化されてしまっている</strong>。</p>
+<div class="quoteblock">
+<blockquote>
+<p>化学肥料を使うと、植物自らが土壌微生物に対して「お前はもう要らない」というシグナルを送る。結果として微生物は失業し、土壌から姿を消す。だからこそ、「化学肥料がないと作物が全く育たない」という状況が生まれるのである。これは決して自然の摂理によるものではなく、
+<strong>化学肥料への依存構造そのものが作り出した自己実現的な「禁断症状」</strong>
+の結果に他ならない。</p>
+</blockquote>
+</div>
+<p>化学肥料を一気にやめれば、最初の数年は収量が落ちる。土壌生態系が
+<strong>回復するまでに時間がかかる</strong> からだ。</p>
+<p>逆に言えば、時間をかければ回復する。<strong>菌根菌は、生きている根さえあれば戻ってくる</strong>(後述、AMF は絶対活物寄生のため、生きた根が不可欠)。</p>
+<h2>5.4 「自然農法は精神論」という誤解</h2>
+<p>ここで重要な点を強調しておく。</p>
+<p>このシリーズで「自然農法に移行する」と言うとき、それは</p>
+<ul>
+<li>「先人の知恵を尊重する」という哲学</li>
+<li>「自然との調和」という美学</li>
+<li>「有機こそ正しい」という規範</li>
+</ul>
+<p>に基づいているのではない。</p>
+<p>そうではなく、</p>
+<ul>
+<li>化学肥料が高騰する(経済)</li>
+<li>工業型農業の収支は崩れる(経済)</li>
+<li>土壌にはリンがすでにある(物理)</li>
+<li>微生物がそれを動員できる(生物学)</li>
+<li>化学肥料は微生物の働きを止めていた(生物学)</li>
+</ul>
+<p>という、経済と物理と生物学の事実から、消去法で残るのが微生物型農業だ、という話である。</p>
+<div class="quoteblock">
+<blockquote>
+<p>「自然と調和して生きる」のではない。「化学肥料が買えなくなるから、微生物に肩代わりしてもらう」のである。</p>
+</blockquote>
+</div>
+<p>これは精神論ではなく、収支と物理の話である。だから、有機農業に共感するかどうか、自然信仰を持つかどうかとは独立に、<strong>この方向しか経済的に成立しない</strong>、という結論が導かれる。</p>
+<h3>しかし、人間の知識には限界がある ── 5 億年の進化に学ぶ</h3>
+<p>ここで、極めて重要な留保を加えておく必要がある。</p>
+<div class="quoteblock">
+<blockquote>
+<p>経済・物理・生物学の事実から導いた「微生物型農業」という結論は、
+<strong>現時点で人間が知っている範囲での最も整合的な答え</strong> である。しかしそれは、<strong>必ずしも正解とは限らない</strong>。</p>
+</blockquote>
+</div>
+<p>人間が自然について知っていることは、ごく一部に過ぎない。</p>
+<p>陸上植物には <strong>約 5 億年の歴史</strong> がある。</p>
+<ul>
+<li>4 億 7,500 万年前:植物が陸地に進出(本章前半で触れた)</li>
+<li>それ以来、数えきれない試行錯誤を経て、<strong>膨大な多様性</strong> が生まれた</li>
+<li>何百万種の植物、何千万種の微生物、それらが織りなす生態系</li>
+<li>各々の地域、各々の気候、各々の土壌で、<strong>「そこで成立する答え」</strong>
+が独自に進化してきた</li>
+</ul>
+<p>この <strong>5 億年に及ぶ進化の蓄積</strong> に対して、人間の科学的知見は、たかが
+<strong>150 年程度の歴史</strong> しかない。AMF の機能解明、液状炭素経路、グロマリンといった発見は、<strong>ここ 30 年の話</strong> である。</p>
+<div class="quoteblock">
+<blockquote>
+<p>経済・物理・生物学の事実から「微生物型農業」と結論することは、現時点で最も整合的な答えではある。しかしそれは「人間が知っている範囲」での最適解にすぎない。
+<strong>自然そのものは、もっと多くを知っている</strong>。</p>
+</blockquote>
+</div>
+<h3>多様性こそが 5 億年の答え</h3>
+<p>5 億年の進化が生んだのは、<strong>単一の「正解」ではない</strong>。地域・気候・土壌・微生物・植物・動物が組み合わさった、<strong>膨大な数の局所的な均衡解</strong> である。</p>
+<ul>
+<li>熱帯雨林の生態系</li>
+<li>温帯落葉樹林の生態系</li>
+<li>火山灰土壌(黒ボク土)の生態系</li>
+<li>湿地の生態系</li>
+<li>棚田の生態系(人間が作ったが、すでに何千年の歴史がある)</li>
+<li>里山の二次林の生態系</li>
+</ul>
+<p>これらはどれも、<strong>そこに最適化された別々の答え</strong> を持っている。本シリーズが「微生物型農業に移行する」と言うとき、それは <strong>特定の形式に統一する</strong> という意味ではない。</p>
+<div class="quoteblock">
+<blockquote>
+<p>5 億年の進化が出した答えは、<strong>多様性</strong> そのものである。各地域、各圃場、各家庭で、自然の多様性に学びつつ、<strong>独自の答えを見つける</strong> ── これが本来の姿である。</p>
+</blockquote>
+</div>
+<h3>「演繹」だけでなく「観察」が要る</h3>
+<p>経済・物理・生物学からの <strong>演繹的な推論</strong> は、方向性を示すには十分だ。しかし、<strong>実際の現場では、観察と試行錯誤が同等に重要</strong> である。</p>
+<ul>
+<li>自分の畑をよく見る</li>
+<li>5 億年の歴史を持つ植物・微生物の振る舞いに耳を傾ける</li>
+<li>教科書通りの答えを当てはめるのではなく、自分の土地で何が起きているかを学ぶ</li>
+<li>失敗から学び、調整する</li>
+<li>多様性を尊重する</li>
+</ul>
+<p>福岡正信氏が「無除草・無耕起・無肥料・無農薬」という原則に到達したのは、<strong>演繹</strong> ではなく、<strong>観察と実践</strong> からだった。氏の四原則は、その後の科学的研究で裏付けられている(本章で見たとおり)──
+しかし、氏は科学的事実から始めたのではなく、<strong>自然を観察することから始めた</strong> のである。</p>
+<div class="quoteblock">
+<blockquote>
+<p>経済・物理・生物学が示す方向は、おそらく正しい。しかし、その方向を実装するには、<strong>自然そのものから学ぶ謙虚さ</strong>
+が要る。
+5 億年の歴史を持つ多様性を、150 年の科学だけで置き換えることはできない。</p>
+</blockquote>
+</div>
+<p>本シリーズが提示する論理は、<strong>最初の方向感</strong> である。それを実際に動かすときには、<strong>自分の土地、自分の気候、自分の微生物相、自分の作物</strong> をよく観察し、5 億年の進化が示す <strong>多様性</strong> を尊重しながら、独自の解を見つけていく必要がある。</p>
+<h3>AI に農業を任せるのは、二重の限界を見落としている</h3>
+<p>ここで、もう一つ重要な留保を加えておく。近年、衛星画像、ドローン、土壌センサー、AI 解析を統合した <strong>「AI による精密農業」</strong> が、農業の救世主のように語られることがある。</p>
+<p>しかし、AI には <strong>本質的な限界</strong> がある。</p>
+<div class="quoteblock">
+<blockquote>
+<p><strong>AI が学習しているのは、本とインターネット上のテキストだけ</strong> である。</p>
+</blockquote>
+</div>
+<p>AI は、</p>
+<ul>
+<li>直接、土を触っているわけではない</li>
+<li>直接、植物の根を見ているわけではない</li>
+<li>直接、菌根菌の菌糸ネットワークを観察しているわけではない</li>
+<li>直接、その圃場の微気候や水脈を感じているわけではない</li>
+</ul>
+<p>AI が「知っている」のは、人間がこれまでに <strong>書き残した範囲</strong> に限られる。さらに言えば、それは <strong>デジタル化されてインターネット上に存在する範囲</strong> に限られる。</p>
+<p>つまり、</p>
+<div class="quoteblock">
+<blockquote>
+<p>AI は、<strong>150 年の人間科学が記録したもの</strong> を、整理・要約・組み合わせているに過ぎない。
+5 億年の進化が生んだ多様性は、<strong>そのほとんどが人間に記録されていない</strong>。記録されていないものは、AI も知らない。
+AI は、<strong>人間の知の「写しの写し」</strong> である ── 一次の観察者ではない。</p>
+</blockquote>
+</div>
+<h3>二重の限界</h3>
+<p>「AI による精密農業」を、農業の最終判断者として持ち上げるのは、
+<strong>二重の限界</strong> を見落としている。</p>
+<ul>
+<li><strong>第一の限界</strong>:人間科学そのものが、5 億年の進化に対して <strong>150 年しかない</strong></li>
+<li><strong>第二の限界</strong>:AI はその 150 年のうち、<strong>書かれてデジタル化された部分</strong> しか知らない</li>
+</ul>
+<p>伝統的な農の知恵 ── 例えば、福岡正信氏が「無除草」に到達するまでの数十年の観察、各地の在来農法、棚田の維持に必要な肌感覚 ── の多くは、
+<strong>論文化もデジタル化もされていない</strong>。AI がそれを学ぶ術は今のところない。</p>
+<p>加えて、各圃場の <strong>個別性</strong> ── どこに水が溜まりやすいか、どの斜面に日が当たるか、どこに獣道があるか、どんな雑草がどう生えてくるか
+── は、毎年・毎日変わる <strong>生きた情報</strong> である。これも AI が事前に学ぶことは不可能だ。</p>
+<h3>AI を「補助役」として使う</h3>
+<p>これは「AI を使うな」という話ではない。本書(aiseed.dev)は、AI
+を「同僚」として使う <a href="/ai-native-software/">AI ネイティブなソフトウェア開発</a>
+を並行して推している。AI は、</p>
+<ul>
+<li>文献の整理・要約</li>
+<li>データの集計・可視化</li>
+<li>季節作業のリマインダ</li>
+<li>病害虫の早期警告(画像認識)</li>
+<li>既存の知見を引き出す質問応答</li>
+</ul>
+<p>など、補助役としては極めて有用である。</p>
+<p>しかし、</p>
+<div class="quoteblock">
+<blockquote>
+<p><strong>農業の最終判断を AI に委ねるのはおかしい</strong>。
+AI は人間の書いたものから学んだだけ。直接、土も植物も菌根菌も見ていない。自分の土を触り、植物を観察し、微生物の振る舞いに耳を傾ける ──
+これは AI には代替できない。
+AI は補助役、最終判断は <strong>生身の人間が、5 億年の自然を観察しながら</strong>
+行う ── これが正しい使い方である。</p>
+</blockquote>
+</div>
+<p>精密農業や AI 解析を「目的地」に置いてしまうと、サプライチェーン制約の罠(第3章)に加えて、<strong>「人間の書かれた知の範囲」という認識論的な罠</strong> にも閉じ込められる。</p>
+<p>道具は道具として使う。<strong>判断は、自然と直接対話する人間が下す</strong>。</p>
+<h2>5.5 消去法で残る農法</h2>
+<p>整理しよう。何が、なぜ、消えるか。</p>
+<table class="comparison-table fade-in">
+<thead>
+<tr>
+<th>選択肢</th>
+<th>なぜ消えるか</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>工業型農業を続ける</td>
+<td>肥料高騰でコストが利益を食う</td>
+</tr>
+<tr>
+<td>完全自給を目指す</td>
+<td>肥料も土地もエネルギーも足りない</td>
+</tr>
+<tr>
+<td>政府の補助で支える</td>
+<td>財源が続かない、肥料は補助金で買えない</td>
+</tr>
+<tr>
+<td>海外農産物に全面依存</td>
+<td>輸入価格高騰で家計が圧迫される</td>
+</tr>
+</tbody>
+</table>
+<p>残るのは、</p>
+<ul>
+<li>国内生産をできるだけ維持する</li>
+<li>ただし化学肥料に依存しない方法で</li>
+<li>土壌中のリンと、土壌微生物のネットワークを活用する</li>
+<li>不足する分は輸入で補う</li>
+</ul>
+<p>これが、消去法の結論である。</p>
+<h2>5.6 強靭な作物の選定 ── 投入リソースを最小化する</h2>
+<p>生物的マイニングのアーキテクチャをコスト効率で動かすには、菌根菌ネットワークだけでなく、<strong>作物そのものの選定</strong> が決定的に重要である。</p>
+<p>精密農業と工業型農業は、F1 ハイブリッド品種に代表される <strong>「人間が大量の管理リソースを投入して初めて性能を出す」品種</strong> を前提にしてきた(第7章で詳述)。これに対して生物的マイニングは、</p>
+<ul>
+<li><strong>雑草並みの生命力</strong> を持つ作物</li>
+<li><strong>環境適応力が高く、自家採種可能な在来種</strong></li>
+<li><strong>直播きで大規模に展開できる作物</strong></li>
+</ul>
+<p>を選ぶことで、人的・物質的な投入リソースを最小化できる。</p>
+<h3>強靭な作物の例</h3>
+<table class="comparison-table fade-in">
+<thead>
+<tr>
+<th>区分</th>
+<th>作物</th>
+<th>強さの理由</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ウリ科</td>
+<td><strong>トロンボンチーノ(縦長カボチャ系)</strong></td>
+<td>雑草並みの生命力、自家採種可能、ツル一本で大量結実</td>
+</tr>
+<tr>
+<td>マメ科</td>
+<td>大豆、小豆、エンドウ、クローバー、レンゲ</td>
+<td>根粒菌で N 自己固定、AM 菌共生</td>
+</tr>
+<tr>
+<td>イネ科</td>
+<td>在来稲、伝統小麦、雑穀(ソバ・アワ・ヒエ)</td>
+<td>低投入で育種、AM 菌共生強い</td>
+</tr>
+<tr>
+<td>根菜</td>
+<td>サツマイモ、サトイモ、ヤマノイモ、コンニャク</td>
+<td>痩せ地適性、保存性</td>
+</tr>
+<tr>
+<td>多年生果樹</td>
+<td>柿、栗、ミカン、桃、ウメ、ビワ</td>
+<td>菌根菌+深根、人手管理が少ない</td>
+</tr>
+<tr>
+<td>多年草・ハーブ</td>
+<td>ミョウガ、ニラ、シソ、アシタバ、フキ</td>
+<td>一度根付けば自律的に増殖</td>
+</tr>
+<tr>
+<td>キノコ</td>
+<td>シイタケ、ナメコ、ヒラタケ、ナラタケ</td>
+<td>朽木・落葉から養分を回収</td>
+</tr>
+</tbody>
+</table>
+<p>特に <strong>トロンボンチーノ(Trombetta di Albenga、イタリア発祥の縦長ズッキーニ/カボチャ)</strong> は、</p>
+<ul>
+<li>雑草が生い茂る荒地でもツル一本で 10〜30 個の実をつける</li>
+<li>自家採種でも安定した形質を保つ</li>
+<li>病害虫の抵抗性が高く、無農薬で育てられる</li>
+<li>若い実(ズッキーニとして)も成熟した実(カボチャとして)も食用</li>
+<li>長期保存が可能(数ヶ月〜半年)</li>
+</ul>
+<p>という、<strong>生物的マイニングのアーキテクチャに最適な作物の典型例</strong>
+である。</p>
+<h3>「植えて、待つ」だけのシステム</h3>
+<p>これらの強靭な作物を、<strong>多様性を持って混植・直播きで</strong> 展開すれば、</p>
+<ul>
+<li>種を播く(または苗を植える)</li>
+<li>必要なら最低限の保護(獣害対策など)</li>
+<li>収穫まで放置に近い管理</li>
+</ul>
+<p>というシステムが成立する。<strong>精密農業のように毎日センサーを監視し、資材を計算して投入する</strong> 必要はない。</p>
+<div class="quoteblock">
+<blockquote>
+<p>「最も無駄のないコスト構造」を実現するのは、複雑な制御を加えることではなく、<strong>自律的な生命力を持つ作物と、それを支える土壌微生物ネットワーク</strong> を組み合わせることである。</p>
+</blockquote>
+</div>
+<p>第6章で見るとおり、CO2 濃度の上昇はこの自律型システムにとって
+<strong>追い風</strong> として機能する。逆に、化学肥料・農薬・F1 品種を前提とした工業型農業は、CO2 上昇下では「窒素枯渇」「隠れ飢餓」というパラドックスに直面する(第6章参照)。</p>
+<h2>5.7 では、どう動かすのか</h2>
+<p>「微生物に肩代わりさせる」と言っても、具体的には何をするのか。</p>
+<p>ここがこのシリーズの後半 ── 第7章・第8章 ── のテーマである。具体的な原則は、</p>
+<ul>
+<li><strong>耕さない</strong>(微生物のネットワークを壊さないため)</li>
+<li><strong>裸地を作らない</strong>(土の温度・水分を保ち、微生物を守るため)</li>
+<li><strong>多様な植物を育てる</strong>(多様な微生物を支えるため)</li>
+<li><strong>化学肥料・農薬を使わない</strong>(微生物を殺さないため)</li>
+<li><strong>生きている根を絶やさない</strong>(菌根菌は生きた根からしか栄養をもらえないため)</li>
+</ul>
+<p>ここで一つ、誤解されやすい論点がある。</p>
+<p>日本では、福岡正信氏の自然農法が <strong>無除草</strong> ── 雑草を刈らない ── を原則にしてきた。これに対して、海外の再生農業では <strong>草マルチ</strong> や
+<strong>カバークロップ</strong> が推奨されることがある。</p>
+<p>この違いをどう理解するか。それは第8章で詳しく扱う。要点だけ先取りすれば、</p>
+<div class="quoteblock">
+<blockquote>
+<p><strong>菌根菌が必要とするのは「生きた根」である</strong>。切られて死んだ草を地面に置くだけでは、菌根菌の栄養源にならない。福岡氏の「無除草」は、生きた根を絶やさないという点で、菌根菌共生の原理と整合している。</p>
+</blockquote>
+</div>
+<p>これが、伝統的な自然農法と最新の土壌科学が、結局のところ同じことを言っている、という点である。</p>
+<h2>5.8 第5章のまとめ</h2>
+<ul>
+<li>土壌にはすでに大量のリンが蓄積している(化学肥料の累積)</li>
+<li>蓄積したリンは、植物には吸えない形(不溶性)になっている</li>
+<li>菌根菌は不溶性リンを可溶化し、植物に供給する</li>
+<li>植物が必要とする栄養の最大 90% は、菌根菌経由で得られる</li>
+<li>化学肥料は、この共生関係を壊してきた</li>
+<li>化学肥料の使用をやめ、生きた根を絶やさなければ、共生は回復する</li>
+<li>これは精神論ではなく、経済・物理・生物学の事実から導かれる</li>
+</ul>
+<p>次章では、もう一つ追い風になる事実 ── <strong>CO2 濃度の上昇が植物の生育を後押しする</strong> ── を見る。気候変動はネガティブに語られることが多いが、農業にとっては意外なプラスもある。</p>
+<p>CO2 と土壌微生物の関係を見れば、いまが微生物型農業に移行する
+<strong>希少な好機</strong> であることが分かる。</p>
+<h2>参考資料</h2>
+<p><strong>菌根菌・土壌微生物科学</strong></p>
+<ul>
+<li>Christine Jones &quot;Light Farming: Restoring Carbon, Organic
+Nitrogen and Biodiversity to Agricultural Soils&quot;(2018)── 液状炭素経路、地上部由来 8.3% vs 根浸出物由来 46% の土壌定着率</li>
+<li>&quot;Mycorrhizal Fungi Explainer and Definition&quot; — Society for the
+Protection of Underground Networks(SPUN)── 4 億 7500 万年の進化、地球全体で 450 京 km の菌糸</li>
+<li>&quot;Mycorrhiza: The Hidden Plant Support Network&quot; — USDA NRCS</li>
+<li>&quot;A phosphorus threshold for mycoheterotrophic plants in tropical
+forests&quot; — PMC NIH(陸上植物の約 80〜90% が菌根菌共生)</li>
+<li>Sara F. Wright(USDA-ARS)── グロマリン(Glomalin)の発見と土壌団粒構造への寄与</li>
+<li>Kristine Nichols ── AMF 菌糸からのグロマリン分泌</li>
+<li>Plantae 植物データベース ── ブラシカ科(Brassicaceae)・アカザ/
+ヒユ科(Amaranthaceae)の非菌根菌科に関する文献</li>
+</ul>
+<p><strong>遺産リン(Legacy Phosphorus)関連</strong></p>
+<ul>
+<li>&quot;Farmers are facing a phosphorus crisis. The solution starts
+with soil.&quot; — National Geographic</li>
+<li>&quot;USDA Legacy Phosphorus Assessment Project&quot; — Natural Resources
+Conservation Service</li>
+<li>&quot;The Occurrence of Legacy P Soils and Potential Mitigation
+Practices Using Activated Biochar&quot; — PMC9238423</li>
+<li>&quot;Evaluation of Phosphorus Enrichment in Groundwater by Legacy
+Phosphorus in Orchard Soils&quot; — ACS Publications, acs.est.3c07170</li>
+<li>&quot;Characteristics of Organic Phosphorus Pool in Soil of Typical
+Agriculture Systems in South China&quot; — MDPI 2311-7524/8/11/1055</li>
+<li>&quot;Phosphate binding to allophane and ferrihydrite with
+implications for volcanic ash soils&quot; — ResearchGate(黒ボク土
+Andisols)</li>
+</ul>
+<p><strong>化学肥料の植物吸収率と固定化メカニズム</strong></p>
+<ul>
+<li>&quot;A new perspective on the efficiency of phosphorus fertilizer
+use&quot; — IUSS 19th WCSS Symposium(湿式法 10〜25% の当年回収率)</li>
+<li>&quot;A review on phosphorus drip fertigation in the Mediterranean
+region&quot; — PMC10850969</li>
+<li>&quot;Which method for calculation of fertilizer phosphorus use
+efficiency is better?&quot; — ResearchGate</li>
+<li>熔成リン肥(熔リン)の吸収率と製造プロセスに関する技術文献</li>
+</ul>
+<p><strong>AMF + PSB 相乗作用・実証データ</strong></p>
+<ul>
+<li>中国塩類アルカリ土壌(BeiWuLao および XuJiaZhen)におけるトウモロコシ AHCF 圃場試験 ── 収量 +23.5〜81.2%、肥料 80% 削減可能性</li>
+<li>&quot;Mycorrhiza: a natural resource assists plant growth under
+varied soil conditions&quot; — PMC7165205</li>
+<li>リン溶解性細菌(PSB)とアーバスキュラー菌根菌の相乗的コンソーシアムに関する微生物学文献</li>
+</ul>
+<p><strong>化学肥料による共生阻害の分子機構</strong></p>
+<ul>
+<li>ジベレリン酸(GA)シグナルによる AMF 共生回路のシャットダウンに関する分子生物学文献</li>
+<li>ストリゴラクトン・Myc ファクター・カルシウムオシレーションによる共生経路活性化に関する研究</li>
+<li>高リン酸条件下での GA 生合成上昇と AMF コロニー形成阻害の研究</li>
+</ul>
+<p><strong>強靭な作物</strong></p>
+<ul>
+<li>イタリア発祥のトロンボンチーノ(Trombetta di Albenga)の栽培特性に関する園芸資料</li>
+<li>在来種ジャガイモ・在来根菜・伝統穀物の低投入適性に関する各地の事例報告</li>
+</ul>
+<p><strong>緑泥片岩・堆積シルト</strong></p>
+<ul>
+<li>緑泥片岩(green chlorite schist)風化物のミネラル供給に関する地質学文献</li>
+<li>堆積シルト(alluvial silt)の農業ミネラル供給に関する土壌学文献</li>
+</ul>
+<p><strong>強靭な作物</strong></p>
+<ul>
+<li>イタリア発祥のトロンボンチーノ(Trombetta di Albenga)の栽培特性に関する園芸資料</li>
+<li>在来種ジャガイモ・在来根菜・伝統穀物の低投入適性に関する各地の事例報告</li>
+</ul>
+<p><strong>緑泥片岩・堆積シルト</strong></p>
+<ul>
+<li>緑泥片岩(green chlorite schist)風化物のミネラル供給に関する地質学文献</li>
+<li>堆積シルト(alluvial silt)の農業ミネラル供給に関する土壌学文献</li>
+</ul>
+
+  </article>
+
+  <!-- CHAPTER NAV(前後の記事) -->
+  <nav class="chapter-nav">
+  <a href="/phosphorus-and-farming/realistic-position/" rel="prev">&larr; 前: 第4章 現実的な立ち位置</a>
+  <a href="/phosphorus-and-farming/co2-tailwind/" rel="next">次: 第6章 CO2 という追い風 &rarr;</a>
+</nav>
+
+  <!-- FOOTER(サイト内メニュー+奥付) -->
+  <footer class="site-footer">
+    <nav class="footer-nav" aria-label="サイト内リンク">
+      <div class="footer-col">
+        <h4>記事シリーズ</h4>
+        <ul>
+          <li><a href="/insights/">構造分析</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/ai-native-software/">AI ネイティブなソフトウェア開発</a></li>
+          <li><a href="/claude-debian/">Claudeと一緒に学ぶDebian</a></li>
+          <li><a href="/debian-server/">Claudeと一緒に育てるDebian サーバー</a></li>
+          <li><a href="/phosphorus-and-farming/">リン資源枯渇と自然農法</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>サイト</h4>
+        <ul>
+          <li><a href="/">ホーム</a></li>
+          <li><a href="/natural-farming/">自然農法とは</a></li>
+          <li><a href="/light-farming/">Light Farming</a></li>
+          <li><a href="/gallery/">畑の記録</a></li>
+          <li><a href="/about/">私たちのアプローチ</a></li>
+          <li><a href="/privacy/">プライバシー</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>関連サイト</h4>
+        <ul>
+          <li><a href="https://aiai.aiseed.dev/">aiai ── AI 時代の学び方</a></li>
+          <li><a href="https://weather.time-j.net/">個人開発気象統計</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="colophon">
+      <div class="colophon-mark">§</div>
+      リン資源枯渇と自然農法シリーズ · 第5章<br>
+      Tokushima · 2026.05.10<br>
+      <a href="/" style="color: var(--whisper); text-decoration: underline; text-decoration-color: var(--rule);">aiseed.dev</a> · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" style="color: var(--whisper); text-decoration: underline; text-decoration-color: var(--rule);">CC BY 4.0</a>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  // 広い画面ではサイドバー目次を常時展開する(狭い画面では折りたたみに戻す)
+  (function () {
+    var toc = document.querySelector(".series-toc details");
+    if (!toc) return;
+    var mq = window.matchMedia("(min-width: 1200px)");
+    function sync() { toc.open = mq.matches; }
+    sync();
+    if (mq.addEventListener) mq.addEventListener("change", sync);
+    else mq.addListener(sync);
+  })();
+
+  // Mermaid loads only on pages that contain a .mermaid block.
+  // Self-hosted (no third-party CDN dependency); SRI verified.
+  if (document.querySelector(".mermaid")) {
+    const s = document.createElement("script");
+    s.src = "/js/vendor/mermaid-11.14.0.min.js";
+    s.integrity = "sha384-1CMXl090wj8Dd6YfnzSQUOgWbE6suWCaenYG7pox5AX7apTpY3PmJMeS2oPql4Gk";
+    s.crossOrigin = "anonymous";
+    s.onload = () => {
+      const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+      mermaid.initialize({ startOnLoad: false, theme: prefersDark ? "dark" : "default" });
+      mermaid.run();
+    };
+    document.head.appendChild(s);
+  }
+</script>
+
+
+</body>
+</html>

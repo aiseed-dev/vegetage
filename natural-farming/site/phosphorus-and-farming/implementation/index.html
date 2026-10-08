@@ -1,0 +1,2209 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://static.cloudflareinsights.com https://challenges.cloudflare.com 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://cloudflareinsights.com https://challenges.cloudflare.com">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9FLQ963JXM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'G-9FLQ963JXM');
+</script>
+
+<title>第7章 どう実装するか ── 一反百姓と耕作放棄地 — リン資源枯渇と自然農法シリーズ | aiseed.dev</title>
+<meta name="description" content="肥料制約のもとで、日本では大規模農業そのものが成立しなくなる。作物を「機械化 × 再生農業 × 化学肥料依存」の三軸で見ると、自然農法で規模生産できるのは穀物・豆・牧草に絞られる(イネ科とマメ科の菌根菌・根粒菌共生による)。F1 加工用キャベツ・タマネギ・トマト・ジャガイモは複合圧力で細る。世界的に野菜供給が同時に縮むので、輸入で逃げ切れる国はなくなる。多くの人がそれぞれの規模で人手で作ることが、世界規模の食料生産再分散の現実解になる。">
+<link rel="canonical" href="https://aiseed.dev/phosphorus-and-farming/implementation/">
+<link rel="alternate" hreflang="ja" href="https://aiseed.dev/phosphorus-and-farming/implementation/">
+<link rel="alternate" hreflang="en" href="https://aiseed.dev/en/phosphorus-and-farming/implementation/">
+<link rel="alternate" hreflang="x-default" href="https://aiseed.dev/phosphorus-and-farming/implementation/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="AI時代の暮らし">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="第7章 どう実装するか ── 一反百姓と耕作放棄地">
+<meta property="og:description" content="肥料制約のもとで、日本では大規模農業そのものが成立しなくなる。作物を「機械化 × 再生農業 × 化学肥料依存」の三軸で見ると、自然農法で規模生産できるのは穀物・豆・牧草に絞られる(イネ科とマメ科の菌根菌・根粒菌共生による)。F1 加工用キャベツ・タマネギ・トマト・ジャガイモは複合圧力で細る。世界的に野菜供給が同時に縮むので、輸入で逃げ切れる国はなくなる。多くの人がそれぞれの規模で人手で作ることが、世界規模の食料生産再分散の現実解になる。">
+<meta property="og:url" content="https://aiseed.dev/phosphorus-and-farming/implementation/">
+<meta property="og:image" content="https://aiseed.dev/images/IMG_3285.jpg">
+<meta property="article:section" content="リン資源枯渇と自然農法シリーズ">
+<meta property="article:published_time" content="2026.05.12">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="第7章 どう実装するか ── 一反百姓と耕作放棄地">
+<meta name="twitter:description" content="肥料制約のもとで、日本では大規模農業そのものが成立しなくなる。作物を「機械化 × 再生農業 × 化学肥料依存」の三軸で見ると、自然農法で規模生産できるのは穀物・豆・牧草に絞られる(イネ科とマメ科の菌根菌・根粒菌共生による)。F1 加工用キャベツ・タマネギ・トマト・ジャガイモは複合圧力で細る。世界的に野菜供給が同時に縮むので、輸入で逃げ切れる国はなくなる。多くの人がそれぞれの規模で人手で作ることが、世界規模の食料生産再分散の現実解になる。">
+<meta name="twitter:image" content="https://aiseed.dev/images/IMG_3285.jpg">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+
+<!-- フォントは Web 配信せず、すべて端末のローカルフォントで賄う。
+     和文: UDデジタル教科書体 → BIZ UDP明朝(いずれも Windows 標準搭載の
+     モリサワ UD 書体) → ヒラギノ明朝・游明朝などのシステム明朝。
+     等幅: 端末のシステム等幅フォント。 -->
+
+<style>
+/* ============================================================
+   LOCAL FONT: UDデジタル教科書体(モリサワ)
+   Windows・教育向け端末に無償搭載。端末にあれば local() で拾い、
+   なければ BIZ UDP明朝(同じく Windows 標準搭載)→ システム明朝へ
+   フォールバックする。R と B は別ファミリー名なので、太字(700)を
+   B 書体に明示的にマッピングして疑似ボールドを避ける。
+   ============================================================ */
+@font-face {
+  font-family: "UD Digital Kyokasho";
+  font-weight: 400;
+  src: local("UD デジタル 教科書体 NK-R"), local("UD Digital Kyokasho NK-R"),
+       local("UD デジタル 教科書体 NP-R"), local("UD Digital Kyokasho NP-R"),
+       local("UD デジタル 教科書体 N-R"), local("UD Digital Kyokasho N-R");
+}
+@font-face {
+  font-family: "UD Digital Kyokasho";
+  font-weight: 700;
+  src: local("UD デジタル 教科書体 NK-B"), local("UD Digital Kyokasho NK-B"),
+       local("UD デジタル 教科書体 NP-B"), local("UD Digital Kyokasho NP-B"),
+       local("UD デジタル 教科書体 N-B"), local("UD Digital Kyokasho N-B");
+}
+
+/* ============================================================
+   COLOR & DESIGN TOKENS
+   aiseed.dev 全体のスタイルに合わせる場合は、ここの変数を
+   既存サイトのCSS変数に差し替える。
+   ============================================================ */
+:root {
+  --ink: #1a1a1a;
+  --paper: #f4f1ea;
+  --paper-deep: #ebe6d8;
+  --accent: #c8442a;
+  --rule: #d4cdb8;
+  --whisper: #6b665a;
+  --highlight: #f7e9c8;
+}
+
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+/* 本文: 端末にあれば UDデジタル教科書体を最優先、次に BIZ UDP明朝
+   (Windows 標準搭載)、どちらもなければヒラギノ明朝等のシステム明朝 */
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "UD Digital Kyokasho",
+               "BIZ UDPMincho", "BIZ UDP明朝",
+               "Hiragino Mincho ProN", "ヒラギノ明朝 ProN",
+               "Yu Mincho", "游明朝", "YuMincho",
+               "Noto Serif CJK JP", "Noto Serif JP", serif;
+  font-size: 17px;
+  line-height: 1.9;
+  letter-spacing: 0.02em;
+  font-feature-settings: "palt";
+  overflow-x: hidden;
+}
+
+/* グレインテクスチャ(紙の質感) */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background-image: radial-gradient(rgba(0,0,0,0.04) 1px, transparent 1px);
+  background-size: 3px 3px;
+  opacity: 0.5;
+  mix-blend-mode: multiply;
+}
+
+.container {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0 32px;
+  position: relative;
+  z-index: 2;
+}
+
+/* ============================================================
+   MASTHEAD(シリーズ名・章番号)
+   ============================================================ */
+.masthead {
+  border-bottom: 3px double var(--ink);
+  padding: 24px 0 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--whisper);
+}
+.masthead-left  { font-weight: 700; color: var(--ink); }
+.masthead-left a { color: inherit; text-decoration: none; }
+.masthead-left a:hover { color: var(--accent); }
+.masthead-home { color: var(--whisper); }
+.masthead-sep { margin: 0 10px; color: var(--whisper); font-weight: 400; }
+.masthead-right { font-style: italic; }
+
+/* ============================================================
+   HERO(タイトル領域)
+   ============================================================ */
+.hero {
+  padding: 80px 0 60px;
+}
+.hero-meta {
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  color: var(--accent);
+  margin-bottom: 32px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.hero-meta::before {
+  content: "";
+  width: 40px;
+  height: 1px;
+  background: var(--accent);
+}
+.hero-title {
+  font-family: "UD Digital Kyokasho", "BIZ UDPMincho", "BIZ UDP明朝", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  font-weight: 800;
+  font-size: clamp(32px, 5.5vw, 56px);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  margin-bottom: 24px;
+}
+.hero-title .accent {
+  color: var(--accent);
+}
+.hero-subtitle {
+  font-size: 18px;
+  line-height: 1.85;
+  color: var(--whisper);
+  max-width: 580px;
+  border-left: 2px solid var(--accent);
+  padding-left: 20px;
+  margin-top: 32px;
+}
+.hero-byline {
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid var(--rule);
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--whisper);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* ============================================================
+   ARTICLE BODY
+   ============================================================ */
+article p {
+  margin-bottom: 24px;
+}
+
+article h2 {
+  font-family: "UD Digital Kyokasho", "BIZ UDPMincho", "BIZ UDP明朝", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 1.4;
+  margin: 72px 0 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--ink);
+  position: relative;
+}
+article h2::before {
+  content: "§";
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+  color: var(--accent);
+  margin-right: 16px;
+  font-size: 22px;
+}
+
+article h3 {
+  font-family: "UD Digital Kyokasho", "BIZ UDPMincho", "BIZ UDP明朝", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  font-weight: 600;
+  font-size: 19px;
+  margin: 40px 0 16px;
+  color: var(--ink);
+}
+article h3::before {
+  content: "—";
+  color: var(--accent);
+  margin-right: 12px;
+  font-weight: 400;
+}
+
+article strong {
+  font-weight: 700;
+  background: linear-gradient(to top, var(--highlight) 35%, transparent 35%);
+  padding: 0 2px;
+}
+
+article em {
+  font-style: normal;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+article a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  transition: color 0.2s;
+}
+article a:hover {
+  color: var(--accent);
+}
+
+/* ============================================================
+   BLOCKQUOTE
+   ============================================================ */
+blockquote {
+  margin: 40px 0;
+  padding: 32px 40px;
+  background: var(--paper-deep);
+  border-left: 4px solid var(--accent);
+  position: relative;
+  font-size: 18px;
+  line-height: 1.85;
+  font-style: normal;
+  color: var(--ink);
+}
+blockquote::before {
+  content: "「";
+  position: absolute;
+  top: 4px;
+  left: 8px;
+  font-size: 48px;
+  color: var(--accent);
+  opacity: 0.3;
+  font-family: "Hiragino Mincho ProN", serif;
+}
+blockquote p {
+  margin-bottom: 0;
+}
+
+/* ============================================================
+   TABLE
+   ============================================================ */
+article table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 32px 0;
+  font-size: 15px;
+  line-height: 1.7;
+}
+article thead th {
+  font-family: "UD Digital Kyokasho", "BIZ UDPMincho", "BIZ UDP明朝", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  font-weight: 700;
+  text-align: left;
+  padding: 14px 16px;
+  border-bottom: 2px solid var(--ink);
+  color: var(--ink);
+}
+article tbody td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+}
+article tbody tr:last-child td {
+  border-bottom: none;
+}
+@media (max-width: 720px) {
+  article table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* ============================================================
+   ORDERED LIST(番号付きリスト)
+   ============================================================ */
+article ol {
+  margin: 32px 0;
+  counter-reset: item;
+  padding: 0;
+}
+article ol li {
+  list-style: none;
+  position: relative;
+  padding: 16px 0 16px 56px;
+  border-bottom: 1px dashed var(--rule);
+  counter-increment: item;
+}
+article ol li::before {
+  content: counter(item, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 16px;
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+  font-size: 14px;
+  color: var(--accent);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+/* 通常のul(章末の関連リンクなど) */
+article ul {
+  margin: 24px 0;
+  padding-left: 1.5em;
+}
+article ul li {
+  margin-bottom: 8px;
+}
+
+/* ============================================================
+   CODE BLOCK(疑似ターミナル風)
+   ============================================================ */
+article pre {
+  margin: 40px 0;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 24px 28px;
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+  font-size: 13px;
+  line-height: 1.8;
+  position: relative;
+  overflow-x: auto;
+}
+article pre::before {
+  content: "● ● ●";
+  position: absolute;
+  top: 8px;
+  left: 12px;
+  font-size: 8px;
+  color: var(--whisper);
+  letter-spacing: 4px;
+}
+article pre code {
+  display: block;
+  padding-top: 16px;
+  white-space: pre;
+}
+
+/* インラインコード */
+article code {
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+  font-size: 0.9em;
+  background: var(--paper-deep);
+  padding: 2px 6px;
+  border-radius: 2px;
+  color: var(--ink);
+}
+article pre code {
+  background: transparent;
+  padding: 16px 0 0 0;
+  color: var(--paper);
+}
+
+/* ============================================================
+   HORIZONTAL RULE(本文中の区切り)
+   ============================================================ */
+article hr {
+  border: none;
+  text-align: center;
+  margin: 64px 0;
+  height: 1em;
+}
+article hr::before {
+  content: "◆ ◆ ◆";
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+  font-size: 14px;
+  color: var(--accent);
+  letter-spacing: 0.5em;
+}
+
+/* ============================================================
+   RELATED LINKS(章末の関連記事)
+   ============================================================ */
+.related-links {
+  margin-top: 64px;
+  padding: 32px 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.related-links h3 {
+  font-family: "UD Digital Kyokasho", "BIZ UDPMincho", "BIZ UDP明朝", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  font-size: 14px;
+  letter-spacing: 0.2em;
+  color: var(--whisper);
+  margin: 0 0 20px;
+  font-weight: 600;
+}
+.related-links h3::before {
+  content: none;
+}
+.related-links ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.related-links li {
+  padding: 10px 0;
+  border-bottom: 1px dashed var(--rule);
+  margin-bottom: 0;
+}
+.related-links li:last-child {
+  border-bottom: none;
+}
+.related-links a {
+  text-decoration: none;
+  color: var(--ink);
+  display: flex;
+  gap: 16px;
+  align-items: baseline;
+}
+.related-links .related-tag {
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+  text-transform: uppercase;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.related-links a:hover .related-title {
+  color: var(--accent);
+}
+
+/* ============================================================
+   FOOTER(サイト内メニュー+奥付)
+   ============================================================ */
+.site-footer {
+  margin-top: 96px;
+  border-top: 3px double var(--ink);
+  padding-top: 48px;
+}
+.footer-nav {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 32px 48px;
+}
+.footer-col h4 {
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--whisper);
+  font-weight: 700;
+  margin: 0 0 14px;
+}
+.footer-col ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.footer-col li {
+  padding: 6px 0;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.footer-col a {
+  color: var(--ink);
+  text-decoration: none;
+}
+.footer-col a:hover { color: var(--accent); }
+
+.colophon {
+  margin-top: 48px;
+  padding: 32px 0 40px;
+  border-top: 1px solid var(--rule);
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: var(--whisper);
+  text-align: center;
+  line-height: 2;
+}
+.colophon-mark {
+  font-family: "UD Digital Kyokasho", "BIZ UDPMincho", "Hiragino Mincho ProN", serif;
+  font-size: 32px;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+
+/* ============================================================
+   SERIES TOC(全章一覧・折りたたみ式)
+   ============================================================ */
+.series-toc {
+  margin: 24px 0 40px;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 8px 0;
+}
+.series-toc details {
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+}
+.series-toc summary {
+  cursor: pointer;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--whisper);
+  font-weight: 700;
+  padding: 8px 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.series-toc summary::-webkit-details-marker { display: none; }
+.series-toc summary::before {
+  content: "▸";
+  color: var(--accent);
+  font-size: 10px;
+  display: inline-block;
+  transition: transform 0.15s ease;
+}
+.series-toc details[open] summary::before { transform: rotate(90deg); }
+.series-toc ol {
+  list-style: none;
+  margin: 12px 0 8px;
+  padding: 0;
+  counter-reset: none;
+}
+.series-toc li {
+  list-style: none;
+  padding: 9px 0;
+  border-bottom: 1px dashed var(--rule);
+  font-family: "UD Digital Kyokasho", "BIZ UDPMincho", "BIZ UDP明朝", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  font-size: 14px;
+  line-height: 1.55;
+  display: flex;
+  gap: 16px;
+  align-items: baseline;
+}
+.series-toc li::before { content: none; }
+.series-toc li:last-child { border-bottom: none; }
+.series-toc li a {
+  display: flex;
+  gap: 16px;
+  align-items: baseline;
+  text-decoration: none;
+  color: var(--ink);
+  flex: 1;
+}
+.series-toc li a:hover .toc-title { color: var(--accent); }
+.series-toc .toc-num {
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
+  color: var(--accent);
+  text-transform: uppercase;
+  white-space: nowrap;
+  flex-shrink: 0;
+  min-width: 5em;
+}
+.series-toc li.current {
+  background: var(--paper-deep);
+  margin: 0 -12px;
+  padding: 9px 12px;
+}
+.series-toc li.current .toc-title {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+/* ============================================================
+   IMAGES
+   ============================================================ */
+article img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 32px auto;
+}
+
+/* ============================================================
+   CUSTOM BLOCKS(:::chain / :::highlight / :::quote / :::compare)
+   ============================================================ */
+.chain-diagram {
+  background: var(--paper-deep);
+  border-left: 4px solid var(--accent);
+  padding: 24px 28px;
+  margin: 32px 0;
+  font-size: 15px;
+  line-height: 2.2;
+}
+.chain-diagram .arrow {
+  color: var(--accent);
+  font-weight: 700;
+  margin: 0 0.3em;
+}
+.highlight-box {
+  background: var(--paper-deep);
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--accent);
+  padding: 24px 28px;
+  margin: 32px 0;
+}
+.highlight-box p { margin-bottom: 12px; }
+.highlight-box p:last-child { margin-bottom: 0; }
+.quote-block {
+  margin: 40px 0;
+  padding: 32px 40px;
+  background: var(--paper-deep);
+  border-left: 4px solid var(--accent);
+}
+.quote-block .quote-text {
+  font-size: 18px;
+  line-height: 1.85;
+  margin: 0;
+}
+
+/* ============================================================
+   ASCIIDOC BLOCKS(pyasciidoc が出力するクラス。.adoc 記事用)
+   admonition / 帰属つき引用 / 画像ブロック / 脚注 / ロール
+   ============================================================ */
+.admonition {
+  background: var(--paper-deep);
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--accent);
+  padding: 24px 28px;
+  margin: 32px 0;
+}
+.admonition-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+.admonition p { margin-bottom: 12px; }
+.admonition p:last-child { margin-bottom: 0; }
+.quoteblock { margin: 40px 0; }
+.quoteblock blockquote { margin: 0; }
+.quoteblock .attribution {
+  margin-top: 12px;
+  text-align: right;
+  font-size: 14px;
+  color: var(--whisper);
+}
+.quoteblock .attribution cite { font-style: normal; }
+.imageblock { margin: 32px 0; text-align: center; }
+.imageblock .content img { max-width: 100%; height: auto; }
+sup.footnote { font-size: 12px; }
+sup.footnote a { text-decoration: none; }
+.footnotes {
+  margin-top: 64px;
+  padding-top: 24px;
+  border-top: 1px solid var(--rule);
+  font-size: 14px;
+  color: var(--whisper);
+}
+.footnotes ol { padding-left: 1.5em; }
+.footnotes li { margin-bottom: 8px; }
+.footnotes .footnote-backref { text-decoration: none; margin-left: 0.3em; }
+/* ロール: [.chain](:::chain と同じ見た目)/ [.accent]#…# */
+article .chain {
+  background: var(--paper-deep);
+  border-left: 4px solid var(--accent);
+  padding: 24px 28px;
+  margin: 32px 0;
+  font-size: 15px;
+  line-height: 2.2;
+}
+article .accent { color: var(--accent); }
+
+/* ============================================================
+   CHAPTER NAV(前後の記事へのリンク)
+   ============================================================ */
+.chapter-nav {
+  margin-top: 64px;
+  padding: 24px 0;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  font-size: 14px;
+}
+.chapter-nav a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--rule);
+  text-underline-offset: 4px;
+}
+.chapter-nav a:hover { color: var(--accent); }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 640px) {
+  .container { padding: 0 20px; }
+  .hero { padding: 48px 0 40px; }
+  blockquote { padding: 24px 20px 24px 28px; }
+  article pre { padding: 20px 16px; font-size: 12px; }
+  article ol li { padding-left: 48px; }
+  .series-toc .toc-num { min-width: 4em; font-size: 10px; }
+  .series-toc li { font-size: 13px; gap: 12px; }
+}
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.hero-meta, .hero-title, .hero-subtitle, .hero-byline {
+  animation: rise 0.8s ease-out backwards;
+}
+.hero-meta     { animation-delay: 0.1s; }
+.hero-title    { animation-delay: 0.25s; }
+.hero-subtitle { animation-delay: 0.45s; }
+.hero-byline   { animation-delay: 0.65s; }
+.mermaid {
+  text-align: center;
+  margin: 2.5rem 0;
+  background: var(--paper-warm, #f5f1ea);
+  padding: 1.5rem 1rem;
+  border-radius: 4px;
+  overflow-x: auto;
+}
+.mermaid svg { max-width: 100%; height: auto; }
+
+/* ============================================================
+   WIDE LAYOUT(広い画面では目次を左サイドバーに常時展開)
+   ============================================================ */
+@media (min-width: 1200px) {
+  body.has-toc .container {
+    max-width: 1320px;
+    display: grid;
+    grid-template-columns: 280px minmax(0, 880px);
+    column-gap: 64px;
+    justify-content: center;
+  }
+  body.has-toc .masthead,
+  body.has-toc .hero {
+    grid-column: 1 / -1;
+  }
+  /* グリッドアイテム自体は行いっぱいに伸ばし、内側の details を sticky に
+     する(sticky なグリッドアイテムはグリッドエリアではなくコンテナ全体で
+     制約されるブラウザ挙動があり、フッターに重なってしまうため)。 */
+  body.has-toc .series-toc {
+    grid-column: 1;
+    grid-row: 3 / span 2;
+    margin: 0;
+    padding: 0;
+    border-top: none;
+    border-bottom: none;
+  }
+  body.has-toc .series-toc details {
+    position: sticky;
+    top: 32px;
+    max-height: calc(100vh - 64px);
+    overflow-y: auto;
+    padding: 0 12px 12px 0;
+  }
+  /* サイドバーでは折りたたみを無効化し、見出しとして表示 */
+  body.has-toc .series-toc summary {
+    pointer-events: none;
+    cursor: default;
+  }
+  body.has-toc .series-toc summary::before { content: none; }
+  body.has-toc .series-toc li { font-size: 13.5px; }
+  body.has-toc article    { grid-column: 2; grid-row: 3; }
+  body.has-toc .chapter-nav { grid-column: 2; grid-row: 4; }
+  body.has-toc .site-footer { grid-column: 1 / -1; grid-row: 5; }
+}
+
+/* ============================================================
+   DARK MODE(OS の配色設定に追従して自動で暗色に切り替え)
+   ============================================================ */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --ink: #e8e3d6;
+    --paper: #16140f;
+    --paper-deep: #211d16;
+    --accent: #e8765a;
+    --rule: #393428;
+    --whisper: #a39b88;
+    --highlight: rgba(220, 168, 78, 0.30);
+  }
+  /* 紙の質感(グレイン)を暗色背景向けに反転 */
+  body::before {
+    background-image: radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px);
+    mix-blend-mode: screen;
+    opacity: 0.4;
+  }
+  /* コードブロックは両モードとも暗いターミナル調を維持 */
+  article pre {
+    background: #0d0c0a;
+    color: #e8e3d6;
+  }
+  article pre code {
+    color: #e8e3d6;
+  }
+  /* Mermaid 図の枠を暗色に */
+  .mermaid {
+    background: #211d16;
+  }
+}
+</style>
+
+</head>
+
+<body class="has-toc">
+
+<div class="container">
+
+  <!-- MASTHEAD(ホーム › シリーズ目次) -->
+  <header class="masthead">
+    <div class="masthead-left"><a href="/" class="masthead-home">aiseed.dev</a><span class="masthead-sep">›</span><a href="/phosphorus-and-farming/">リン資源枯渇と自然農法シリーズ</a></div>
+    <div class="masthead-right">第7章 / Essay</div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-meta">第7章 № 07 · 2026</div>
+
+    <h1 class="hero-title">できるだけ多くの人が、<br><span class="accent">食料生産に関わる</span>。</h1>
+
+    <p class="hero-subtitle">できるだけ多くの人が、できるだけの規模で食料生産に関わる</p>
+
+    <div class="hero-byline">
+      <span>2026.05.12</span>
+      <span><a href="https://aiseed.dev/en/phosphorus-and-farming/implementation/" style="color: var(--whisper); text-decoration: underline; text-decoration-color: var(--rule);">🌐 EN</a></span>
+    </div>
+  </section>
+
+  <!-- SERIES TOC(全章一覧・現在の章をハイライト) -->
+  <nav class="series-toc" aria-label="シリーズ章一覧">
+  <details>
+    <summary>目次 — 全章</summary>
+    <ol>
+      <li><a href="/phosphorus-and-farming/prologue/"><span class="toc-num">序章</span><span class="toc-title">経済が農法を決める</span></a></li>
+      <li><a href="/phosphorus-and-farming/supply-constraint/"><span class="toc-num">第1章</span><span class="toc-title">リン酸肥料の供給制約 ── 何が起きているか</span></a></li>
+      <li><a href="/phosphorus-and-farming/no-cheap-return/"><span class="toc-num">第2章</span><span class="toc-title">リン酸肥料は安価には戻らない</span></a></li>
+      <li><a href="/phosphorus-and-farming/industrial-farming-fails/"><span class="toc-num">第3章</span><span class="toc-title">慣行農業は経済的に成立しなくなる</span></a></li>
+      <li><a href="/phosphorus-and-farming/realistic-position/"><span class="toc-num">第4章</span><span class="toc-title">現実的な立ち位置 ── どこにも組みしない</span></a></li>
+      <li><a href="/phosphorus-and-farming/soil-microbes/"><span class="toc-num">第5章</span><span class="toc-title">土壌微生物という戦略</span></a></li>
+      <li><a href="/phosphorus-and-farming/co2-tailwind/"><span class="toc-num">第6章</span><span class="toc-title">CO2 という追い風</span></a></li>
+      <li class="current" aria-current="page"><span class="toc-num">第7章</span><span class="toc-title">どう実装するか ── 一反百姓と耕作放棄地</span></li>
+      <li><a href="/phosphorus-and-farming/operating-principles/"><span class="toc-num">第8章</span><span class="toc-title">運用原則 ── 何をして、何をしないか</span></a></li>
+      <li><a href="/phosphorus-and-farming/cuba-lessons/"><span class="toc-num">第9章</span><span class="toc-title">キューバの教訓</span></a></li>
+    </ol>
+  </details>
+</nav>
+
+  <!-- ARTICLE BODY -->
+  <article>
+    <p>ここまでで、</p>
+<ul>
+<li>化学肥料は構造的に高騰する(1〜2 章)</li>
+<li>工業型農業は成立しない(3 章)</li>
+<li>完全自給は目指さない、しかし国内生産は維持する(4 章)</li>
+<li>土壌微生物を使う(5 章)</li>
+<li>CO2 上昇が追い風になる(6 章)</li>
+</ul>
+<p>を見てきた。</p>
+<p>ではこれを、現実の日本で <strong>どう実装するか</strong>。</p>
+<p>最初に、ひとつの重要な認識を共有しておく必要がある。</p>
+<div class="quoteblock">
+<blockquote>
+<p><strong>できるだけ多くの人が、自分の食べる分の一部でも作らなければ、社会全体として食料が生産できない時代に入る</strong>。</p>
+</blockquote>
+</div>
+<p>これは精神論ではない。第3章で見た「工業型農業の収支が成立しない」ことの直接的な帰結である。専業農家が経営できずに退場していくとき、誰かがその穴を埋めなければ、<strong>国内の食料生産そのものが消える</strong>。</p>
+<p>ただし、第4章で確認したとおり、「全員が専業農家になれ」という意味ではない。スケールごとに違う実装 ── 専業の一反百姓、耕作放棄地の小規模再生、家庭のベランダ菜園 ── が、それぞれの規模で食料生産を担う。<strong>多くの人が、少しずつ、自分の規模で関わる</strong>。これが、これからの食料供給の現実的な姿である。</p>
+<h2>7.1 日本では、大規模農業そのものができなくなる</h2>
+<p>第3章では「工業型農業の収支が成立しない」と言った。ここでもう一段踏み込んで言えば、こうなる。</p>
+<div class="quoteblock">
+<blockquote>
+<p><strong>肥料制約のもとで、日本では大規模農業そのものが、物理的に成立しなくなる</strong>。</p>
+</blockquote>
+</div>
+<p>「儲からないから縮小する」のではない。「やろうとしても、できない」という段階に入る、ということだ。</p>
+<p>理由は日本特有の事情にある。</p>
+<p><strong>肥料が来なければ、大規模農業は動かない</strong></p>
+<p>第1〜2章で見たとおり、日本の化学肥料は <strong>約 9 割を海外に依存</strong> している。リン酸も、窒素の原料も、カリも、ほぼ全量が輸入である。そして輸入は構造的に細っていく。</p>
+<p>大規模農業 ── 数 ha 〜 数十 ha を機械化して回す農法 ── は、化学肥料の大量投入を <strong>前提に</strong> 設計されている。種子を密に播き、化学肥料で生育を強制し、農薬で病害虫を抑え、機械で一気に収穫する。この構造は、肥料が安価で潤沢に来るときだけ成立する。</p>
+<p>肥料の絶対供給量が減れば、大規模化を支える前提そのものが消える。
+<strong>「肥料を半分に減らして、規模はそのまま」は、収量崩壊を意味する</strong>。土壌微生物が回復していないところでは、化学肥料を抜けば作物は育たない。</p>
+<p><strong>地形と農地の構造</strong></p>
+<p>日本の農地は、もともと小規模分散型である。山がちで、棚田・段々畑が多く、米国やウクライナのような連続した平野は少ない。戦後、農地を大区画化する努力はあったが、<strong>地形が許す範囲には限界がある</strong>。</p>
+<p>機械化のスケールメリットも、欧米ほどは効かない。それでも工業型農業が成り立っていたのは、安価な肥料と機械、そして輸入飼料・輸入穀物との分業構造があったからだ。</p>
+<p>肥料が高くなり、規模拡大の効果も限定的となれば、<strong>日本で大規模農業を維持する経済的・物理的な土台が、両方とも崩れる</strong>。</p>
+<p><strong>結論:大規模化で乗り切る道は閉じている</strong></p>
+<p>「肥料が高いなら、規模を拡大して効率化すればよい」という処方箋は、肥料が安い時代の発想である。肥料の絶対量が減る局面では、規模拡大は
+<strong>コストの拡大</strong> であり、肥料制約の回避にはならない。</p>
+<div class="quoteblock">
+<blockquote>
+<p>肥料制約 + 日本の地形 + 輸入飼料の高騰 = 大規模農業は維持不能。</p>
+</blockquote>
+</div>
+<p>ここから出てくる答えは、ひとつしかない。
+<strong>小規模分散型に戻る</strong> こと。多くの人が、それぞれの規模で関わる食料生産に、社会全体として移行することである。</p>
+<p>ただし、ここで一つ重要な区別をしておく必要がある。
+<strong>「大規模農業ができなくなる」と言ったが、すべての作物が一律にダメになるわけではない</strong>。決定的なのは、その作物が <strong>機械化に乗るかどうか</strong>
+である。これを次節で見る。</p>
+<h2>7.2 機械化できる作物、機械化できなくなる作物</h2>
+<p>工業型農業とは、突き詰めれば <strong>機械化</strong> である。トラクター、コンバイン、収穫機、自動潅水、ポストハーベスト処理 ── これらの機械が、人間の手の代わりに大量の食料を生み出す。化学肥料も農薬も、機械化と一体で設計されている。</p>
+<p>ということは、肥料制約と労働力減少のもとで生き残るのは、</p>
+<div class="quoteblock">
+<blockquote>
+<p><strong>機械化が成立する作物だけ</strong> である。</p>
+</blockquote>
+</div>
+<p>逆に言えば、<strong>機械化に乗らない作物は、工業型大量生産の枠組みから外れる</strong>。これらは「人手で作るしかない」作物群となる。</p>
+<p>これが、作物選びと国内生産の優先順位を考える上で、決定的に重要な区別である。</p>
+<h3>機械化に乗る作物 ── コンバインで一気に収穫できるもの</h3>
+<p>機械化の核心は、<strong>収穫の機械化</strong> である。一面の畑をコンバインで一気に刈り取る、あるいはハーベスタで地面ごと掘り起こす ── これが工業型農業の生産性を支えてきた。</p>
+<p>機械化が成立するのは、</p>
+<table class="comparison-table fade-in">
+<thead>
+<tr>
+<th>区分</th>
+<th>作物</th>
+<th>機械化の鍵</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>穀物</td>
+<td>米(平野・水田)、小麦、大麦、ライ麦</td>
+<td>コンバイン</td>
+</tr>
+<tr>
+<td>飼料・油糧</td>
+<td>トウモロコシ、大豆、ナタネ、ヒマワリ</td>
+<td>コンバイン</td>
+</tr>
+<tr>
+<td>雑穀</td>
+<td>ソバ</td>
+<td>コンバイン</td>
+</tr>
+<tr>
+<td>根菜</td>
+<td>ジャガイモ、サツマイモ、サトイモ</td>
+<td>ポテトハーベスタ</td>
+</tr>
+<tr>
+<td>牧草・サイレージ</td>
+<td>チモシー、デントコーン(青刈り)</td>
+<td>モア + ベーラー</td>
+</tr>
+<tr>
+<td>一部加工用野菜</td>
+<td>加工用トマト、加工用キャベツ、タマネギ</td>
+<td>機械収穫</td>
+</tr>
+</tbody>
+</table>
+<p>これらは、<strong>広い平野</strong> と <strong>均質な圃場</strong> が確保できれば、少人数で大量に作れる。米国中西部、ウクライナ黒土地帯、カナダのプレーリー、豪州の小麦地帯 ── 工業型農業はこの条件のもとに成立してきた。</p>
+<p>肥料が細っても、これらの地域では <strong>大型の機械、広大な土地、相対的に肥沃な土壌</strong> という資産が残る。ある程度の生産は続けられる(品質や量は落ちるとしても)。</p>
+<p>つまり、<strong>機械化に乗る作物は、世界のどこかで作られ続ける</strong>。日本がこれらを輸入し続けることは、当面は可能である。</p>
+<h3>機械化に乗らない作物 ── 人手が要るもの</h3>
+<p>問題は、その逆だ。</p>
+<p><strong>多くの生鮮野菜・果実は、機械収穫がほぼ成立しない</strong>。一個ずつ熟度を見て、傷をつけずに収穫する作業は、機械では難しい。これらは現代でも
+<strong>人手に依存</strong> している。</p>
+<table class="comparison-table fade-in">
+<thead>
+<tr>
+<th>区分</th>
+<th>作物</th>
+<th>機械化が困難な理由</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>葉物野菜</td>
+<td>キャベツ、白菜、レタス、ほうれん草、小松菜、青梗菜</td>
+<td>一個ずつ熟度判別、傷つきやすい</td>
+</tr>
+<tr>
+<td>果菜類</td>
+<td>トマト(生鮮)、キュウリ、ナス、ピーマン、ズッキーニ</td>
+<td>同じ株から段階的に収穫</td>
+</tr>
+<tr>
+<td>根菜(小規模圃場)</td>
+<td>ダイコン、ニンジン、カブ(日本の畑)</td>
+<td>圃場が小さく機械が入らない</td>
+</tr>
+<tr>
+<td>果樹</td>
+<td>リンゴ、ナシ、ミカン、ブドウ、桃、カキ、ウメ</td>
+<td>高い位置・複雑な樹形</td>
+</tr>
+<tr>
+<td>ベリー類</td>
+<td>イチゴ、ブルーベリー、ラズベリー</td>
+<td>柔らかく傷つきやすい</td>
+</tr>
+<tr>
+<td>嗜好作物</td>
+<td>お茶、ハーブ類、薬草</td>
+<td>細かい摘み取り</td>
+</tr>
+<tr>
+<td>ナッツ</td>
+<td>クリ、クルミ(個別の品質確認)</td>
+<td>部分的にしか機械化できない</td>
+</tr>
+<tr>
+<td>キノコ</td>
+<td>シイタケ、ナメコ、ヒラタケ</td>
+<td>完全に手作業</td>
+</tr>
+</tbody>
+</table>
+<p>世界中、これらの作物は人手に依存している。<strong>米国でさえ、生鮮野菜の収穫は依然として人手 ── 多くはメキシコからの季節労働者</strong> に頼っている(7.3 で見るとおり、米国は生鮮野菜の約 30% を輸入しているが、それは「人手で収穫する作物」の構造そのものである)。</p>
+<p>日本ではさらに条件が悪い。</p>
+<ul>
+<li>圃場が小さく、棚田・段々畑が多い ── 機械が入らない</li>
+<li>労働力が高齢化・減少している</li>
+<li>賃金水準が高く、季節労働者を大量に雇うコストモデルが成立しにくい</li>
+</ul>
+<p>つまり、<strong>日本で生鮮野菜・果実を「工業型大量生産」しようとしても、そもそも構造が成立しない</strong>。</p>
+<h3>機械化と再生農業 ── 「機械化作物」も両立するとは限らない</h3>
+<p>ここで、もう一段の検討が必要になる。</p>
+<p>これまでの「機械化に乗る作物」リストは、20 世紀の工業型農業 ──
+化学肥料と農薬を潤沢に使う前提 ── で成立する機械化を念頭に書いた。</p>
+<p>しかし第8章で見るとおり、再生農業(regenerative agriculture)の原則は <strong>不耕起、裸地禁止、生きた根を絶やさない</strong> である。これらと機械化のあり方は、必ずしも整合しない。</p>
+<p>決定的なのは、<strong>収穫が土壌を撹乱するかどうか</strong> である。</p>
+<p><strong>コンバイン収穫 ── 再生農業と両立する</strong></p>
+<p>コンバインは、立っている作物を <strong>地上で刈り取る</strong> 機械である。</p>
+<ul>
+<li>小麦、大麦、ライ麦、オーツ:茎の根元 10〜30cm を残して刈る。根は土中に残る</li>
+<li>米(平野・水田):同様にコンバインで刈り取る。根は残る</li>
+<li>大豆、インゲン、ナタネ、ソバ:同上</li>
+<li>トウモロコシ(穀粒用):立っている茎から実を取る</li>
+<li>牧草・サイレージ:モアで刈るだけ。多年草なら再生する</li>
+</ul>
+<p>これらは <strong>根が土中に残り、残渣が地表に戻る</strong>。次のカバークロップを播けば、生きた根もすぐに復活する。<strong>不耕起と両立する</strong>。</p>
+<p>実際、Gabe Brown は不耕起のコンバイン収穫穀物・大豆を 20 年以上続け、SOM を 1.7% から 5〜8% に上げた(第6章)。<strong>再生農業 × 機械化 × 大量生産が成立する典型例</strong> がここである。</p>
+<p><strong>ハーベスタで掘り起こす作物 ── 再生農業と衝突する</strong></p>
+<p>問題はこちらだ。</p>
+<ul>
+<li>ジャガイモ:ポテトハーベスタが地中 20〜30cm を <strong>掘り起こす</strong>。毎年、圃場全体の表土が撹乱される</li>
+<li>サツマイモ:同様に掘り起こし収穫</li>
+<li>タマネギ:引き抜きまたは持ち上げ機構で <strong>根ごと除去</strong></li>
+<li>テンサイ(砂糖大根):深堀りハーベスタで地中から引き出す</li>
+<li>機械収穫のニンジン・ダイコン(大規模圃場):同上</li>
+</ul>
+<p>これらは、収穫の機械化そのものが <strong>大規模な土壌撹乱</strong> を伴う。</p>
+<div class="quoteblock">
+<blockquote>
+<p>ジャガイモを毎年機械で収穫する畑は、毎年「全面耕運」される畑と同じである。菌根菌ネットワークも、団粒構造も、毎年壊される。微生物相は、それに耐えられない。</p>
+</blockquote>
+</div>
+<p>不耕起の原則 ── 微生物ネットワークを壊さない、団粒構造を保つ ──
+と、これらの機械化収穫は <strong>互いに排他的</strong> である。少量を手掘りすれば再生農業と両立できる(家庭菜園・一反百姓のレベル)。しかし
+<strong>機械化された大量生産</strong> と再生農業は、両立しない。</p>
+<p><strong>全植物を切る・撤去する作物 ── 中間</strong></p>
+<ul>
+<li>加工用トマト:機械が植物全体をつかみ、振動で実を落とし、植物を廃棄する。<strong>生きていた根が一気に死ぬ</strong></li>
+<li>加工用キャベツ・レタス:茎の根元で切る。根は残るが、地表は裸になりやすい</li>
+<li>機械化されたタマネギ刈り取り(根は切らないタイプ):中間に近い</li>
+</ul>
+<p>これらは土壌を直接掘り起こしはしないが、<strong>生きた根を絶やさない</strong>
+原則(第8章)とは衝突しがちだ。直後にカバークロップを播けば回復はするが、管理の手間は増える。</p>
+<h3>さらに ── 連作障害とローテーション制約</h3>
+<p>ここで、もう一つ重要な制約が乗ってくる。<strong>連作障害</strong> である。</p>
+<p>工業型農業は、同じ作物を同じ畑で毎年作る ── あるいは短いローテーション ── を、化学的な土壌処理で支えてきた。土壌消毒、殺菌剤、殺線虫剤、化学農薬。これらで土壌病害を抑え込むことで、連作が成立していた。</p>
+<p>再生農業では、これらの化学処理は使わない。代わりに <strong>長いローテーション</strong> で土壌病害をかわす。これは、特に <strong>「中」段階の作物</strong> に重い制約として効いてくる。</p>
+<p><strong>キャベツ・白菜などアブラナ科 ── 根こぶ病で 5〜7 年ローテーション</strong></p>
+<p>加工用キャベツやブロッコリー、白菜などのアブラナ科(ブラシカ科)
+は、<strong>根こぶ病(クラブルート、Plasmodiophora brassicae)</strong> という土壌病害を持つ。</p>
+<ul>
+<li>一度発生すると、休眠胞子は土壌中で <strong>10 年以上、最長 20 年</strong> 生きる(半減期 3〜6 年。米国北西部の植物病害ハンドブック)</li>
+<li>化学殺菌剤や土壌消毒で抑え込んできたのが工業型の方法</li>
+<li>再生農業ではこれが使えない ── <strong>5〜7 年のローテーション</strong> でアブラナ科を空けるしか対処手段がない</li>
+</ul>
+<p>つまり、ある畑で機械化されたキャベツを作るには、<strong>その畑では 5〜7 年に 1 度しか</strong> キャベツを作れない。残りの年は別の作物(穀物、豆、牧草、根菜以外)を作る必要がある。</p>
+<p><strong>タマネギ ── 白色腐敗病で長期ローテーション</strong></p>
+<p>タマネギも、<strong>白色腐敗病(White rot、Sclerotium cepivorum)</strong> という土壌病害を持つ。菌核(休眠体)は土壌中で <strong>15〜20 年以上</strong> 生きる
+(英国王立園芸協会、カリフォルニア大学 IPM)。</p>
+<p>これも、化学殺菌剤抜きでは長いローテーション(7 年以上)が要る。タマネギを毎年同じ畑で機械化大量生産する、という構造は、再生農業では成立しない。</p>
+<p><strong>加工用トマト ── 3〜4 年ローテーション</strong></p>
+<p>加工用トマトも、<strong>青枯病、萎黄病、根腐れ病</strong> などの土壌病害が連作で蓄積する。ナス科の輪作年限は <strong>3〜4 年</strong> とされる(日本の栽培指針の通例。カリフォルニア大学 IPM は萎凋病に 2 年以上の輪作)。</p>
+<p>トマトはアブラナ科ほど深刻ではないが、それでも工業型のような毎年連作はできない。</p>
+<h3>ローテーション制約が意味すること</h3>
+<p>この制約から、何が出てくるか。</p>
+<div class="quoteblock">
+<blockquote>
+<p><strong>「中」段階の作物 ── 加工用キャベツ、加工用タマネギ、加工用トマト ── は、再生農業のもとでは、同じ畑で毎年作ることができない</strong>。</p>
+</blockquote>
+</div>
+<p>機械化そのものは技術的には成立する。しかし、<strong>ある畑で実際に作るのは 3〜7 年に 1 度</strong>。残りの年は別の作物を回す必要がある。</p>
+<p>これが意味するのは、</p>
+<ul>
+<li>同じ生産量を維持するには、<strong>ローテーション分の余地ある土地</strong> ──
+3〜7 倍の面積 ── を確保する必要がある</li>
+<li>単位面積あたりの実質的な生産密度は、工業型より大きく落ちる</li>
+<li>機械もローテーションのために遊休期間が長くなる ── 機械投資の回収が難しい</li>
+</ul>
+<p>つまり、技術的には「機械化可」でも、<strong>経済的には大量生産が成立しにくくなる</strong>。これらの作物は、「低」段階(ジャガイモ等)ほどではないが、<strong>実質的には大規模機械化の枠組みから外れていく</strong> 可能性が高い。</p>
+<p>このローテーション制約は、再生農業の <strong>長期持続性の代償</strong> として受け入れる必要がある。短期的に高密度に作ることはできない。代わりに、土壌が病害に支配されない健全な状態を維持できる。</p>
+<div class="quoteblock">
+<blockquote>
+<p>工業型は、化学処理で連作を可能にした代わりに、土壌生態系を疲弊させた。再生農業は、ローテーションで土壌を守る代わりに、単位面積あたりの出荷量を諦める。どちらを選ぶかではなく、<strong>化学処理が使えなくなる時代には、後者しか残らない</strong>。</p>
+</blockquote>
+</div>
+<h3>そしてもう一つ ── これらは「化学肥料がないと収量が落ちる」作物でもある</h3>
+<p>ここまで「機械化と再生農業の両立」「連作障害とローテーション」の二軸で見てきた。実はもう一つ、決定的な軸が残っている。</p>
+<p><strong>化学肥料への依存度</strong> である。</p>
+<p>ここで重要な区別をしておく必要がある。</p>
+<p>「化学肥料がなければ収量が落ちる作物」には、二つの段階がある。</p>
+<p><strong>段階 A:化学肥料がないと、製品そのものが成立しない作物</strong></p>
+<p>これは特に <strong>F1 ハイブリッド野菜</strong> で顕著だ。</p>
+<ul>
+<li><strong>キャベツ・白菜・ブロッコリー(F1)</strong> ── 窒素なしでは <strong>結球が不完全</strong>、サイズが小さい。「キャベツの形」自体が出にくい</li>
+<li><strong>タマネギ(F1)</strong> ── N → P/K の大量要求。化学肥料なしでは <strong>球がまともに育たない</strong></li>
+<li><strong>加工用トマト(F1)</strong> ── N、P、K、Ca 大量要求。<strong>着果が悪く、実が小ぶりで少ない</strong></li>
+<li><strong>加工用ジャガイモ(現代品種)</strong> ── Russet Burbank(米国フライ用)、
+Toyoshiro・Atlantic(チップス用)など。K を中心に大量要求。化学肥料なしでは <strong>規格に合う芋のサイズと比重(乾物率)が出ない</strong></li>
+</ul>
+<p>これらは、化学肥料を抜けば、<strong>製品としての形が出ない</strong>。作っても売れる規格にならない。「収量が下がる」というよりも「商品が成立しない」段階に入る。</p>
+<p>実際、自然農法の現場でも、キャベツ・タマネギ・F1 トマトは「初心者には難しい」「いい土ができてからでないと結球しない」と言われることが多い。これは経験則だが、上の分析と整合する。</p>
+<p><strong>段階 B:化学肥料があれば収量は伸びるが、なくても成立する作物</strong></p>
+<p>これと区別すべきなのが、<strong>穀物群</strong> である。</p>
+<ul>
+<li><strong>近代小麦(短稈高収量品種)</strong> ── 窒素応答性が高く育種されているが、低投入でも穂は形成される。収量は落ちるが、<strong>製品としては成立する</strong></li>
+<li><strong>近代米(コシヒカリ系)</strong> ── 同様。水田の生物的窒素供給である程度補える</li>
+<li><strong>大豆・豆類</strong> ── 根粒菌で N 自己固定、もともと低投入で育種</li>
+</ul>
+<p>実際、世界中で <strong>近代小麦の不耕起・カバークロップ大規模経営</strong> は広く実践されている。</p>
+<ul>
+<li><strong>Gabe Brown</strong>(ノースダコタ):近代小麦・大豆を 20 年以上不耕起・カバークロップで栽培、SOM を 1.7% → 5〜8% に向上(第6章)</li>
+<li><strong>オーストラリア</strong>:穀物作付面積の <strong>74% が不耕起</strong>(2016 年、豪統計局)、西オーストラリアでは 9 割超</li>
+<li><strong>アルゼンチン、カナダのプレーリー</strong>:同様に大規模な不耕起・カバークロップ穀物経営</li>
+<li><strong>Rodale Institute の 40 年長期試験</strong>:有機栽培の穀物収量は、
+5 年の移行期間を過ぎると慣行と統計的に同等、干ばつの年は上回る</li>
+</ul>
+<p>つまり、<strong>近代小麦は再生農業 × 機械化 × 大規模で十分に成立する</strong>。緑の革命品種だからといって、化学肥料前提と決めつける必要はない。窒素を入れれば最大収量が出るが、入れなくても穂は形成される。カバークロップ(マメ科)で N を補う、輪作で病害をかわす、不耕起で土壌を維持する ── これらの組み合わせで、規模を維持できる。</p>
+<p><strong>ただし、近代トウモロコシは別</strong></p>
+<p>近代トウモロコシ(デントコーン、スイートコーン F1)は、<strong>穀物の中でも特に窒素需要が大きく</strong>、低投入での収量低下が著しい。マメ科とのカバークロップ・輪作で部分的に補えるが、近代小麦ほどには低投入適性がない。緑の革命の中でも「窒素依存が極端な作物」として扱う方が正確である。</p>
+<p><strong>依存度には段階がある</strong></p>
+<table class="comparison-table fade-in">
+<thead>
+<tr>
+<th>段階</th>
+<th>作物</th>
+<th>化学肥料を抜くと</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>段階 A:製品が成立しない</td>
+<td>F1 キャベツ・タマネギ・F1 トマト・F1 葉物野菜・加工用ジャガイモ</td>
+<td>規格品にならない</td>
+</tr>
+<tr>
+<td>強い依存(中間)</td>
+<td>近代トウモロコシ</td>
+<td>収量大幅減</td>
+</tr>
+<tr>
+<td>段階 B:収量は落ちるが成立</td>
+<td>近代小麦、近代米、近代大豆</td>
+<td>7〜9 割で成立可</td>
+</tr>
+<tr>
+<td>段階 C:もともと低投入</td>
+<td>在来穀物、雑穀、マメ科、根菜、伝統野菜、果樹</td>
+<td>ほぼ影響なし</td>
+</tr>
+</tbody>
+</table>
+<p>自然農法で栽培しにくいのは、<strong>主に段階 A の作物</strong>である。段階 B は、適切な再生農業の管理(カバークロップ、輪作、不耕起、菌根菌活用)で規模生産が成立する。段階 C は、もともと低投入で作れる。</p>
+<h3>なぜ穀物・豆類は低投入で成立するか ── 菌根菌との共生</h3>
+<p>ここに <strong>植物学的な裏付け</strong> がある。第5章で見たとおり、植物の多くは菌根菌(マイコリザ)と共生して、土壌中のリン・窒素・ミネラルを受け取る能力を持つ ── 化学肥料がなくても、微生物が栄養を運んでくるしくみだ。</p>
+<p>そして、<strong>この共生能力には植物群によって大きな差がある</strong>。</p>
+<p><strong>イネ科</strong>(米、小麦、大麦、トウモロコシ、ライ麦、雑穀、牧草)</p>
+<ul>
+<li>アーバスキュラー菌根(AM)を <strong>強く形成</strong></li>
+<li>ほとんどのイネ科植物が、菌根菌のネットワークを介してリン・水・微量元素を効率的に集める</li>
+<li>これは進化的に深く根付いた共生関係であり、化学肥料が登場するずっと前から成立していた</li>
+</ul>
+<p><strong>マメ科</strong>(大豆、小豆、インゲン、エンドウ、クローバー、レンゲ、アルファルファ)</p>
+<ul>
+<li>AM 菌根との共生に加えて、<strong>根粒菌(rhizobium)</strong> との共生で
+<strong>空気中の窒素を直接固定</strong> する</li>
+<li>つまり <strong>二重の生物学的栄養供給</strong> ── 菌根菌でリン・微量元素、根粒菌で窒素 ── を持つ</li>
+<li>マメ科をカバークロップとして輪作すると、土壌に窒素が残り、次の穀物作にも効く</li>
+</ul>
+<p>つまり、穀物と豆類は <strong>進化的に「土壌微生物に外注する」体質に作られている</strong>。化学肥料がなくても、菌根菌と根粒菌が栄養を運んでくる。再生農業の不耕起・低投入・カバークロップと、<strong>生物学的に噛み合う</strong>。</p>
+<div class="quoteblock">
+<blockquote>
+<p>Gabe Brown のノースダコタの不耕起経営、オーストラリアの不耕起小麦地帯、戦前日本の稲作 ── すべて、イネ科とマメ科の菌根菌・根粒菌の力を、結果的に活かしてきた。</p>
+</blockquote>
+</div>
+<p>これが、第5章(土壌微生物という戦略)と直接つながる根拠である。</p>
+<p><strong>ブラシカ科・アカザ科は、植物学的に菌根菌と共生しない</strong></p>
+<p>逆に、段階 A の作物群が化学肥料に強く依存する理由も、ここにある。</p>
+<p>キャベツ・白菜・ブロッコリー・カリフラワー・ダイコン・カブなどの
+<strong>アブラナ科(ブラシカ科、Brassicaceae)</strong> は、<strong>菌根菌とほぼ共生しない</strong> 植物群である(Brundrett &amp; Tedersoo 2018 ほか。根に菌根菌を呼ぶ物質が無く、抗菌物質を出すため)。これは植物学的に確立した事実で、アブラナ科は進化の過程で菌根菌との共生関係をほぼ失った数少ない科のひとつ。</p>
+<p>その結果、</p>
+<ul>
+<li>土壌中のリンや微量元素を、菌糸ネットワーク経由で集められない</li>
+<li>自分の根が直接届く範囲の養分しか使えない</li>
+<li>養分を確保するには、<strong>外部から大量に与えるしかない</strong> ── 必然的に化学肥料への依存度が高くなる</li>
+<li>連作障害(根こぶ病)も、菌根菌のネットワークによる保護がない土壌で蔓延しやすい</li>
+</ul>
+<p>つまり、<strong>ブラシカ科は生物学的に「自然農法に向いていない」科</strong> である。F1 化育種でさらに化学肥料前提に追い込まれているが、依存性の下地は植物の科そのものにある。</p>
+<p>ホウレンソウ・テンサイの <strong>アカザ/ヒユ科(Amaranthaceae)</strong> も、同様に菌根菌と共生しないことが知られている。これらも自然農法では作りにくい部類に入る。</p>
+<h3>改良品種は、同じパターンに収束している</h3>
+<p>ここで一つ、品種改良の歴史的な構造に触れておく必要がある。</p>
+<p>F1 キャベツ、F1 タマネギ、F1 加工用トマト、加工用ジャガイモ ──
+これらは別々の作物だが、<strong>改良の方向性が驚くほど似ている</strong>。</p>
+<ul>
+<li><strong>大量・均質・規格品</strong> を作るために選抜</li>
+<li><strong>高肥料投入下で最大の収量と均質性</strong> を出すように育種</li>
+<li><strong>大規模機械化収穫に耐える形質</strong>(キャベツ:同時結球、タマネギ:
+同時倒伏、トマト:同時着色、ジャガイモ:同時肥大)を選抜</li>
+<li>結果として、<strong>外部から大量の化学肥料を入れる前提でしか性能が出ない</strong> 体質に収束</li>
+</ul>
+<p>20 世紀後半の品種改良は、化学肥料・農薬・機械化と一体で進められた。
+<strong>「改良された」とは、ほぼ「工業型農業に最適化された」と同義</strong> であった。緑の革命の小麦・トウモロコシ品種はその典型だが、野菜・イモ類でも同じ収束が起きた。</p>
+<p>その結果、ジャガイモの加工用品種、F1 タマネギ、F1 加工用トマト、
+F1 ブラシカ科野菜は、<strong>作物としては別物でも、化学肥料への依存性という点では兄弟のように似ている</strong>。これらをまとめて「段階 A」と扱うのは、品種改良の歴史的構造に基づく。</p>
+<p>逆に、<strong>在来種(伝統品種)に戻れば、低投入でもそれなりに作れる</strong>。</p>
+<ul>
+<li>在来種のジャガイモ(アンデス系、メークインなど古い品種):収量は落ちるが、低投入でも芋はできる</li>
+<li>在来種のキャベツ(縛らない結球種、古いヨーロッパ品種):結球はゆるいが食用にはなる</li>
+<li>在来種のトマト(固定種、家庭菜園向き):F1 ほど均質ではないが、低投入で作れる</li>
+</ul>
+<p>つまり、<strong>段階 A の作物群は「品種を在来に戻す」+「混植・輪作」 +「人手収穫」で、ある程度は作れる</strong>。ただし量は次節で見るとおり、工業型の 5〜10% 規模になる。</p>
+<h3>ブラシカ科・アカザ科を自然農法で作るには ── 混植と輪作、しかし生産量は激減する</h3>
+<p>「ブラシカ科やアカザ科は自然農法で作りにくい」と言ったが、<strong>ゼロではない</strong>。化学肥料という外部投入を使わずに、これらの非菌根菌作物を作る方法はある。ただし、<strong>規模は桁違いに小さくなる</strong>。</p>
+<p>主な手段は二つだ。</p>
+<p><strong>1. 混植(コンパニオンプランティング、intercropping)</strong></p>
+<p>菌根菌と強く共生する植物 ── イネ科、マメ科 ── を、ブラシカ科・アカザ科の作物と <strong>同じ畝、または隣り合う畝</strong> に植える。</p>
+<ul>
+<li>菌根菌ネットワークが周辺のイネ科・マメ科の根から広がる</li>
+<li>マメ科が固定した窒素が、土壌中で他の植物にも回る</li>
+<li>ブラシカ科は直接菌根菌と結ばないが、<strong>周囲の菌根菌活性が高い土壌</strong>
+から、根滲出液を介した養分循環で間接的に恩恵を受ける</li>
+<li>害虫の混乱効果も加わる(モンシロチョウなどがキャベツを見つけにくくなる)</li>
+</ul>
+<p>具体例:</p>
+<ul>
+<li>キャベツ + クローバー(マメ科)</li>
+<li>キャベツ + 麦類(イネ科)</li>
+<li>ホウレンソウ + ニンジン(セリ科)+ レタス(キク科)の混播</li>
+<li>キャベツ + ナスタチウム(花)で害虫対策</li>
+</ul>
+<p>伝統的なヨーロッパ家庭菜園、日本の在来畑、パーマカルチャーの実践として古くから知られている方法だ。</p>
+<p><strong>2. 輪作(crop rotation)</strong></p>
+<p>ブラシカ科・アカザ科を作る年と、土壌を回復する年を分ける。</p>
+<p>例として、7 年ローテーションの一例:</p>
+<table class="comparison-table fade-in">
+<thead>
+<tr>
+<th>年</th>
+<th>作物</th>
+<th>役割</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>クローバー(マメ科)</td>
+<td>N 固定、土壌回復</td>
+</tr>
+<tr>
+<td>2</td>
+<td>小麦(イネ科)</td>
+<td>菌根菌ネットワーク維持、収穫</td>
+</tr>
+<tr>
+<td>3</td>
+<td>ジャガイモ</td>
+<td>アブラナ科とは別の科で中休み</td>
+</tr>
+<tr>
+<td>4</td>
+<td>麦類 + クローバーミックス</td>
+<td>再度の N 蓄積</td>
+</tr>
+<tr>
+<td>5</td>
+<td>大豆(マメ科)</td>
+<td>N 固定、収穫</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>キャベツ・白菜</strong></td>
+<td>アブラナ科の年</td>
+</tr>
+<tr>
+<td>7</td>
+<td>ライ麦 + ヘアリーベッチ(カバークロップ)</td>
+<td>来年へ向けて</td>
+</tr>
+</tbody>
+</table>
+<p>この場合、<strong>キャベツを作れるのは 7 年に 1 度</strong> だけ。残りの 6 年は別の作物が同じ畑を使う。</p>
+<h3>結果 ── 生産量は工業型の 5〜10% 規模に</h3>
+<p>混植と輪作で、確かにブラシカ科・アカザ科を化学肥料なしで作ることはできる。しかし量を計算すると、</p>
+<ul>
+<li>単位面積あたりのブラシカ科の収量は、<strong>工業型の 3〜5 割</strong> 程度に落ちる(混植による株間スペース、低投入での生育。本稿の仮定)</li>
+<li>ローテーションで実際にブラシカ科を作るのは <strong>5〜7 年に 1 度</strong> だけ</li>
+<li>結果として、<strong>畑全体での年間ブラシカ科生産量は工業型の 5〜10% 程度</strong> にしかならない</li>
+</ul>
+<p>つまり、<strong>自然農法でこれらの作物を作ることは可能だが、量は桁違いに小さくなる</strong>。</p>
+<p>社会全体としてキャベツ・タマネギ・ホウレンソウを工業型と同じ規模で維持しようとすれば、<strong>5〜10 倍の農地</strong> が必要になる。日本ではそれは不可能だ(全耕地面積を超えてしまう)。</p>
+<h3>三軸まとめ ── 機械化 × 再生農業 × 化学肥料依存</h3>
+<p>ここまでの議論を、「機械化 × 再生農業 × 化学肥料依存」の三軸で評価し直すと、こうなる。</p>
+<table class="comparison-table fade-in">
+<thead>
+<tr>
+<th>作物</th>
+<th>機械化</th>
+<th>再生農業の原則</th>
+<th>化肥依存</th>
+<th>自然農法での総合</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>米(在来・現代品種)</td>
+<td>可</td>
+<td>両立</td>
+<td>低〜中</td>
+<td><strong>作れる(規模可)</strong></td>
+</tr>
+<tr>
+<td>近代小麦</td>
+<td>可</td>
+<td>両立</td>
+<td>中(段階 B)</td>
+<td><strong>作れる(規模可)</strong></td>
+</tr>
+<tr>
+<td>大豆・豆類</td>
+<td>可</td>
+<td>両立</td>
+<td>低(自己固定)</td>
+<td><strong>作れる(規模可)</strong></td>
+</tr>
+<tr>
+<td>伝統小麦・雑穀</td>
+<td>可</td>
+<td>両立</td>
+<td>低</td>
+<td><strong>作れる(規模可)</strong></td>
+</tr>
+<tr>
+<td>牧草・サイレージ</td>
+<td>可</td>
+<td>両立</td>
+<td>低</td>
+<td><strong>作れる(規模可)</strong></td>
+</tr>
+<tr>
+<td>近代トウモロコシ</td>
+<td>可</td>
+<td>両立</td>
+<td>高</td>
+<td>部分的に作れる(マメ科 CC で補完)</td>
+</tr>
+<tr>
+<td>サツマイモ</td>
+<td>半可</td>
+<td>衝突</td>
+<td>低</td>
+<td>作れる(人手)</td>
+</tr>
+<tr>
+<td>在来根菜</td>
+<td>半可</td>
+<td>衝突</td>
+<td>低</td>
+<td>作れる(人手)</td>
+</tr>
+<tr>
+<td>在来ジャガイモ</td>
+<td>半可</td>
+<td>衝突</td>
+<td>低〜中</td>
+<td>作れる(人手・小規模)</td>
+</tr>
+<tr>
+<td><strong>加工用ジャガイモ(現代品種)</strong></td>
+<td><strong>可</strong></td>
+<td><strong>衝突</strong></td>
+<td><strong>高(段階 A)</strong></td>
+<td><strong>作りにくい</strong></td>
+</tr>
+<tr>
+<td>加工用キャベツ(F1)</td>
+<td>可</td>
+<td>衝突(連作)</td>
+<td><strong>高(段階 A)</strong></td>
+<td><strong>作りにくい</strong></td>
+</tr>
+<tr>
+<td>タマネギ(F1)</td>
+<td>可</td>
+<td>衝突(連作)</td>
+<td><strong>高(段階 A)</strong></td>
+<td><strong>作りにくい</strong></td>
+</tr>
+<tr>
+<td>加工用トマト(F1)</td>
+<td>可</td>
+<td>衝突(連作)</td>
+<td><strong>高(段階 A)</strong></td>
+<td><strong>作りにくい</strong></td>
+</tr>
+<tr>
+<td>近代 F1 葉物野菜</td>
+<td>不可</td>
+<td>連作可だが地温不安定</td>
+<td><strong>高(段階 A)</strong></td>
+<td><strong>作りにくい</strong></td>
+</tr>
+</tbody>
+</table>
+<p>「作りにくい」と評価される作物は、</p>
+<ul>
+<li>化学肥料が高騰すれば収量が落ちる(肥料制約)</li>
+<li>再生農業の原則と機械化が衝突する</li>
+<li>ローテーションで生産密度が下がる</li>
+<li>F1 種子の供給そのものも化学肥料前提に乗っている</li>
+</ul>
+<p>の <strong>複合的な圧力</strong> を受ける。これらは、<strong>工業型でも作りにくくなり、かつ自然農法でも作りにくい</strong> 作物である。</p>
+<p>社会全体としてこれらの作物の生産量は、<strong>長期的に減少していく方向にしか動けない</strong>。</p>
+<h3>食卓そのものが、構造的に変わる</h3>
+<p>ここから出てくるのは、<strong>食卓そのものが構造的に変わる</strong> という見通しである。</p>
+<p>化学肥料・大規模機械化・連作を前提にして、<strong>段階 A の作物が安価に大量供給されてきた</strong> 構造 ── これは細る。</p>
+<ul>
+<li>加工用トマト(ケチャップ、ピザソース、トマト缶)</li>
+<li>加工用キャベツ(冷凍野菜、サラダミックス)</li>
+<li>タマネギ(あらゆる加工食品の基礎)</li>
+<li>F1 ハイブリッド葉物野菜</li>
+<li>ジャガイモ(現代品種、加工食品向け)</li>
+</ul>
+<p>これらは、現状の価格・量では維持できなくなる方向に動く。</p>
+<p>一方、<strong>穀物・大豆・牧草</strong> は世界が再生農業に移っても、規模生産が維持される。米国・カナダ・豪州・ウクライナの近代小麦・大豆・牧草の不耕起経営は、すでに大規模に成立している。日本の食卓を支える</p>
+<ul>
+<li>米、小麦製品(パン、麺類)</li>
+<li>大豆製品(味噌、納豆、豆腐、醤油)</li>
+<li>牧草由来の畜産物(乳製品、放牧肉)</li>
+</ul>
+<p>の主要部分は、自然農法・再生農業の枠組みでも維持できる。</p>
+<p>加えて、自然農法で作りやすい</p>
+<ul>
+<li>雑穀、伝統穀物</li>
+<li>サツマイモ、伝統根菜</li>
+<li>季節の山菜、ハーブ</li>
+<li>季節の魚、山で採れるキノコ・木の実</li>
+</ul>
+<p>が、相対的に重みを増す。</p>
+<p>総じて、食卓は「段階 A の F1 重肥料食い加工食品」中心の戦後構造から、
+<strong>穀物 + 豆 + 根菜 + 季節野菜</strong> という、より素朴な構造へ向けて再編される。これは結果的に、戦後の食生活が始まる前 ── 和食の基本構造
+── に近づいていく。</p>
+<p>第4章で触れた戦時英国の例も同じだった。<strong>配給制下で英国の栄養状態が改善した</strong> のは、加工肉・加工小麦への依存を下げ、根菜・豆・牛乳・穀物への依存を上げた結果である。「量が減ること」と「栄養が落ちること」は同じではない。</p>
+<div class="quoteblock">
+<blockquote>
+<p>化学肥料・機械化・連作のすべてが効いていた時代の食卓は、その時代と一緒に終わる。残るのは、もっと素朴で、しかし栄養としては十分な、伝統食の核心である。</p>
+</blockquote>
+</div>
+<h3>これは日本だけの話ではない ── 世界的な野菜不足が起きる</h3>
+<p>ここまでの分析は日本の文脈で書いてきたが、論理を構成する要素はすべて <strong>世界共通</strong> である。</p>
+<ul>
+<li>化学肥料の供給制約(中国の輸出規制、低品位鉱石、硫黄問題)── 世界共通</li>
+<li>改良品種の高肥料依存性 ── 世界中の商業農地で共通</li>
+<li>ブラシカ科・アカザ科が菌根菌と共生しない ── 植物学的事実</li>
+<li>機械化による土壌撹乱、連作障害 ── 物理的・生態学的事実</li>
+</ul>
+<p>つまり、<strong>段階 A の作物(F1 キャベツ・タマネギ・加工用トマト・加工用ジャガイモ等)が大量生産できなくなる現象は、世界中どこでも起きる</strong>。</p>
+<p>米国でも、欧州でも、メキシコでも、中国でも、同じ圧力がかかる。</p>
+<h3>世界的な野菜不足の構造</h3>
+<p>具体的に何が起きるか。</p>
+<p><strong>1. 主要産地の生産量が落ちる</strong></p>
+<ul>
+<li>米国カリフォルニア(レタス、ブロッコリー、加工用トマト):水資源制約 + 肥料制約</li>
+<li>メキシコ(米国向け冬野菜):同じ肥料制約</li>
+<li>スペイン・オランダ(欧州向け野菜):同じ</li>
+<li>中国(世界最大の野菜生産国):自国優先 + 肥料制約</li>
+</ul>
+<p><strong>2. 輸出余力がなくなる</strong></p>
+<p>各国は自国民の食料供給を優先する。輸出に回せる量が減る。
+<strong>米国ですら、生鮮野菜の約 30% を輸入</strong> している(7.3 で見たとおり)
+── その輸入元(主にメキシコ)が細れば、米国の店頭から冬野菜が消える。</p>
+<p><strong>3. 季節輸送野菜から早く崩れる</strong></p>
+<p>冬に温暖な地域(メキシコ、南欧、北アフリカ)から運んでくる <strong>冬の生鮮野菜</strong> ── これは肥料 + 輸送 + 労働力 + 機械化のすべてに依存している ── が、最も早く構造的に細る。</p>
+<p>各地域は、自分のところで作れる季節の野菜に回帰せざるを得ない。</p>
+<p><strong>4. 価格が世界的に上がる</strong></p>
+<p>供給が細れば、世界市場の野菜価格は上昇する。日本の輸入野菜の価格にも直撃する。</p>
+<h3>日本の選択肢は限られる</h3>
+<p>世界中で野菜供給が細るなら、日本が「足りなければ輸入で凌ぐ」と言っても、<strong>買える野菜がない、あるいは桁違いに高価になる</strong> という状況に近づく。</p>
+<p>第4章で確認した「不足分は輸入で補う」という戦略は、</p>
+<ul>
+<li><strong>穀物・豆類・畜産物</strong>:成立する(イネ科・マメ科は世界中で再生農業 × 機械化で作り続けられる)</li>
+<li><strong>野菜・果実</strong>:<strong>成立しにくくなる</strong>(段階 A の作物が世界的に細る、非機械化作物は世界中で人手不足)</li>
+</ul>
+<p>国内で人手で作るしかない。そしてそれは、<strong>多くの人が、それぞれの規模で関わる</strong> 食料生産でしかできない。</p>
+<div class="quoteblock">
+<blockquote>
+<p>「できるだけ多くの人が食料生産に関わる」という命題は、日本の食料安全保障の話だけではない。
+<strong>世界的な野菜供給制約への、唯一の現実解</strong> でもある。</p>
+</blockquote>
+</div>
+<p>世界中で同じ圧力が同時にかかるとき、輸入で逃げ切れる国はなくなる。それぞれの国・地域・コミュニティが、自分のところで人手で作る方向にシフトする。これは日本特有の課題ではなく、<strong>世界規模で起きる食料生産の再分散</strong> の一部である。</p>
+<h2>7.3 当面は輸入で凌ぐ ── ただし無限には続かない</h2>
+<p>国内の大規模農業が縮小し、小規模分散型への移行に時間がかかるあいだ、不足分はどう埋めるか。</p>
+<p>答えはひとつしかない。<strong>当面は輸入で凌ぐ</strong>。</p>
+<p>幸い、世界には日本よりはるかに豊かな農地を持つ国がある。米国(中西部の大平原)、ウクライナ(黒土地帯)、カナダ、オーストラリア、ブラジル ── これらの国は、</p>
+<ul>
+<li>連続した平野</li>
+<li>肥沃な表土(特にウクライナの黒土は世界有数)</li>
+<li>機械化に向いた地形</li>
+<li>もともと肥料投入量が(日本より)少なくても収量が出る</li>
+</ul>
+<p>という条件を備えている。</p>
+<p>肥料制約の影響を受けるのは世界共通だが、<strong>もともと土壌が豊かな地域ほど、影響は相対的に軽い</strong>。日本のように肥料投入を抜くと収量崩壊する構造になっていない国もある。</p>
+<p>だから、<strong>当面の数年〜十数年は、これらの国からの輸入で日本の食卓を支えること自体は、現実的な選択</strong> である。これを否定する必要はない。</p>
+<div class="quoteblock">
+<blockquote>
+<p>工業型農業が崩れる移行期、輸入は社会の緩衝材として機能する。これを使うこと自体は、現実的で合理的である。</p>
+</blockquote>
+</div>
+<p>しかし、<strong>それは無限に続くわけではない</strong>。そして、<strong>「輸出国は自国で全部作っている」という前提も、実は成立していない</strong>。</p>
+<h3>米国でさえ、野菜は輸入している</h3>
+<p>意外に思われるかもしれないが、<strong>世界最大級の農業国である米国も、野菜の相当部分を輸入している</strong>。</p>
+<p>米国農務省 (USDA) の統計によれば、</p>
+<ul>
+<li><strong>米国の生鮮野菜の 35% は輸入</strong>(2023 年)</li>
+<li><strong>生鮮果実は 59% が輸入</strong>(同年。農務省 ERS)</li>
+<li>主要な輸入元は <strong>メキシコ</strong>(トマト、ピーマン、きゅうり、ズッキーニ、ベリー類など)、次いで <strong>カナダ、グアテマラ、コスタリカ、ペルー</strong> など</li>
+<li>冬季には特に輸入比率が高くなる(米国本土が低温で野菜を作れない時期)</li>
+</ul>
+<p>つまり、</p>
+<div class="quoteblock">
+<blockquote>
+<p>米国は <strong>穀物・大豆・食肉の輸出大国</strong> ではあっても、
+<strong>野菜・果実は輸入大国</strong> でもある。</p>
+</blockquote>
+</div>
+<p>これは、現代の食料供給が <strong>グローバルに分業されている</strong> ことを示している。肥沃な平野を持つ米国でさえ、野菜まで全部自国で作っているわけではない。
+<strong>冬の野菜は、温暖なメキシコや中米から運んでくる方が合理的だから</strong>、そうしている。</p>
+<p>オーストラリアも、欧州諸国も、状況は似ている。「自国で完全に食料自給している国」は、現代世界にはほぼ存在しない。</p>
+<h3>この事実が示すこと</h3>
+<p>ここから二つのことが言える。</p>
+<p><strong>一つ目:日本だけが特殊なわけではない</strong></p>
+<p>「日本は食料自給率が低い」という議論は、しばしば日本を異常事態のように描く。しかし、現代の食料供給はそもそもグローバルに編まれている。米国も、欧州も、カナダも、自国で作れないものは輸入している。</p>
+<p>日本が輸入に頼っていること自体は、現代の食料システムでは普通の姿である。問題は <strong>輸入の安定性が崩れていく局面に入ったこと</strong> であって、輸入そのものが悪いわけではない。</p>
+<p><strong>二つ目:しかし、その網は思ったより細い</strong></p>
+<p>米国がメキシコから野菜を輸入しているように、各国の食料供給は
+<strong>互いに依存しあった細い網</strong> で成り立っている。気候、戦争、貿易摩擦、通貨、エネルギー価格 ── どれかが崩れれば、網のどこかが切れる。</p>
+<p>米国がメキシコから野菜を取れなくなれば、米国の店頭から冬野菜が消えるかもしれない。すると米国は他の国から買おうとする。世界市場の野菜の価格が上がる。日本にも余波が来る。</p>
+<div class="quoteblock">
+<blockquote>
+<p>食料は、産地から食卓まで、見えにくい長い網でつながっている。その網は、平時には機能する。しかし切れやすい。</p>
+</blockquote>
+</div>
+<h3>輸入が永続できない 4 つの理由</h3>
+<p><strong>理由 1:輸出国も自国優先に動く</strong></p>
+<p>第1章で見た中国の輸出規制と同じ動きが、食料についても起きうる。米国もウクライナも、自国民の食料安全保障を脅かしてまで、輸出を続ける義理はない。<strong>気候変動、戦争、政変、疫病</strong> ── 何かのショックで輸出制限がかかれば、日本に来る量は急減する。</p>
+<p>過去にもこれは何度も起きてきた。米国の大豆輸出禁止(1973 年)、ロシアの小麦輸出制限(2010 年)、ウクライナ戦争による穀物輸出停止
+(2022 年)── 食料の輸出は、平時の構造に過ぎず、有事には止まる。</p>
+<p><strong>理由 2:肥料制約は世界共通</strong></p>
+<p>肥料が高騰しているのは日本だけではない。米国も、欧州も、新興国も同じだ。世界全体で工業型農業の収支が崩れていけば、輸出国の生産量そのものが減る。<strong>売る量が減れば、価格は上がる</strong>。</p>
+<p>ウクライナの黒土地帯は確かに豊かだが、戦争・地政学の不安定さが加わる。米国も、エネルギー価格と肥料価格が上がれば、輸出余力は減る。</p>
+<p><strong>理由 3:地政学と輸送</strong></p>
+<p>食料は船で運ばれてくる。ホルムズ海峡、マラッカ海峡、スエズ運河、パナマ運河 ── これらの輸送ルートに何か起きれば、食料も止まる。</p>
+<p>中東情勢、南シナ海、台湾海峡、北極海ルート ── 21 世紀の地政学は、食料輸送の安定を保証してくれない。<strong>「払えば来る」前提は、平時のものでしかない</strong>。</p>
+<p><strong>理由 4:価格が家計を圧迫する</strong></p>
+<p>仮に物理的には輸入できても、<strong>価格が家計を直撃する</strong> という形で制約が来る。輸入肉、輸入小麦、輸入大豆、輸入飼料 ── これらが 2 倍、
+3 倍になれば、低所得層から食生活が崩れる。</p>
+<p>「輸入できる」と「庶民が買える」は別の話である。</p>
+<h3>輸入が続く時間は、移行の猶予期間</h3>
+<p>ここから出てくる結論は、こうなる。</p>
+<div class="quoteblock">
+<blockquote>
+<p><strong>輸入が続いている時間は、分散型食料生産を立ち上げるための猶予期間である</strong>。</p>
+</blockquote>
+</div>
+<p>輸入が続いているうちに、</p>
+<ul>
+<li>専業農家の微生物型農業への移行を完了する</li>
+<li>退職者・移住者の小規模生産を立ち上げる</li>
+<li>耕作放棄地の再生を進める</li>
+<li>都市部世帯のベランダ菜園・市民農園を広げる</li>
+<li>種子バンク、流通網、地域インフラを整える</li>
+</ul>
+<p>これらを <strong>間に合わせる</strong> 必要がある。</p>
+<p>輸入の蛇口が細くなったときに、慌てて始めても遅い。土作りには年単位の時間がかかる(第6章 Gabe Brown の事例)。土壌が整っていない畑で急に始めても、最初の数年は収量が出ない。</p>
+<p>つまり、</p>
+<ul>
+<li>いまは「輸入が当面ある」時代</li>
+<li>しかしその時間は、何もしないために使う時間ではなく、</li>
+<li><strong>次の体制に移行するために使う時間</strong> である。</li>
+</ul>
+<p>これが、輸入と国内生産を組み合わせた現実的な戦略の核心である。</p>
+<h2>7.4 「できるだけ多くの人が、できるだけの規模で」</h2>
+<p>では、誰が、どれだけ作るのか。</p>
+<p>答えは、こうなる。</p>
+<div class="quoteblock">
+<blockquote>
+<p><strong>できるだけ多くの人が、できるだけの規模で関わる</strong>。</p>
+</blockquote>
+</div>
+<p>具体的には、</p>
+<ul>
+<li>専業農家は専業のまま、ただし化学肥料に依存しない方向に移行する</li>
+<li>退職者、副業者、移住者が、一反前後の小規模生産を始める</li>
+<li>都市部の家庭は、ベランダや市民農園で野菜の一部を作る</li>
+<li>学校、企業、NPO が、教育・研修・社会活動として畑を持つ</li>
+<li>飲食店、宿、福祉施設が、自前の畑で食材の一部を確保する</li>
+</ul>
+<p>すべての層が、それぞれ無理のない規模で、食料生産に関わる。一人ひとりの規模は小さくても、<strong>社会全体として積み上がれば、食料供給の柱になる</strong>。</p>
+<p>これは「自給自足の理想」を語っているのではない。第4章で確認したとおり、私たちは完全自給を目指さない。世界市場には飼料・燃料用の余裕があり、不足分は輸入で補える ── ただし、それは 7.3 で見たように、当面のあいだだけだ。</p>
+<p><strong>国内で何も作らないでよい</strong> という話ではない。専業農家が減る局面では、誰かが代わりに作らなければ、国内生産そのものが消える。
+<strong>輸入と国内生産は、両方が存在して初めて、食料供給は安定する</strong>。</p>
+<div class="quoteblock">
+<blockquote>
+<p>「全員が農業をやる」のではない。「多くの人が、自分の規模で、何かを作る」。一人ひとりは小さくても、合算すれば社会の柱になる。</p>
+</blockquote>
+</div>
+<p>これが、工業型農業が崩れる局面での、現実的な分散戦略である。</p>
+<h2>7.5 福岡正信の「一反百姓」 ── 個人スケールの最小単位</h2>
+<p>スケールの目安として、福岡正信氏が提示した <strong>一反百姓</strong> の発想がある。</p>
+<p>一反は約 10 アール、つまり 1,000 平方メートル。30m × 33m 程度の広さである。</p>
+<p>福岡氏は、四国・伊予で長年実践してきた経験から、『わら一本の革命』でこう書いている。</p>
+<div class="quoteblock">
+<blockquote>
+<p>一反(4 分の 1 エーカー)の田から米 22 ブッシェル(約 590 kg)と裏作の麦 22 ブッシェルが取れれば、その田は一人一日 1 時間足らずの労働で 5〜10 人を養う。一人に一反ずつあれば、一年を暮らすのに十分すぎる。</p>
+</blockquote>
+</div>
+<p>この主張は、戦後農業の常識からすると小さすぎる。慣行農法の専業農家は、1 ヘクタール(10 反)以上を耕作するのが普通だ。1 反では「家庭菜園」の延長としか見られない。</p>
+<p>しかし、福岡氏が言っているのは違う。</p>
+<ul>
+<li><strong>不耕起、無除草、無肥料</strong> で、米と麦の二毛作ができる</li>
+<li>土壌が肥沃になれば、慣行農法と遜色ない収量が出る</li>
+<li>機械を使わないので、コストはほとんどかからない</li>
+<li><strong>一家族の主食を 1 反でまかなえる</strong></li>
+</ul>
+<p>これが本当なら、経済モデルとしての意味は大きい。</p>
+<h3>一反の経済性</h3>
+<p>仮にこれを現代の数字で考えてみる(かなり概算)。</p>
+<table class="comparison-table fade-in">
+<thead>
+<tr>
+<th>項目</th>
+<th>工業型 1 反</th>
+<th>自然農 1 反</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>機械費</td>
+<td>年 5 万円</td>
+<td>ほぼ 0</td>
+</tr>
+<tr>
+<td>肥料</td>
+<td>年 1.5〜3 万円</td>
+<td>0</td>
+</tr>
+<tr>
+<td>農薬</td>
+<td>年 1 万円</td>
+<td>0</td>
+</tr>
+<tr>
+<td>燃料</td>
+<td>年 0.8 万円</td>
+<td>0</td>
+</tr>
+<tr>
+<td>種苗</td>
+<td>年 0.5〜1 万円</td>
+<td>自家採種(0)〜少額</td>
+</tr>
+<tr>
+<td>労働時間</td>
+<td>年 200〜300 時間</td>
+<td>年 100〜200 時間</td>
+</tr>
+<tr>
+<td>米収量</td>
+<td>年 約 530 kg(令和 5 年産の全国平均)</td>
+<td>年 300〜400 kg と置く(福岡氏自身は約 590 kg を報告)</td>
+</tr>
+<tr>
+<td>食料価値</td>
+<td>一家族の主食</td>
+<td>一家族の主食</td>
+</tr>
+<tr>
+<td>必要支出</td>
+<td>年 8〜10 万円</td>
+<td>年 1〜2 万円</td>
+</tr>
+</tbody>
+</table>
+<p>(数値はすべて本稿の概算。米の慣行収量は農林水産省の作況統計、福岡氏の収量は『わら一本の革命』)</p>
+<p>収量は、本稿では保守的に工業型より低く置いた。しかしコストも下がる。<strong>一家族が食べる分だけ作る</strong> という視点で見れば、コストの低さの方が効いてくる。</p>
+<div class="quoteblock">
+<blockquote>
+<p>「商品作物」として考えると、慣行農法より儲からない。「家族の食料」として考えると、慣行農法よりずっと安く済む。</p>
+</blockquote>
+</div>
+<p>このスケールでの実装は、<strong>自分と家族の食料を自分で確保する</strong> ための保険として、強い意味を持つ。</p>
+<p>そして社会全体で見れば、<strong>こうした一反規模の生産者が無数に存在すること</strong> が、専業農家の減少を補う柱になる。</p>
+<h2>7.6 耕作放棄地の活用 ── MAFF 統計で見る現実</h2>
+<p>第3章で日本の耕作放棄地について触れた。ここで、農林水産省の最新統計に基づく <strong>正確な定義</strong> を確認しておく。</p>
+<table class="comparison-table fade-in">
+<thead>
+<tr>
+<th>MAFF 統計項目</th>
+<th>面積・規模</th>
+<th>調査年</th>
+<th>意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>全国の耕地面積</td>
+<td><strong>423.9 万 ha</strong></td>
+<td>2025 年</td>
+<td>2016 年の 447.1 万 ha から持続的に減少傾向</td>
+</tr>
+<tr>
+<td><strong>再生利用が可能な荒廃農地</strong></td>
+<td><strong>9.8 万 ha</strong></td>
+<td>2024 年度</td>
+<td>抜根・整地・区画整理など通常の農作業によって再び耕作が可能と見込まれる土地(遊休農地)</td>
+</tr>
+<tr>
+<td>1 経営体当たりの経営規模</td>
+<td>3.6 ha</td>
+<td>2025 年</td>
+<td>北海道(33.7ha)を除き、都府県では平均 <strong>2.6 ha</strong> と極めて小規模・分散型</td>
+</tr>
+</tbody>
+</table>
+<p><code>[出典:農林水産省統計、2024-2025]</code></p>
+<p>留意すべきは、MAFF が「<strong>再生利用が可能(通常の農作業で復旧可能)</strong>」と厳密に定義している荒廃農地の面積は、直近の 2024 年度データで
+<strong>9.8 万 ha</strong> であるという事実である。一般に語られる <strong>「42 万 ha」</strong>
+という数字は、この「再生利用が可能な農地(9.8 万 ha)」に加えて、
+<strong>森林化が進行し、もはや通常の農作業では再生利用が困難と分類された荒廃農地(非再生利用可能農地)</strong> を含む、<strong>過去から累積した荒廃農地の「総面積」</strong> を指している可能性が高い。</p>
+<p>ただし、このデータの定義の揺れは、本シリーズの主張の論理性を損なうものではない。むしろ、</p>
+<div class="quoteblock">
+<blockquote>
+<p>慣行的な工業型農業の観点からは「再生困難(莫大な土木工事費用や化学肥料の大量投入が必要)」と見なされる森林化しつつある土地であっても、Tony Rinaudo の <strong>FMNR(切り株を活用した自然再生)</strong> や福岡正信の自然農法(不耕起・無除草で自然の遷移を利用するアプローチ)
+の枠組みを適用すれば、<strong>莫大な資本を投じることなく、生態学的な生産拠点として段階的に活用できる</strong>。</p>
+</blockquote>
+</div>
+<p>加えて、日本の 1 経営体当たりの平均耕地面積が 3.6 ha(都府県では
+2.6 ha)と極めて小規模であることは、<strong>巨大な機械や大量の化学肥料を前提とするアメリカ型の工業的モノカルチャーには構造的に不適切</strong> であることを示している。この物理的制約は、本シリーズが提唱する <strong>「一反百姓(約 0.1 ヘクタール規模のマイクロ農業)」というモデルの妥当性を逆説的に裏付けている</strong>。</p>
+<p>小規模分散型の農地において、外部入力(購入コスト)を極限までゼロに近づけ、「やらないこと(無除草など)」を合理的な経済的選択とする運用原理は、<strong>高コスト時代における局所的な生存戦略として極めて理にかなっている</strong>。</p>
+<p>この耕作放棄地は、いまの工業型農業では「再生する経済的合理性がない」土地である。だから放棄されている。</p>
+<p>しかし、微生物型農業の視点では、これは違って見える。</p>
+<ul>
+<li>耕運も化学肥料も使わないので、初期投資が少ない</li>
+<li>数年かけて土壌微生物を回復させればよい(時間はかかるが、お金はかからない)</li>
+<li>山間部の小さな田畑は、もともと多様な植物相に恵まれている</li>
+<li>機械が入れない地形でも、人手で十分に管理できる</li>
+</ul>
+<p>要は、<strong>工業型農業のスケールでは合わない土地が、微生物型農業のスケールでは生き返る</strong> ということだ。</p>
+<p>これは過去にも、同じ構造が見られた。日本の里山は、長い間「経済的に儲からないから放棄」されてきた。しかし、再生エネルギー(薪、木質バイオマス)、観光、教育の文脈で再評価されるようになった。
+<strong>土地の価値は、何の経済モデルで測るかで変わる</strong>。</p>
+<p>耕作放棄地も同じだ。工業型では負債、微生物型では資産になりうる。</p>
+<h3>誰がやるか</h3>
+<p>耕作放棄地の再生は、専業農家だけがやるものではない。</p>
+<ul>
+<li>退職後の二地域居住者</li>
+<li>都市から移住する若い家族</li>
+<li>副業として小規模に取り組む現役世代</li>
+<li>NPO、市民団体、教育機関</li>
+<li>里山保全活動と組み合わせるグループ</li>
+</ul>
+<p>これらの主体が、それぞれ無理のない規模で、少しずつ再生していく。一気に全国を再生する必要はない。10 年単位で、徐々に増えればよい。</p>
+<p>ただし、<strong>遅すぎてもいけない</strong>。耕作放棄地は、放置の年月が長くなるほど森に戻る。再生のコストは時間とともに上がる。動ける人は、いま動き始めるのが合理的である。</p>
+<h2>7.7 ベランダ菜園と都市の小空間</h2>
+<p>さらに小さなスケールでは、<strong>ベランダ菜園、屋上菜園、市民農園</strong>
+というレベルがある。</p>
+<p>「ベランダで野菜を作っても、たかが知れているじゃないか」── そう言いたくなる。確かに、量の話ではない。一家族が食べる野菜の何 % かにしかならない。</p>
+<p>しかし、ここにこそ重要な意味がある。</p>
+<p><strong>意味 1:多くの世帯が関われる唯一のスケール</strong></p>
+<p>専業農家になれる人は限られる。一反の畑を持てる人もそう多くはない。
+<strong>都市部の集合住宅に住む大多数の世帯にとって、関われる唯一のスケールがベランダや市民農園</strong> である。</p>
+<p>ここを動かさなければ、多数派の世帯は食料生産から完全に切り離されたままになる。それは、社会全体としての生産能力の底を細くする。</p>
+<p><strong>意味 2:微生物型農業のスキルを学ぶ場</strong></p>
+<p>ベランダのプランターでも、土壌微生物の動きは観察できる。コンポストを使う、生きた根を絶やさない、化学肥料を使わない ── これらの原則を小さな規模で身につけることができる。</p>
+<p>将来、自分が一反百姓に乗り出すとき、あるいは耕作放棄地を再生するとき、ここで学んだスキルが効いてくる。<strong>ベランダは、より大きなスケールへの入口</strong> でもある。</p>
+<p><strong>意味 3:価格高騰に対する家計の緩衝</strong></p>
+<p>野菜の輸入価格、国産価格が上がる中で、ベランダ菜園で <strong>キュウリ、トマト、ハーブ、葉物野菜</strong> を作るだけでも、家計にとっての緩衝材になる。</p>
+<p>特に、傷みやすい葉物(レタス、サラダ菜、バジル、ミント、シソ)は、スーパーで買うと割高だが、ベランダで小さく作るのは易しい。</p>
+<p><strong>意味 4:食と農の関係を再構築する</strong></p>
+<p>これは数字に乗らない側面だが、無視できない。</p>
+<p>子どもや大人が、自分の食べるものがどこから来るかを <strong>物理的に体験する</strong> ことには、長期的な意味がある。<strong>食料は自然から来る、土と微生物が育てる</strong>、ということを、頭ではなく手で知ることになる。</p>
+<p>これは食料・農業政策の理解度を、社会全体として底上げする効果がある。</p>
+<h2>7.8 専業・兼業・自給 ── スケールの三層が、すべて必要</h2>
+<p>実装をスケール別に整理すると、こうなる。</p>
+<table class="comparison-table fade-in">
+<thead>
+<tr>
+<th>スケール</th>
+<th>担い手</th>
+<th>規模</th>
+<th>役割</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>専業</td>
+<td>プロ農家</td>
+<td>数反〜数 ha</td>
+<td>商品作物、地域の食料供給の中核</td>
+</tr>
+<tr>
+<td>兼業・小規模</td>
+<td>移住者、副業者、退職者</td>
+<td>一反前後</td>
+<td>家族の主食 + 余剰の販売・物々交換</td>
+</tr>
+<tr>
+<td>自給・補助</td>
+<td>一般家庭、団体</td>
+<td>プランター〜数十坪</td>
+<td>家計の緩衝、教育、関わりの場</td>
+</tr>
+</tbody>
+</table>
+<p>ここで強調したいのは、</p>
+<div class="quoteblock">
+<blockquote>
+<p><strong>どの層が欠けても、社会全体としての食料生産は成立しない</strong>。</p>
+</blockquote>
+</div>
+<p>ということだ。</p>
+<ul>
+<li>専業の層が消えれば、安定した量の供給がなくなる</li>
+<li>兼業・小規模の層がなければ、専業の減少を埋められない</li>
+<li>自給・補助の層がなければ、多数派世帯が食料生産から切り離される</li>
+</ul>
+<p>工業型農業の時代は、専業の層だけで成立していた。それは化学肥料・輸入・人口増という条件があったからだ。<strong>それらの条件が崩れたあとは、三層がすべて積み上がって初めて、社会の食料供給が維持される</strong>。</p>
+<p>すべての層を同じ人がやる必要はない。専業農家は専業で、副業者は副業で、家庭は家庭で、自分の規模に合った形でやる。<strong>ただし、何もやらない人 ── 純粋な消費者だけの存在 ── が大多数のままでは、社会が崩れる</strong>。</p>
+<h2>7.9 移行のタイムライン</h2>
+<p>化学肥料に依存していた土から、微生物型農業の土に移るには時間がかかる。ただし、<strong>転換の方法を選べば、その時間は大幅に短縮される</strong>。</p>
+<h3>単一作物のまま化学肥料を抜く場合(誤った転換)</h3>
+<ul>
+<li>1 年目:収量は大きく落ちる</li>
+<li>2〜3 年目:菌根菌が再構築されない、収量低迷</li>
+<li>4〜5 年目:ようやく回復の兆し</li>
+<li>5〜10 年目:慣行水準に戻る</li>
+</ul>
+<p>これでは長く厳しい「我慢」の期間が必要になる。</p>
+<h3>多種類の混植で転換する場合(正しい転換)</h3>
+<p>イネ科 + マメ科 + 強靭な作物 + 多様な被覆作物を <strong>混植</strong> すれば、</p>
+<ul>
+<li>1 年目:マメ科の根粒菌が窒素を固定、イネ科が AM 菌(アーバスキュラー菌根菌)ネットワークを急速に立ち上げる</li>
+<li>2 年目:菌糸ネットワークが広がり、蓄積リン(レガシーリン)を動員し始める</li>
+<li><strong>3 年目:土壌微生物相が機能的に回復</strong>、収量も実用水準に戻る</li>
+<li>4 年目以降:継続的に土壌が豊かになり、収量と品質が安定する</li>
+<li>10 年目以降:慣行農法を超える水準に到達(Rodale の 40 年試験では、5 年の移行期間を過ぎると収量は慣行と統計的に同等になり、干ばつの年は上回る)</li>
+</ul>
+<div class="quoteblock">
+<blockquote>
+<p>「短期収量崩壊リスク」は <strong>転換の方法に依存する</strong>。多種類の混植で <strong>菌根菌と根粒菌の生物学的ネットワーク</strong> を素早く立ち上げれば、3 年で実用水準に戻る。「我慢の期間」は最小化できる。</p>
+</blockquote>
+</div>
+<h3>移行ペナルティ(Transition Penalty)の実証データ</h3>
+<p>「化学肥料を急停止すると初期数年は収量が低下する」── この現象は
+<strong>移行ペナルティ(Transition Penalty)</strong> として広く認識されており、大規模なメタアナリシスで実証されている。</p>
+<p><strong>Pittelkow ら(2015 年)のメタアナリシス</strong>:48 の作物・63 か国にわたる <strong>610 の研究から得られた 5,463 ペア年</strong> の観測データに基づく:</p>
+<ul>
+<li>不耕起栽培への移行は、初期段階において明確な収量低下をもたらす</li>
+<li>不耕起への移行により綿花の種子収量が慣行耕起と比較して <strong>6%〜 20% 低下</strong>、劣化した土壌からスタートした場合には最大 <strong>25%</strong> の収量ペナルティが記録された</li>
+<li>作物の草丈も 9〜13% 低くなる</li>
+</ul>
+<p>重要な点として、<strong>この移行初期における収量低下は、化学肥料の投入量を単に増やすことでは克服できない</strong>ことが判明している。土壌の物理的・生物学的な機能不全が根本原因であり、その根本原因を解消するのが
+<strong>多様なカバークロップ</strong> である。</p>
+<h3>多様なカバークロップによる回復プロセスの劇的加速</h3>
+<p>慣行的な休閑(ベアソイル)放置や、単一品種の緑肥(モノカルチャー・カバークロップ)への依存では、土壌の生物学的機能の回復に <strong>3〜6 年以上</strong> を要する。しかし、近年、<strong>多様な植物種を高度に混植したカバークロップ(Diverse / Multispecies Cover Crops)</strong> を用いることで、この生物学的タイムラグを劇的に短縮し、<strong>約 3 年で土壌生態系を実用・経済レベルまで回復させることが可能</strong> であるとの強力な科学的知見と実証データが蓄積されている。</p>
+<p>その加速の核心にあるメカニズムが、植物種の多様性が生み出す <strong>ニッチ補完性(Niche Complementarity)</strong> と、それに伴う土壌微生物相の爆発的な活性化である。</p>
+<h3>4 つの機能群によるニッチ補完性</h3>
+<p>複数の異なる植物機能群(Functional Groups)を同一圃場に同時に播種・栽培することで、土壌の空間的および機能的な「ニッチ補完性」が強力に発揮される。</p>
+<table class="comparison-table fade-in">
+<thead>
+<tr>
+<th>機能群</th>
+<th>代表的な植物種</th>
+<th>生態学的機能・遺産リン動員への貢献</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>イネ科(Grasses)</strong></td>
+<td>オーツ麦、ライ麦、ソルガム</td>
+<td>膨大なひげ根による広範囲な土壌探索。極めて高い C:N 比で長期 SOM 形成。<strong>特にオーツ麦は AMF ネットワーク構築の優れた宿主</strong></td>
+</tr>
+<tr>
+<td><strong>マメ科(Legumes)</strong></td>
+<td>ヘアリーベッチ、クローバー、エンドウ、ソラマメ</td>
+<td>根粒菌(Rhizobia)との共生による <strong>大気中窒素の生物学的固定</strong>。根からの有機酸分泌による鉱物結合型リンの可溶化</td>
+</tr>
+<tr>
+<td><strong>アブラナ科(Brassicas)</strong></td>
+<td>大根(ラディッシュ)、マスタード、カブ、フォレージレイプ</td>
+<td>強力な <strong>直根(タップルート)による土壌硬盤層の物理的破砕(バイオドリリング)</strong>。クエン酸やリンゴ酸などの強力な有機酸の大量分泌による遺産リンの急激な可溶化</td>
+</tr>
+<tr>
+<td><strong>広葉草本(Broadleaves)</strong></td>
+<td>ソバ(Buckwheat)、ヒマワリ</td>
+<td><strong>ロックフォスフェート(難溶性リン鉱石)や遺産リンを直接的に可溶化・吸収する特異な能力</strong>。次期作物へのリン供給源として優れる</td>
+</tr>
+</tbody>
+</table>
+<p>このように異なる機能特性を持つ植物群が同時に生育することで、それぞれの単独栽培時の合計を上回るバイオマス生産と地下部への炭素供給が達成される <strong>「トランスグレッシブ・オーバーイールディング(超越収量)」</strong>
+現象が発生し、土壌機能の回復速度が相乗的に高まる。</p>
+<h3>「3 年での回復」の定量データ</h3>
+<p>複数の実証研究により、カバークロップや不耕起栽培、家畜の統合といった手法を組み合わせた場合、土壌の根幹機能の回復が <strong>3 年以内</strong>
+に極めて明確な数値として表れることが確認されている。</p>
+<table class="comparison-table fade-in">
+<thead>
+<tr>
+<th>土壌ヘルス指標</th>
+<th>実証データ(移行後 3 年目)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>保水力(Water Holding Capacity)</strong></td>
+<td>Weber &amp; Gokhale(2011)── ホリスティックな放牧管理を適用した圃場で、わずか「3 年」の処理後に、<strong>休閑地に比べて土壌の保水力が 54% 増加</strong>。混合休閑・放牧地と比較しても 32% 高い水分を保持</td>
+</tr>
+<tr>
+<td><strong>耐水性団粒(WSA)</strong></td>
+<td>長期実証プラットフォーム研究 ── 慣行農業の土壌が「中程度(34.1〜50% WSA)」に留まったのに対し、<strong>再生型土壌は「非常に高いレベル(66% WSA 以上)」へと劇的に改善</strong></td>
+</tr>
+<tr>
+<td><strong>環境収容力(Carrying Capacity)</strong></td>
+<td>Soil Health Academy のアレン・ウィリアムズ博士の実証 ── 適正な多種種カバークロップと放牧を組み合わせた場合、劣化した土壌であっても <strong>「わずか 3 年」で農地の環境収容力(家畜を養えるキャパシティ)が少なくとも 5 倍に増加</strong></td>
+</tr>
+<tr>
+<td><strong>経済的純利益</strong></td>
+<td>Datu Research による米ミズーリ州 Willis 農場ケーススタディ ── 多様なカバークロップの導入により、4 年間のうち 3 年で収益がプラス、<strong>1 エーカー当たりの純利益が平均 $17 増加</strong></td>
+</tr>
+</tbody>
+</table>
+<div class="quoteblock">
+<blockquote>
+<p>「多様なカバークロップを用いれば、破壊された土壌でも約 3 年で回復し、移行ペナルティを克服できる」という仮説は、概念的理想論ではなく、<strong>厳密な科学的メタアナリシス、長期野外実証試験、再生農業を実践する先駆的な農家の膨大なデータによって定量的に強く支持されている</strong>。</p>
+</blockquote>
+</div>
+<h3>経済的データ:再生農業 vs 慣行農業</h3>
+<p>米国北部平原におけるトウモロコシ生産システムを対象とした実証研究:</p>
+<ul>
+<li>殺虫剤や化学肥料に強く依存する慣行農法は、害虫の発生率が殺虫剤を使用しない再生農業モデルの <strong>10 倍</strong> に達する</li>
+<li>化学的な対症療法のさらなるコスト増大を招く悪循環</li>
+<li>再生農業システムを採用した圃場は、慣行農法と比較して <strong>穀物収量が 29% 低かった</strong> にもかかわらず、<strong>最終的な利益は 78% 高かった</strong></li>
+<li>この利益の増加は、収量の最大化ではなく、土壌の粒状有機物
+(Particulate Organic Matter)の増加に伴う <strong>「投入コストの劇的な削減」</strong> に直接的に相関</li>
+</ul>
+<p>肥料高騰下において <strong>「コストが利益を食う」構造はすでに定量的に証明されている</strong>。</p>
+<p>このタイムラインを、<strong>輸入が続いている時間</strong> と重ねて考える必要がある。</p>
+<p>7.3 で見たとおり、輸入は当面続く。しかし永続しない。<strong>輸入の蛇口が細くなる前に、国内の分散型生産を立ち上げきる</strong> ことが、社会的なスケジュールになる。</p>
+<p>「化学肥料が高騰してから移行する」と考えると遅い。「輸入が止まってから農業を始める」と考えるなら、もっと遅い。<strong>いまから始めて 3〜5 年かけて移行を完了する</strong> のが、現実的なスケジュールである。</p>
+<p>そして同じことが、新規参入者にも言える。一反百姓を始めるにせよ、耕作放棄地を再生するにせよ、ベランダ菜園を始めるにせよ、<strong>始めた最初の数年は学習と土作りの期間</strong> になる。価格高騰や供給制約が深刻化してから慌てて始めても、その年から収穫できるわけではない。</p>
+<div class="quoteblock">
+<blockquote>
+<p>食料生産の担い手を広げる、というのは、いまから動かないと間に合わない種類の話である。</p>
+</blockquote>
+</div>
+<h2>7.10 第7章のまとめ</h2>
+<p><strong>作物の構造</strong></p>
+<ul>
+<li>肥料制約のもとで、日本では大規模農業そのものが成立しなくなる</li>
+<li>作物の評価は <strong>「機械化 × 再生農業 × 化学肥料依存」</strong> の三軸<ul>
+<li><strong>自然農法で規模生産可</strong>:米、<strong>近代小麦を含む穀物全般</strong>、大豆・豆類、牧草 ── コンバイン/モアで地上収穫、根は残る。
+<strong>イネ科は菌根菌と、マメ科は菌根菌+根粒菌と強く共生</strong> ──
+生物学的に低投入で成立する。Gabe Brown・豪州・アルゼンチンで実証</li>
+<li><strong>複合圧力で細る</strong>:F1 加工用キャベツ・タマネギ・F1 トマト・
+F1 葉物野菜・加工用ジャガイモ(現代品種)── 化学肥料を抜くと規格が成立しない(段階 A)。改良品種は化学肥料・機械化・大量規格化に最適化されて相似形に収束している。<strong>ブラシカ科・アカザ科は植物学的に菌根菌と共生しない</strong> ── 生物学的に外部養分依存が宿命。混植・輪作で作っても、<strong>生産量は工業型の 5〜10% 規模</strong></li>
+<li><strong>もともと人手依存</strong>:葉物野菜・果実・嗜好作物 ── 国内で多くの人が、それぞれの規模で作るしかない</li>
+</ul>
+</li>
+<li>食卓は段階 A 中心の戦後構造から、穀物 + 豆 + 根菜 + 季節野菜のより素朴な構造へ再編される(和食の基本構造に近づく)</li>
+<li><strong>これは日本だけの話ではない</strong>。世界的に野菜供給が細る(米国・メキシコ・欧州・中国も同じ圧力)── 輸入で逃げ切れる国はなくなる</li>
+</ul>
+<p><strong>実装の構造</strong></p>
+<ul>
+<li>当面は米国・ウクライナなど豊かな農地を持つ国からの輸入で凌ぐ</li>
+<li>しかしそれは無限ではない。<strong>輸入が続く時間は、移行の猶予期間</strong></li>
+<li>専業農家だけに任せていては、国内の食料生産は維持できない</li>
+<li>専業・兼業・自給の三層が、すべて積み上がって初めて成立する<ul>
+<li><strong>専業</strong>(プロ農家、数反〜数 ha):商品作物・地域の中核</li>
+<li><strong>一反百姓</strong>(移住者・副業者・退職者、一反前後):家族の主食 + 余剰の販売</li>
+<li><strong>ベランダ・市民農園</strong>(一般家庭):多数派世帯が関われる唯一のスケール、家計の緩衝、教育、関わりの場</li>
+</ul>
+</li>
+<li><strong>耕作放棄地</strong> は、工業型では負債、微生物型では資産になりうる</li>
+<li>純粋な消費者だけの社会は、もう食料を作れない</li>
+<li>多種類の混植で転換すれば、移行は <strong>約 3 年</strong>(単一作物のまま化学肥料を抜く誤った転換では 5〜10 年。方法を選べば短縮できる)</li>
+<li>だから、輸入が続いている <strong>いま</strong> 始めるのが現実的である</li>
+</ul>
+<p>スケールごとの実装の方向は分かった。次は、<strong>具体的な運用原則</strong> ──
+何をして、何をしないのか ── を見ていく。</p>
+<p>次の最終章(第8章)では、不耕起、裸地禁止、多様性、無除草、化学肥料禁止、自家採種、保存・流通の工夫など、運用レベルの原則をまとめる。そしてシリーズ全体の結論を提示する。</p>
+<h2>参考資料</h2>
+<p><strong>移行ペナルティ(Transition Penalty)・メタアナリシス</strong></p>
+<ul>
+<li>Pittelkow ら(2015 年)── 48 作物・63 か国・610 研究・5,463 ペア年の不耕起栽培への移行に関する世界的メタアナリシス</li>
+<li>Knapp &amp; van der Heijden ── 有機農業における時間的安定性メタアナリシス</li>
+<li>&quot;Regenerative agriculture: merging farming and natural resource
+conservation profitably&quot; — PMC5831153</li>
+</ul>
+<p><strong>多様なカバークロップによる 3 年回復</strong></p>
+<ul>
+<li>Weber &amp; Gokhale(2011)── ホリスティック放牧管理による保水力
+54% 増加(3 年処理後)</li>
+<li>長期実証プラットフォーム研究 ── 耐水性団粒(WSA)が中程度
+34.1〜50% から 66% 以上へ</li>
+<li>Soil Health Academy / Allen Williams 博士 ── 環境収容力 5 倍増加(3 年)</li>
+<li>Datu Research / 米ミズーリ州 Willis 農場ケーススタディ ── 4 年中 3 年で純利益 +$17/エーカー</li>
+<li>Niche Complementarity(ニッチ補完性)に関する植物生態学文献</li>
+<li>4 機能群(イネ科・マメ科・アブラナ科・広葉草本)の役割に関する文献</li>
+</ul>
+<p><strong>経済的データ:再生農業 vs 慣行農業</strong></p>
+<ul>
+<li>米国北部平原トウモロコシ生産システムの実証研究 ── 慣行農法は害虫発生率が再生農業の 10 倍、再生農業は収量 -29% でも利益 +78%</li>
+<li>粒状有機物(Particulate Organic Matter)の増加に伴う投入コスト削減に関する研究</li>
+</ul>
+<p><strong>先駆者:Gabe Brown</strong></p>
+<ul>
+<li>Gabe Brown &quot;Dirt to Soil: One Family's Journey into Regenerative
+Agriculture&quot;(2018)── 数十種類の種子混合カバークロップ・カクテル、
+SOM 1.7% → 5〜8%</li>
+</ul>
+<p><strong>日本農業の構造データ</strong></p>
+<ul>
+<li>農林水産省 統計(2024-2025 年度)<ul>
+<li>全国耕地面積 423.9 万 ha(2025 年)</li>
+<li>再生利用可能な荒廃農地 9.8 万 ha(2024 年度)</li>
+<li>1 経営体当たり経営規模 3.6 ha(都府県 2.6 ha、北海道 33.7 ha)</li>
+</ul>
+</li>
+<li>耕作放棄地統計の歴史的推移(2000 年 21 万 ha → 2020 年 42 万 ha)</li>
+</ul>
+<p><strong>米国農産物輸入データ</strong></p>
+<ul>
+<li>米国農務省(USDA)輸入統計 ── 生鮮野菜の約 30% を輸入(主にメキシコ)、生鮮果実は約 50% を輸入</li>
+</ul>
+<p><strong>機械化と再生農業の両立</strong></p>
+<ul>
+<li>ポテトハーベスタ・タマネギ収穫機・テンサイハーベスタ等の機械仕様(地中 20-30cm の掘り起こし)</li>
+<li>Gabe Brown 流の不耕起穀物経営における連作障害管理</li>
+</ul>
+<p><strong>連作障害</strong></p>
+<ul>
+<li>根こぶ病(Plasmodiophora brassicae)── 胞子の土壌中生存期間
+5〜10 年以上</li>
+<li>白色腐敗病(Sclerotium cepivorum)── タマネギの長期ローテーション必要性</li>
+<li>青枯病・萎黄病・根腐れ病 ── 加工用トマトの 3〜4 年ローテーション</li>
+</ul>
+<p><strong>菌根菌共生</strong></p>
+<ul>
+<li>第5章参考資料を参照(イネ科・マメ科の共生、ブラシカ科・アカザ科の非共生)</li>
+</ul>
+<p><strong>福岡正信「一反百姓」</strong></p>
+<ul>
+<li>福岡正信『自然農法 わら一本の革命』(春秋社、1975 年)</li>
+<li>福岡正信『自然に還る』(春秋社、1983 年)── 一反百姓の経済性</li>
+</ul>
+
+  </article>
+
+  <!-- CHAPTER NAV(前後の記事) -->
+  <nav class="chapter-nav">
+  <a href="/phosphorus-and-farming/co2-tailwind/" rel="prev">&larr; 前: 第6章 CO2 という追い風</a>
+  <a href="/phosphorus-and-farming/operating-principles/" rel="next">次: 第8章 運用原則 &rarr;</a>
+</nav>
+
+  <!-- FOOTER(サイト内メニュー+奥付) -->
+  <footer class="site-footer">
+    <nav class="footer-nav" aria-label="サイト内リンク">
+      <div class="footer-col">
+        <h4>記事シリーズ</h4>
+        <ul>
+          <li><a href="/insights/">構造分析</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/ai-native-software/">AI ネイティブなソフトウェア開発</a></li>
+          <li><a href="/claude-debian/">Claudeと一緒に学ぶDebian</a></li>
+          <li><a href="/debian-server/">Claudeと一緒に育てるDebian サーバー</a></li>
+          <li><a href="/phosphorus-and-farming/">リン資源枯渇と自然農法</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>サイト</h4>
+        <ul>
+          <li><a href="/">ホーム</a></li>
+          <li><a href="/natural-farming/">自然農法とは</a></li>
+          <li><a href="/light-farming/">Light Farming</a></li>
+          <li><a href="/gallery/">畑の記録</a></li>
+          <li><a href="/about/">私たちのアプローチ</a></li>
+          <li><a href="/privacy/">プライバシー</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>関連サイト</h4>
+        <ul>
+          <li><a href="https://aiai.aiseed.dev/">aiai ── AI 時代の学び方</a></li>
+          <li><a href="https://weather.time-j.net/">個人開発気象統計</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="colophon">
+      <div class="colophon-mark">§</div>
+      リン資源枯渇と自然農法シリーズ · 第7章<br>
+      Tokushima · 2026.05.12<br>
+      <a href="/" style="color: var(--whisper); text-decoration: underline; text-decoration-color: var(--rule);">aiseed.dev</a> · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" style="color: var(--whisper); text-decoration: underline; text-decoration-color: var(--rule);">CC BY 4.0</a>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  // 広い画面ではサイドバー目次を常時展開する(狭い画面では折りたたみに戻す)
+  (function () {
+    var toc = document.querySelector(".series-toc details");
+    if (!toc) return;
+    var mq = window.matchMedia("(min-width: 1200px)");
+    function sync() { toc.open = mq.matches; }
+    sync();
+    if (mq.addEventListener) mq.addEventListener("change", sync);
+    else mq.addListener(sync);
+  })();
+
+  // Mermaid loads only on pages that contain a .mermaid block.
+  // Self-hosted (no third-party CDN dependency); SRI verified.
+  if (document.querySelector(".mermaid")) {
+    const s = document.createElement("script");
+    s.src = "/js/vendor/mermaid-11.14.0.min.js";
+    s.integrity = "sha384-1CMXl090wj8Dd6YfnzSQUOgWbE6suWCaenYG7pox5AX7apTpY3PmJMeS2oPql4Gk";
+    s.crossOrigin = "anonymous";
+    s.onload = () => {
+      const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+      mermaid.initialize({ startOnLoad: false, theme: prefersDark ? "dark" : "default" });
+      mermaid.run();
+    };
+    document.head.appendChild(s);
+  }
+</script>
+
+
+</body>
+</html>

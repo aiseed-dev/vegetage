@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://static.cloudflareinsights.com https://challenges.cloudflare.com 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://cloudflareinsights.com https://challenges.cloudflare.com">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9FLQ963JXM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'G-9FLQ963JXM');
+</script>
+
+<title>第6章 CO2 という追い風 — リン資源枯渇と自然農法シリーズ | aiseed.dev</title>
+<meta name="description" content="大気中の CO2 濃度は産業革命前から約 50% 増えた。これは植物にとっては「食料の増加」を意味する。植物は光合成で得た炭素の 20〜60% を液体炭素として根から微生物に渡す。CO2 上昇 → 光合成増 → 微生物への炭素供給増 → 土壌肥沃化。気候変動の中に、農業にとっての追い風がある。">
+<link rel="canonical" href="https://aiseed.dev/phosphorus-and-farming/co2-tailwind/">
+<link rel="alternate" hreflang="ja" href="https://aiseed.dev/phosphorus-and-farming/co2-tailwind/">
+<link rel="alternate" hreflang="en" href="https://aiseed.dev/en/phosphorus-and-farming/co2-tailwind/">
+<link rel="alternate" hreflang="x-default" href="https://aiseed.dev/phosphorus-and-farming/co2-tailwind/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="AI時代の暮らし">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="第6章 CO2 という追い風">
+<meta property="og:description" content="大気中の CO2 濃度は産業革命前から約 50% 増えた。これは植物にとっては「食料の増加」を意味する。植物は光合成で得た炭素の 20〜60% を液体炭素として根から微生物に渡す。CO2 上昇 → 光合成増 → 微生物への炭素供給増 → 土壌肥沃化。気候変動の中に、農業にとっての追い風がある。">
+<meta property="og:url" content="https://aiseed.dev/phosphorus-and-farming/co2-tailwind/">
+<meta property="og:image" content="https://aiseed.dev/images/IMG_3285.jpg">
+<meta property="article:section" content="リン資源枯渇と自然農法シリーズ">
+<meta property="article:published_time" content="2026.05.11">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="第6章 CO2 という追い風">
+<meta name="twitter:description" content="大気中の CO2 濃度は産業革命前から約 50% 増えた。これは植物にとっては「食料の増加」を意味する。植物は光合成で得た炭素の 20〜60% を液体炭素として根から微生物に渡す。CO2 上昇 → 光合成増 → 微生物への炭素供給増 → 土壌肥沃化。気候変動の中に、農業にとっての追い風がある。">
+<meta name="twitter:image" content="https://aiseed.dev/images/IMG_3285.jpg">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+
+<!-- フォントは Web 配信せず、すべて端末のローカルフォントで賄う。
+     和文: UDデジタル教科書体 → BIZ UDP明朝(いずれも Windows 標準搭載の
+     モリサワ UD 書体) → ヒラギノ明朝・游明朝などのシステム明朝。
+     等幅: 端末のシステム等幅フォント。 -->
+
+<style>
+/* ============================================================
+   LOCAL FONT: UDデジタル教科書体(モリサワ)
+   Windows・教育向け端末に無償搭載。端末にあれば local() で拾い、
+   なければ BIZ UDP明朝(同じく Windows 標準搭載)→ システム明朝へ
+   フォールバックする。R と B は別ファミリー名なので、太字(700)を
+   B 書体に明示的にマッピングして疑似ボールドを避ける。
+   ============================================================ */
+@font-face {
+  font-family: "UD Digital Kyokasho";
+  font-weight: 400;
+  src: local("UD デジタル 教科書体 NK-R"), local("UD Digital Kyokasho NK-R"),
+       local("UD デジタル 教科書体 NP-R"), local("UD Digital Kyokasho NP-R"),
+       local("UD デジタル 教科書体 N-R"), local("UD Digital Kyokasho N-R");
+}
+@font-face {
+  font-family: "UD Digital Kyokasho";
+  font-weight: 700;
+  src: local("UD デジタル 教科書体 NK-B"), local("UD Digital Kyokasho NK-B"),
+       local("UD デジタル 教科書体 NP-B"), local("UD Digital Kyokasho NP-B"),
+       local("UD デジタル 教科書体 N-B"), local("UD Digital Kyokasho N-B");
+}
+
+/* ============================================================
+   COLOR & DESIGN TOKENS
+   aiseed.dev 全体のスタイルに合わせる場合は、ここの変数を
+   既存サイトのCSS変数に差し替える。
+   ============================================================ */
+:root {
+  --ink: #1a1a1a;
+  --paper: #f4f1ea;
+  --paper-deep: #ebe6d8;
+  --accent: #c8442a;
+  --rule: #d4cdb8;
+  --whisper: #6b665a;
+  --highlight: #f7e9c8;
+}
+
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+/* 本文: 端末にあれば UDデジタル教科書体を最優先、次に BIZ UDP明朝
+   (Windows 標準搭載)、どちらもなければヒラギノ明朝等のシステム明朝 */
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "UD Digital Kyokasho",
+               "BIZ UDPMincho", "BIZ UDP明朝",
+               "Hiragino Mincho ProN", "ヒラギノ明朝 ProN",
+               "Yu Mincho", "游明朝", "YuMincho",
+               "Noto Serif CJK JP", "Noto Serif JP", serif;
+  font-size: 17px;
+  line-height: 1.9;
+  letter-spacing: 0.02em;
+  font-feature-settings: "palt";
+  overflow-x: hidden;
+}
+
+/* グレインテクスチャ(紙の質感) */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background-image: radial-gradient(rgba(0,0,0,0.04) 1px, transparent 1px);
+  background-size: 3px 3px;
+  opacity: 0.5;
+  mix-blend-mode: multiply;
+}
+
+.container {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0 32px;
+  position: relative;
+  z-index: 2;
+}
+
+/* ============================================================
+   MASTHEAD(シリーズ名・章番号)
+   ============================================================ */
+.masthead {
+  border-bottom: 3px double var(--ink);
+  padding: 24px 0 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--whisper);
+}
+.masthead-left  { font-weight: 700; color: var(--ink); }
+.masthead-left a { color: inherit; text-decoration: none; }
+.masthead-left a:hover { color: var(--accent); }
+.masthead-home { color: var(--whisper); }
+.masthead-sep { margin: 0 10px; color: var(--whisper); font-weight: 400; }
+.masthead-right { font-style: italic; }
+
+/* ============================================================
+   HERO(タイトル領域)
+   ============================================================ */
+.hero {
+  padding: 80px 0 60px;
+}
+.hero-meta {
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  color: var(--accent);
+  margin-bottom: 32px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.hero-meta::before {
+  content: "";
+  width: 40px;
+  height: 1px;
+  background: var(--accent);
+}
+.hero-title {
+  font-family: "UD Digital Kyokasho", "BIZ UDPMincho", "BIZ UDP明朝", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  font-weight: 800;
+  font-size: clamp(32px, 5.5vw, 56px);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  margin-bottom: 24px;
+}
+.hero-title .accent {
+  color: var(--accent);
+}
+.hero-subtitle {
+  font-size: 18px;
+  line-height: 1.85;
+  color: var(--whisper);
+  max-width: 580px;
+  border-left: 2px solid var(--accent);
+  padding-left: 20px;
+  margin-top: 32px;
+}
+.hero-byline {
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid var(--rule);
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--whisper);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* ============================================================
+   ARTICLE BODY
+   ============================================================ */
+article p {
+  margin-bottom: 24px;
+}
+
+article h2 {
+  font-family: "UD Digital Kyokasho", "BIZ UDPMincho", "BIZ UDP明朝", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 1.4;
+  margin: 72px 0 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--ink);
+  position: relative;
+}
+article h2::before {
+  content: "§";
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+  color: var(--accent);
+  margin-right: 16px;
+  font-size: 22px;
+}
+
+article h3 {
+  font-family: "UD Digital Kyokasho", "BIZ UDPMincho", "BIZ UDP明朝", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  font-weight: 600;
+  font-size: 19px;
+  margin: 40px 0 16px;
+  color: var(--ink);
+}
+article h3::before {
+  content: "—";
+  color: var(--accent);
+  margin-right: 12px;
+  font-weight: 400;
+}
+
+article strong {
+  font-weight: 700;
+  background: linear-gradient(to top, var(--highlight) 35%, transparent 35%);
+  padding: 0 2px;
+}
+
+article em {
+  font-style: normal;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+article a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  transition: color 0.2s;
+}
+article a:hover {
+  color: var(--accent);
+}
+
+/* ============================================================
+   BLOCKQUOTE
+   ============================================================ */
+blockquote {
+  margin: 40px 0;
+  padding: 32px 40px;
+  background: var(--paper-deep);
+  border-left: 4px solid var(--accent);
+  position: relative;
+  font-size: 18px;
+  line-height: 1.85;
+  font-style: normal;
+  color: var(--ink);
+}
+blockquote::before {
+  content: "「";
+  position: absolute;
+  top: 4px;
+  left: 8px;
+  font-size: 48px;
+  color: var(--accent);
+  opacity: 0.3;
+  font-family: "Hiragino Mincho ProN", serif;
+}
+blockquote p {
+  margin-bottom: 0;
+}
+
+/* ============================================================
+   TABLE
+   ============================================================ */
+article table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 32px 0;
+  font-size: 15px;
+  line-height: 1.7;
+}
+article thead th {
+  font-family: "UD Digital Kyokasho", "BIZ UDPMincho", "BIZ UDP明朝", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  font-weight: 700;
+  text-align: left;
+  padding: 14px 16px;
+  border-bottom: 2px solid var(--ink);
+  color: var(--ink);
+}
+article tbody td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+}
+article tbody tr:last-child td {
+  border-bottom: none;
+}
+@media (max-width: 720px) {
+  article table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* ============================================================
+   ORDERED LIST(番号付きリスト)
+   ============================================================ */
+article ol {
+  margin: 32px 0;
+  counter-reset: item;
+  padding: 0;
+}
+article ol li {
+  list-style: none;
+  position: relative;
+  padding: 16px 0 16px 56px;
+  border-bottom: 1px dashed var(--rule);
+  counter-increment: item;
+}
+article ol li::before {
+  content: counter(item, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 16px;
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+  font-size: 14px;
+  color: var(--accent);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+/* 通常のul(章末の関連リンクなど) */
+article ul {
+  margin: 24px 0;
+  padding-left: 1.5em;
+}
+article ul li {
+  margin-bottom: 8px;
+}
+
+/* ============================================================
+   CODE BLOCK(疑似ターミナル風)
+   ============================================================ */
+article pre {
+  margin: 40px 0;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 24px 28px;
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+  font-size: 13px;
+  line-height: 1.8;
+  position: relative;
+  overflow-x: auto;
+}
+article pre::before {
+  content: "● ● ●";
+  position: absolute;
+  top: 8px;
+  left: 12px;
+  font-size: 8px;
+  color: var(--whisper);
+  letter-spacing: 4px;
+}
+article pre code {
+  display: block;
+  padding-top: 16px;
+  white-space: pre;
+}
+
+/* インラインコード */
+article code {
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+  font-size: 0.9em;
+  background: var(--paper-deep);
+  padding: 2px 6px;
+  border-radius: 2px;
+  color: var(--ink);
+}
+article pre code {
+  background: transparent;
+  padding: 16px 0 0 0;
+  color: var(--paper);
+}
+
+/* ============================================================
+   HORIZONTAL RULE(本文中の区切り)
+   ============================================================ */
+article hr {
+  border: none;
+  text-align: center;
+  margin: 64px 0;
+  height: 1em;
+}
+article hr::before {
+  content: "◆ ◆ ◆";
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+  font-size: 14px;
+  color: var(--accent);
+  letter-spacing: 0.5em;
+}
+
+/* ============================================================
+   RELATED LINKS(章末の関連記事)
+   ============================================================ */
+.related-links {
+  margin-top: 64px;
+  padding: 32px 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.related-links h3 {
+  font-family: "UD Digital Kyokasho", "BIZ UDPMincho", "BIZ UDP明朝", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  font-size: 14px;
+  letter-spacing: 0.2em;
+  color: var(--whisper);
+  margin: 0 0 20px;
+  font-weight: 600;
+}
+.related-links h3::before {
+  content: none;
+}
+.related-links ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.related-links li {
+  padding: 10px 0;
+  border-bottom: 1px dashed var(--rule);
+  margin-bottom: 0;
+}
+.related-links li:last-child {
+  border-bottom: none;
+}
+.related-links a {
+  text-decoration: none;
+  color: var(--ink);
+  display: flex;
+  gap: 16px;
+  align-items: baseline;
+}
+.related-links .related-tag {
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+  text-transform: uppercase;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.related-links a:hover .related-title {
+  color: var(--accent);
+}
+
+/* ============================================================
+   FOOTER(サイト内メニュー+奥付)
+   ============================================================ */
+.site-footer {
+  margin-top: 96px;
+  border-top: 3px double var(--ink);
+  padding-top: 48px;
+}
+.footer-nav {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 32px 48px;
+}
+.footer-col h4 {
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--whisper);
+  font-weight: 700;
+  margin: 0 0 14px;
+}
+.footer-col ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.footer-col li {
+  padding: 6px 0;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.footer-col a {
+  color: var(--ink);
+  text-decoration: none;
+}
+.footer-col a:hover { color: var(--accent); }
+
+.colophon {
+  margin-top: 48px;
+  padding: 32px 0 40px;
+  border-top: 1px solid var(--rule);
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: var(--whisper);
+  text-align: center;
+  line-height: 2;
+}
+.colophon-mark {
+  font-family: "UD Digital Kyokasho", "BIZ UDPMincho", "Hiragino Mincho ProN", serif;
+  font-size: 32px;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+
+/* ============================================================
+   SERIES TOC(全章一覧・折りたたみ式)
+   ============================================================ */
+.series-toc {
+  margin: 24px 0 40px;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 8px 0;
+}
+.series-toc details {
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+}
+.series-toc summary {
+  cursor: pointer;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--whisper);
+  font-weight: 700;
+  padding: 8px 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.series-toc summary::-webkit-details-marker { display: none; }
+.series-toc summary::before {
+  content: "▸";
+  color: var(--accent);
+  font-size: 10px;
+  display: inline-block;
+  transition: transform 0.15s ease;
+}
+.series-toc details[open] summary::before { transform: rotate(90deg); }
+.series-toc ol {
+  list-style: none;
+  margin: 12px 0 8px;
+  padding: 0;
+  counter-reset: none;
+}
+.series-toc li {
+  list-style: none;
+  padding: 9px 0;
+  border-bottom: 1px dashed var(--rule);
+  font-family: "UD Digital Kyokasho", "BIZ UDPMincho", "BIZ UDP明朝", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  font-size: 14px;
+  line-height: 1.55;
+  display: flex;
+  gap: 16px;
+  align-items: baseline;
+}
+.series-toc li::before { content: none; }
+.series-toc li:last-child { border-bottom: none; }
+.series-toc li a {
+  display: flex;
+  gap: 16px;
+  align-items: baseline;
+  text-decoration: none;
+  color: var(--ink);
+  flex: 1;
+}
+.series-toc li a:hover .toc-title { color: var(--accent); }
+.series-toc .toc-num {
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
+  color: var(--accent);
+  text-transform: uppercase;
+  white-space: nowrap;
+  flex-shrink: 0;
+  min-width: 5em;
+}
+.series-toc li.current {
+  background: var(--paper-deep);
+  margin: 0 -12px;
+  padding: 9px 12px;
+}
+.series-toc li.current .toc-title {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+/* ============================================================
+   IMAGES
+   ============================================================ */
+article img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 32px auto;
+}
+
+/* ============================================================
+   CUSTOM BLOCKS(:::chain / :::highlight / :::quote / :::compare)
+   ============================================================ */
+.chain-diagram {
+  background: var(--paper-deep);
+  border-left: 4px solid var(--accent);
+  padding: 24px 28px;
+  margin: 32px 0;
+  font-size: 15px;
+  line-height: 2.2;
+}
+.chain-diagram .arrow {
+  color: var(--accent);
+  font-weight: 700;
+  margin: 0 0.3em;
+}
+.highlight-box {
+  background: var(--paper-deep);
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--accent);
+  padding: 24px 28px;
+  margin: 32px 0;
+}
+.highlight-box p { margin-bottom: 12px; }
+.highlight-box p:last-child { margin-bottom: 0; }
+.quote-block {
+  margin: 40px 0;
+  padding: 32px 40px;
+  background: var(--paper-deep);
+  border-left: 4px solid var(--accent);
+}
+.quote-block .quote-text {
+  font-size: 18px;
+  line-height: 1.85;
+  margin: 0;
+}
+
+/* ============================================================
+   ASCIIDOC BLOCKS(pyasciidoc が出力するクラス。.adoc 記事用)
+   admonition / 帰属つき引用 / 画像ブロック / 脚注 / ロール
+   ============================================================ */
+.admonition {
+  background: var(--paper-deep);
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--accent);
+  padding: 24px 28px;
+  margin: 32px 0;
+}
+.admonition-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+.admonition p { margin-bottom: 12px; }
+.admonition p:last-child { margin-bottom: 0; }
+.quoteblock { margin: 40px 0; }
+.quoteblock blockquote { margin: 0; }
+.quoteblock .attribution {
+  margin-top: 12px;
+  text-align: right;
+  font-size: 14px;
+  color: var(--whisper);
+}
+.quoteblock .attribution cite { font-style: normal; }
+.imageblock { margin: 32px 0; text-align: center; }
+.imageblock .content img { max-width: 100%; height: auto; }
+sup.footnote { font-size: 12px; }
+sup.footnote a { text-decoration: none; }
+.footnotes {
+  margin-top: 64px;
+  padding-top: 24px;
+  border-top: 1px solid var(--rule);
+  font-size: 14px;
+  color: var(--whisper);
+}
+.footnotes ol { padding-left: 1.5em; }
+.footnotes li { margin-bottom: 8px; }
+.footnotes .footnote-backref { text-decoration: none; margin-left: 0.3em; }
+/* ロール: [.chain](:::chain と同じ見た目)/ [.accent]#…# */
+article .chain {
+  background: var(--paper-deep);
+  border-left: 4px solid var(--accent);
+  padding: 24px 28px;
+  margin: 32px 0;
+  font-size: 15px;
+  line-height: 2.2;
+}
+article .accent { color: var(--accent); }
+
+/* ============================================================
+   CHAPTER NAV(前後の記事へのリンク)
+   ============================================================ */
+.chapter-nav {
+  margin-top: 64px;
+  padding: 24px 0;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  font-size: 14px;
+}
+.chapter-nav a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--rule);
+  text-underline-offset: 4px;
+}
+.chapter-nav a:hover { color: var(--accent); }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 640px) {
+  .container { padding: 0 20px; }
+  .hero { padding: 48px 0 40px; }
+  blockquote { padding: 24px 20px 24px 28px; }
+  article pre { padding: 20px 16px; font-size: 12px; }
+  article ol li { padding-left: 48px; }
+  .series-toc .toc-num { min-width: 4em; font-size: 10px; }
+  .series-toc li { font-size: 13px; gap: 12px; }
+}
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.hero-meta, .hero-title, .hero-subtitle, .hero-byline {
+  animation: rise 0.8s ease-out backwards;
+}
+.hero-meta     { animation-delay: 0.1s; }
+.hero-title    { animation-delay: 0.25s; }
+.hero-subtitle { animation-delay: 0.45s; }
+.hero-byline   { animation-delay: 0.65s; }
+.mermaid {
+  text-align: center;
+  margin: 2.5rem 0;
+  background: var(--paper-warm, #f5f1ea);
+  padding: 1.5rem 1rem;
+  border-radius: 4px;
+  overflow-x: auto;
+}
+.mermaid svg { max-width: 100%; height: auto; }
+
+/* ============================================================
+   WIDE LAYOUT(広い画面では目次を左サイドバーに常時展開)
+   ============================================================ */
+@media (min-width: 1200px) {
+  body.has-toc .container {
+    max-width: 1320px;
+    display: grid;
+    grid-template-columns: 280px minmax(0, 880px);
+    column-gap: 64px;
+    justify-content: center;
+  }
+  body.has-toc .masthead,
+  body.has-toc .hero {
+    grid-column: 1 / -1;
+  }
+  /* グリッドアイテム自体は行いっぱいに伸ばし、内側の details を sticky に
+     する(sticky なグリッドアイテムはグリッドエリアではなくコンテナ全体で
+     制約されるブラウザ挙動があり、フッターに重なってしまうため)。 */
+  body.has-toc .series-toc {
+    grid-column: 1;
+    grid-row: 3 / span 2;
+    margin: 0;
+    padding: 0;
+    border-top: none;
+    border-bottom: none;
+  }
+  body.has-toc .series-toc details {
+    position: sticky;
+    top: 32px;
+    max-height: calc(100vh - 64px);
+    overflow-y: auto;
+    padding: 0 12px 12px 0;
+  }
+  /* サイドバーでは折りたたみを無効化し、見出しとして表示 */
+  body.has-toc .series-toc summary {
+    pointer-events: none;
+    cursor: default;
+  }
+  body.has-toc .series-toc summary::before { content: none; }
+  body.has-toc .series-toc li { font-size: 13.5px; }
+  body.has-toc article    { grid-column: 2; grid-row: 3; }
+  body.has-toc .chapter-nav { grid-column: 2; grid-row: 4; }
+  body.has-toc .site-footer { grid-column: 1 / -1; grid-row: 5; }
+}
+
+/* ============================================================
+   DARK MODE(OS の配色設定に追従して自動で暗色に切り替え)
+   ============================================================ */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --ink: #e8e3d6;
+    --paper: #16140f;
+    --paper-deep: #211d16;
+    --accent: #e8765a;
+    --rule: #393428;
+    --whisper: #a39b88;
+    --highlight: rgba(220, 168, 78, 0.30);
+  }
+  /* 紙の質感(グレイン)を暗色背景向けに反転 */
+  body::before {
+    background-image: radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px);
+    mix-blend-mode: screen;
+    opacity: 0.4;
+  }
+  /* コードブロックは両モードとも暗いターミナル調を維持 */
+  article pre {
+    background: #0d0c0a;
+    color: #e8e3d6;
+  }
+  article pre code {
+    color: #e8e3d6;
+  }
+  /* Mermaid 図の枠を暗色に */
+  .mermaid {
+    background: #211d16;
+  }
+}
+</style>
+
+</head>
+
+<body class="has-toc">
+
+<div class="container">
+
+  <!-- MASTHEAD(ホーム › シリーズ目次) -->
+  <header class="masthead">
+    <div class="masthead-left"><a href="/" class="masthead-home">aiseed.dev</a><span class="masthead-sep">›</span><a href="/phosphorus-and-farming/">リン資源枯渇と自然農法シリーズ</a></div>
+    <div class="masthead-right">第6章 / Essay</div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-meta">第6章 № 06 · 2026</div>
+
+    <h1 class="hero-title">大気の炭素を、<br><span class="accent">土に流し込む</span>。</h1>
+
+    <p class="hero-subtitle">大気中の炭素を、土に流し込む</p>
+
+    <div class="hero-byline">
+      <span>2026.05.11</span>
+      <span><a href="https://aiseed.dev/en/phosphorus-and-farming/co2-tailwind/" style="color: var(--whisper); text-decoration: underline; text-decoration-color: var(--rule);">🌐 EN</a></span>
+    </div>
+  </section>
+
+  <!-- SERIES TOC(全章一覧・現在の章をハイライト) -->
+  <nav class="series-toc" aria-label="シリーズ章一覧">
+  <details>
+    <summary>目次 — 全章</summary>
+    <ol>
+      <li><a href="/phosphorus-and-farming/prologue/"><span class="toc-num">序章</span><span class="toc-title">経済が農法を決める</span></a></li>
+      <li><a href="/phosphorus-and-farming/supply-constraint/"><span class="toc-num">第1章</span><span class="toc-title">リン酸肥料の供給制約 ── 何が起きているか</span></a></li>
+      <li><a href="/phosphorus-and-farming/no-cheap-return/"><span class="toc-num">第2章</span><span class="toc-title">リン酸肥料は安価には戻らない</span></a></li>
+      <li><a href="/phosphorus-and-farming/industrial-farming-fails/"><span class="toc-num">第3章</span><span class="toc-title">慣行農業は経済的に成立しなくなる</span></a></li>
+      <li><a href="/phosphorus-and-farming/realistic-position/"><span class="toc-num">第4章</span><span class="toc-title">現実的な立ち位置 ── どこにも組みしない</span></a></li>
+      <li><a href="/phosphorus-and-farming/soil-microbes/"><span class="toc-num">第5章</span><span class="toc-title">土壌微生物という戦略</span></a></li>
+      <li class="current" aria-current="page"><span class="toc-num">第6章</span><span class="toc-title">CO2 という追い風</span></li>
+      <li><a href="/phosphorus-and-farming/implementation/"><span class="toc-num">第7章</span><span class="toc-title">どう実装するか ── 一反百姓と耕作放棄地</span></a></li>
+      <li><a href="/phosphorus-and-farming/operating-principles/"><span class="toc-num">第8章</span><span class="toc-title">運用原則 ── 何をして、何をしないか</span></a></li>
+      <li><a href="/phosphorus-and-farming/cuba-lessons/"><span class="toc-num">第9章</span><span class="toc-title">キューバの教訓</span></a></li>
+    </ol>
+  </details>
+</nav>
+
+  <!-- ARTICLE BODY -->
+  <article>
+    <p>第5章で、土壌微生物 ── 特に菌根菌 ── が、化学肥料の代わりに植物に栄養を供給できることを見た。</p>
+<p>ここで、もう一つ重要な事実を加える。</p>
+<p><strong>大気中の CO2 濃度の上昇は、この微生物型農業にとっての「追い風」になる</strong>。</p>
+<p>気候変動は基本的にネガティブな話題として語られる。しかし、農業の視点 ── 特に微生物型農業の視点 ── から見ると、CO2 濃度上昇には意外な恩恵がある。</p>
+<p>この章ではその仕組みを、Christine Jones の研究を軸に確認する。</p>
+<h2>6.1 CO2 は植物の「食料」である</h2>
+<p>あたりまえのことを再確認しておく。</p>
+<p><strong>植物にとって CO2 は食料である</strong>。</p>
+<p>植物は光合成で、CO2 と水と日光から、ブドウ糖(炭水化物)を作る。この炭水化物が、植物の体を作り、種を実らせ、根を伸ばす材料になる。</p>
+<p>植物の生育速度は、大気中の CO2 濃度に大きく依存する。CO2 が増えれば、光合成は活発になる。これは温室栽培で意図的に CO2 を増やす
+(CO2 施用)技術として、すでに確立している。</p>
+<div class="quoteblock">
+<blockquote>
+<p>温室で CO2 を 1,000 ppm まで増やすと、トマトの収量は 2〜4 割、条件によっては 8 割増える(50 年分の観察のまとめ、Horticulture Research 2023)。これは農業現場の常識である。</p>
+</blockquote>
+</div>
+<h3>産業革命前後での変化</h3>
+<p>大気中の CO2 濃度の歴史的推移は、こうである(NOAA GML、マウナロアの年平均)。</p>
+<table class="comparison-table fade-in">
+<thead>
+<tr>
+<th>時代</th>
+<th>CO2 濃度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>産業革命前(〜1800 年)</td>
+<td>約 280 ppm</td>
+</tr>
+<tr>
+<td>1960 年</td>
+<td>317 ppm</td>
+</tr>
+<tr>
+<td>2000 年</td>
+<td>370 ppm</td>
+</tr>
+<tr>
+<td>2020 年</td>
+<td>414 ppm</td>
+</tr>
+<tr>
+<td>2025 年</td>
+<td>約 427 ppm(予測の年平均)</td>
+</tr>
+</tbody>
+</table>
+<p>産業革命前と比べて <strong>約 50% 増加</strong> している。</p>
+<p>この増加が、地球温暖化や海洋酸性化など、気候への深刻な影響を引き起こしているのは事実である。それを軽視するつもりはない。</p>
+<p>しかし同時に、植物にとっては <strong>光合成資源の増加</strong> を意味する。これは動かしがたい事実である。</p>
+<p>地球は、この CO2 増加を、植物の生育促進という形で「処理」しようとしている。<strong>人類が植物を活かす方向に動けば、CO2 上昇は炭素を土に固定する圧力としても働く</strong>。</p>
+<h2>6.2 液体炭素 ── 植物が微生物に「給料」を払う</h2>
+<p>ここで、Christine Jones の研究の核心が出てくる。</p>
+<p>植物は光合成で得た炭素を、すべて自分の体に使うわけではない。<strong>そのかなりの分を、根から土壌中に放出する</strong>。測られた値では、作物が固定した炭素の平均 11%、根に回した分の 27% が根から出ている(Pausch &amp; Kuzyakov 2018 のまとめ)。</p>
+<p>これは「漏れ」ではなく、意図的な放出である。何のために?</p>
+<p><strong>土壌微生物に「給料」を払うため</strong> だ。</p>
+<p>放出される物質は、糖、有機酸、アミノ酸、酵素など、可溶性の有機化合物である。これらは総称して「<strong>根滲出液(root exudate)</strong>」または「<strong>液体炭素(liquid carbon)</strong>」と呼ばれる。</p>
+<p>植物 → 液体炭素 → 微生物微生物 → ミネラル・水 → 植物</p>
+<p>この交換が、第5章で見た菌根菌共生の経済的取引である。植物は炭素を渡し、微生物はその対価として、植物が必要なものを集めてくる。</p>
+<h3>20〜60% という大きな割合</h3>
+<p>驚くのは、その割合である。植物が光合成で作った炭素のうち、<strong>最大で 6 割</strong> までが土壌に流れ込む。</p>
+<p>これは植物の「コスト」ではない。<strong>戦略的投資</strong> である。微生物に投資した分は、より多くの栄養として返ってくる。長期的に見れば、利益が大きいから進化的に保存されてきた。</p>
+<p>この液体炭素は、土壌中で次のように使われる。</p>
+<ul>
+<li>微生物のエネルギー源(微生物が食べる)</li>
+<li>微生物の体を作る材料</li>
+<li>微生物が死んだあと、土壌有機物となって炭素として固定される</li>
+<li>土壌の団粒構造を作るグルーの原料(グロマリン等)</li>
+</ul>
+<div class="quoteblock">
+<blockquote>
+<p>植物が大気から吸った CO2 の半分前後が、根から土壌に流れ込み、微生物経由で土壌に固定される。</p>
+</blockquote>
+</div>
+<p>これは、植物自身が <strong>天然の炭素隔離装置</strong> として機能していることを意味する。</p>
+<h2>6.3 CO2 上昇の二つのルート</h2>
+<p>この仕組みのもとでは、CO2 濃度上昇は、農業に二つのルートで効く。</p>
+<h3>ルート 1:光合成量の増加</h3>
+<p>CO2 が増えれば、光合成が活発になる。植物は単純により多くの炭素を固定する。</p>
+<p>これは収量増として現れることもあるし、根の発達、葉の繁茂、茎の太さとして現れることもある。植物全体としての <strong>生産能力の底上げ</strong> が起きる。</p>
+<h3>ルート 2:微生物への炭素供給増</h3>
+<p>CO2 増加 → 光合成増 → <strong>液体炭素として根から放出される量も増える</strong>。</p>
+<p>つまり、植物が微生物に渡せる炭素量が増える。微生物の活性が上がる。菌根菌のネットワークが拡大する。窒素・リン・ミネラルの供給能力が高まる。</p>
+<p>結果として、<strong>土壌が豊かになる速度が、CO2 上昇によって加速する</strong>。</p>
+<p>これが、微生物型農業にとっての「追い風」である。</p>
+<p>特に、植物と共生してリン酸などの栄養素を供給するアーバスキュラー菌根菌(AM 菌)のネットワークは、CO2 濃度の上昇によって大きく影響を受ける。興味深いことに、慣行農業(耕起や化学肥料の散布が行われる環境)で生き延びてきた <strong>適応力の高い AM 菌群集</strong> は、eCO2 環境下において植物に大量の炭素を供給されると、<strong>作物のバイオマスを最大 63% 増加</strong> させるという強力な成長促進効果を発揮することが報告されている。</p>
+<h3>グロマリンによる土壌構造の安定化</h3>
+<p>菌糸ネットワークが拡大することで、<strong>「グロマリン(Glomalin)」</strong>
+と呼ばれる糖タンパク質の生産量が増加する。</p>
+<p>グロマリンは、</p>
+<ul>
+<li>土壌の粒子を結合させて団粒構造を形成する <strong>強力な接着剤</strong> として機能する</li>
+<li>土壌の保水性、通気性、耐浸食性を飛躍的に向上させる</li>
+<li>炭素を <strong>数十年から数千年にわたって土壌中に安定的に隔離(炭素貯留)</strong> する</li>
+</ul>
+<p>慣行農業で用いられる激しい機械的耕起や殺菌剤の散布は、この菌糸ネットワークとグロマリンを物理的・化学的に破壊してしまうため、
+<strong>CO2 上昇の恩恵を農業システムに取り込むことができない</strong>。</p>
+<h3>窒素制限のパラドックスと「隠れ飢餓(Hidden Hunger)」</h3>
+<p>ただし、eCO2 によるバイオマスの増加は、複雑な生化学的制限、特に
+<strong>「窒素(N)の枯渇」</strong> というパラドックスを引き起こす。</p>
+<p>大気中の CO2 が増加(ΔCO2 が 200ppm 以上)しても、土壌中に供給される窒素の量は一定であるため、土壌の <strong>C:N 比(炭素・窒素比)が急激に拡大する</strong>。微生物が急激に増殖して窒素を消費(固定化)し、さらに急速に成長する植物も窒素を要求するため、システム全体が深刻な窒素不足に陥る。</p>
+<p>この窒素制限は、農作物の栄養価に致命的な影響を与える。eCO2 環境下で栽培された作物(特に小麦や米などの単一作物)は、<strong>タンパク質、ミネラル、ビタミンなどの必須栄養素の濃度が著しく低下</strong> し、
+<strong>「隠れ飢餓(Hidden Hunger)」</strong> と呼ばれる世界的な栄養失調リスクを増大させることが広く報告されている。</p>
+<p>ここで再び、微生物型農法(リジェネラティブ農業)の優位性が証明される。慣行農業がこの窒素不足を補うためには、価格が高騰し続ける合成窒素肥料(尿素など)をさらに大量に投入するしかなく、経済的に即座に破綻する(第3章で詳述)。</p>
+<p>一方、リジェネラティブ農業は、マメ科植物(ソラマメやクローバーなど)
+を組み込んだ混植(インタークロッピング)や多様な被覆作物の導入を前提としている。マメ科植物と共生する根粒菌の生物学的窒素固定を利用することで、外部から高価な窒素肥料を購入することなく、システム内に必要な窒素を供給し続けることができる。</p>
+<div class="quoteblock">
+<blockquote>
+<p>したがって、「CO2 濃度の上昇は微生物型農業にとって追い風である」という指摘は、化学肥料に依存せず、かつ植物の多様性を確保したシステム(中間の道)においてのみ真実となる、<strong>極めて鋭い科学的・経済的分析</strong>である。</p>
+</blockquote>
+</div>
+<h2>6.4 Gabe Brown の事例</h2>
+<p>理論だけではない。実例がある。</p>
+<p>米国ノースダコタ州の農家 Gabe Brown は、20 年以上にわたって再生農業を実践した結果、自分の畑の <strong>土壌有機物含量(SOM)を 1.7〜1.9% から 5〜8% に上げた</strong> ことで知られる(1991 年と 2020 年代の比較、DTN 2023。一部の圃場は 6 年で 3% から 11% に)。</p>
+<p>土壌有機物が増えるということは、<strong>炭素が土に固定された</strong> ということだ。具体的には、</p>
+<ul>
+<li>不耕起(No-till)で土壌微生物を壊さない</li>
+<li>カバークロップで生きた根を絶やさない</li>
+<li>多様な植物を混作する</li>
+<li>家畜を回転放牧で組み込む</li>
+</ul>
+<p>これだけで、20 年で SOM を 6 倍以上にした。</p>
+<p>意味するところは、</p>
+<ul>
+<li>化学肥料の使用量を激減できた</li>
+<li>灌漑水の使用量も減った(SOM が水を保持する)</li>
+<li>作物の干ばつ耐性が高まった</li>
+<li>経営収支は改善した</li>
+</ul>
+<div class="quoteblock">
+<blockquote>
+<p>米国農業省 NRCS の試算では、SOM が 1% 上がると、1 エーカーあたり水保持量が <strong>最大で約 20,000 ガロン(75 トン)</strong> 増える(NRCS の土壌の健康の資料。土性によってはもっと少ない)。</p>
+</blockquote>
+</div>
+<p>これは灌漑コストや干ばつリスクに直接効く。SOM は、肥料コストだけでなく、水コストも下げる。</p>
+<p>CO2 が大気中にあふれている現代は、Gabe Brown 流のやり方にとって、追い風が吹いている時代だ、ということになる。</p>
+<h2>6.5 「いま」が好機である理由</h2>
+<p>整理すると、こうなる。</p>
+<ul>
+<li>大気中 CO2 は産業革命前比 +50%</li>
+<li>植物の光合成資源は史上最大級</li>
+<li>液体炭素を通じて土壌微生物に渡せる炭素も史上最大級</li>
+<li>これを活用できる農法は、土を急速に肥沃化できる</li>
+</ul>
+<p>加えて、</p>
+<ul>
+<li>化学肥料は構造的に高騰している(第1章・第2章)</li>
+<li>工業型農業は経済的に成立しなくなる(第3章)</li>
+<li>微生物型に移行する経済的圧力が高い(第4章・第5章)</li>
+</ul>
+<p>この <strong>経済的な圧力</strong> と、<strong>生物学的な追い風</strong> が、同時に存在している。</p>
+<p>これは歴史的に見ても、農業の転換に追い風が吹いた稀な時期だ。</p>
+<div class="quoteblock">
+<blockquote>
+<p>化学肥料が安かったから工業型農業が成立した。化学肥料が高くなり、CO2 が増えたから、微生物型農業が成立する。いずれも、外部条件が農法を決めている。</p>
+</blockquote>
+</div>
+<h2>6.6 注意点 ── 気候変動の負の側面</h2>
+<p>念のため、誤解を避けるために書いておく。</p>
+<p>CO2 上昇が農業にとってプラスに働く面がある、というのは、<strong>気候変動全体が良いものだ</strong> という意味ではない。</p>
+<p>気候変動の負の側面は深刻である。</p>
+<ul>
+<li>異常気象(豪雨、干ばつ、熱波)の増加</li>
+<li>海面上昇</li>
+<li>海洋酸性化</li>
+<li>生態系の混乱</li>
+<li>病害虫分布の変化</li>
+<li>一部地域の砂漠化</li>
+</ul>
+<p>これらは農業にとっても明らかに脅威である。日本の場合も、ゲリラ豪雨、猛暑日の増加、台風の大型化など、すでに悪影響が出ている。</p>
+<p>ただし、</p>
+<ul>
+<li>異常気象には、<strong>SOM の高い土壌が緩衝材になる</strong>(干ばつ・豪雨両方に強い)</li>
+<li>CO2 増加は、植物の生育促進という側面を持つ</li>
+<li>気温上昇は、栽培可能地域・季節を一部で広げる</li>
+</ul>
+<p>つまり、<strong>気候変動下でも生き延びる農法は、結局のところ微生物型農業である</strong>、という結論にも収束する。</p>
+<p>工業型農業は、化学肥料への依存と、裸地で耕運する慣行のため、気候変動に弱い。微生物型農業は、土の生物学的な健康性そのものが衝撃吸収材になる。</p>
+<h2>6.7 第6章のまとめ</h2>
+<ul>
+<li>CO2 濃度は産業革命前比 +50% に達している</li>
+<li>これは植物にとって光合成資源の増加を意味する</li>
+<li>植物は光合成炭素の 20〜60% を液体炭素として根から微生物に渡す</li>
+<li>CO2 上昇 → 光合成増 → 液体炭素増 → 土壌微生物の活性増</li>
+<li>結果として、微生物型農業は土の肥沃化を加速できる</li>
+<li>Gabe Brown の事例(SOM 1.7% → 5〜8%、20 年)が実証している</li>
+<li>経済的圧力(肥料高騰)と生物学的追い風(CO2)が同時に存在する</li>
+<li>これは農法転換にとっての歴史的な好機である</li>
+</ul>
+<p>ここまでで、なぜ微生物型農業が選択されるか、なぜ可能か、なぜいまが好機か、を見てきた。</p>
+<p>次の第7章では、これを <strong>どう実装するか</strong> ── 一反百姓、耕作放棄地、ベランダ菜園など、現実的な規模ごとの実装プランを見ていく。</p>
+<h2>参考資料</h2>
+<p><strong>CO2 濃度と光合成</strong></p>
+<ul>
+<li>大気中 CO2 濃度の歴史的推移(産業革命前 280 ppm → 2026 年約 425 ppm)── NOAA Mauna Loa 観測データ</li>
+<li>開放系 CO2 増加(FACE)実験のメタアナリシス</li>
+<li>温室 CO2 施用による収量増加(20〜40%)の農学文献</li>
+</ul>
+<p><strong>液状炭素経路・グロマリン</strong></p>
+<ul>
+<li>Christine Jones &quot;Light Farming&quot;(2018)── 根浸出物 20〜60% の土壌移行</li>
+<li>Sara Wright(USDA-ARS)── グロマリン(Glomalin-Related Soil
+Protein)の発見と土壌団粒構造への寄与</li>
+<li>AM 菌の eCO2 環境下での植物バイオマス +63% 増加に関する研究</li>
+</ul>
+<p><strong>Gabe Brown と再生農業</strong></p>
+<ul>
+<li>Gabe Brown &quot;Dirt to Soil&quot;(2018)── ノースダコタ州で SOM 1.7%
+→ 11% への向上</li>
+<li>米国農業省 NRCS(自然資源保全局)── SOM 1% 増加で 1 エーカーあたり 75 トン(20,000 ガロン)の保水量増加</li>
+</ul>
+<p><strong>窒素制限のパラドックス・隠れ飢餓</strong></p>
+<ul>
+<li>&quot;Hidden Hunger&quot; 概念に関する FAO・WHO 文献</li>
+<li>eCO2 環境下での作物栄養濃度低下に関する各種研究</li>
+</ul>
+<p><strong>気候変動の負の側面</strong></p>
+<ul>
+<li>IPCC AR6(第6次評価報告書)── 気候変動の農業への影響</li>
+</ul>
+
+  </article>
+
+  <!-- CHAPTER NAV(前後の記事) -->
+  <nav class="chapter-nav">
+  <a href="/phosphorus-and-farming/soil-microbes/" rel="prev">&larr; 前: 第5章 土壌微生物という戦略</a>
+  <a href="/phosphorus-and-farming/implementation/" rel="next">次: 第7章 どう実装するか &rarr;</a>
+</nav>
+
+  <!-- FOOTER(サイト内メニュー+奥付) -->
+  <footer class="site-footer">
+    <nav class="footer-nav" aria-label="サイト内リンク">
+      <div class="footer-col">
+        <h4>記事シリーズ</h4>
+        <ul>
+          <li><a href="/insights/">構造分析</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/ai-native-software/">AI ネイティブなソフトウェア開発</a></li>
+          <li><a href="/claude-debian/">Claudeと一緒に学ぶDebian</a></li>
+          <li><a href="/debian-server/">Claudeと一緒に育てるDebian サーバー</a></li>
+          <li><a href="/phosphorus-and-farming/">リン資源枯渇と自然農法</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>サイト</h4>
+        <ul>
+          <li><a href="/">ホーム</a></li>
+          <li><a href="/natural-farming/">自然農法とは</a></li>
+          <li><a href="/light-farming/">Light Farming</a></li>
+          <li><a href="/gallery/">畑の記録</a></li>
+          <li><a href="/about/">私たちのアプローチ</a></li>
+          <li><a href="/privacy/">プライバシー</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>関連サイト</h4>
+        <ul>
+          <li><a href="https://aiai.aiseed.dev/">aiai ── AI 時代の学び方</a></li>
+          <li><a href="https://weather.time-j.net/">個人開発気象統計</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="colophon">
+      <div class="colophon-mark">§</div>
+      リン資源枯渇と自然農法シリーズ · 第6章<br>
+      Tokushima · 2026.05.11<br>
+      <a href="/" style="color: var(--whisper); text-decoration: underline; text-decoration-color: var(--rule);">aiseed.dev</a> · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" style="color: var(--whisper); text-decoration: underline; text-decoration-color: var(--rule);">CC BY 4.0</a>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  // 広い画面ではサイドバー目次を常時展開する(狭い画面では折りたたみに戻す)
+  (function () {
+    var toc = document.querySelector(".series-toc details");
+    if (!toc) return;
+    var mq = window.matchMedia("(min-width: 1200px)");
+    function sync() { toc.open = mq.matches; }
+    sync();
+    if (mq.addEventListener) mq.addEventListener("change", sync);
+    else mq.addListener(sync);
+  })();
+
+  // Mermaid loads only on pages that contain a .mermaid block.
+  // Self-hosted (no third-party CDN dependency); SRI verified.
+  if (document.querySelector(".mermaid")) {
+    const s = document.createElement("script");
+    s.src = "/js/vendor/mermaid-11.14.0.min.js";
+    s.integrity = "sha384-1CMXl090wj8Dd6YfnzSQUOgWbE6suWCaenYG7pox5AX7apTpY3PmJMeS2oPql4Gk";
+    s.crossOrigin = "anonymous";
+    s.onload = () => {
+      const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+      mermaid.initialize({ startOnLoad: false, theme: prefersDark ? "dark" : "default" });
+      mermaid.run();
+    };
+    document.head.appendChild(s);
+  }
+</script>
+
+
+</body>
+</html>

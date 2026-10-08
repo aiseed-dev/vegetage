@@ -1,0 +1,1553 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://static.cloudflareinsights.com https://challenges.cloudflare.com 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://cloudflareinsights.com https://challenges.cloudflare.com">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9FLQ963JXM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'G-9FLQ963JXM');
+</script>
+
+<title>第4章 現実的な立ち位置 ── どこにも組みしない — リン資源枯渇と自然農法シリーズ | aiseed.dev</title>
+<meta name="description" content="慣行農業を続ける道はない ── というより、リン酸肥料が輸入できなくなる以上、続けたくても続けられない。「自給率向上」「日本型循環畜産」「工業型農業の温存/完全放棄」── どの処方箋も、肥料制約という物理的制約の前では空論になる。真の論点は「移行をどう管理するか」だ。本シリーズの立ち位置は、国内では小規模なリジェネラティブ農業へ段階的に移行しつつ、国際的にもリジェネラティブ農業の推進を支持し、再分散された世界供給網からの輸入で不足を補う、という三つの戦略の組み合わせである。">
+<link rel="canonical" href="https://aiseed.dev/phosphorus-and-farming/realistic-position/">
+<link rel="alternate" hreflang="ja" href="https://aiseed.dev/phosphorus-and-farming/realistic-position/">
+<link rel="alternate" hreflang="en" href="https://aiseed.dev/en/phosphorus-and-farming/realistic-position/">
+<link rel="alternate" hreflang="x-default" href="https://aiseed.dev/phosphorus-and-farming/realistic-position/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="AI時代の暮らし">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="第4章 現実的な立ち位置 ── どこにも組みしない">
+<meta property="og:description" content="慣行農業を続ける道はない ── というより、リン酸肥料が輸入できなくなる以上、続けたくても続けられない。「自給率向上」「日本型循環畜産」「工業型農業の温存/完全放棄」── どの処方箋も、肥料制約という物理的制約の前では空論になる。真の論点は「移行をどう管理するか」だ。本シリーズの立ち位置は、国内では小規模なリジェネラティブ農業へ段階的に移行しつつ、国際的にもリジェネラティブ農業の推進を支持し、再分散された世界供給網からの輸入で不足を補う、という三つの戦略の組み合わせである。">
+<meta property="og:url" content="https://aiseed.dev/phosphorus-and-farming/realistic-position/">
+<meta property="og:image" content="https://aiseed.dev/images/IMG_3285.jpg">
+<meta property="article:section" content="リン資源枯渇と自然農法シリーズ">
+<meta property="article:published_time" content="2026.05.09">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="第4章 現実的な立ち位置 ── どこにも組みしない">
+<meta name="twitter:description" content="慣行農業を続ける道はない ── というより、リン酸肥料が輸入できなくなる以上、続けたくても続けられない。「自給率向上」「日本型循環畜産」「工業型農業の温存/完全放棄」── どの処方箋も、肥料制約という物理的制約の前では空論になる。真の論点は「移行をどう管理するか」だ。本シリーズの立ち位置は、国内では小規模なリジェネラティブ農業へ段階的に移行しつつ、国際的にもリジェネラティブ農業の推進を支持し、再分散された世界供給網からの輸入で不足を補う、という三つの戦略の組み合わせである。">
+<meta name="twitter:image" content="https://aiseed.dev/images/IMG_3285.jpg">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+
+<!-- フォントは Web 配信せず、すべて端末のローカルフォントで賄う。
+     和文: UDデジタル教科書体 → BIZ UDP明朝(いずれも Windows 標準搭載の
+     モリサワ UD 書体) → ヒラギノ明朝・游明朝などのシステム明朝。
+     等幅: 端末のシステム等幅フォント。 -->
+
+<style>
+/* ============================================================
+   LOCAL FONT: UDデジタル教科書体(モリサワ)
+   Windows・教育向け端末に無償搭載。端末にあれば local() で拾い、
+   なければ BIZ UDP明朝(同じく Windows 標準搭載)→ システム明朝へ
+   フォールバックする。R と B は別ファミリー名なので、太字(700)を
+   B 書体に明示的にマッピングして疑似ボールドを避ける。
+   ============================================================ */
+@font-face {
+  font-family: "UD Digital Kyokasho";
+  font-weight: 400;
+  src: local("UD デジタル 教科書体 NK-R"), local("UD Digital Kyokasho NK-R"),
+       local("UD デジタル 教科書体 NP-R"), local("UD Digital Kyokasho NP-R"),
+       local("UD デジタル 教科書体 N-R"), local("UD Digital Kyokasho N-R");
+}
+@font-face {
+  font-family: "UD Digital Kyokasho";
+  font-weight: 700;
+  src: local("UD デジタル 教科書体 NK-B"), local("UD Digital Kyokasho NK-B"),
+       local("UD デジタル 教科書体 NP-B"), local("UD Digital Kyokasho NP-B"),
+       local("UD デジタル 教科書体 N-B"), local("UD Digital Kyokasho N-B");
+}
+
+/* ============================================================
+   COLOR & DESIGN TOKENS
+   aiseed.dev 全体のスタイルに合わせる場合は、ここの変数を
+   既存サイトのCSS変数に差し替える。
+   ============================================================ */
+:root {
+  --ink: #1a1a1a;
+  --paper: #f4f1ea;
+  --paper-deep: #ebe6d8;
+  --accent: #c8442a;
+  --rule: #d4cdb8;
+  --whisper: #6b665a;
+  --highlight: #f7e9c8;
+}
+
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+/* 本文: 端末にあれば UDデジタル教科書体を最優先、次に BIZ UDP明朝
+   (Windows 標準搭載)、どちらもなければヒラギノ明朝等のシステム明朝 */
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "UD Digital Kyokasho",
+               "BIZ UDPMincho", "BIZ UDP明朝",
+               "Hiragino Mincho ProN", "ヒラギノ明朝 ProN",
+               "Yu Mincho", "游明朝", "YuMincho",
+               "Noto Serif CJK JP", "Noto Serif JP", serif;
+  font-size: 17px;
+  line-height: 1.9;
+  letter-spacing: 0.02em;
+  font-feature-settings: "palt";
+  overflow-x: hidden;
+}
+
+/* グレインテクスチャ(紙の質感) */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background-image: radial-gradient(rgba(0,0,0,0.04) 1px, transparent 1px);
+  background-size: 3px 3px;
+  opacity: 0.5;
+  mix-blend-mode: multiply;
+}
+
+.container {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0 32px;
+  position: relative;
+  z-index: 2;
+}
+
+/* ============================================================
+   MASTHEAD(シリーズ名・章番号)
+   ============================================================ */
+.masthead {
+  border-bottom: 3px double var(--ink);
+  padding: 24px 0 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--whisper);
+}
+.masthead-left  { font-weight: 700; color: var(--ink); }
+.masthead-left a { color: inherit; text-decoration: none; }
+.masthead-left a:hover { color: var(--accent); }
+.masthead-home { color: var(--whisper); }
+.masthead-sep { margin: 0 10px; color: var(--whisper); font-weight: 400; }
+.masthead-right { font-style: italic; }
+
+/* ============================================================
+   HERO(タイトル領域)
+   ============================================================ */
+.hero {
+  padding: 80px 0 60px;
+}
+.hero-meta {
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  color: var(--accent);
+  margin-bottom: 32px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.hero-meta::before {
+  content: "";
+  width: 40px;
+  height: 1px;
+  background: var(--accent);
+}
+.hero-title {
+  font-family: "UD Digital Kyokasho", "BIZ UDPMincho", "BIZ UDP明朝", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  font-weight: 800;
+  font-size: clamp(32px, 5.5vw, 56px);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  margin-bottom: 24px;
+}
+.hero-title .accent {
+  color: var(--accent);
+}
+.hero-subtitle {
+  font-size: 18px;
+  line-height: 1.85;
+  color: var(--whisper);
+  max-width: 580px;
+  border-left: 2px solid var(--accent);
+  padding-left: 20px;
+  margin-top: 32px;
+}
+.hero-byline {
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid var(--rule);
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--whisper);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* ============================================================
+   ARTICLE BODY
+   ============================================================ */
+article p {
+  margin-bottom: 24px;
+}
+
+article h2 {
+  font-family: "UD Digital Kyokasho", "BIZ UDPMincho", "BIZ UDP明朝", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 1.4;
+  margin: 72px 0 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--ink);
+  position: relative;
+}
+article h2::before {
+  content: "§";
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+  color: var(--accent);
+  margin-right: 16px;
+  font-size: 22px;
+}
+
+article h3 {
+  font-family: "UD Digital Kyokasho", "BIZ UDPMincho", "BIZ UDP明朝", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  font-weight: 600;
+  font-size: 19px;
+  margin: 40px 0 16px;
+  color: var(--ink);
+}
+article h3::before {
+  content: "—";
+  color: var(--accent);
+  margin-right: 12px;
+  font-weight: 400;
+}
+
+article strong {
+  font-weight: 700;
+  background: linear-gradient(to top, var(--highlight) 35%, transparent 35%);
+  padding: 0 2px;
+}
+
+article em {
+  font-style: normal;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+article a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  transition: color 0.2s;
+}
+article a:hover {
+  color: var(--accent);
+}
+
+/* ============================================================
+   BLOCKQUOTE
+   ============================================================ */
+blockquote {
+  margin: 40px 0;
+  padding: 32px 40px;
+  background: var(--paper-deep);
+  border-left: 4px solid var(--accent);
+  position: relative;
+  font-size: 18px;
+  line-height: 1.85;
+  font-style: normal;
+  color: var(--ink);
+}
+blockquote::before {
+  content: "「";
+  position: absolute;
+  top: 4px;
+  left: 8px;
+  font-size: 48px;
+  color: var(--accent);
+  opacity: 0.3;
+  font-family: "Hiragino Mincho ProN", serif;
+}
+blockquote p {
+  margin-bottom: 0;
+}
+
+/* ============================================================
+   TABLE
+   ============================================================ */
+article table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 32px 0;
+  font-size: 15px;
+  line-height: 1.7;
+}
+article thead th {
+  font-family: "UD Digital Kyokasho", "BIZ UDPMincho", "BIZ UDP明朝", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  font-weight: 700;
+  text-align: left;
+  padding: 14px 16px;
+  border-bottom: 2px solid var(--ink);
+  color: var(--ink);
+}
+article tbody td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+}
+article tbody tr:last-child td {
+  border-bottom: none;
+}
+@media (max-width: 720px) {
+  article table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* ============================================================
+   ORDERED LIST(番号付きリスト)
+   ============================================================ */
+article ol {
+  margin: 32px 0;
+  counter-reset: item;
+  padding: 0;
+}
+article ol li {
+  list-style: none;
+  position: relative;
+  padding: 16px 0 16px 56px;
+  border-bottom: 1px dashed var(--rule);
+  counter-increment: item;
+}
+article ol li::before {
+  content: counter(item, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 16px;
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+  font-size: 14px;
+  color: var(--accent);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+/* 通常のul(章末の関連リンクなど) */
+article ul {
+  margin: 24px 0;
+  padding-left: 1.5em;
+}
+article ul li {
+  margin-bottom: 8px;
+}
+
+/* ============================================================
+   CODE BLOCK(疑似ターミナル風)
+   ============================================================ */
+article pre {
+  margin: 40px 0;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 24px 28px;
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+  font-size: 13px;
+  line-height: 1.8;
+  position: relative;
+  overflow-x: auto;
+}
+article pre::before {
+  content: "● ● ●";
+  position: absolute;
+  top: 8px;
+  left: 12px;
+  font-size: 8px;
+  color: var(--whisper);
+  letter-spacing: 4px;
+}
+article pre code {
+  display: block;
+  padding-top: 16px;
+  white-space: pre;
+}
+
+/* インラインコード */
+article code {
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+  font-size: 0.9em;
+  background: var(--paper-deep);
+  padding: 2px 6px;
+  border-radius: 2px;
+  color: var(--ink);
+}
+article pre code {
+  background: transparent;
+  padding: 16px 0 0 0;
+  color: var(--paper);
+}
+
+/* ============================================================
+   HORIZONTAL RULE(本文中の区切り)
+   ============================================================ */
+article hr {
+  border: none;
+  text-align: center;
+  margin: 64px 0;
+  height: 1em;
+}
+article hr::before {
+  content: "◆ ◆ ◆";
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+  font-size: 14px;
+  color: var(--accent);
+  letter-spacing: 0.5em;
+}
+
+/* ============================================================
+   RELATED LINKS(章末の関連記事)
+   ============================================================ */
+.related-links {
+  margin-top: 64px;
+  padding: 32px 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.related-links h3 {
+  font-family: "UD Digital Kyokasho", "BIZ UDPMincho", "BIZ UDP明朝", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  font-size: 14px;
+  letter-spacing: 0.2em;
+  color: var(--whisper);
+  margin: 0 0 20px;
+  font-weight: 600;
+}
+.related-links h3::before {
+  content: none;
+}
+.related-links ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.related-links li {
+  padding: 10px 0;
+  border-bottom: 1px dashed var(--rule);
+  margin-bottom: 0;
+}
+.related-links li:last-child {
+  border-bottom: none;
+}
+.related-links a {
+  text-decoration: none;
+  color: var(--ink);
+  display: flex;
+  gap: 16px;
+  align-items: baseline;
+}
+.related-links .related-tag {
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+  text-transform: uppercase;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.related-links a:hover .related-title {
+  color: var(--accent);
+}
+
+/* ============================================================
+   FOOTER(サイト内メニュー+奥付)
+   ============================================================ */
+.site-footer {
+  margin-top: 96px;
+  border-top: 3px double var(--ink);
+  padding-top: 48px;
+}
+.footer-nav {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 32px 48px;
+}
+.footer-col h4 {
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--whisper);
+  font-weight: 700;
+  margin: 0 0 14px;
+}
+.footer-col ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.footer-col li {
+  padding: 6px 0;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.footer-col a {
+  color: var(--ink);
+  text-decoration: none;
+}
+.footer-col a:hover { color: var(--accent); }
+
+.colophon {
+  margin-top: 48px;
+  padding: 32px 0 40px;
+  border-top: 1px solid var(--rule);
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: var(--whisper);
+  text-align: center;
+  line-height: 2;
+}
+.colophon-mark {
+  font-family: "UD Digital Kyokasho", "BIZ UDPMincho", "Hiragino Mincho ProN", serif;
+  font-size: 32px;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+
+/* ============================================================
+   SERIES TOC(全章一覧・折りたたみ式)
+   ============================================================ */
+.series-toc {
+  margin: 24px 0 40px;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 8px 0;
+}
+.series-toc details {
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+}
+.series-toc summary {
+  cursor: pointer;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--whisper);
+  font-weight: 700;
+  padding: 8px 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.series-toc summary::-webkit-details-marker { display: none; }
+.series-toc summary::before {
+  content: "▸";
+  color: var(--accent);
+  font-size: 10px;
+  display: inline-block;
+  transition: transform 0.15s ease;
+}
+.series-toc details[open] summary::before { transform: rotate(90deg); }
+.series-toc ol {
+  list-style: none;
+  margin: 12px 0 8px;
+  padding: 0;
+  counter-reset: none;
+}
+.series-toc li {
+  list-style: none;
+  padding: 9px 0;
+  border-bottom: 1px dashed var(--rule);
+  font-family: "UD Digital Kyokasho", "BIZ UDPMincho", "BIZ UDP明朝", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  font-size: 14px;
+  line-height: 1.55;
+  display: flex;
+  gap: 16px;
+  align-items: baseline;
+}
+.series-toc li::before { content: none; }
+.series-toc li:last-child { border-bottom: none; }
+.series-toc li a {
+  display: flex;
+  gap: 16px;
+  align-items: baseline;
+  text-decoration: none;
+  color: var(--ink);
+  flex: 1;
+}
+.series-toc li a:hover .toc-title { color: var(--accent); }
+.series-toc .toc-num {
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
+  color: var(--accent);
+  text-transform: uppercase;
+  white-space: nowrap;
+  flex-shrink: 0;
+  min-width: 5em;
+}
+.series-toc li.current {
+  background: var(--paper-deep);
+  margin: 0 -12px;
+  padding: 9px 12px;
+}
+.series-toc li.current .toc-title {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+/* ============================================================
+   IMAGES
+   ============================================================ */
+article img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 32px auto;
+}
+
+/* ============================================================
+   CUSTOM BLOCKS(:::chain / :::highlight / :::quote / :::compare)
+   ============================================================ */
+.chain-diagram {
+  background: var(--paper-deep);
+  border-left: 4px solid var(--accent);
+  padding: 24px 28px;
+  margin: 32px 0;
+  font-size: 15px;
+  line-height: 2.2;
+}
+.chain-diagram .arrow {
+  color: var(--accent);
+  font-weight: 700;
+  margin: 0 0.3em;
+}
+.highlight-box {
+  background: var(--paper-deep);
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--accent);
+  padding: 24px 28px;
+  margin: 32px 0;
+}
+.highlight-box p { margin-bottom: 12px; }
+.highlight-box p:last-child { margin-bottom: 0; }
+.quote-block {
+  margin: 40px 0;
+  padding: 32px 40px;
+  background: var(--paper-deep);
+  border-left: 4px solid var(--accent);
+}
+.quote-block .quote-text {
+  font-size: 18px;
+  line-height: 1.85;
+  margin: 0;
+}
+
+/* ============================================================
+   ASCIIDOC BLOCKS(pyasciidoc が出力するクラス。.adoc 記事用)
+   admonition / 帰属つき引用 / 画像ブロック / 脚注 / ロール
+   ============================================================ */
+.admonition {
+  background: var(--paper-deep);
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--accent);
+  padding: 24px 28px;
+  margin: 32px 0;
+}
+.admonition-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+.admonition p { margin-bottom: 12px; }
+.admonition p:last-child { margin-bottom: 0; }
+.quoteblock { margin: 40px 0; }
+.quoteblock blockquote { margin: 0; }
+.quoteblock .attribution {
+  margin-top: 12px;
+  text-align: right;
+  font-size: 14px;
+  color: var(--whisper);
+}
+.quoteblock .attribution cite { font-style: normal; }
+.imageblock { margin: 32px 0; text-align: center; }
+.imageblock .content img { max-width: 100%; height: auto; }
+sup.footnote { font-size: 12px; }
+sup.footnote a { text-decoration: none; }
+.footnotes {
+  margin-top: 64px;
+  padding-top: 24px;
+  border-top: 1px solid var(--rule);
+  font-size: 14px;
+  color: var(--whisper);
+}
+.footnotes ol { padding-left: 1.5em; }
+.footnotes li { margin-bottom: 8px; }
+.footnotes .footnote-backref { text-decoration: none; margin-left: 0.3em; }
+/* ロール: [.chain](:::chain と同じ見た目)/ [.accent]#…# */
+article .chain {
+  background: var(--paper-deep);
+  border-left: 4px solid var(--accent);
+  padding: 24px 28px;
+  margin: 32px 0;
+  font-size: 15px;
+  line-height: 2.2;
+}
+article .accent { color: var(--accent); }
+
+/* ============================================================
+   CHAPTER NAV(前後の記事へのリンク)
+   ============================================================ */
+.chapter-nav {
+  margin-top: 64px;
+  padding: 24px 0;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  font-size: 14px;
+}
+.chapter-nav a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--rule);
+  text-underline-offset: 4px;
+}
+.chapter-nav a:hover { color: var(--accent); }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 640px) {
+  .container { padding: 0 20px; }
+  .hero { padding: 48px 0 40px; }
+  blockquote { padding: 24px 20px 24px 28px; }
+  article pre { padding: 20px 16px; font-size: 12px; }
+  article ol li { padding-left: 48px; }
+  .series-toc .toc-num { min-width: 4em; font-size: 10px; }
+  .series-toc li { font-size: 13px; gap: 12px; }
+}
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.hero-meta, .hero-title, .hero-subtitle, .hero-byline {
+  animation: rise 0.8s ease-out backwards;
+}
+.hero-meta     { animation-delay: 0.1s; }
+.hero-title    { animation-delay: 0.25s; }
+.hero-subtitle { animation-delay: 0.45s; }
+.hero-byline   { animation-delay: 0.65s; }
+.mermaid {
+  text-align: center;
+  margin: 2.5rem 0;
+  background: var(--paper-warm, #f5f1ea);
+  padding: 1.5rem 1rem;
+  border-radius: 4px;
+  overflow-x: auto;
+}
+.mermaid svg { max-width: 100%; height: auto; }
+
+/* ============================================================
+   WIDE LAYOUT(広い画面では目次を左サイドバーに常時展開)
+   ============================================================ */
+@media (min-width: 1200px) {
+  body.has-toc .container {
+    max-width: 1320px;
+    display: grid;
+    grid-template-columns: 280px minmax(0, 880px);
+    column-gap: 64px;
+    justify-content: center;
+  }
+  body.has-toc .masthead,
+  body.has-toc .hero {
+    grid-column: 1 / -1;
+  }
+  /* グリッドアイテム自体は行いっぱいに伸ばし、内側の details を sticky に
+     する(sticky なグリッドアイテムはグリッドエリアではなくコンテナ全体で
+     制約されるブラウザ挙動があり、フッターに重なってしまうため)。 */
+  body.has-toc .series-toc {
+    grid-column: 1;
+    grid-row: 3 / span 2;
+    margin: 0;
+    padding: 0;
+    border-top: none;
+    border-bottom: none;
+  }
+  body.has-toc .series-toc details {
+    position: sticky;
+    top: 32px;
+    max-height: calc(100vh - 64px);
+    overflow-y: auto;
+    padding: 0 12px 12px 0;
+  }
+  /* サイドバーでは折りたたみを無効化し、見出しとして表示 */
+  body.has-toc .series-toc summary {
+    pointer-events: none;
+    cursor: default;
+  }
+  body.has-toc .series-toc summary::before { content: none; }
+  body.has-toc .series-toc li { font-size: 13.5px; }
+  body.has-toc article    { grid-column: 2; grid-row: 3; }
+  body.has-toc .chapter-nav { grid-column: 2; grid-row: 4; }
+  body.has-toc .site-footer { grid-column: 1 / -1; grid-row: 5; }
+}
+
+/* ============================================================
+   DARK MODE(OS の配色設定に追従して自動で暗色に切り替え)
+   ============================================================ */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --ink: #e8e3d6;
+    --paper: #16140f;
+    --paper-deep: #211d16;
+    --accent: #e8765a;
+    --rule: #393428;
+    --whisper: #a39b88;
+    --highlight: rgba(220, 168, 78, 0.30);
+  }
+  /* 紙の質感(グレイン)を暗色背景向けに反転 */
+  body::before {
+    background-image: radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px);
+    mix-blend-mode: screen;
+    opacity: 0.4;
+  }
+  /* コードブロックは両モードとも暗いターミナル調を維持 */
+  article pre {
+    background: #0d0c0a;
+    color: #e8e3d6;
+  }
+  article pre code {
+    color: #e8e3d6;
+  }
+  /* Mermaid 図の枠を暗色に */
+  .mermaid {
+    background: #211d16;
+  }
+}
+</style>
+
+</head>
+
+<body class="has-toc">
+
+<div class="container">
+
+  <!-- MASTHEAD(ホーム › シリーズ目次) -->
+  <header class="masthead">
+    <div class="masthead-left"><a href="/" class="masthead-home">aiseed.dev</a><span class="masthead-sep">›</span><a href="/phosphorus-and-farming/">リン資源枯渇と自然農法シリーズ</a></div>
+    <div class="masthead-right">第4章 / Essay</div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-meta">第4章 № 04 · 2026</div>
+
+    <h1 class="hero-title">どちらの極端にも、<br><span class="accent">組みしない</span>。</h1>
+
+    <p class="hero-subtitle">エネルギー自給率向上は困難、循環畜産は不成立、リジェネラティブ農業の国際推進と輸入</p>
+
+    <div class="hero-byline">
+      <span>2026.05.09</span>
+      <span><a href="https://aiseed.dev/en/phosphorus-and-farming/realistic-position/" style="color: var(--whisper); text-decoration: underline; text-decoration-color: var(--rule);">🌐 EN</a></span>
+    </div>
+  </section>
+
+  <!-- SERIES TOC(全章一覧・現在の章をハイライト) -->
+  <nav class="series-toc" aria-label="シリーズ章一覧">
+  <details>
+    <summary>目次 — 全章</summary>
+    <ol>
+      <li><a href="/phosphorus-and-farming/prologue/"><span class="toc-num">序章</span><span class="toc-title">経済が農法を決める</span></a></li>
+      <li><a href="/phosphorus-and-farming/supply-constraint/"><span class="toc-num">第1章</span><span class="toc-title">リン酸肥料の供給制約 ── 何が起きているか</span></a></li>
+      <li><a href="/phosphorus-and-farming/no-cheap-return/"><span class="toc-num">第2章</span><span class="toc-title">リン酸肥料は安価には戻らない</span></a></li>
+      <li><a href="/phosphorus-and-farming/industrial-farming-fails/"><span class="toc-num">第3章</span><span class="toc-title">慣行農業は経済的に成立しなくなる</span></a></li>
+      <li class="current" aria-current="page"><span class="toc-num">第4章</span><span class="toc-title">現実的な立ち位置 ── どこにも組みしない</span></li>
+      <li><a href="/phosphorus-and-farming/soil-microbes/"><span class="toc-num">第5章</span><span class="toc-title">土壌微生物という戦略</span></a></li>
+      <li><a href="/phosphorus-and-farming/co2-tailwind/"><span class="toc-num">第6章</span><span class="toc-title">CO2 という追い風</span></a></li>
+      <li><a href="/phosphorus-and-farming/implementation/"><span class="toc-num">第7章</span><span class="toc-title">どう実装するか ── 一反百姓と耕作放棄地</span></a></li>
+      <li><a href="/phosphorus-and-farming/operating-principles/"><span class="toc-num">第8章</span><span class="toc-title">運用原則 ── 何をして、何をしないか</span></a></li>
+      <li><a href="/phosphorus-and-farming/cuba-lessons/"><span class="toc-num">第9章</span><span class="toc-title">キューバの教訓</span></a></li>
+    </ol>
+  </details>
+</nav>
+
+  <!-- ARTICLE BODY -->
+  <article>
+    <p>第3章で、工業型農業を「これまでどおり」続けることはできない、と結論した。</p>
+<p>ではどこに行くか。ここで、議論はしばしば <strong>複数の極端</strong> に振れる。</p>
+<ul>
+<li><strong>A:政府がなんとかすべきだ</strong> ── 補助金、価格保障、貿易交渉で慣行農業を守り、国内増産で食料自給率を向上させる、という立場</li>
+<li><strong>B:完全自給を目指すべきだ</strong> ── 海外依存をやめ、日本だけで食料をまかなえる体制を作る、という立場</li>
+<li><strong>C:工業型農業を完全に放棄せよ</strong> ── 化学肥料・農薬・近代農業技術そのものを否定し、即時に有機農業・自然農法へ全面転換せよ、という立場</li>
+</ul>
+<p>これらは、それぞれ強い問題提起と論理を持っている。<strong>食料安全保障の脆弱性、国内農業の崩壊、化学肥料依存の限界 ── 診断としては多くが正しい</strong>。本シリーズの第1〜3章で見てきた事実とも整合する。</p>
+<p>しかし、<strong>それぞれが提案する解決策(処方箋)は、肥料制約という物理的制約の前ではいずれも空論</strong> になる。本章では、</p>
+<ol>
+<li><strong>エネルギーベースの食料自給率を国内増産で向上させる</strong> という処方箋の困難</li>
+<li><strong>日本型循環畜産</strong> で輸入飼料からの脱却を図る処方箋の困難</li>
+<li><strong>工業型農業の即時完全放棄か温存か</strong> という二項対立そのものが無意味であること(肥料制約のもとで工業型農業は自動的に終わる)</li>
+</ol>
+<p>を確認し、その上で本シリーズが立つ <strong>「中間の道」── 国内のリジェネラティブ農業への段階的移行 + 国際的なリジェネラティブ農業の推進 + 再分散された世界供給網からの輸入補完</strong> を提示する。</p>
+<h2>4.1 エネルギーベースの食料自給率を向上させるのは困難</h2>
+<p>最近の議論では、しばしば次のような処方箋が提案される。</p>
+<ul>
+<li>カロリーベース食料自給率は <strong>38%</strong>(先進国で最低水準)</li>
+<li>減反政策を即時撤廃し、主食米・麦・大豆への増産シフトで自給率を
+<strong>49% まで向上</strong> させる</li>
+<li>「日本型直接支払い」(欧米型の所得補償制度)で農家を価格変動から守る</li>
+<li>飼料用米の活用で飼料の海外依存から脱却</li>
+</ul>
+<p>これらの提案の <strong>問題提起の部分</strong> は、本シリーズの主張と多くの点で重なる。日本の食料供給体制が脆弱であり、市場原理だけでは農業基盤が維持できない、という認識は共通している。</p>
+<p>しかし、<strong>エネルギーベース(カロリーベース)の自給率を国内増産で向上させる</strong> という処方箋そのものには、構造的な困難がある。</p>
+<h3>困難 1:化学肥料・エネルギーは構造的に国内自給化できない</h3>
+<p>第1章で見たとおり、</p>
+<ul>
+<li>化学肥料原料の自給率は <strong>ほぼ 0%</strong></li>
+<li>リン酸肥料の原料は全量輸入</li>
+<li>窒素肥料の原料(天然ガス)も輸入依存</li>
+<li>カリ肥料はカナダ・ロシア・ベラルーシからの輸入</li>
+<li>化学肥料製造に必要な硫黄は中東石油精製の副産物</li>
+<li>農機の燃料、ハウスの暖房も化石燃料 → 中東依存</li>
+</ul>
+<p>つまり、</p>
+<div class="quoteblock">
+<blockquote>
+<p>食料自給率を上げるためには、肥料・エネルギー自給率を上げる必要がある。しかし肥料・エネルギーは、第1章・第2章で見たとおり、構造的に国内自給化できない。</p>
+</blockquote>
+</div>
+<p>「米を増やして麦を代替する」「飼料用米を増やして輸入トウモロコシを代替する」── この方向は、食料の数字だけ見れば自給率が上がる。しかし <strong>その米を作るために必要な肥料・燃料・農機は、依然として輸入に依存</strong> する。</p>
+<div class="quoteblock">
+<blockquote>
+<p>「<strong>生産資材の起源を無視した食料自給率の議論は、欺瞞である</strong>」
+── 第3章で見た本シリーズの論点と整合する。</p>
+</blockquote>
+</div>
+<p>国内増産シフトを進めれば進めるほど、輸入肥料・輸入エネルギーへの依存量がむしろ増える、というパラドックスに陥る。</p>
+<h3>困難 2:価格構造の硬直性 ── 国内価格は世界価格に追従しない</h3>
+<p>「直接支払い制度で農家を価格変動から守る」という提案も、第1章で見た <strong>国内小売価格の硬直性</strong> という問題に直面する。</p>
+<table class="comparison-table fade-in">
+<thead>
+<tr>
+<th>年</th>
+<th>過リン酸石灰小売価格(20kg)</th>
+<th>世界複合肥料価格</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2020</td>
+<td>1,800 円</td>
+<td>平時</td>
+</tr>
+<tr>
+<td>2022</td>
+<td><strong>3,400 円(ピーク)</strong></td>
+<td>815 ドル/トン</td>
+</tr>
+<tr>
+<td>2024</td>
+<td>2,900 円</td>
+<td>327 ドル/トン</td>
+</tr>
+</tbody>
+</table>
+<p>世界価格は 2022 年ピークから <strong>半値以下に下落</strong> したが、国内価格は高止まりしている。主因は <strong>円安</strong> と <strong>メーカー在庫の消化タイムラグ</strong>。直接支払い制度を整備しても、この為替・市場構造は変わらない。</p>
+<h3>困難 3:財政の制約</h3>
+<p>直接支払いを欧米並みの水準で本格的に導入するには、年間 <strong>数兆円規模</strong>
+の予算が必要になる可能性がある。</p>
+<p>日本の財政状況、人口減少、社会保障費の自然増、防衛費の増額 ── これらとの予算獲得競争の中で、農業予算をこの規模で持続的に拠出する余裕があるかは、極めて不透明である。</p>
+<h3>結論:数字としての自給率向上は、解決の核心ではない</h3>
+<p>「カロリーベース食料自給率を 38% から 49% へ」という目標は、診断としての問題提起の重要性を否定するものではない。しかし、<strong>それを達成しても日本の食料安全保障は本質的に強化されない</strong>(肥料・燃料は輸入のまま)。</p>
+<p>問題は数字の自給率ではなく、<strong>サプライチェーン全体の構造</strong> である。</p>
+<h2>4.2 日本型循環畜産は、肥料制約下では成立しない</h2>
+<p>もう一つよく提案される処方箋が、<strong>「日本型循環畜産(資源循環型農業)」</strong>
+である。</p>
+<ul>
+<li>輸入飼料(トウモロコシ等)への過度な依存から脱却</li>
+<li>国内の水田をフル活用して <strong>飼料用米</strong> を生産</li>
+<li>それを鶏・豚・牛などの畜産飼料として給与</li>
+<li>家畜排せつ物を堆肥として水田に還元</li>
+<li>「お米で育った卵や豚肉」の普及</li>
+</ul>
+<p>理念としては美しい。しかし、<strong>肥料制約下の日本では、このモデルは構造的に成立しない</strong>。理由は三つある。</p>
+<h3>困難 1:「飼料用米」を作る余裕がない ── 食用米すら不足する</h3>
+<p>このモデルの核心は、<strong>水田で飼料用米を生産</strong> することである。しかしここに最大の構造的問題がある。</p>
+<ul>
+<li>化学肥料原料の自給率はほぼ 0%(第1章)</li>
+<li>中国の輸出停止、ホルムズ海峡の物流麻痺、PFAS 規制 ── 三つのルートが同時に細る</li>
+<li>リン酸肥料は構造的に高止まりし、量も細る</li>
+</ul>
+<p>肥料が大幅に減る局面で、限られた肥料投入と限られた農地から得られる米は、<strong>まず食用に回さなければならない</strong>。</p>
+<div class="quoteblock">
+<blockquote>
+<p>食用米すら不足しかねない状況で、わざわざ水田を <strong>飼料用米</strong> に割く余裕は、日本にはない。</p>
+</blockquote>
+</div>
+<p>実際、令和の米騒動(2024〜2025 年)では、政府が当初備蓄米の放出を否定するほどの品薄が露呈した。これは肥料が <strong>平時水準で投入されている</strong> 状況下での話である。肥料が本格的に細れば、稲作の単収はさらに下がる。<strong>水田は食用優先で奪い合う対象</strong> になる。</p>
+<p>「水田をフル活用して飼料用米を作り、それで畜産を支える」というモデルは、<strong>「肥料は十分にある」という前提に立っている</strong>。前提が崩れれば、モデルは成立しない。</p>
+<h3>困難 2:草だけで畜産は成立しない ── 草地面積の物理的限界</h3>
+<p>「ならば配合飼料に頼らず、牧草中心で畜産すればよい」という発想も出てくる。実際、放牧型・草地中心の畜産は、リジェネラティブ農業の重要な要素である(Allan Savory の総合的管理など、第6章で詳述)。</p>
+<p>しかし、日本の地理的条件では、これにも限界がある。</p>
+<div class="quoteblock">
+<blockquote>
+<p><strong>牛 1 頭を草だけで一年飼うには、およそ 1 ヘクタールの草地が要る</strong>。放牧地だけなら 1 頭あたり 0.3〜0.45 ha(道北の目安、昼夜放牧。日本草地畜産種子協会「放牧ガイド」)だが、冬の乾草を作る採草地を足せばその倍近くになる。</p>
+</blockquote>
+</div>
+<p>日本の全国耕地面積は <strong>423.9 万 ha</strong>(2025 年、第7章で詳述)。仮に全耕地を牧草地に転換したとしても、</p>
+<ul>
+<li>飼える牛は約 <strong>400 万頭</strong> が上限</li>
+<li>国内の飲食用牛肉・牛乳需要を草地放牧だけで満たすには、<strong>現状の耕地のほとんどを牧草地に転換</strong> しなければならない計算になる</li>
+<li>それでは作物(米・麦・豆・野菜)を作る土地がなくなる</li>
+</ul>
+<p>1 経営体当たりの平均耕地面積は <strong>3.6 ha</strong>(都府県では 2.6 ha)── 草だけで飼える牛は <strong>数頭が上限</strong>。これは「全国民の食料供給を支える畜産」のスケールには遠く及ばない。</p>
+<p>加えて、棚田・段々畑が多い日本の地形では、牧草地として連続的に活用できる土地が限られる。<strong>北海道の一部以外、草地中心畜産が大規模に成立する地形条件がそもそも乏しい</strong>。</p>
+<h3>困難 3:配合飼料がなければ、数羽の鶏・数頭の豚も維持できない</h3>
+<p>「自給規模なら成立する」と一見思える、家族用の数羽の鶏・数頭の豚も、構造を見ると同様の困難に直面する。</p>
+<ul>
+<li>鶏(産卵鶏)は、配合飼料(主に穀物)を体重比で日常的に必要とする</li>
+<li>豚は、雑食性とはいえ、本格的に育てるには穀物飼料が必要</li>
+<li>残飯・野菜屑だけで数十羽・数頭を維持するのは、絶対量で足りない</li>
+<li>自給用に育てるとしても、<strong>穀物飼料が安く手に入る</strong> 前提が崩れている</li>
+</ul>
+<p>家庭の生ごみ・残飯で <strong>数羽の鶏</strong> を養う ── このレベルなら、肥料制約下でも可能である。しかしこれは「畜産」と呼べる規模ではなく、
+<strong>動物性たんぱくの主要供給源にはならない</strong>。</p>
+<h3>結論:日本型循環畜産は、現代の食料供給戦略にはなり得ない</h3>
+<p>整理すると、</p>
+<table class="comparison-table fade-in">
+<thead>
+<tr>
+<th>要素</th>
+<th>肥料制約下での実態</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>飼料用米の水田生産</td>
+<td><strong>不可能</strong> ── 食用米すら不足するため、水田は食用優先</td>
+</tr>
+<tr>
+<td>草地中心の大型家畜</td>
+<td><strong>限定的</strong> ── 牛 1 頭につき 1 ha 必要、日本の耕地面積では国民需要を支えられない</td>
+</tr>
+<tr>
+<td>配合飼料に頼る家畜(豚・鶏)</td>
+<td><strong>困難</strong> ── 穀物飼料の安定供給が前提だが、その前提が崩れている</td>
+</tr>
+<tr>
+<td>家族用の数羽の鶏(残飯飼育)</td>
+<td>可能だが、戦略として食料供給を支える規模ではない</td>
+</tr>
+</tbody>
+</table>
+<p>つまり、</p>
+<div class="quoteblock">
+<blockquote>
+<p>日本型循環畜産は、<strong>思想としては魅力的だが、肥料制約下の日本における食料供給戦略としては成立しない</strong>。畜産そのものが、本シリーズの想定する時代には、<strong>現状から大幅に縮小する方向にしか動けない</strong>。</p>
+</blockquote>
+</div>
+<h3>含意:動物性たんぱくは、海産物・植物性たんぱく・「輸入リジェネラティブ肉」へ</h3>
+<p>これは、食生活そのものへの含意を持つ。</p>
+<p>肥料制約下の日本では、動物性たんぱくの主要供給源は、</p>
+<ul>
+<li><strong>海産物</strong>(漁業 ── これも別の制約があるが、農業肥料制約とは独立)</li>
+<li><strong>植物性たんぱく</strong>(大豆製品 ── 味噌、納豆、豆腐、醤油 ── はマメ科の窒素固定で肥料に依存しにくい、第5章)</li>
+<li><strong>国内の少量の家畜</strong>(山間部の放牧、家庭の数羽の鶏など、超小規模・局所的)</li>
+<li><strong>輸入のリジェネラティブ放牧肉</strong>(後述)</li>
+<li><strong>保存食</strong>(干物、漬物、発酵食品 ── 季節変動を緩衝)</li>
+</ul>
+<h3>「日本でできない畜産」は、できる国でやってもらう</h3>
+<p>ここで、本シリーズの戦略の核心が現れる。</p>
+<div class="quoteblock">
+<blockquote>
+<p>日本の地形・耕地・肥料制約のもとで国内畜産を維持しようとすればないものねだりになる。ならば、<strong>草地畜産が地形的・気候的に成立する国</strong> ── オーストラリア、米国(中西部・ロッキー山麓)、ニュージーランド、ブラジル、アルゼンチンなど ── で <strong>リジェネラティブ放牧</strong> をやってもらい、その牛肉・羊肉・乳製品を輸入で補えばよい。</p>
+</blockquote>
+</div>
+<p>これは「弱腰の輸入依存」ではなく、<strong>世界全体での比較優位の合理的な分業</strong> である。</p>
+<ul>
+<li><strong>豪州・米国は、地理的に草地畜産に向いている</strong>:広大な平原、相対的に低い人口密度、機械化との両立可能性</li>
+<li><strong>Allan Savory の総合的管理(Holistic Management)</strong> は、すでにこれらの国で実証されている(母牛死亡率 5% → 1%、牛乳生産性 2.5 倍、第6章)</li>
+<li><strong>Gabe Brown のような農場</strong> は、不耕起穀物 + カバークロップ + 回転放牧を統合して、<strong>化学肥料と農薬の使用を激減</strong> させながら畜産経営を黒字化している</li>
+<li>これらの牛肉・乳製品は、世界市場ですでに流通している</li>
+</ul>
+<p>日本が <strong>「リジェネラティブ畜産物の購入大国」</strong> になることは、</p>
+<ul>
+<li>国内で物理的に不可能な畜産を諦めることで、貴重な耕地を <strong>食用作物の生産</strong> に集中できる</li>
+<li>国際市場でリジェネラティブ農法の経済的需要を作り、世界全体の畜産がより持続可能な方向に動く後押しになる</li>
+<li>結果として、輸入元の <strong>長期持続性も高まる</strong> ── 短期的な化学肥料依存型畜産より、リジェネラティブ放牧の方が肥料制約下で頑健</li>
+</ul>
+<p>戦後の食生活は、輸入飼料に支えられた <strong>毎日のように肉・乳製品を食べる消費構造</strong> を前提にしてきた。肥料制約下では、これは <strong>和食の基本構造</strong> ── 米と魚と豆と野菜を中心とし、肉と乳製品はそれほど毎日は食べない ── に <strong>近づいていく</strong>。</p>
+<p>「特別なときだけ」という極端な制限になるわけではない。単に、<strong>毎日の主役</strong> ではなくなる、という穏やかな変化である。週に数回、季節の楽しみとして、あるいは栄養バランスの観点から、肉や乳製品を食べる
+── そのスタイルが標準になる、という程度のシフトだ。</p>
+<p>加えて、量が減る分、リジェネラティブ放牧の輸入肉が選択肢として入ってくる(グラスフェッド・無ホルモン・無抗生物質などの基準を満たすことが多い)。<strong>量を多少抑え、質を保つ</strong> 方向への自然な調整である。</p>
+<p>これは栄養面では問題にならない(第3章でも触れた、戦時英国の配給制下で栄養状態が改善した事例と同じ構造)。<strong>「量と質の組み合わせ」が緩やかに調整される</strong> だけである。飽食時代の生活習慣病の観点から見ても、過剰でなくなる方向は望ましい側面もある。</p>
+<div class="quoteblock">
+<blockquote>
+<p>日本型循環畜産という処方箋に依存するのではなく、<strong>畜産そのものの役割を縮小し、植物性たんぱくと海産物を中心に据え、不足分はリジェネラティブ放牧の輸入肉で補う構造</strong> に再編するしかない。これが肥料制約と日本の地理が同時に指し示す方向である。</p>
+</blockquote>
+</div>
+<h2>4.3 工業型農業は「選択」ではなく自動的に終わる ── 真の論点は移行管理</h2>
+<p>A(政府介入で慣行農業を温存)、B(完全自給)とは別方向の極端として、<strong>C:化学肥料・農薬を即時否定し、有機農業・自然農法に全面転換せよ</strong> という立場もある。</p>
+<p>この立場は、</p>
+<ul>
+<li>化学肥料の構造的高騰を批判する点で本シリーズの第1〜3章と重なる</li>
+<li>微生物型農業へのシフトを推奨する点でも一致する</li>
+</ul>
+<p>しかし、<strong>「即時の完全放棄か、温存か」という二項対立そのものが、現実の構造を見誤っている</strong>。</p>
+<h3>工業型農業を「続けるか/やめるか」を選ぶ余地はない</h3>
+<p>なぜなら、</p>
+<div class="quoteblock">
+<blockquote>
+<p><strong>リン酸肥料が輸入できなくなる以上、工業型農業はそもそも続けられない</strong>。</p>
+</blockquote>
+</div>
+<p>第1章で見たとおり、</p>
+<ul>
+<li>中国の輸出停止(2026 年 3 月〜)</li>
+<li>カタールエネルギーの不可抗力宣言とホルムズ海峡の物流麻痺</li>
+<li>下水汚泥回収の PFAS 規制による短期実用化困難</li>
+</ul>
+<p>という三つのルートが同時に細る。日本の化学肥料原料の自給率はほぼ
+0%。<strong>肥料が来なくなれば、慣行農業は自動的に維持不能になる</strong>。</p>
+<p>これは「選択」ではなく <strong>構造的不可避</strong> である。</p>
+<p>つまり、</p>
+<ul>
+<li>A(政府介入で温存)── 肥料が物理的に来ないので、補助金では買えない</li>
+<li>B(完全自給)── 肥料も土地も足りない</li>
+<li>C(即時完全放棄)── 放棄するか否かを選ぶ余地もない、自動的に終わる</li>
+</ul>
+<p><strong>三つとも、肥料制約という物理的制約の前では空論</strong> になる。</p>
+<h3>残された問題は「移行をどう管理するか」だけ</h3>
+<p>工業型農業の終焉が選択ではなく自動的に起きる以上、議論すべき真の論点は、</p>
+<div class="quoteblock">
+<blockquote>
+<p><strong>その不可避の移行を、食料危機を招かずにどう管理するか</strong></p>
+</blockquote>
+</div>
+<p>である。</p>
+<p>ここで重要な事実がある。<strong>「短期的な収量の崩壊(short-term yield collapse)」は、避けられない宿命ではない</strong>。</p>
+<ul>
+<li>単一作物のまま化学肥料だけを抜く → 収量崩壊</li>
+<li><strong>多種類の混植(イネ科 + マメ科 + 強靭な作物 + 多様な被覆作物) で転換</strong> → 約 3 年で土壌微生物相が回復し、収量も回復</li>
+<li>肥料制約 → 工業型農業の自動的縮小</li>
+<li>移行期(3 年〜)の食料供給は、輸入と精密農業の橋渡しで補う</li>
+<li>→ <strong>移行管理を「方法を選んで」進めるか、「無計画に」進めるかが現実の論点になる</strong></li>
+</ul>
+<p>つまり、「即時放棄論」も「温存論」もどちらも空論である。残された論点は、</p>
+<div class="quoteblock">
+<blockquote>
+<p><strong>多種類の混植による段階的転換を、いつ・どう始めるか</strong></p>
+</blockquote>
+</div>
+<p>という実装の問題である。</p>
+<h3>移行管理の三つの要素</h3>
+<p>不可避の移行を食料危機なしに進めるには、三つの要素を組み合わせる。</p>
+<p><strong>要素 1:精密農業による「橋渡し」</strong></p>
+<p>化学肥料が完全に来なくなる前の数年間、限られた肥料を最大効率で使う。精密農業(可変施肥、徐放性肥料、AI 病害虫検出)は、化学肥料を抜くペースを管理する <strong>橋渡しのツール</strong> として有効である。</p>
+<p>ただし、第3章で詳述したとおり、これは「壊れたパラダイム内での限界的最適化」に過ぎない。物理的サプライチェーン制約は依然として効くし、プラットフォーマーへの利益吸い上げ、生物的マイニングへのコスト劣位という問題が残る。</p>
+<div class="quoteblock">
+<blockquote>
+<p>精密農業は、<strong>移行期の数年〜十数年を切り抜けるためのツール</strong> であって、目的地ではない。</p>
+</blockquote>
+</div>
+<p><strong>要素 2:輸入による「移行期の食料供給確保」</strong></p>
+<p>国内の生産量が落ちる移行期間中、不足分は輸入で補う。第4.4 節で詳述する <strong>「国際リジェネラティブ × 輸入」</strong> の戦略がここで効く。</p>
+<p><strong>要素 3:国内のリジェネラティブ農業への段階的移行</strong></p>
+<p>時間をかけて土壌生態系を回復させ、生物的マイニング型の自律システムへ移行する。第5〜8章で詳述する。</p>
+<div class="quoteblock">
+<blockquote>
+<p>工業型農業を <strong>「捨てる」のではなく「終わらせる」</strong>。終わらせるペースは、土壌生態系の回復速度に合わせて。その間の食料供給は、精密農業の効率化と輸入で補う。これが移行管理の核心である。</p>
+</blockquote>
+</div>
+<h2>4.4 では、どこに立つのか ── 三つの戦略の組み合わせ</h2>
+<p>A(政府介入で温存・自給率向上)、B(完全自給)、C(即時完全放棄)
+── どれも、肥料制約という物理的制約の前では空論になる。</p>
+<p>立ち位置を一文で言えば、こうなる。</p>
+<div class="quoteblock">
+<blockquote>
+<p><strong>国内では小規模なリジェネラティブ農業へ段階的に移行する。同時に、リジェネラティブ農業を国際的に推進し、世界の主要産地が化学肥料制約下でも持続可能な生産を続けられるよう促す。不足分は、その再分散された世界供給網から輸入で補う。</strong></p>
+</blockquote>
+</div>
+<h3>戦略 1:国内 ── 段階的なリジェネラティブ農業への移行</h3>
+<p>第5章で詳述する <strong>生物的マイニング</strong> ── 菌根菌+蓄積リン+強靭な作物の自律型システム ── は、</p>
+<ul>
+<li>化学肥料依存を構造的に減らせる</li>
+<li>ランニングコストが構造的に低い</li>
+<li>土壌・気候の条件次第で十分な生産性</li>
+<li>個人・家族・地域コミュニティのスケールで実装可能(第7章)</li>
+</ul>
+<p>ただし、これは <strong>小規模分散型</strong> であり、戦後の工業型農業の生産量を一気に置き換えることはできない。<strong>一反百姓・耕作放棄地再生・ベランダ菜園・市民農園</strong> など、複数のスケールが積み上がって、社会全体として食料生産を支える(第7章で詳述)。</p>
+<p>化学肥料を抜くスピードは、<strong>多種類の混植</strong> で土壌微生物相の回復速度を加速できる(混植による転換で約 3 年)。精密農業の手法は <strong>移行期の橋渡し</strong> として限定的に活用する。</p>
+<h3>戦略 2:国際 ── リジェネラティブ農業の世界的推進</h3>
+<p>世界の食料生産を支える主要平野(米国中西部、ウクライナ、ブラジル、カナダ、豪州)においても、化学肥料制約の構造は共通している(第1章・第2章・第7章で詳述)。</p>
+<p>幸い、世界各地で <strong>リジェネラティブ農業による大規模生産</strong> が、すでに実証されている。</p>
+<ul>
+<li><strong>Gabe Brown(ノースダコタ)</strong>:不耕起+カバークロップで 20 年以上、SOM(土壌有機物)を 1.7% → 5〜8% へ</li>
+<li><strong>オーストラリア</strong>:全小麦面積の 8 割超が不耕起栽培</li>
+<li><strong>アルゼンチン・ブラジル</strong>:大規模な不耕起大豆経営</li>
+<li><strong>Allan Savory(総合的管理)</strong>:放牧で母牛死亡率 5% → 1%、牛乳生産性 2.5 倍</li>
+<li><strong>Tony Rinaudo(FMNR)</strong>:ニジェール 50,000 km² の土地を再生、
+2 億本以上の樹木が育つ</li>
+<li><strong>Christine Jones(液状炭素経路)</strong>:根浸出物経由の炭素固定が地上部由来の <strong>5 倍以上</strong></li>
+</ul>
+<p>これらは、<strong>化学肥料依存を世界規模で削減しつつ、機械化された大量生産を維持する</strong> ことが可能であることを実証している。本シリーズが示す「目的地」は、世界共通である。</p>
+<p>日本にできることは、</p>
+<ul>
+<li>国内での実践(規模は小さくても、知見の蓄積)</li>
+<li>国際的な対話・研究協力・技術支援</li>
+<li>リジェネラティブ農産物への市場需要(輸入での選好)</li>
+<li>国際機関・条約への政策的支持</li>
+</ul>
+<p>を通じて、<strong>世界全体がこの方向に動くことを後押しする</strong> ことである。</p>
+<h3>戦略 3:輸入補完 ── 再分散された世界供給網から</h3>
+<p>世界がリジェネラティブ農業へ移行することで、</p>
+<ul>
+<li>主要産地の <strong>長期持続性</strong> が確保される(化学肥料制約に強くなる)</li>
+<li>輸出余力が <strong>構造的に安定</strong> する(現行の工業型より頑健)</li>
+<li>価格変動の振幅が <strong>抑えられる</strong>(土壌が緩衝材となる)</li>
+<li>地政学的ショックへの <strong>耐性が増す</strong>(大規模単一作物依存から脱却)</li>
+</ul>
+<p>日本は、この <strong>国際的に再分散・持続化された食料供給網</strong> から、不足分を輸入で補う。閉じた完全自給を目指すよりも、<strong>世界全体の食料生産が頑健になる方向に投資する</strong> ほうが、長期的な食料安全保障に資する。</p>
+<h4>重要な品目別の比較優位</h4>
+<p>輸入で補うべき品目は、<strong>日本の地形・気候・人口密度の制約上、国内で大規模生産することが構造的に不適切な品目</strong> である。</p>
+<table class="comparison-table fade-in">
+<thead>
+<tr>
+<th>品目</th>
+<th>日本での制約</th>
+<th>適した産地</th>
+<th>戦略</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>穀物・大豆</strong>(機械化・コンバイン収穫)</td>
+<td>棚田・段々畑、1 経営体 3.6 ha では大規模機械化が不可</td>
+<td>米国中西部、ウクライナ、カナダ、豪州</td>
+<td>当面の主要輸入。世界がリジェネラティブ移行すればさらに頑健に</td>
+</tr>
+<tr>
+<td><strong>牛肉・羊肉・乳製品</strong>(草地畜産)</td>
+<td>牛 1 頭につき 1 ha 必要、地形が連続草地に不向き</td>
+<td><strong>豪州、米国(中西部・ロッキー山麓)、ニュージーランド、ブラジル、アルゼンチン</strong></td>
+<td><strong>リジェネラティブ放牧で生産された輸入肉に依存</strong></td>
+</tr>
+<tr>
+<td>油糧作物(ナタネ・ヒマワリ等)</td>
+<td>機械化・規模の経済が必要</td>
+<td>カナダ、欧州、米国</td>
+<td>工業用・食用とも輸入</td>
+</tr>
+</tbody>
+</table>
+<p>つまり、<strong>「日本でできない畜産」は、できる国でやってもらう</strong>。これは戦略的撤退ではなく、<strong>世界規模での比較優位の合理的な分業</strong>
+である。</p>
+<div class="quoteblock">
+<blockquote>
+<p>日本の貴重な耕地と労働力は、<strong>日本でしかできない作物の生産</strong>
+── 米、伝統野菜、果樹、大豆製品、雑穀、地域固有のリジェネラティブ作物 ── に集中する。草地畜産は、それが地理的に成立する国に任せる。</p>
+</blockquote>
+</div>
+<h3>三つの戦略の組み合わせ</h3>
+<table class="comparison-table fade-in">
+<thead>
+<tr>
+<th>戦略</th>
+<th>役割</th>
+<th>対象</th>
+<th>時間軸</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>国内リジェネラティブ移行</td>
+<td>小規模分散型の食料生産、土壌再生、地域強靭性</td>
+<td>一反百姓、耕作放棄地、ベランダ菜園、地域コミュニティ</td>
+<td><strong>多種類の混植で約 3 年で立ち上げ</strong>、その後継続的に成熟</td>
+</tr>
+<tr>
+<td>国際リジェネラティブ推進</td>
+<td>世界全体の食料生産を化学肥料制約に強い構造に</td>
+<td>主要産地(米国、ウクライナ、豪州、ブラジル、カナダ、NZ、アルゼンチン)</td>
+<td>数十年単位で世界共通の進行</td>
+</tr>
+<tr>
+<td>輸入補完</td>
+<td><strong>「日本でできないもの」を、「できる国」から</strong></td>
+<td>穀物・大豆・牧草由来製品(乳製品)・<strong>草地畜産による牛肉/羊肉</strong></td>
+<td>当面継続、世界の移行進展で安定化</td>
+</tr>
+</tbody>
+</table>
+<p>この三つの組み合わせが、本シリーズが立つ <strong>「現実的な立ち位置」</strong>
+である。</p>
+<div class="quoteblock">
+<blockquote>
+<p>どの戦略単独でも食料安全保障は実現しない。国内 × 国際 × 輸入の三本柱を、時間軸で組み合わせることが、構造的に成立する唯一の解である。</p>
+</blockquote>
+</div>
+<h2>4.5 穀物の用途配分という冷酷な事実</h2>
+<p>ここで、しばしば見落とされる重要な事実を一つ示す。</p>
+<p>世界で生産される穀物は、人間がそのまま食べているわけではない。用途別に大きく異なる配分になっている。</p>
+<table class="comparison-table fade-in">
+<thead>
+<tr>
+<th>穀物</th>
+<th>食用(直接)</th>
+<th>飼料</th>
+<th>工業用(エタノール等)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>トウモロコシ(米国、2023/24 年度)</td>
+<td>約 10%(種子・その他工業用を含む)</td>
+<td>約 39%</td>
+<td>約 37%(エタノール。ほかに輸出が約 14%)</td>
+</tr>
+<tr>
+<td>大豆(世界)</td>
+<td>約 9%(直接の食用)</td>
+<td>約 85% が搾油され、ミールはほぼ全部が飼料</td>
+<td>油(食用・燃料)</td>
+</tr>
+<tr>
+<td>小麦(世界、2023/24 年度)</td>
+<td>約 68%</td>
+<td>約 20%</td>
+<td>残り</td>
+</tr>
+</tbody>
+</table>
+<p>(出どころ:米国農務省 ERS「Feed Outlook」2023/24 年度、Soyatech、FAO「Cereal Supply and Demand Brief」2023/24 年度)</p>
+<p>この表は、<strong>人間が食料不足だから穀物が足りないのではない</strong> ことを示している。</p>
+<p>世界には、人間用の食料が足りなくなる前に、</p>
+<ul>
+<li>バイオエタノール用に回されているトウモロコシ</li>
+<li>飼料として家畜に食わせている穀物</li>
+</ul>
+<p>が大量にある。極端に言えば、<strong>世界の食料供給の余裕は、家畜の頭数を減らせばかなり吸収できる</strong> ということだ。</p>
+<p>これは精神論ではなく、数字の話である。</p>
+<p>戦時の英国を見ればよい。第二次大戦中、英国は配給制を敷き、輸入が制限される中で <strong>国民の栄養状態を改善</strong> した(平時の労働者階級より、戦時の配給生活のほうが栄養バランスが良かった、という有名な事実がある)。</p>
+<p>なぜか。<strong>家畜用の穀物を人用に回し、肉を減らし、野菜・穀物を増やした</strong>
+からだ。供給制約下では、人類は実は柔軟に食料を確保できる。</p>
+<div class="quoteblock">
+<blockquote>
+<p>食料が足りないのではない。飼料・燃料・嗜好品に回している分が、まだまだ大きい。</p>
+</blockquote>
+</div>
+<p>これは「肉を食べるな」という規範論ではない。<strong>有事の調整余地は十分にある</strong> という事実の確認である。</p>
+<h2>4.6 不足分は輸入で補う ── 自給率 100% を目指さない</h2>
+<p>この用途配分の事実から、次の判断が出てくる。</p>
+<p><strong>日本は完全自給を目指す必要はない</strong>。</p>
+<p>世界の穀物供給は、家畜飼料・バイオ燃料を含めれば、まだ余裕がある。日本が完全自給を放棄しても、<strong>価格が上がるだけで、食料が来ないという状況にはなりにくい</strong>。</p>
+<p>問題は「輸入できないこと」ではなく、「輸入価格が上がること」である。</p>
+<p>そして、価格が上がれば、人類は調整する。米国はトウモロコシをエタノールからシフトさせるかもしれない。ブラジルは大豆の用途を変えるかもしれない。中国は飼料用穀物の輸入を増やすかもしれない。<strong>世界市場は、価格を通じて調整される</strong>。</p>
+<p>日本が払える限り、輸入は続く。これが現実だ。</p>
+<p>問題は、<strong>払えるか</strong> である。そしてここで、第3章で見た「工業型農業の収支が崩れる」という話が効いてくる。</p>
+<p>国内の農業が成立しなくなれば、輸入依存が深まる。輸入価格が上がる中で、輸入依存が深まれば、食費が高騰する。<strong>これは家計に効く</strong>。</p>
+<p>だから、</p>
+<ul>
+<li><strong>完全自給は目指さない</strong>(物理的に無理、かつ世界には余裕がある)</li>
+<li><strong>しかし国内生産はできるだけ維持する</strong>(輸入価格高騰のヘッジ)</li>
+<li><strong>国際的なリジェネラティブ推進</strong> で、輸入元の長期持続性を確保する</li>
+</ul>
+<p>この組み合わせが、現実的な立ち位置だ。</p>
+<h2>4.7 化学肥料に依存しない農法に段階的に移行する</h2>
+<p>国内生産を維持するために、何を変えるか。
+<strong>化学肥料への依存を切り離す</strong> ことだ。</p>
+<p>第1章・第2章で見たとおり、化学肥料は構造的に高騰する。これに依存した農法は、第3章で見たとおり、収支が成立しない。</p>
+<p>依存を切り離す方法は、一つしかない。
+<strong>土壌微生物の働きを使う農法に移行する</strong>。</p>
+<p>これは精神論ではない。化学肥料がやっていた仕事(窒素固定、リン可給化、ミネラル循環)を、土壌中の微生物にやらせる、という <strong>代替戦略</strong>
+である。</p>
+<p>これを科学的に裏付けるのが、第5章で見る Christine Jones らの研究である。土壌微生物 ── 特に菌根菌 ── は、植物が必要とする窒素・リン・ミネラルの大部分を、化学肥料なしで供給できる、ということが分かってきている。</p>
+<div class="quoteblock">
+<blockquote>
+<p>化学肥料が高くなるなら、化学肥料を使わない農法に移ればよい。ただし「精神」で移るのではなく、「科学」と「経済」で移る。</p>
+</blockquote>
+</div>
+<p>これがこのシリーズの中核的な主張である。</p>
+<h2>立ち位置の要約</h2>
+<table class="comparison-table fade-in">
+<thead>
+<tr>
+<th>軸</th>
+<th>私たちの立場</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>国内増産での自給率向上</td>
+<td>数字としては正しいが、肥料・エネルギー輸入依存を温存するため、本質的解決にはならない</td>
+</tr>
+<tr>
+<td>日本型循環畜産</td>
+<td><strong>肥料制約下では成立しない</strong>。食用米すら不足する状況で飼料用米を作る余裕はなく、草地は牛 1 頭につき 1 ha 必要で物理的に足りず、配合飼料がなければ豚・鶏も維持できない。畜産そのものが大幅に縮小する方向にしか動けない</td>
+</tr>
+<tr>
+<td>完全自給</td>
+<td>目指さない。物理的に無理であり、世界市場の余裕も使う</td>
+</tr>
+<tr>
+<td>工業型農業の温存/完全放棄</td>
+<td><strong>どちらも選べない</strong>。肥料が来ない以上、工業型農業は自動的に終わる。問題は「終わるかどうか」ではなく「移行管理」</td>
+</tr>
+<tr>
+<td>国内農法</td>
+<td>リジェネラティブ農業への段階的移行。精密農業は移行期の橋渡しに限定</td>
+</tr>
+<tr>
+<td>国際協調</td>
+<td>リジェネラティブ農業の世界的推進を支持し、再分散された世界供給網に投資</td>
+</tr>
+<tr>
+<td>輸入</td>
+<td>補完として継続。<strong>特に草地畜産(牛肉・羊肉・乳製品)は、豪州・米国・NZ 等のリジェネラティブ放牧から輸入する</strong> ── 比較優位の合理的な分業</td>
+</tr>
+<tr>
+<td>倫理・思想</td>
+<td>中心ではない。経済・物理・生物学が決める</td>
+</tr>
+</tbody>
+</table>
+<p>これが、極端な立場のいずれにも組みしない、本シリーズの現実的な立ち位置である。</p>
+<p>次の第5章では、この <strong>「リジェネラティブ農業に段階的に移行する」</strong>
+という戦略の核心 ── 土壌微生物による生物的マイニング ── が、なぜ可能で、どういう仕組みで成立するのかを、Christine Jones らの研究をもとに具体的に見ていく。</p>
+<h2>参考資料</h2>
+<p><strong>穀物用途配分・歴史的事例</strong></p>
+<ul>
+<li>USDA &quot;Feed Grains Database&quot;(米国トウモロコシ用途別配分)</li>
+<li>戦時英国の配給制と栄養状態に関する歴史研究</li>
+</ul>
+<p><strong>国際リジェネラティブ農業の実証</strong></p>
+<ul>
+<li>Gabe Brown &quot;Dirt to Soil: One Family's Journey into Regenerative
+Agriculture&quot;(ノースダコタ州、SOM 1.7% → 5〜8%)</li>
+<li>オーストラリア政府農業省 ── 全小麦面積の 8 割超が不耕起栽培</li>
+<li>アルゼンチン・ブラジル ── 大規模な不耕起大豆経営の事例</li>
+<li>Allan Savory &quot;Holistic Management: A New Framework for Decision
+Making&quot; ── 母牛死亡率 5% → 1%、牛乳生産性 2.5 倍 ha/年</li>
+<li>Tony Rinaudo(World Vision) FMNR(Farmer-Managed Natural
+Regeneration)── ニジェール 50,000 km²、2 億本以上の樹木再生</li>
+<li>Christine Jones &quot;Light Farming: Restoring Carbon, Organic
+Nitrogen and Biodiversity to Agricultural Soils&quot;(2018)</li>
+</ul>
+<p><strong>日本農業の構造データ</strong></p>
+<ul>
+<li>農林水産省 統計(2024-2025 年度)── 全国耕地面積 423.9 万 ha、
+1 経営体当たり経営規模 3.6 ha(都府県 2.6 ha、北海道 33.7 ha)</li>
+<li>日本酪農の生乳廃棄実態に関する報道記事(2025 年)</li>
+</ul>
+
+  </article>
+
+  <!-- CHAPTER NAV(前後の記事) -->
+  <nav class="chapter-nav">
+  <a href="/phosphorus-and-farming/industrial-farming-fails/" rel="prev">&larr; 前: 第3章 工業型農業は成立しない</a>
+  <a href="/phosphorus-and-farming/soil-microbes/" rel="next">次: 第5章 土壌微生物という戦略 &rarr;</a>
+</nav>
+
+  <!-- FOOTER(サイト内メニュー+奥付) -->
+  <footer class="site-footer">
+    <nav class="footer-nav" aria-label="サイト内リンク">
+      <div class="footer-col">
+        <h4>記事シリーズ</h4>
+        <ul>
+          <li><a href="/insights/">構造分析</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/ai-native-software/">AI ネイティブなソフトウェア開発</a></li>
+          <li><a href="/claude-debian/">Claudeと一緒に学ぶDebian</a></li>
+          <li><a href="/debian-server/">Claudeと一緒に育てるDebian サーバー</a></li>
+          <li><a href="/phosphorus-and-farming/">リン資源枯渇と自然農法</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>サイト</h4>
+        <ul>
+          <li><a href="/">ホーム</a></li>
+          <li><a href="/natural-farming/">自然農法とは</a></li>
+          <li><a href="/light-farming/">Light Farming</a></li>
+          <li><a href="/gallery/">畑の記録</a></li>
+          <li><a href="/about/">私たちのアプローチ</a></li>
+          <li><a href="/privacy/">プライバシー</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>関連サイト</h4>
+        <ul>
+          <li><a href="https://aiai.aiseed.dev/">aiai ── AI 時代の学び方</a></li>
+          <li><a href="https://weather.time-j.net/">個人開発気象統計</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="colophon">
+      <div class="colophon-mark">§</div>
+      リン資源枯渇と自然農法シリーズ · 第4章<br>
+      Tokushima · 2026.05.09<br>
+      <a href="/" style="color: var(--whisper); text-decoration: underline; text-decoration-color: var(--rule);">aiseed.dev</a> · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" style="color: var(--whisper); text-decoration: underline; text-decoration-color: var(--rule);">CC BY 4.0</a>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  // 広い画面ではサイドバー目次を常時展開する(狭い画面では折りたたみに戻す)
+  (function () {
+    var toc = document.querySelector(".series-toc details");
+    if (!toc) return;
+    var mq = window.matchMedia("(min-width: 1200px)");
+    function sync() { toc.open = mq.matches; }
+    sync();
+    if (mq.addEventListener) mq.addEventListener("change", sync);
+    else mq.addListener(sync);
+  })();
+
+  // Mermaid loads only on pages that contain a .mermaid block.
+  // Self-hosted (no third-party CDN dependency); SRI verified.
+  if (document.querySelector(".mermaid")) {
+    const s = document.createElement("script");
+    s.src = "/js/vendor/mermaid-11.14.0.min.js";
+    s.integrity = "sha384-1CMXl090wj8Dd6YfnzSQUOgWbE6suWCaenYG7pox5AX7apTpY3PmJMeS2oPql4Gk";
+    s.crossOrigin = "anonymous";
+    s.onload = () => {
+      const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+      mermaid.initialize({ startOnLoad: false, theme: prefersDark ? "dark" : "default" });
+      mermaid.run();
+    };
+    document.head.appendChild(s);
+  }
+</script>
+
+
+</body>
+</html>

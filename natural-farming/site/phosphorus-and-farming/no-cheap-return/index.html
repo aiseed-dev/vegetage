@@ -1,0 +1,1537 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://static.cloudflareinsights.com https://challenges.cloudflare.com 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://cloudflareinsights.com https://challenges.cloudflare.com">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9FLQ963JXM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'G-9FLQ963JXM');
+</script>
+
+<title>第2章 リン酸肥料は安価には戻らない — リン資源枯渇と自然農法シリーズ | aiseed.dev</title>
+<meta name="description" content="短期(2027 年の肥料不足)と長期(ピーク・リン 2033 年頃)が同時に効いている。高品位鉱石の枯渇、低品位鉱石の三重コスト(カドミウム・エネルギー・TENORM)、世界埋蔵量の 70% がモロッコ・西サハラ偏在、Fitch Ratings の DAP 中長期 400 USD/t 上方修正。化学肥料(湿式法)の植物吸収率は 1〜2 割しかなく、熔成リン肥は 5 割以上だがエネルギー集約。「リサイクル」も化学肥料体系の根本非効率を温存しているに過ぎない。残された道は、菌根菌で土壌中のレガシーリン(蓄積リン)を動員する生物的マイニングである。">
+<link rel="canonical" href="https://aiseed.dev/phosphorus-and-farming/no-cheap-return/">
+<link rel="alternate" hreflang="ja" href="https://aiseed.dev/phosphorus-and-farming/no-cheap-return/">
+<link rel="alternate" hreflang="en" href="https://aiseed.dev/en/phosphorus-and-farming/no-cheap-return/">
+<link rel="alternate" hreflang="x-default" href="https://aiseed.dev/phosphorus-and-farming/no-cheap-return/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="AI時代の暮らし">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="第2章 リン酸肥料は安価には戻らない">
+<meta property="og:description" content="短期(2027 年の肥料不足)と長期(ピーク・リン 2033 年頃)が同時に効いている。高品位鉱石の枯渇、低品位鉱石の三重コスト(カドミウム・エネルギー・TENORM)、世界埋蔵量の 70% がモロッコ・西サハラ偏在、Fitch Ratings の DAP 中長期 400 USD/t 上方修正。化学肥料(湿式法)の植物吸収率は 1〜2 割しかなく、熔成リン肥は 5 割以上だがエネルギー集約。「リサイクル」も化学肥料体系の根本非効率を温存しているに過ぎない。残された道は、菌根菌で土壌中のレガシーリン(蓄積リン)を動員する生物的マイニングである。">
+<meta property="og:url" content="https://aiseed.dev/phosphorus-and-farming/no-cheap-return/">
+<meta property="og:image" content="https://aiseed.dev/images/IMG_3285.jpg">
+<meta property="article:section" content="リン資源枯渇と自然農法シリーズ">
+<meta property="article:published_time" content="2026.05.07">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="第2章 リン酸肥料は安価には戻らない">
+<meta name="twitter:description" content="短期(2027 年の肥料不足)と長期(ピーク・リン 2033 年頃)が同時に効いている。高品位鉱石の枯渇、低品位鉱石の三重コスト(カドミウム・エネルギー・TENORM)、世界埋蔵量の 70% がモロッコ・西サハラ偏在、Fitch Ratings の DAP 中長期 400 USD/t 上方修正。化学肥料(湿式法)の植物吸収率は 1〜2 割しかなく、熔成リン肥は 5 割以上だがエネルギー集約。「リサイクル」も化学肥料体系の根本非効率を温存しているに過ぎない。残された道は、菌根菌で土壌中のレガシーリン(蓄積リン)を動員する生物的マイニングである。">
+<meta name="twitter:image" content="https://aiseed.dev/images/IMG_3285.jpg">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+
+<!-- フォントは Web 配信せず、すべて端末のローカルフォントで賄う。
+     和文: UDデジタル教科書体 → BIZ UDP明朝(いずれも Windows 標準搭載の
+     モリサワ UD 書体) → ヒラギノ明朝・游明朝などのシステム明朝。
+     等幅: 端末のシステム等幅フォント。 -->
+
+<style>
+/* ============================================================
+   LOCAL FONT: UDデジタル教科書体(モリサワ)
+   Windows・教育向け端末に無償搭載。端末にあれば local() で拾い、
+   なければ BIZ UDP明朝(同じく Windows 標準搭載)→ システム明朝へ
+   フォールバックする。R と B は別ファミリー名なので、太字(700)を
+   B 書体に明示的にマッピングして疑似ボールドを避ける。
+   ============================================================ */
+@font-face {
+  font-family: "UD Digital Kyokasho";
+  font-weight: 400;
+  src: local("UD デジタル 教科書体 NK-R"), local("UD Digital Kyokasho NK-R"),
+       local("UD デジタル 教科書体 NP-R"), local("UD Digital Kyokasho NP-R"),
+       local("UD デジタル 教科書体 N-R"), local("UD Digital Kyokasho N-R");
+}
+@font-face {
+  font-family: "UD Digital Kyokasho";
+  font-weight: 700;
+  src: local("UD デジタル 教科書体 NK-B"), local("UD Digital Kyokasho NK-B"),
+       local("UD デジタル 教科書体 NP-B"), local("UD Digital Kyokasho NP-B"),
+       local("UD デジタル 教科書体 N-B"), local("UD Digital Kyokasho N-B");
+}
+
+/* ============================================================
+   COLOR & DESIGN TOKENS
+   aiseed.dev 全体のスタイルに合わせる場合は、ここの変数を
+   既存サイトのCSS変数に差し替える。
+   ============================================================ */
+:root {
+  --ink: #1a1a1a;
+  --paper: #f4f1ea;
+  --paper-deep: #ebe6d8;
+  --accent: #c8442a;
+  --rule: #d4cdb8;
+  --whisper: #6b665a;
+  --highlight: #f7e9c8;
+}
+
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+/* 本文: 端末にあれば UDデジタル教科書体を最優先、次に BIZ UDP明朝
+   (Windows 標準搭載)、どちらもなければヒラギノ明朝等のシステム明朝 */
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "UD Digital Kyokasho",
+               "BIZ UDPMincho", "BIZ UDP明朝",
+               "Hiragino Mincho ProN", "ヒラギノ明朝 ProN",
+               "Yu Mincho", "游明朝", "YuMincho",
+               "Noto Serif CJK JP", "Noto Serif JP", serif;
+  font-size: 17px;
+  line-height: 1.9;
+  letter-spacing: 0.02em;
+  font-feature-settings: "palt";
+  overflow-x: hidden;
+}
+
+/* グレインテクスチャ(紙の質感) */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background-image: radial-gradient(rgba(0,0,0,0.04) 1px, transparent 1px);
+  background-size: 3px 3px;
+  opacity: 0.5;
+  mix-blend-mode: multiply;
+}
+
+.container {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0 32px;
+  position: relative;
+  z-index: 2;
+}
+
+/* ============================================================
+   MASTHEAD(シリーズ名・章番号)
+   ============================================================ */
+.masthead {
+  border-bottom: 3px double var(--ink);
+  padding: 24px 0 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--whisper);
+}
+.masthead-left  { font-weight: 700; color: var(--ink); }
+.masthead-left a { color: inherit; text-decoration: none; }
+.masthead-left a:hover { color: var(--accent); }
+.masthead-home { color: var(--whisper); }
+.masthead-sep { margin: 0 10px; color: var(--whisper); font-weight: 400; }
+.masthead-right { font-style: italic; }
+
+/* ============================================================
+   HERO(タイトル領域)
+   ============================================================ */
+.hero {
+  padding: 80px 0 60px;
+}
+.hero-meta {
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  color: var(--accent);
+  margin-bottom: 32px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.hero-meta::before {
+  content: "";
+  width: 40px;
+  height: 1px;
+  background: var(--accent);
+}
+.hero-title {
+  font-family: "UD Digital Kyokasho", "BIZ UDPMincho", "BIZ UDP明朝", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  font-weight: 800;
+  font-size: clamp(32px, 5.5vw, 56px);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  margin-bottom: 24px;
+}
+.hero-title .accent {
+  color: var(--accent);
+}
+.hero-subtitle {
+  font-size: 18px;
+  line-height: 1.85;
+  color: var(--whisper);
+  max-width: 580px;
+  border-left: 2px solid var(--accent);
+  padding-left: 20px;
+  margin-top: 32px;
+}
+.hero-byline {
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid var(--rule);
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--whisper);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* ============================================================
+   ARTICLE BODY
+   ============================================================ */
+article p {
+  margin-bottom: 24px;
+}
+
+article h2 {
+  font-family: "UD Digital Kyokasho", "BIZ UDPMincho", "BIZ UDP明朝", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 1.4;
+  margin: 72px 0 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--ink);
+  position: relative;
+}
+article h2::before {
+  content: "§";
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+  color: var(--accent);
+  margin-right: 16px;
+  font-size: 22px;
+}
+
+article h3 {
+  font-family: "UD Digital Kyokasho", "BIZ UDPMincho", "BIZ UDP明朝", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  font-weight: 600;
+  font-size: 19px;
+  margin: 40px 0 16px;
+  color: var(--ink);
+}
+article h3::before {
+  content: "—";
+  color: var(--accent);
+  margin-right: 12px;
+  font-weight: 400;
+}
+
+article strong {
+  font-weight: 700;
+  background: linear-gradient(to top, var(--highlight) 35%, transparent 35%);
+  padding: 0 2px;
+}
+
+article em {
+  font-style: normal;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+article a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  transition: color 0.2s;
+}
+article a:hover {
+  color: var(--accent);
+}
+
+/* ============================================================
+   BLOCKQUOTE
+   ============================================================ */
+blockquote {
+  margin: 40px 0;
+  padding: 32px 40px;
+  background: var(--paper-deep);
+  border-left: 4px solid var(--accent);
+  position: relative;
+  font-size: 18px;
+  line-height: 1.85;
+  font-style: normal;
+  color: var(--ink);
+}
+blockquote::before {
+  content: "「";
+  position: absolute;
+  top: 4px;
+  left: 8px;
+  font-size: 48px;
+  color: var(--accent);
+  opacity: 0.3;
+  font-family: "Hiragino Mincho ProN", serif;
+}
+blockquote p {
+  margin-bottom: 0;
+}
+
+/* ============================================================
+   TABLE
+   ============================================================ */
+article table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 32px 0;
+  font-size: 15px;
+  line-height: 1.7;
+}
+article thead th {
+  font-family: "UD Digital Kyokasho", "BIZ UDPMincho", "BIZ UDP明朝", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  font-weight: 700;
+  text-align: left;
+  padding: 14px 16px;
+  border-bottom: 2px solid var(--ink);
+  color: var(--ink);
+}
+article tbody td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+}
+article tbody tr:last-child td {
+  border-bottom: none;
+}
+@media (max-width: 720px) {
+  article table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* ============================================================
+   ORDERED LIST(番号付きリスト)
+   ============================================================ */
+article ol {
+  margin: 32px 0;
+  counter-reset: item;
+  padding: 0;
+}
+article ol li {
+  list-style: none;
+  position: relative;
+  padding: 16px 0 16px 56px;
+  border-bottom: 1px dashed var(--rule);
+  counter-increment: item;
+}
+article ol li::before {
+  content: counter(item, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 16px;
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+  font-size: 14px;
+  color: var(--accent);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+/* 通常のul(章末の関連リンクなど) */
+article ul {
+  margin: 24px 0;
+  padding-left: 1.5em;
+}
+article ul li {
+  margin-bottom: 8px;
+}
+
+/* ============================================================
+   CODE BLOCK(疑似ターミナル風)
+   ============================================================ */
+article pre {
+  margin: 40px 0;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 24px 28px;
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+  font-size: 13px;
+  line-height: 1.8;
+  position: relative;
+  overflow-x: auto;
+}
+article pre::before {
+  content: "● ● ●";
+  position: absolute;
+  top: 8px;
+  left: 12px;
+  font-size: 8px;
+  color: var(--whisper);
+  letter-spacing: 4px;
+}
+article pre code {
+  display: block;
+  padding-top: 16px;
+  white-space: pre;
+}
+
+/* インラインコード */
+article code {
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+  font-size: 0.9em;
+  background: var(--paper-deep);
+  padding: 2px 6px;
+  border-radius: 2px;
+  color: var(--ink);
+}
+article pre code {
+  background: transparent;
+  padding: 16px 0 0 0;
+  color: var(--paper);
+}
+
+/* ============================================================
+   HORIZONTAL RULE(本文中の区切り)
+   ============================================================ */
+article hr {
+  border: none;
+  text-align: center;
+  margin: 64px 0;
+  height: 1em;
+}
+article hr::before {
+  content: "◆ ◆ ◆";
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+  font-size: 14px;
+  color: var(--accent);
+  letter-spacing: 0.5em;
+}
+
+/* ============================================================
+   RELATED LINKS(章末の関連記事)
+   ============================================================ */
+.related-links {
+  margin-top: 64px;
+  padding: 32px 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.related-links h3 {
+  font-family: "UD Digital Kyokasho", "BIZ UDPMincho", "BIZ UDP明朝", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  font-size: 14px;
+  letter-spacing: 0.2em;
+  color: var(--whisper);
+  margin: 0 0 20px;
+  font-weight: 600;
+}
+.related-links h3::before {
+  content: none;
+}
+.related-links ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.related-links li {
+  padding: 10px 0;
+  border-bottom: 1px dashed var(--rule);
+  margin-bottom: 0;
+}
+.related-links li:last-child {
+  border-bottom: none;
+}
+.related-links a {
+  text-decoration: none;
+  color: var(--ink);
+  display: flex;
+  gap: 16px;
+  align-items: baseline;
+}
+.related-links .related-tag {
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+  text-transform: uppercase;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.related-links a:hover .related-title {
+  color: var(--accent);
+}
+
+/* ============================================================
+   FOOTER(サイト内メニュー+奥付)
+   ============================================================ */
+.site-footer {
+  margin-top: 96px;
+  border-top: 3px double var(--ink);
+  padding-top: 48px;
+}
+.footer-nav {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 32px 48px;
+}
+.footer-col h4 {
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--whisper);
+  font-weight: 700;
+  margin: 0 0 14px;
+}
+.footer-col ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.footer-col li {
+  padding: 6px 0;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.footer-col a {
+  color: var(--ink);
+  text-decoration: none;
+}
+.footer-col a:hover { color: var(--accent); }
+
+.colophon {
+  margin-top: 48px;
+  padding: 32px 0 40px;
+  border-top: 1px solid var(--rule);
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: var(--whisper);
+  text-align: center;
+  line-height: 2;
+}
+.colophon-mark {
+  font-family: "UD Digital Kyokasho", "BIZ UDPMincho", "Hiragino Mincho ProN", serif;
+  font-size: 32px;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+
+/* ============================================================
+   SERIES TOC(全章一覧・折りたたみ式)
+   ============================================================ */
+.series-toc {
+  margin: 24px 0 40px;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 8px 0;
+}
+.series-toc details {
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+}
+.series-toc summary {
+  cursor: pointer;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--whisper);
+  font-weight: 700;
+  padding: 8px 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.series-toc summary::-webkit-details-marker { display: none; }
+.series-toc summary::before {
+  content: "▸";
+  color: var(--accent);
+  font-size: 10px;
+  display: inline-block;
+  transition: transform 0.15s ease;
+}
+.series-toc details[open] summary::before { transform: rotate(90deg); }
+.series-toc ol {
+  list-style: none;
+  margin: 12px 0 8px;
+  padding: 0;
+  counter-reset: none;
+}
+.series-toc li {
+  list-style: none;
+  padding: 9px 0;
+  border-bottom: 1px dashed var(--rule);
+  font-family: "UD Digital Kyokasho", "BIZ UDPMincho", "BIZ UDP明朝", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  font-size: 14px;
+  line-height: 1.55;
+  display: flex;
+  gap: 16px;
+  align-items: baseline;
+}
+.series-toc li::before { content: none; }
+.series-toc li:last-child { border-bottom: none; }
+.series-toc li a {
+  display: flex;
+  gap: 16px;
+  align-items: baseline;
+  text-decoration: none;
+  color: var(--ink);
+  flex: 1;
+}
+.series-toc li a:hover .toc-title { color: var(--accent); }
+.series-toc .toc-num {
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
+  color: var(--accent);
+  text-transform: uppercase;
+  white-space: nowrap;
+  flex-shrink: 0;
+  min-width: 5em;
+}
+.series-toc li.current {
+  background: var(--paper-deep);
+  margin: 0 -12px;
+  padding: 9px 12px;
+}
+.series-toc li.current .toc-title {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+/* ============================================================
+   IMAGES
+   ============================================================ */
+article img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 32px auto;
+}
+
+/* ============================================================
+   CUSTOM BLOCKS(:::chain / :::highlight / :::quote / :::compare)
+   ============================================================ */
+.chain-diagram {
+  background: var(--paper-deep);
+  border-left: 4px solid var(--accent);
+  padding: 24px 28px;
+  margin: 32px 0;
+  font-size: 15px;
+  line-height: 2.2;
+}
+.chain-diagram .arrow {
+  color: var(--accent);
+  font-weight: 700;
+  margin: 0 0.3em;
+}
+.highlight-box {
+  background: var(--paper-deep);
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--accent);
+  padding: 24px 28px;
+  margin: 32px 0;
+}
+.highlight-box p { margin-bottom: 12px; }
+.highlight-box p:last-child { margin-bottom: 0; }
+.quote-block {
+  margin: 40px 0;
+  padding: 32px 40px;
+  background: var(--paper-deep);
+  border-left: 4px solid var(--accent);
+}
+.quote-block .quote-text {
+  font-size: 18px;
+  line-height: 1.85;
+  margin: 0;
+}
+
+/* ============================================================
+   ASCIIDOC BLOCKS(pyasciidoc が出力するクラス。.adoc 記事用)
+   admonition / 帰属つき引用 / 画像ブロック / 脚注 / ロール
+   ============================================================ */
+.admonition {
+  background: var(--paper-deep);
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--accent);
+  padding: 24px 28px;
+  margin: 32px 0;
+}
+.admonition-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+.admonition p { margin-bottom: 12px; }
+.admonition p:last-child { margin-bottom: 0; }
+.quoteblock { margin: 40px 0; }
+.quoteblock blockquote { margin: 0; }
+.quoteblock .attribution {
+  margin-top: 12px;
+  text-align: right;
+  font-size: 14px;
+  color: var(--whisper);
+}
+.quoteblock .attribution cite { font-style: normal; }
+.imageblock { margin: 32px 0; text-align: center; }
+.imageblock .content img { max-width: 100%; height: auto; }
+sup.footnote { font-size: 12px; }
+sup.footnote a { text-decoration: none; }
+.footnotes {
+  margin-top: 64px;
+  padding-top: 24px;
+  border-top: 1px solid var(--rule);
+  font-size: 14px;
+  color: var(--whisper);
+}
+.footnotes ol { padding-left: 1.5em; }
+.footnotes li { margin-bottom: 8px; }
+.footnotes .footnote-backref { text-decoration: none; margin-left: 0.3em; }
+/* ロール: [.chain](:::chain と同じ見た目)/ [.accent]#…# */
+article .chain {
+  background: var(--paper-deep);
+  border-left: 4px solid var(--accent);
+  padding: 24px 28px;
+  margin: 32px 0;
+  font-size: 15px;
+  line-height: 2.2;
+}
+article .accent { color: var(--accent); }
+
+/* ============================================================
+   CHAPTER NAV(前後の記事へのリンク)
+   ============================================================ */
+.chapter-nav {
+  margin-top: 64px;
+  padding: 24px 0;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  font-size: 14px;
+}
+.chapter-nav a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--rule);
+  text-underline-offset: 4px;
+}
+.chapter-nav a:hover { color: var(--accent); }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 640px) {
+  .container { padding: 0 20px; }
+  .hero { padding: 48px 0 40px; }
+  blockquote { padding: 24px 20px 24px 28px; }
+  article pre { padding: 20px 16px; font-size: 12px; }
+  article ol li { padding-left: 48px; }
+  .series-toc .toc-num { min-width: 4em; font-size: 10px; }
+  .series-toc li { font-size: 13px; gap: 12px; }
+}
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.hero-meta, .hero-title, .hero-subtitle, .hero-byline {
+  animation: rise 0.8s ease-out backwards;
+}
+.hero-meta     { animation-delay: 0.1s; }
+.hero-title    { animation-delay: 0.25s; }
+.hero-subtitle { animation-delay: 0.45s; }
+.hero-byline   { animation-delay: 0.65s; }
+.mermaid {
+  text-align: center;
+  margin: 2.5rem 0;
+  background: var(--paper-warm, #f5f1ea);
+  padding: 1.5rem 1rem;
+  border-radius: 4px;
+  overflow-x: auto;
+}
+.mermaid svg { max-width: 100%; height: auto; }
+
+/* ============================================================
+   WIDE LAYOUT(広い画面では目次を左サイドバーに常時展開)
+   ============================================================ */
+@media (min-width: 1200px) {
+  body.has-toc .container {
+    max-width: 1320px;
+    display: grid;
+    grid-template-columns: 280px minmax(0, 880px);
+    column-gap: 64px;
+    justify-content: center;
+  }
+  body.has-toc .masthead,
+  body.has-toc .hero {
+    grid-column: 1 / -1;
+  }
+  /* グリッドアイテム自体は行いっぱいに伸ばし、内側の details を sticky に
+     する(sticky なグリッドアイテムはグリッドエリアではなくコンテナ全体で
+     制約されるブラウザ挙動があり、フッターに重なってしまうため)。 */
+  body.has-toc .series-toc {
+    grid-column: 1;
+    grid-row: 3 / span 2;
+    margin: 0;
+    padding: 0;
+    border-top: none;
+    border-bottom: none;
+  }
+  body.has-toc .series-toc details {
+    position: sticky;
+    top: 32px;
+    max-height: calc(100vh - 64px);
+    overflow-y: auto;
+    padding: 0 12px 12px 0;
+  }
+  /* サイドバーでは折りたたみを無効化し、見出しとして表示 */
+  body.has-toc .series-toc summary {
+    pointer-events: none;
+    cursor: default;
+  }
+  body.has-toc .series-toc summary::before { content: none; }
+  body.has-toc .series-toc li { font-size: 13.5px; }
+  body.has-toc article    { grid-column: 2; grid-row: 3; }
+  body.has-toc .chapter-nav { grid-column: 2; grid-row: 4; }
+  body.has-toc .site-footer { grid-column: 1 / -1; grid-row: 5; }
+}
+
+/* ============================================================
+   DARK MODE(OS の配色設定に追従して自動で暗色に切り替え)
+   ============================================================ */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --ink: #e8e3d6;
+    --paper: #16140f;
+    --paper-deep: #211d16;
+    --accent: #e8765a;
+    --rule: #393428;
+    --whisper: #a39b88;
+    --highlight: rgba(220, 168, 78, 0.30);
+  }
+  /* 紙の質感(グレイン)を暗色背景向けに反転 */
+  body::before {
+    background-image: radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px);
+    mix-blend-mode: screen;
+    opacity: 0.4;
+  }
+  /* コードブロックは両モードとも暗いターミナル調を維持 */
+  article pre {
+    background: #0d0c0a;
+    color: #e8e3d6;
+  }
+  article pre code {
+    color: #e8e3d6;
+  }
+  /* Mermaid 図の枠を暗色に */
+  .mermaid {
+    background: #211d16;
+  }
+}
+</style>
+
+</head>
+
+<body class="has-toc">
+
+<div class="container">
+
+  <!-- MASTHEAD(ホーム › シリーズ目次) -->
+  <header class="masthead">
+    <div class="masthead-left"><a href="/" class="masthead-home">aiseed.dev</a><span class="masthead-sep">›</span><a href="/phosphorus-and-farming/">リン資源枯渇と自然農法シリーズ</a></div>
+    <div class="masthead-right">第2章 / Essay</div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-meta">第2章 № 02 · 2026</div>
+
+    <h1 class="hero-title">もう、<span class="accent">安価には戻らない</span>。</h1>
+
+    <p class="hero-subtitle">低品位鉱石の経済学 ── カドミウム・エネルギー・放射性廃棄物</p>
+
+    <div class="hero-byline">
+      <span>2026.05.07</span>
+      <span><a href="https://aiseed.dev/en/phosphorus-and-farming/no-cheap-return/" style="color: var(--whisper); text-decoration: underline; text-decoration-color: var(--rule);">🌐 EN</a></span>
+    </div>
+  </section>
+
+  <!-- SERIES TOC(全章一覧・現在の章をハイライト) -->
+  <nav class="series-toc" aria-label="シリーズ章一覧">
+  <details>
+    <summary>目次 — 全章</summary>
+    <ol>
+      <li><a href="/phosphorus-and-farming/prologue/"><span class="toc-num">序章</span><span class="toc-title">経済が農法を決める</span></a></li>
+      <li><a href="/phosphorus-and-farming/supply-constraint/"><span class="toc-num">第1章</span><span class="toc-title">リン酸肥料の供給制約 ── 何が起きているか</span></a></li>
+      <li class="current" aria-current="page"><span class="toc-num">第2章</span><span class="toc-title">リン酸肥料は安価には戻らない</span></li>
+      <li><a href="/phosphorus-and-farming/industrial-farming-fails/"><span class="toc-num">第3章</span><span class="toc-title">慣行農業は経済的に成立しなくなる</span></a></li>
+      <li><a href="/phosphorus-and-farming/realistic-position/"><span class="toc-num">第4章</span><span class="toc-title">現実的な立ち位置 ── どこにも組みしない</span></a></li>
+      <li><a href="/phosphorus-and-farming/soil-microbes/"><span class="toc-num">第5章</span><span class="toc-title">土壌微生物という戦略</span></a></li>
+      <li><a href="/phosphorus-and-farming/co2-tailwind/"><span class="toc-num">第6章</span><span class="toc-title">CO2 という追い風</span></a></li>
+      <li><a href="/phosphorus-and-farming/implementation/"><span class="toc-num">第7章</span><span class="toc-title">どう実装するか ── 一反百姓と耕作放棄地</span></a></li>
+      <li><a href="/phosphorus-and-farming/operating-principles/"><span class="toc-num">第8章</span><span class="toc-title">運用原則 ── 何をして、何をしないか</span></a></li>
+      <li><a href="/phosphorus-and-farming/cuba-lessons/"><span class="toc-num">第9章</span><span class="toc-title">キューバの教訓</span></a></li>
+    </ol>
+  </details>
+</nav>
+
+  <!-- ARTICLE BODY -->
+  <article>
+    <p>第1章では、現在進行中の供給制約を見た。</p>
+<p>「では、地政学的な緊張が和らげば、いずれ安価に戻るのではないか」── そう考えたくなる。一時的なショックなら、波が引くのを待てばよい。</p>
+<p>しかしこの章で示したいのは、<strong>そうはならない</strong> ということだ。</p>
+<p>理由は地政学ではない。<strong>鉱物資源そのものの経済学</strong> にある。</p>
+<h2>高品位鉱石は枯渇しつつある</h2>
+<p>リン鉱石は、含まれるリン酸の濃度(P2O5 含量)によって品位が分けられる。業界の標準的な区分は次のとおりだ <code>[出典:Phosphate beneficiation, ECI Digital Archives]</code>。</p>
+<table class="comparison-table fade-in">
+<thead>
+<tr>
+<th>区分</th>
+<th>P2O5 含量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>高品位(High-grade)</strong></td>
+<td><strong>26% 以上</strong></td>
+</tr>
+<tr>
+<td>中品位(Medium-grade)</td>
+<td>17〜25%</td>
+</tr>
+<tr>
+<td>低品位(Low-grade)</td>
+<td>12〜16%</td>
+</tr>
+</tbody>
+</table>
+<p>歴史的に、肥料用の <strong>湿式リン酸製造プロセス(Wet Process)</strong> は、不純物の少ない P2O5 含量 <strong>30〜32%</strong> の高品位鉱石を標準的な原料としてきた。</p>
+<p>20 世紀の農業革命を支えたのは、フロリダ、モロッコ、ロシアなどの <strong>高品位鉱石</strong> だった。地表近くにあり、不純物が少なく、加工しやすい。安価な肥料は、この「良い鉱石」の上に成り立っていた。</p>
+<p>しかし、良い鉱石から先に掘られる。これは資源開発の鉄則である。</p>
+<p>20 世紀後半から、世界の主要産地で高品位鉱石の枯渇が進んだ。地表付近の埋蔵量は世界的に減少を続けており、<strong>現在では商業採掘の対象がより深層に位置し、かつ不純物を大量に含む低品位鉱石へと強制的に移行させられている</strong>。</p>
+<p>世界のリン鉱石埋蔵量の大半は、すでに低品位帯に移っている。</p>
+<h3>主要生産国における採掘限界の顕在化と地政学的偏在</h3>
+<p>世界のリン鉱石埋蔵量は <strong>3,000 億トン以上</strong> と推定されているものの、その <strong>約 70%(500 億トン以上)が、モロッコおよび西サハラ地域に極端に偏在</strong> している <code>[出典:HCSS Phosphate]</code>。2024 年における世界市場の評価額は約 <strong>214 億米ドル</strong> で、2034 年までには <strong>329 億米ドル</strong> に成長することが予測されているが、この成長を牽引しているのは生産量の増大というよりは、<strong>採掘コストと製品単価の上昇</strong> である。</p>
+<p>かつて豊富な自国資源を誇った米国においても、良質な資源の枯渇が進行している。フロリダ州、アイダホ州、ノースカロライナ州、ユタ州における米国のリン鉱石生産量は、鉱石の P2O5 含有量の低下と埋蔵量の減少により、過去数年間にわたり <strong>約 2,000 万トン水準で頭打ち</strong>
+となっている。</p>
+<table class="comparison-table fade-in">
+<thead>
+<tr>
+<th>米国市場</th>
+<th>2021 年実績</th>
+<th>2022 年推計</th>
+<th>2023 年推計</th>
+<th>2024 年推計</th>
+<th>2025 年推計</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>生産量(千トン)</td>
+<td>21,600</td>
+<td>19,800</td>
+<td>19,600</td>
+<td>19,400</td>
+<td>20,000</td>
+</tr>
+<tr>
+<td>見掛消費量(千トン)</td>
+<td>24,400</td>
+<td>22,300</td>
+<td>22,600</td>
+<td>22,500</td>
+<td>21,000</td>
+</tr>
+<tr>
+<td>輸入量(千トン)</td>
+<td>2,460</td>
+<td>2,500</td>
+<td>2,590</td>
+<td>3,390</td>
+<td>3,400</td>
+</tr>
+<tr>
+<td><strong>純輸入依存度</strong></td>
+<td><strong>11%</strong></td>
+<td><strong>12%</strong></td>
+<td><strong>16%</strong></td>
+<td><strong>18%</strong></td>
+<td><strong>16%</strong></td>
+</tr>
+</tbody>
+</table>
+<p><code>[出典:USGS データに基づく]</code></p>
+<p>米国は自国の巨大な農業需要を満たすために、ペルー(輸入の 98% 以上)
+やモロッコからの高品位鉱石の輸入への依存度を <strong>構造的に高めざるを得なくなっている</strong>。</p>
+<h3>低品位鉱石に伴う物理的選鉱の限界</h3>
+<p>低品位鉱石への移行は、単にリンの含有割合が下がるだけでなく、
+<strong>鉱石の物理的・機械的性質の変化</strong> という深刻な問題を引き起こす。</p>
+<p>低品位鉱石は、チョーク質の軟らかい組織(脈石)と硬いリン酸塩鉱物(魚卵状ペレットなど)が不均一に混在する構造を持つことが多い。
+<strong>アイダホ州の低品位頁岩(P2O5 17.6% 程度)</strong> を用いた粉砕テストのデータによれば、岩石をハンマーで砕くだけで微細な粉末へと崩壊し、粉砕工程において <strong>マイナス 325 メッシュという極めて微小な「スライム (微粉泥)」が大量に発生する</strong> ことが確認されている。</p>
+<p>この褐色のスライムには不純物が多く含まれており、浮遊選鉱などの物理的な濃縮プロセス(Beneficiation)において致命的な障害となる。スライムが選鉱プロセスを阻害するため、<strong>脱スライム(Desliming)</strong>
+と呼ばれる事前の洗浄工程が必須となるが、ここで大量の微細なリン酸分も同時に泥と共に失われてしまう。</p>
+<div class="quoteblock">
+<blockquote>
+<p>結果として、<strong>低品位鉱石から高品位の精鉱を得ようとすればするほど歩留まりが悪化</strong> し、採掘した岩石の多くが廃棄物に変わるという非効率性が生じている。</p>
+</blockquote>
+</div>
+<h3>ピーク・リン(Peak Phosphorus):2033 年頃到達</h3>
+<p>短期的な価格高騰の背景には、<strong>「ピーク・リン(Peak Phosphorus)」</strong>
+と呼ばれる根本的な資源枯渇の脅威が存在する。これは、世界のリン鉱石の生産速度が最大に達し、その後は不可逆的に減少していく転換点を指す。</p>
+<div class="quoteblock">
+<blockquote>
+<p>複数の資源評価モデルが、このピークが <strong>2033 年頃に到来</strong> すると予測している <code>[出典:Peak Phosphorus, MDPI 2071-1050/3/10/2027]</code>。</p>
+</blockquote>
+</div>
+<h3>USGS のモロッコ埋蔵量上方修正と科学的論争</h3>
+<p><strong>米国地質調査所(USGS)が 2010 年にモロッコの埋蔵量評価を大幅に引き上げた</strong> ことで、枯渇のタイムラインに関する議論は複雑化した
+<code>[出典:HCSS_17_12_12_Phosphate.pdf]</code>。</p>
+<p>ただし、議論が複雑化しても、</p>
+<ul>
+<li>高品質で採掘容易なリン鉱石が減少する</li>
+<li>低品位の鉱石の採掘・処理・輸送に <strong>指数関数的なコストがかかる</strong></li>
+</ul>
+<p>という点では、<strong>科学的コンセンサスが形成されている</strong>。モロッコに大量の埋蔵があったとしても、それは「掘りやすい高品位」ではなく、「掘りにくい低品位」も含めた総量である。経済的に意味のある「採掘可能なピーク」は依然として 2030 年代に来る。</p>
+<h3>EU の集中依存と新規開発の限界</h3>
+<p>欧州連合(EU)のデータは、サプライチェーンの極端な集中と脆弱性を明確に示している。</p>
+<ul>
+<li>2018 年から 2024 年の間、EU におけるリン酸関連製品の輸入の
+<strong>32% はモロッコ、24% はロシア</strong> に依存していた</li>
+<li>上位 7 カ国で総輸入量の <strong>80% 以上</strong> を占める</li>
+<li>供給国側の地政学的動向が、直接的に輸入国の農業の生死を握る構造</li>
+</ul>
+<p>ノルウェーにおける <strong>Norge Mining</strong> の新たな巨大リン鉱床発見や、電池産業(LFP バッテリーなど)への供給を目的とした <strong>Vianode</strong> の工場新設の動きはあるものの、これらが商業ベースで世界の農業需要を満たし、価格を下押しするまでには <strong>膨大な資本とリードタイム</strong> を要する <code>[出典:Global Phosphorus supply chain dynamics, Diva-portal]</code>。</p>
+<p>したがって、第1章で見た「リン酸肥料の供給が細り、価格が上がる」という前提は、現在のマクロ経済と地質学的現実の正確な描写である。</p>
+<h2>低品位鉱石の三つのコスト</h2>
+<p>低品位鉱石を肥料にするには、高品位鉱石にはなかった三つのコストが乗る。</p>
+<h3>コスト 1:カドミウム除去</h3>
+<p>世界のリン鉱石資源の <strong>約 95% は海洋性の堆積岩起源(Marine sedimentary phosphorite)</strong> であり、これらには数千万年にわたる海洋生物の死骸や海底堆積物の蓄積過程において、<strong>カドミウム(Cd)をはじめとする重金属が高濃度で取り込まれている</strong>。</p>
+<p>火成岩起源のリン鉱石(ロシアや南アフリカの一部など)はカドミウム含有量が非常に低く安全だが、世界の生産量に占める割合は <strong>13% 程度</strong>
+に過ぎず、絶対量が不足している。</p>
+<p>カドミウムは強い毒性と変異原性を持ち、人体に蓄積し、腎臓障害、貧血、骨軟化症(イタイイタイ病など)の原因となる。リン酸肥料中に残留したカドミウムは、土壌に施肥されると農作物(特に穀物や葉野菜)に容易に吸収され、食物連鎖を通じて人体に蓄積する。</p>
+<p>このため、<strong>EU をはじめとする多くの国では、リン酸肥料中のカドミウム含有量に対する法規制が年々強化</strong> されている。例えば、EU 内では P2O5
+1kg あたりのカドミウム含有量上限を <strong>現状の 60 mg から、段階的に 20 mg へと引き下げる法整備が進行している</strong>。これにより、未処理の堆積岩系リン鉱石から作られた肥料は事実上市場から締め出されることになり、重金属除去は法的な必要要件となっている。</p>
+<p><strong>カドミウム除去技術のジレンマ ── 熱処理 vs 湿式精製</strong></p>
+<p>リン鉱石からカドミウムを除去する技術には、大きく分けて 2 つのアプローチが存在するが、いずれも莫大なコストと技術的トレードオフを伴う。</p>
+<p><strong>アプローチ 1:熱処理(Calcination)による除去</strong></p>
+<p>リン鉱石をロータリーキルン等の炉内で <strong>850〜1150℃</strong> という超高温で加熱し、カドミウムを物理的に揮発させるプロセス。ナウル共和国に建設された商業用施設(処理能力 75 トン/時)の事例では、未処理のナウル産リン鉱石中のカドミウム含有量(約 600 mg/kg P)を <strong>120 mg/kg P 以下にまで低減させることに成功</strong> した。</p>
+<p>しかし、このプロセスの最大の欠点は <strong>莫大な熱エネルギーの消費</strong>
+である。1992 年当時のデータであっても、未処理のリン鉱石が 1 トンあたり約 50 米ドルで取引されていたのに対し、<strong>焼成処理後の鉱石の価格は 90 米ドル以上へとほぼ倍増</strong> している。</p>
+<p><strong>アプローチ 2:湿式リン酸(WPA)からの化学的分離</strong></p>
+<p>最も一般的なリン酸製造法である湿式法において、抽出されたリン酸
+(Wet-Process Phosphoric Acid)溶液の中からカドミウムイオンだけを分離する手法。共結晶化、有機リン系配位子、溶媒抽出、電気透析(ED)
+など複数の高度な化学工学的プロセスが開発されているが、いずれも高価な有機溶媒や配位子の継続的な消費、あるいは高度な膜分離装置の導入という莫大な初期投資(CAPEX)および運転コスト(OPEX)を要求する。</p>
+<p><strong>国際肥料開発センター(IFDC)</strong> の報告によれば、選択的抽出やリーチング
+(浸出)を用いたカドミウム除去は、現在のところ <strong>「技術的・経済的に実現不可能」</strong> と結論付けられている。</p>
+<div class="quoteblock">
+<blockquote>
+<p>どのような手法を用いてもカドミウムの除去には大きな追加コストが発生し、これが肥料の基礎価格に <strong>恒久的に上乗せされている</strong> のが現状である。</p>
+</blockquote>
+</div>
+<h3>コスト 2:エネルギー(湿式法プロセスと硫酸の構造的増大)</h3>
+<p>「エネルギーコストの上昇」は、単なる燃料代の高騰を意味するものではない。これは、低品位鉱石を処理するための <strong>化学反応(湿式法)そのものが、グローバルなエネルギー産業から生み出される副資材(硫酸) に強く依存している</strong> という、構造的な弱点に基づいている。</p>
+<p><strong>湿式リン酸プロセスの化学反応</strong></p>
+<p>現在、世界の肥料用リン酸の圧倒的大多数は <strong>湿式法(Wet Process)</strong>
+によって製造されている。このプロセスでは、濃縮された硫酸(H₂SO₄、通常 60〜66°ボーメ度)をリン鉱石(主にフルオロアパタイト)に連続的に反応させることで、リン酸を化学的に抽出する。主要な化学反応式は次のとおり。</p>
+<pre><code>3Ca₃(PO₄)₂·CaF₂ + 10H₂SO₄ + 20H₂O → 6H₃PO₄ + 2HF + 10(CaSO₄·2H₂O)
+</code></pre>
+<p>この反応により、目的物であるリン酸溶液と、副産物である <strong>硫酸カルシウム二水和物(石膏 = リン石膏)</strong> が生成される。</p>
+<p><strong>低品位化に伴う硫酸の過剰消費</strong></p>
+<p>決定的に重要な事実は、<strong>「鉱石の品位が低いほど、無駄に消費される硫酸の量が増加する」</strong> という点である。低品位鉱石には、目標とするリン酸塩以外に、炭酸カルシウム(CaCO₃)や鉄・アルミニウム化合物といった不純物が大量に含まれる。これらの不純物は硫酸と優先的に反応してしまう「寄生的な副反応」を引き起こすため、リン酸を完全に抽出するためには、<strong>理論量よりはるかに大量の硫酸を追加で投入しなければならない</strong>。</p>
+<p>硫酸の主原料である液体硫黄(Liquid sulfur)は、石油や天然ガスの精製プロセスにおける脱硫工程から得られる <strong>副産物</strong> である。つまり、硫酸の生産と価格は、世界の化石燃料市場の動向、精製所の稼働率、および原油価格に直接的に連動している。2025 年の世界銀行データによれば、天然ガス価格が下落した時期においても、液体硫黄の価格は供給制約により高止まりし、結果として <strong>リン酸肥料の製造コストを押し上げ続けた</strong>。</p>
+<div class="quoteblock">
+<blockquote>
+<p>リン酸肥料は「リン鉱石」という独自の資源に依存しながらも、その加工プロセスにおいて「硫黄(エネルギー市場の派生物)」を大量に消費するため、エネルギー価格の変動に対して <strong>二重の脆弱性</strong> を抱えている。<strong>高品位鉱石の枯渇は、この「岩石処理量あたりの硫酸消費量」を構造的に増加させるため、エネルギーコスト上昇の影響をレバレッジをかけて増幅させてしまう</strong>。</p>
+</blockquote>
+</div>
+<h3>コスト 3:放射性廃棄物(TENORM とリン石膏の環境負債)</h3>
+<p>ここが見落とされやすいポイントだ。</p>
+<p><strong>ウランおよびトリウムの自然含有</strong></p>
+<p>天然のリン鉱石には、地質学的な形成過程において海水から沈殿・濃縮された <strong>ウラン(U)、トリウム(Th)、ラジウム(Ra)</strong> といった天然由来放射性物質(NORM)が普遍的に含まれている。米国産の標準的なリン鉱石の場合、ウラン濃度は <strong>20 ppm から 300 ppm</strong>(0.26〜3.7 Bq/g)、トリウムは 1 ppm から 5 ppm 程度である。</p>
+<p>しかし、<strong>特定地域のリン鉱石は商業用ウラン鉱山に匹敵するレベルの異常な高濃度ウラン</strong> を含有している。</p>
+<table class="comparison-table fade-in">
+<thead>
+<tr>
+<th>産地</th>
+<th>ウラン濃度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>アフリカ・ブルンジ Matongo 鉱床</td>
+<td><strong>631.6 ± 2.5 mg/kg</strong></td>
+</tr>
+<tr>
+<td>タンザニア Minjingu 鉱床</td>
+<td>446.1 ± 0.4 mg/kg</td>
+</tr>
+<tr>
+<td>モロッコ巨大鉱床群(多数)</td>
+<td><strong>100 mg/kg 超</strong></td>
+</tr>
+</tbody>
+</table>
+<div class="quoteblock">
+<blockquote>
+<p>モロッコの巨大な鉱床群においてもウラン濃度が 100 mg/kg を超えるものが多く、事実上、<strong>世界のリン鉱石資源の大半は「超低品位のウラン鉱床」としての側面を併せ持っている</strong>。</p>
+</blockquote>
+</div>
+<p><strong>湿式プロセスにおける放射性同位元素の分断</strong></p>
+<p>湿式法でリン鉱石を硫酸で溶解する際、これらの放射性同位元素は複雑な分配挙動を示す。<strong>ウランの約 70〜90% は可溶性としてリン酸溶液 (H₃PO₄)側に移行し、最終的には肥料の中に残留する</strong>。一方、ラジウム 226(Ra²²⁶)、トリウム、ポロニウム、鉛 210(Pb²¹⁰)
+などの同位体は不溶性であり、副産物である石膏(リン石膏:
+Phosphogypsum または PG)の結晶構造内にほぼ全量が濃縮される。</p>
+<p>産業のプロセスを通じて放射性物質が意図せず濃縮されたものは、
+<strong>TENORM(Technologically Enhanced Naturally Occurring Radioactive Materials、技術的拡張自然放射性物質)</strong> と呼ばれる。</p>
+<p><strong>リン石膏(PG)の膨大な発生と環境管理コスト</strong></p>
+<p>1 トンのリン酸を製造する過程で、<strong>およそ 4.5 トンから 5.5 トンのリン石膏が発生</strong> する。米国だけでも年間 2,300 万トンのリン鉱石が消費されており、莫大な量のリン石膏が絶え間なく生み出されている。</p>
+<p>リン石膏は放射性物質と前述の重金属(カドミウム等)を大量に含むため、米国をはじめとする多くの環境基準の厳しい国では、一般市場での再利用が厳格に禁止されている。その結果、行き場を失った膨大な量のリン石膏は、工場の敷地内に <strong>「スタック(Stacks)」と呼ばれるピラミッド状の巨大な人工の山として野積みされるしかない</strong>。</p>
+<p><strong>フロリダ州での環境災害</strong>:面積 700 エーカー(約 2.8 平方キロメートル)にも及ぶリン石膏スタックの直下に巨大なシンクホール(陥没穴、直径 152 フィート、深さ 220 フィート)が開き、<strong>2 億 1,500 万ガロン (約 8 億リットル)</strong> もの強酸性かつ放射性を含むプロセス廃水が、州の主要な飲料水源であるフロリダ帯水層へと一気に流出するという破局的な環境災害が発生している。</p>
+<table class="comparison-table fade-in">
+<thead>
+<tr>
+<th>コスト項目</th>
+<th>アクティブスタックにおける加重平均コスト</th>
+<th>PG トンあたりの平均コスト</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>輸送コスト</td>
+<td>720 万米ドル</td>
+<td>0.87 米ドル</td>
+</tr>
+<tr>
+<td>スタック維持管理</td>
+<td>680 万米ドル</td>
+<td>0.012 米ドル</td>
+</tr>
+<tr>
+<td>水管理(廃水処理等)</td>
+<td>740 万米ドル</td>
+<td>0.02 米ドル</td>
+</tr>
+</tbody>
+</table>
+<p><code>[出典:米国 EPA 経済モデル]</code></p>
+<p>低品位鉱石への移行は、この <strong>「リン酸 1 トンあたりの廃棄物発生量」をさらに増加させる</strong> ため、環境コンプライアンス費用は限界利益を確実に削り取り、肥料の製品価格へ上乗せされる構造的なインフレ要因となっている。</p>
+<h2>三つのコストが同時に乗る</h2>
+<p>低品位化が進むということは、</p>
+<ul>
+<li>カドミウム除去のコスト</li>
+<li>エネルギーコスト</li>
+<li>放射性廃棄物処理コスト</li>
+</ul>
+<p>この三つが、<strong>同じ鉱石に同時に乗る</strong> ということだ。</p>
+<p>20 世紀の高品位鉱石は、これらのコストが小さかった。だから安価な肥料が成り立っていた。21 世紀に残されている低品位鉱石は、構造的に、これら三つのコストを背負っている。</p>
+<table class="comparison-table fade-in">
+<thead>
+<tr>
+<th>比較項目</th>
+<th>高品位鉱石</th>
+<th>低品位鉱石</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P2O5 含量</td>
+<td>30% 以上</td>
+<td>20% 以下</td>
+</tr>
+<tr>
+<td>カドミウム除去</td>
+<td>不要〜軽微</td>
+<td>必須・高コスト</td>
+</tr>
+<tr>
+<td>処理エネルギー</td>
+<td>少ない</td>
+<td>多い(同じ P2O5 を得るのに多くの鉱石を処理)</td>
+</tr>
+<tr>
+<td>リン石膏発生量</td>
+<td>少ない</td>
+<td>多い</td>
+</tr>
+<tr>
+<td>放射性核種濃度</td>
+<td>低い</td>
+<td>高い</td>
+</tr>
+</tbody>
+</table>
+<p>低品位鉱石は、地政学が落ち着いても、戦争が終わっても、安くはならない。
+<strong>鉱石そのものの物理的特性が変わらないから</strong> である。</p>
+<h2>「化学肥料体系内のリサイクル」は、論理そのものが成立しない</h2>
+<p>ここで「リサイクルを進めればよい」という発想が出てくる。下水汚泥、食品残渣、家畜糞尿 ── すでに使ったリンを回収して、もう一度使えば、鉱石に頼らなくてよい。</p>
+<p><strong>しかしこの発想は、量の問題ではなく、論理そのものが成立しない</strong>。化学肥料の根本的な非効率を温存したまま、僅かに残る回収可能な分を回しているに過ぎないからだ。</p>
+<h3>化学肥料(湿式法)は、施肥量の 1〜2 割しか植物に吸収されない</h3>
+<p>現代の主要なリン酸肥料は、湿式法で製造される <strong>リン安・過リン酸石灰</strong> などである。これらを土壌に施肥しても、</p>
+<ul>
+<li><strong>植物吸収率は施肥量の僅か 1〜2 割</strong> にすぎない</li>
+<li>残り <strong>8〜9 割</strong> は、土壌中の鉄・アルミニウム・カルシウムと結合して <strong>不溶性のリン酸塩(レガシーリン)</strong> になり、植物が利用できない形で土壌に固定される</li>
+</ul>
+<p>つまり、<strong>化学肥料は最初から構造的に非効率なシステム</strong> である。</p>
+<p>「使ったリンを回収してリサイクルする」と言っても、回収できるのは「<strong>施肥量の 1〜2 割の、さらに食物連鎖を経て体内・排泄物に出たわずかな分</strong>」だけ。残りの 8 割以上は土壌の中で固定されたまま、従来の回収手法では取り戻しようがない。</p>
+<div class="quoteblock">
+<blockquote>
+<p>リサイクルの議論は、<strong>そもそも非効率なシステムの中で、漏れた僅かな分を回し戻している</strong> だけ。理屈そのものが、根本解決には届かない。</p>
+</blockquote>
+</div>
+<h3>熔成リン肥(熔リン)は効率高いが、エネルギー集約</h3>
+<p>利用効率を上げるための代替肥料として、<strong>熔成リン肥(熔リン)</strong> がある。</p>
+<ul>
+<li>マグネシウム化合物を加えて <strong>約 1,000〜1,500°C で溶融処理</strong></li>
+<li>ク溶性(クエン酸可溶性)のリン酸を含むため、酸性土壌で植物吸収率が高い</li>
+<li><strong>施肥量の 5 割以上が植物に利用される</strong> ── 湿式法のリン安・過石より明らかに効率的</li>
+</ul>
+<p>これは技術的には魅力的な選択肢に見える。しかし、</p>
+<div class="quoteblock">
+<blockquote>
+<p>1,000〜1,500°C の溶融処理には、<strong>大量のエネルギー</strong> が必要となる。第1〜2章で見た硫黄(湿式法用)の枯渇問題に加えて、エネルギー自体が高騰する時代には、<strong>熔リンの製造コストも構造的に上がる</strong>。</p>
+</blockquote>
+</div>
+<p>つまり、化学肥料体系の中では、</p>
+<table class="comparison-table fade-in">
+<thead>
+<tr>
+<th>方式</th>
+<th>利用効率</th>
+<th>主な制約</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>湿式法</strong>(現状の主流)</td>
+<td>1〜2 割</td>
+<td>硫黄・リン鉱石を輸入依存、低品位化で三重コスト</td>
+</tr>
+<tr>
+<td><strong>熔成法</strong>(高効率代替)</td>
+<td>5 割以上</td>
+<td>1,000〜1,500°C の溶融処理に大量のエネルギー</td>
+</tr>
+</tbody>
+</table>
+<p>どちらも、肥料制約と低品位鉱石とエネルギー高騰の前では、<strong>持続的な解決にならない</strong>。</p>
+<h3>リサイクルできる量も、世界需要に対して微小</h3>
+<p>加えて、リサイクル自体の量的限界もある <code>[出典:Diva-portal Phosphorus Story]</code>。</p>
+<ul>
+<li><strong>高度なリサイクルインフラ</strong> を整備した特定のシナリオにおける試算:
+動物飼料中のリン削減や下水・糞尿からの回収によって削減・回収できる量は、年間 <strong>20〜30 ギガグラム(2〜3 万トン)P2O5 に過ぎない</strong></li>
+<li>一方、現代の工業型農業が要求する <strong>世界のリン酸肥料の年間需要量は約 4,300 万トン</strong>(P2O5 換算)、近年の鉱石実生産量は <strong>2 億トン以上</strong> という莫大な規模</li>
+</ul>
+<div class="quoteblock">
+<blockquote>
+<p>リサイクルで補える割合は、<strong>世界需要の約 0.07%</strong> に過ぎない。しかも、その「補える分」を回しても、化学肥料体系の 1〜2 割という根本的な非効率は変わらない。</p>
+</blockquote>
+</div>
+<p>加えて第1章で見たとおり、下水汚泥回収は規模が小さく、PFAS 規制で即時実用化が困難。食品残渣・家畜糞尿は既に堆肥化などで利用されており、劇的な増加は望みにくい。</p>
+<h3>真の解決:菌根菌で「土壌中のレガシーリン」を動員する</h3>
+<p>論点を整理しよう。</p>
+<ul>
+<li><strong>新たに採掘するリン鉱石</strong> ── 低品位化と地政学リスクで構造的に減る</li>
+<li><strong>化学肥料体系内のリサイクル</strong> ── 1〜2 割の非効率を温存したまま、漏れた分を回しているだけ</li>
+<li><strong>熔成リン肥</strong> ── 効率は高いがエネルギー集約、化石燃料制約にぶつかる</li>
+<li><strong>合成代替</strong> ── リンは元素なので不可能(後述)</li>
+</ul>
+<p>ではどうするか。</p>
+<div class="quoteblock">
+<blockquote>
+<p><strong>すでに土壌に蓄積された 8 割以上のレガシーリンを、植物が使える形に変える</strong> 仕組みが必要である。</p>
+</blockquote>
+</div>
+<p>これを実装するのが、<strong>菌根菌(アーバスキュラー菌根菌、AM 菌)による生物的マイニング</strong> である(第5章で詳述)。AM 菌は酵素や有機酸を分泌して <strong>不溶性のリン酸塩を可溶化</strong> し、菌糸ネットワーク経由で植物に運び届ける能力を持つ。</p>
+<div class="quoteblock">
+<blockquote>
+<p>化学肥料が「外から新たに加える」発想なのに対し、生物的マイニングは「<strong>すでにそこにあるリンを動員する</strong>」発想である。数十年〜百年にわたる化学肥料施肥で土壌に固定された 8 割のレガシーリンが、菌根菌の働きで再び植物に届くようになる ── これが本シリーズの中核的な戦略である。</p>
+</blockquote>
+</div>
+<p>リサイクルでは届かない。化学肥料体系内の効率化(熔リン)はエネルギー制約にぶつかる。残された道は、<strong>菌根菌を使って、土壌中のレガシーリンを動員する</strong> こと ── これが生物的マイニングである。</p>
+<h3>LFP バッテリー需要による「農工間の資源共食い」</h3>
+<p>供給サイドの重層的なコストアップ要因に加え、<strong>需要サイドにおいてもリン鉱石を巡る競争環境が激化</strong> しており、これが価格の高止まりをさらに強固なものとしている。</p>
+<p>伝統的に、採掘されたリン鉱石の <strong>約 85〜90% は農業用肥料として消費されてきた</strong>。しかし近年、リチウムイオン電池の一種である
+<strong>リン酸鉄リチウム(LFP)バッテリー</strong> の需要が電気自動車(EV)市場で爆発的に拡大しており、高純度な工業用・バッテリーグレードのリン酸への需要が急増している。</p>
+<p>世界のリン鉱石埋蔵量の 70% を握る <strong>モロッコ(OCP グループ)</strong> は、単なる原石の輸出から、肥料やバッテリー材料といった高付加価値製品の生産へと戦略を大転換している。<strong>2024 年 3 月</strong>、モロッコ政府は中国の <strong>BTR New Material Group</strong> によるタンジール近郊での <strong>カソード (正極材)プラント建設プロジェクト</strong> を承認した。この施設はモロッコ国内のリン酸とコバルト資源を活用し、<strong>2026 年 9 月までに初期生産量 2 万 5,000 トン、最終的に年間 5 万トンの生産能力</strong> を備える計画である。精製バッテリーグレードリン酸の製造において <strong>世界シェアの 75%</strong> を握る中国も、国内の EV 産業を支えるためにリン資源の囲い込み(輸出規制)を強化している。</p>
+<div class="quoteblock">
+<blockquote>
+<p>このような自動車・エネルギー産業からの新規需要は、肥料メーカーにとって強力な <strong>買い負けリスク</strong> を意味し、限られた良質なリン鉱石の奪い合いを助長している。</p>
+</blockquote>
+</div>
+<h2>「合成代替」も成立しない</h2>
+<p>「化学的にリンを合成すればよい」という発想もありうる。しかしリンは
+<strong>元素</strong> である。化学合成で別の元素から作ることはできない。</p>
+<p>核反応で別の元素から作ることは原理的には可能だが、エネルギーコストが天文学的で、農業用に使える話ではない。</p>
+<p>リンを得るには、地殻中のリン化合物 ── つまり鉱石か、生物起源のリン蓄積(下水、糞尿、骨など)── から取るしかない。これが地球の物理的な制約である。</p>
+<h2>価格は構造的に高止まりする</h2>
+<p>整理すると、こうなる。</p>
+<ul>
+<li>高品位鉱石は枯渇しつつある</li>
+<li>残された低品位鉱石は、加工に三つの追加コストがかかる</li>
+<li>リサイクルは補完にはなるが代替にはならない</li>
+<li>元素レベルでの合成代替も不可能</li>
+</ul>
+<p>この結果、<strong>リン酸肥料の価格は構造的に高止まりする</strong>。短期の波はあっても、長期トレンドは上向きだ。一時的なショックではなく、長期的な高価格時代への入口に、いま入っている。</p>
+<div class="quoteblock">
+<blockquote>
+<p>安かった時代は、20 世紀の高品位鉱石が支えていた特殊な時代だった。その特殊な時代が終わりつつある、ということだ。</p>
+</blockquote>
+</div>
+<p>これは「いつか終わる」という話ではない。<strong>もう、安価には戻らない</strong>。これがこの章の結論である。</p>
+<h3>信用格付け機関による中長期価格予測の上方修正</h3>
+<p>国際機関や信用格付け機関の予測モデルも、本章の結論をデータで裏付けている。</p>
+<p><strong>世界銀行</strong>(2025年10〜11月期コモディティ市場見通し)は、中国の輸出制限や継続的な需要の底堅さから、肥料価格指数は 2025 年に向けてさらに <strong>20% 以上上昇</strong> し、その後 2026 年から 2027 年にかけて新規の生産能力が稼働することで緩やかに下落するものの、依然として
+<strong>2015 年〜2019 年の過去平均を「大きく上回る水準」</strong> で推移すると予測している。</p>
+<p><strong>Fitch Ratings</strong>(2025 年 3 月レポート)は、供給の逼迫が予見可能な将来にわたって継続すると判断し、DAP(リン酸二アンモニウム)の中長期的な価格前提(Mid-cycle 価格)を <strong>上方修正</strong> した。</p>
+<table class="comparison-table fade-in">
+<thead>
+<tr>
+<th>肥料種・指標</th>
+<th>2024 年(実績)</th>
+<th>2025 年(旧予測)</th>
+<th>2025 年(新予測)</th>
+<th>2026 年(新予測)</th>
+<th><strong>中長期(Mid-cycle)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>リン鉱石(FOB モロッコ、USD/t)</td>
+<td>208</td>
+<td>150</td>
+<td>150</td>
+<td>100</td>
+<td><strong>100</strong></td>
+</tr>
+<tr>
+<td><strong>DAP(FOB モロッコ、USD/t)</strong></td>
+<td><strong>586</strong></td>
+<td>470</td>
+<td><strong>550</strong></td>
+<td><strong>450</strong></td>
+<td><strong>400(旧予測 400 から維持)</strong></td>
+</tr>
+</tbody>
+</table>
+<p><code>[出典:Fitch Ratings 2025 年 3 月]</code></p>
+<p>注目すべきは、<strong>原料であるリン鉱石(Phosphate Rock)の価格が 100 ドル程度まで調整されると予測されているにもかかわらず、最終製品である DAP の価格予想(450 ドル → 400 ドル)は以前よりも高い水準で高止まりする</strong> と市場が評価している点である。</p>
+<p>これはまさに、本章で詳述した <strong>「低品位鉱石の処理に伴う莫大な加工コスト(カドミウム除去、エネルギー消費、硫酸消費、放射性廃棄物処理) が、鉱石から肥料への精製プロセスにおける恒久的な『コストの楔 (くさび)』として機能しており、製品価格から剥落しない」</strong> ことを明確に証明している。</p>
+<h2>短期(2027 年)と長期(ピーク・リン)が、同時に効いている</h2>
+<p>ここで、第1章と本章の議論を、時間軸で統合しておく必要がある。リン酸肥料の供給制約は、<strong>短期と長期、二つの時間スケールが同時に効いている</strong> からである。</p>
+<h3>短期:2027 年、日本ではリン酸肥料の入手が困難になる</h3>
+<p>第1章で見たとおり、</p>
+<ul>
+<li><strong>イラン関連の中東紛争の長期化</strong> → ホルムズ海峡の物流麻痺
+(世界の海上肥料貿易の約 1/3、年間 1,600 万トンが通過)</li>
+<li><strong>2026 年 3 月 14 日</strong>、中国が尿素・DAP・MAP の輸出を実質停止
+(8 月まで)</li>
+<li><strong>カタールエネルギーの不可抗力(Force Majeure)宣言</strong> ── 天然ガス・硫黄供給の混乱</li>
+<li>政府の備蓄量は <strong>「2.4 か月分」</strong>(目標 3 か月分には未達)</li>
+<li><strong>2026 年秋作の消費を以て国内在庫は底を突き始める</strong> 見込み</li>
+</ul>
+<p>これらが重なる結果、</p>
+<div class="quoteblock">
+<blockquote>
+<p><strong>2027 年、日本ではリン酸肥料の入手が困難になる</strong>。農家が希望する量の肥料を購入できない <strong>「アロケーション(割当配給)状態」</strong> に陥るリスクは極めて高い。</p>
+</blockquote>
+</div>
+<p>これは数年後の遠い話ではない。<strong>もう来年の話</strong> である。</p>
+<h3>長期:ピーク・リン(2033 年頃)と恒久的な高価格</h3>
+<p>短期の中東危機が落ち着いても、リン酸肥料は安価には戻らない。本章で見てきたとおり、</p>
+<ul>
+<li><strong>ピーク・リン</strong>:複数の資源評価モデルが、世界のリン鉱石生産速度のピークが <strong>2033 年頃</strong> に到来すると予測</li>
+<li><strong>世界埋蔵量の約 70% がモロッコ・西サハラに偏在</strong> ── 地政学的脆弱性は構造的に解消できない</li>
+<li><strong>低品位鉱石の三重コスト</strong>(カドミウム除去・エネルギー・放射性廃棄物 TENORM)が肥料価格に <strong>恒久的な楔</strong> として乗る</li>
+<li><strong>Fitch Ratings</strong>(2025 年 3 月)は DAP の中長期価格前提を
+<strong>400 USD/t に上方修正</strong></li>
+<li>リサイクルでは世界需要の <strong>0.07%</strong> しか代替できない</li>
+<li>合成代替も物理法則上不可能(リンは元素)</li>
+</ul>
+<p>つまり、</p>
+<div class="quoteblock">
+<blockquote>
+<p><strong>長期的に見ても、リン資源枯渇は深刻</strong> である。短期の中東危機が収束しても、世界のリン酸肥料は安価には戻らない。これは構造的・不可逆的な変化である。</p>
+</blockquote>
+</div>
+<h3>短期と長期、両方が効いている</h3>
+<p>時間軸を整理すると、こうなる。</p>
+<table class="comparison-table fade-in">
+<thead>
+<tr>
+<th>時間スケール</th>
+<th>主要な要因</th>
+<th>帰結</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>2026〜2027 年(目前)</strong></td>
+<td>中東紛争、中国輸出停止、ホルムズ海峡、カタール不可抗力、政府備蓄の限界</td>
+<td>日本での肥料アロケーション・リスク</td>
+</tr>
+<tr>
+<td><strong>2027〜2033 年(中期)</strong></td>
+<td>世界市場の構造的逼迫、Fitch DAP 中長期 400 USD/t</td>
+<td>高価格の常態化</td>
+</tr>
+<tr>
+<td><strong>2033 年頃〜(長期)</strong></td>
+<td>ピーク・リン到達、低品位鉱石の三重コスト、モロッコ・西サハラ偏在</td>
+<td>恒久的な高価格時代</td>
+</tr>
+</tbody>
+</table>
+<div class="quoteblock">
+<blockquote>
+<p><strong>2027 年に肥料が足りなくなる</strong>(短期、目前)。
+<strong>長期的にもリン資源枯渇は深刻</strong>(構造、不可逆)。二つは独立した問題ではなく、<strong>同じ構造が短期と長期で同時に顕在化している</strong> 姿である。</p>
+</blockquote>
+</div>
+<p>「短期の波が引けばまた安くなる」という前提も、「長期はピーク・リンだが、当面は十分」という前提も、どちらも成立しない。<strong>短期と長期、両方が効いている</strong>。</p>
+<p>これが本章の最終的な診断である。「ではこの診断のもとで何をすべきか」── それを次の第3章で扱う。</p>
+<h2>「危機」ではなく「移行」</h2>
+<p>第1章と同じ言い方をしておく。</p>
+<p>これは危機ではない。20 世紀の高品位鉱石を使い切りつつあるという、予測可能な構造変化である。良い鉱石から先に掘られ、後に低品位鉱石が残るのは、自然なことだ。</p>
+<p>危機ではなく <strong>移行</strong> ── 高品位鉱石依存の安価な肥料時代から、別の何かへの移行 ── が起きている。</p>
+<p>ではその「別の何か」とは何か。工業型農業をそのまま続けることは、価格上昇下では成立しない。これを次の章で見る。</p>
+<h2>参考資料</h2>
+<p><strong>学術文献・資源評価</strong></p>
+<ul>
+<li>&quot;Peak Phosphorus: Clarifying the Key Issues of a Vigorous Debate
+about Long-Term Phosphorus Security&quot; — MDPI 2071-1050/3/10/2027
+(ピーク・リン 2033 年頃到達予測)</li>
+<li>&quot;The Story of Phosphorus&quot; — Diva-portal(リサイクル限界の試算)</li>
+<li>&quot;Global Phosphorus supply chain dynamics: Sustainability
+implications for the 21st century&quot; — Diva-portal(EU 集中依存データ、Norge Mining)</li>
+<li>&quot;Risks and Opportunities in the Global Phosphate Rock Market&quot;
+— HCSS(モロッコ・西サハラ 70% 偏在、世界市場 214 億ドル)</li>
+<li>&quot;Can Your P2O5 Be Commercially Exploited?&quot; — ECI Digital Archives
+(品位定義、低品位スライム問題)</li>
+<li>米国地質調査所(USGS)2010 年モロッコ埋蔵量上方修正</li>
+</ul>
+<p><strong>業界レポート・価格予測</strong></p>
+<ul>
+<li>Fitch Ratings 2025 年 3 月レポート(DAP 中長期 400 USD/t に上方修正)</li>
+<li>米国 EPA 経済モデル(リン石膏スタック維持コスト推計)</li>
+<li>国際肥料開発センター(IFDC)「カドミウム除去の技術的・経済的実現可能性」報告</li>
+</ul>
+<p><strong>コスト構造・歴史</strong></p>
+<ul>
+<li>&quot;The Fertilizer Fault Line: The Hidden System That Could Trigger
+the Next Global Crisis&quot; — Fairobserver.com</li>
+<li>A&amp;L Great Lakes &quot;Phosphorus Rate Reductions and World Demand
+Growth&quot;</li>
+<li>ナウル共和国カドミウム除去施設データ(熱処理コスト 1992 年比較)</li>
+</ul>
+<p><strong>LFP バッテリー需要</strong></p>
+<ul>
+<li>モロッコ OCP × 中国 BTR New Material Group タンジールカソードプラント(2024 年 3 月承認)</li>
+</ul>
+
+  </article>
+
+  <!-- CHAPTER NAV(前後の記事) -->
+  <nav class="chapter-nav">
+  <a href="/phosphorus-and-farming/supply-constraint/" rel="prev">&larr; 前: 第1章 リン酸肥料の供給制約</a>
+  <a href="/phosphorus-and-farming/industrial-farming-fails/" rel="next">次: 第3章 工業型農業は成立しない &rarr;</a>
+</nav>
+
+  <!-- FOOTER(サイト内メニュー+奥付) -->
+  <footer class="site-footer">
+    <nav class="footer-nav" aria-label="サイト内リンク">
+      <div class="footer-col">
+        <h4>記事シリーズ</h4>
+        <ul>
+          <li><a href="/insights/">構造分析</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/ai-native-software/">AI ネイティブなソフトウェア開発</a></li>
+          <li><a href="/claude-debian/">Claudeと一緒に学ぶDebian</a></li>
+          <li><a href="/debian-server/">Claudeと一緒に育てるDebian サーバー</a></li>
+          <li><a href="/phosphorus-and-farming/">リン資源枯渇と自然農法</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>サイト</h4>
+        <ul>
+          <li><a href="/">ホーム</a></li>
+          <li><a href="/natural-farming/">自然農法とは</a></li>
+          <li><a href="/light-farming/">Light Farming</a></li>
+          <li><a href="/gallery/">畑の記録</a></li>
+          <li><a href="/about/">私たちのアプローチ</a></li>
+          <li><a href="/privacy/">プライバシー</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>関連サイト</h4>
+        <ul>
+          <li><a href="https://aiai.aiseed.dev/">aiai ── AI 時代の学び方</a></li>
+          <li><a href="https://weather.time-j.net/">個人開発気象統計</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="colophon">
+      <div class="colophon-mark">§</div>
+      リン資源枯渇と自然農法シリーズ · 第2章<br>
+      Tokushima · 2026.05.07<br>
+      <a href="/" style="color: var(--whisper); text-decoration: underline; text-decoration-color: var(--rule);">aiseed.dev</a> · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" style="color: var(--whisper); text-decoration: underline; text-decoration-color: var(--rule);">CC BY 4.0</a>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  // 広い画面ではサイドバー目次を常時展開する(狭い画面では折りたたみに戻す)
+  (function () {
+    var toc = document.querySelector(".series-toc details");
+    if (!toc) return;
+    var mq = window.matchMedia("(min-width: 1200px)");
+    function sync() { toc.open = mq.matches; }
+    sync();
+    if (mq.addEventListener) mq.addEventListener("change", sync);
+    else mq.addListener(sync);
+  })();
+
+  // Mermaid loads only on pages that contain a .mermaid block.
+  // Self-hosted (no third-party CDN dependency); SRI verified.
+  if (document.querySelector(".mermaid")) {
+    const s = document.createElement("script");
+    s.src = "/js/vendor/mermaid-11.14.0.min.js";
+    s.integrity = "sha384-1CMXl090wj8Dd6YfnzSQUOgWbE6suWCaenYG7pox5AX7apTpY3PmJMeS2oPql4Gk";
+    s.crossOrigin = "anonymous";
+    s.onload = () => {
+      const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+      mermaid.initialize({ startOnLoad: false, theme: prefersDark ? "dark" : "default" });
+      mermaid.run();
+    };
+    document.head.appendChild(s);
+  }
+</script>
+
+
+</body>
+</html>

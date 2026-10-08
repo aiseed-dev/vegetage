@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <!-- Apply saved theme immediately to avoid FOUC -->
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem('aiseed-theme');
+          if (t === 'light' || t === 'dark') {
+            document.documentElement.setAttribute('data-theme', t);
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9FLQ963JXM"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-9FLQ963JXM');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://static.cloudflareinsights.com https://challenges.cloudflare.com 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://cloudflareinsights.com https://challenges.cloudflare.com">
+    <meta name="description" content="Light Farming（光の農業）——Christine Jones博士の研究に基づく、光合成と土壌炭素固定の科学。肥料危機の時代に、外部投入に頼らず土壌を再生する方法。">
+    <link rel="canonical" href="https://aiseed.dev/light-farming/">
+    <link rel="alternate" hreflang="ja" href="https://aiseed.dev/light-farming/">
+    <link rel="alternate" hreflang="en" href="https://aiseed.dev/en/light-farming/">
+    <link rel="alternate" hreflang="x-default" href="https://aiseed.dev/light-farming/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="AI時代の暮らし">
+    <meta property="og:locale" content="ja_JP">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:title" content="Light Farming | AI時代の暮らし">
+    <meta property="og:description" content="Light Farming（光の農業）——Christine Jones博士の研究に基づく、光合成と土壌炭素固定の科学。肥料危機の時代に、外部投入に頼らず土壌を再生する方法。">
+    <meta property="og:url" content="https://aiseed.dev/light-farming/">
+    <meta property="og:image" content="https://aiseed.dev/images/IMG_3285.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Light Farming | AI時代の暮らし">
+    <meta name="twitter:description" content="Light Farming（光の農業）——Christine Jones博士の研究に基づく、光合成と土壌炭素固定の科学。肥料危機の時代に、外部投入に頼らず土壌を再生する方法。">
+    <meta name="twitter:image" content="https://aiseed.dev/images/IMG_3285.jpg">
+    <title>Light Farming | AI時代の暮らし</title>
+    <link rel="stylesheet" href="../css/style.css?v=36fe4824">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-inner">
+            <a href="/" class="logo">
+                AI時代の暮らし
+                <span>aiseed.dev</span>
+            </a>
+            <nav class="nav">
+                <a href="/">ホーム</a>
+                <div class="nav-group">
+                    <button type="button" class="nav-parent" aria-haspopup="true" aria-expanded="false">記事<span class="nav-caret" aria-hidden="true">▾</span></button>
+                    <div class="nav-submenu" role="menu">
+                        <a href="/insights/" role="menuitem">構造分析</a>
+                        <a href="/ai-native-software/" role="menuitem">AI ネイティブなソフトウェア開発</a>
+                        <a href="/claude-debian/" role="menuitem">Claudeと一緒に学ぶDebian</a>
+                        <a href="/debian-server/" role="menuitem">Claudeと一緒に育てるDebian サーバー</a>
+                    </div>
+                </div>
+                <a href="/blog/">Blog</a>
+                <a href="/natural-farming/">自然農法とは</a>
+                <a href="/light-farming/" class="active">Light Farming</a>
+                <a href="/gallery/">畑の記録</a>
+                <a href="/en/light-farming/" class="lang-switch" hreflang="en" aria-label="View in English">🌐 EN</a>
+                <button type="button" class="theme-toggle" aria-label="テーマを切り替え" title="テーマ切り替え (Light / Dark)">
+                    <span class="theme-icon theme-icon-sun" aria-hidden="true">☀</span>
+                    <span class="theme-icon theme-icon-moon" aria-hidden="true">☾</span>
+                </button>
+            </nav>
+            <button class="nav-toggle" aria-label="メニュー">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="page-hero-image" style="background-image: url('../images/IMG_3285.jpg');"></div>
+        <div class="page-hero-content">
+            <p class="hero-label">Soil Science</p>
+            <h1 class="hero-title">Light Farming</h1>
+            <p class="hero-subtitle">
+                光合成の力で土壌を再生する——肥料危機の時代の科学
+            </p>
+        </div>
+    </section>
+
+    <!-- Introduction -->
+    <section class="section">
+        <div class="container-narrow">
+            <div class="prose">
+                <p style="font-size: 1.1rem; color: var(--earth-dark);">
+                    「Light Farming（光の農業）」は、Christine Jones博士が提唱する概念である。
+                    すべての食料・繊維生産者は、まず「光を育てる農家」であるという考え方に基づく。
+                </p>
+
+                <p>
+                    2026年の中東戦争で、世界の窒素肥料と硫黄の供給の相当部分が破壊され、復旧には3〜5年かかる。
+                    <a href="/blog/fertilizer-crisis-natural-farming/">肥料に頼る農業</a>は、もう安い農業ではなくなった。
+                    Light Farmingが示す道は、外部からの投入に依存せず、光合成と土壌微生物の力で食を生み出す農業だ。
+                    <a href="/about/">福岡正信の自然農法</a>が50年前に実践で示したことを、Christine Jones博士が科学で裏付けた。
+                </p>
+
+                <h2>2026年、この論文の意味が変わった</h2>
+                <p>
+                    Jones博士がこの論文を発表したのは2018年。当時は「理想論」「意識の高いニッチ」として受け止められていた。化学肥料が安く潤沢に手に入る限り、わざわざ土壌微生物を育てる遠回りをする必要はない——そういう時代だった。
+                </p>
+                <p>
+                    2026年3〜4月、米国・イランの39日間の戦争でペルシャ湾岸の石油化学施設が爆撃された。停戦が成立しても、壊れた工場から肥料は出てこない。復旧には3〜5年かかる見通しだ。
+                </p>
+
+                <div class="data-box">
+                    <h4>失われた世界シェア（ペルシャ湾岸）</h4>
+                    <ul>
+                        <li>尿素海上輸出 <span class="value">46%</span></li>
+                        <li>アンモニア輸出 <span class="value">29%</span></li>
+                        <li>硫黄輸出 <span class="value">約50%</span></li>
+                    </ul>
+                    <p style="font-size: 0.85rem; margin-top: 1rem; color: var(--soil-rich);">
+                        窒素肥料（アンモニア・尿素）もリン酸肥料（原料の硫黄が不可欠）も、数年単位の深刻な供給制約に入った。
+                    </p>
+                </div>
+
+                <p>
+                    <strong>「菌根菌は植物の窒素・リン要求量の最大90%を供給できる」</strong>——Jones博士が2018年に指摘したこの事実は、かつて「将来のための選択肢」だった。今は<strong>「今年の作付けをどう成立させるか」の現実的な答え</strong>に変わった。
+                </p>
+                <p>
+                    化石資源の供給が途絶えたとき、食料生産を支えるのは光と土壌微生物しかない。<a href="/about/">福岡正信の自然農法</a>が半世紀前に実践で示したことを、Jones博士が2018年に科学で裏付け、そして2026年の現実が証明した。
+                </p>
+                <p style="font-size: 0.9rem; margin-top: 1.5rem;">
+                    関連ノート: <a href="/blog/fertilizer-crisis-natural-farming/">肥料不足はホルムズ海峡が開いたら終わりではない——自然農法を強制される時代</a>
+                </p>
+
+                <h2>AI時代になぜ重要か</h2>
+                <p>
+                    AIは会計、法務、翻訳、マーケティング、プログラミングを代替する。月額20ドルのサブスクリプションで、一人の個人が企業と同等の業務を遂行できる時代になった。
+                    これはAIが人間を不要にするのではなく、<strong>人間が本来の仕事に戻れる</strong>ことを意味する。
+                </p>
+                <p>
+                    AIが画像認識で病害虫を見分け、衛星データで土壌水分を追跡し、気象パターンから最適な播種日を予測する。
+                    しかし、土の匂いを嗅ぎ、葉の色を確かめ、菌根菌ネットワークの健康を感じ取るのは人間にしかできない。
+                    AIは観察を助け、記録を支え、分析を速めるが、自然との対話そのものは代替されない。
+                </p>
+                <p>
+                    Light Farmingは、「測定できるが制御しきれない」生命系の農業だ。
+                    AIとLight Farmingの組み合わせは、小規模分散型農業を成立させる最強の道具立てになる——企業規模の機械投資も化学肥料の大量投入も必要なく、個人が土壌を再生しながら食を作れる。
+                    肥料が来ない時代、AIが仕事を変える時代——この二つの変化が重なるところに、Light Farmingの実装可能性がある。
+                </p>
+
+                <h2>AIが得意なこと、できないこと——複雑なものと複雑系</h2>
+                <p>
+                    AIが強いのは「<strong>複雑なもの (complicated)</strong>」の領域だ。コード、チェス、会計、輸送計画、保険引受——要素に分解でき、ルールが記述でき、スケールすれば精度が上がる領域。ここでAIは文字通り革命を起こしている。
+                </p>
+                <p>
+                    一方、土壌微生物叢・生態系・気候・身体・文化は「<strong>複雑系 (complex)</strong>」だ。フィードバックループ、創発、不可逆性、経路依存がある。要素に分解した瞬間に本質が消える。「解く」「最適化する」という発想自体が成立しない領域だ。
+                </p>
+                <p>
+                    多くのAI関係者は前者の成功体験だけで訓練されているため、後者にも同じ方法論を持ち込んでしまう。「スケールすれば解ける」「最適化問題に帰着できる」「ゴールを定義すれば到達できる」——複雑系ではすべて誤りだ。AlphaFoldでタンパク質単体の構造予測ができたからといって、細胞内動態や生態系が「解けた」わけではない。
+                </p>
+                <p>
+                    決定的なのは<strong>不可逆性の非対称性</strong>だ。AIが吐いた間違ったコードは <code>ctrl+z</code> で戻せるが、菌根菌ネットワークを破壊した畑は数十年戻らない。<strong>壊すのは1世代、回復するのは数十年</strong>——Jones博士が50年言い続けているこのメッセージは、AIコミュニティが最も想像しづらい構造の一つだ。「AIが壊した何かをAIで修復する」という発想は、この非対称性を根本から見落としている。
+                </p>
+                <p>
+                    Light Farmingの方法論は、この非対称性に対して謙虚だ。制御するのではなく、条件を整えて微生物と植物に任せる。観察し、記録し、対話する。AIは観察を助ける道具として完璧に機能するが、自然そのものの代替には絶対にならない。<strong>この区別を持てる農家が、これからの食を作る</strong>。
+                </p>
+
+                <div class="quote-block">
+                    <p class="quote-text">
+                        大気中のCO2を除去し、酸素に置き換え、土壌微生物を支え、
+                        表土を再生し、食料の栄養密度を高め、水のバランスを回復し、
+                        農業の収益性を向上させるプロセスがあるとしたら？
+                        幸いなことに、それは存在します。光合成と呼ばれています。
+                    </p>
+                    <p class="quote-author">— Christine Jones, PhD</p>
+                </div>
+
+                <h2>光合成の力</h2>
+                <p>
+                    光合成は、緑の葉の葉緑体で行われる奇跡のプロセスです。
+                    大気中の二酸化炭素（CO2）と土壌からの水（H2O）を組み合わせ、
+                    光エネルギーを捕捉して単糖という生化学的エネルギーに変換します。
+                </p>
+                <p>
+                    これらの単糖—「光合成産物」と呼ばれる—は、地上と地中の生命の基礎です。
+                    植物はこの糖を、デンプン、タンパク質、有機酸、セルロース、リグニン、
+                    ワックス、油など、多様な炭素化合物に変換します。
+                </p>
+                <p>
+                    果物、野菜、ナッツ、種子、穀物は、光合成から生まれた「パッケージされた太陽光」です。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Plant-Microbe Bridge -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="two-col">
+                <div class="two-col-content fade-in">
+                    <p class="section-label">The Plant-Microbe Bridge</p>
+                    <h2>植物-微生物の架け橋</h2>
+                    <p>
+                        陸上の生命の95%以上が土壌に存在し、そのエネルギーのほとんどが
+                        植物の炭素から供給されていることは、多くの人にとって驚きです。
+                    </p>
+                    <p>
+                        生きた根からの滲出液は、最もエネルギーに富んだ炭素源です。
+                        「液体炭素」と引き換えに、植物の根の周りの微生物は、
+                        宿主の健康と活力を維持するために必要なミネラルや微量元素の
+                        利用可能性を高めます。
+                    </p>
+                    <p>
+                        残念ながら、今日の多くの農法は土壌微生物群集を著しく損ない、
+                        土壌に移転・安定化される液体炭素の量を大幅に減少させています。
+                    </p>
+                </div>
+                <div class="two-col-image fade-in">
+                    <img src="../images/IMG_3250.jpg" alt="植物の根と土壌">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Soil Carbon Loss -->
+    <section class="section">
+        <div class="container-narrow">
+            <div class="prose">
+                <h2>土壌炭素の喪失と栄養密度の低下</h2>
+                <p>
+                    過去150年間で、世界の主要な農業土壌の多くが炭素の30〜75%を失い、
+                    大気中に数十億トンのCO2を追加しました。
+                    土壌炭素の喪失は、土地の生産性と農業の収益性を著しく低下させます。
+                </p>
+
+                <div class="data-box">
+                    <h4>野菜のミネラル減少（1940年〜1991年）</h4>
+                    <ul>
+                        <li>銅 <span class="value">76%減少</span></li>
+                        <li>カルシウム <span class="value">46%減少</span></li>
+                        <li>鉄 <span class="value">27%減少</span></li>
+                        <li>マグネシウム <span class="value">24%減少</span></li>
+                        <li>カリウム <span class="value">16%減少</span></li>
+                    </ul>
+                    <p style="font-size: 0.85rem; margin-top: 1rem; color: var(--soil-rich);">
+                        出典: Thomas, D.E. (2003). Nutrition and Health
+                    </p>
+                </div>
+
+                <p>
+                    過去70年間で、ほぼすべての種類の食品で、すべての栄養素のレベルが
+                    10〜100%低下しています。現代人は、1940年と同じ量のミネラルと
+                    微量元素を得るために、2倍の肉、3倍の果物、4〜5倍の野菜を
+                    消費する必要があります。
+                </p>
+
+                <h2>栄養密度の回復</h2>
+                <p>
+                    化学的に生産された今日の食品の栄養密度が著しく低下しているのは、
+                    「希釈効果」（収量が増えるとミネラル含有量が下がる）によるものと
+                    一般的に考えられています。
+                </p>
+                <p>
+                    しかし、健康で生物学的に活性な土壌で栽培された高収量の野菜、
+                    作物、牧草では、栄養レベルの低下は観察されません。
+                    むしろ、逆のことが当てはまります。
+                </p>
+
+                <div class="quote-block">
+                    <p class="quote-text">
+                        土壌なしには生命はなく、生命なしには土壌はない。
+                        両者は共に進化してきた。
+                    </p>
+                    <p class="quote-author">— Charles E. Kellogg, USDA (1938)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Five Principles -->
+    <section class="section section-dark">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">Five Principles</p>
+                <h2 class="section-title">土壌再生の5つの原則</h2>
+            </div>
+
+            <div class="card-grid">
+                <div class="principle-card fade-in">
+                    <div class="card-number">01</div>
+                    <h3 class="card-title" style="color: var(--sand-light);">緑は良い、一年中緑はさらに良い</h3>
+                    <p class="card-text" style="color: var(--clay);">
+                        裸地は光合成能力がゼロです。裸地は炭素源であるだけでなく、
+                        風や水による浸食にも脆弱です。土が見えていれば、
+                        炭素と窒素を失っています。
+                    </p>
+                </div>
+
+                <div class="principle-card fade-in">
+                    <div class="card-number">02</div>
+                    <h3 class="card-title" style="color: var(--sand-light);">微生物が重要</h3>
+                    <p class="card-text" style="color: var(--clay);">
+                        菌根菌は、液体炭素と引き換えに、窒素、リン、硫黄、
+                        カリウム、カルシウム、マグネシウム、鉄、微量元素を輸送します。
+                        菌根菌共生が効果的に機能すると、緑の葉で固定された炭素の
+                        20〜60%が土壌の菌糸ネットワークに直接送られます。
+                    </p>
+                </div>
+
+                <div class="principle-card fade-in">
+                    <div class="card-number">03</div>
+                    <h3 class="card-title" style="color: var(--sand-light);">多様性は不可欠</h3>
+                    <p class="card-text" style="color: var(--clay);">
+                        すべての植物は、糖、酵素、フェノール、アミノ酸など、
+                        独自のブレンドを滲出します。植物の多様性が高いほど、
+                        微生物の多様性が高くなり、土壌生態系はより堅牢になります。
+                    </p>
+                </div>
+
+                <div class="principle-card fade-in">
+                    <div class="card-number">04</div>
+                    <h3 class="card-title" style="color: var(--sand-light);">化学物質の使用を制限</h3>
+                    <p class="card-text" style="color: var(--clay);">
+                        菌根菌は植物のNとPの要求量の最大90%を供給できます。
+                        高分析合成肥料やその他の化学物質の使用率を下げることで、
+                        微生物が最も得意なことをできるようになります。
+                    </p>
+                </div>
+
+                <div class="principle-card fade-in">
+                    <div class="card-number">05</div>
+                    <h3 class="card-title" style="color: var(--sand-light);">動物の統合</h3>
+                    <p class="card-text" style="color: var(--clay);">
+                        農業の集約化以前は、多くの動物種が土壌と接触していました。
+                        動物の存在は土壌機能を改善することに疑いの余地はありません。
+                        再生的放牧は、特に多年生牧草地で、深部の土壌炭素レベルの
+                        回復に非常に効果的です。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Common Mycorrhizal Networks -->
+    <section class="section">
+        <div class="container">
+            <div class="two-col">
+                <div class="two-col-image fade-in">
+                    <img src="../images/IMG_3308.jpg" alt="多様な植物の混植">
+                </div>
+                <div class="two-col-content fade-in">
+                    <p class="section-label">Underground Networks</p>
+                    <h2>共通菌根ネットワーク</h2>
+                    <p>
+                        多様な牧草地、作物、家庭菜園における「共通菌根ネットワーク（CMN）」の
+                        存在が、研究で注目されています。
+                    </p>
+                    <p>
+                        植物群落内の植物は、地下の広大な「スーパーハイウェイ」を通じて
+                        互いに接続し、炭素、水、養分を交換できることがわかっています。
+                    </p>
+                    <p>
+                        共通菌根ネットワークは、病害虫に対する植物の抵抗力を高め、
+                        植物の活力を向上させ、土壌の健康を改善します。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Carbon Conversion -->
+    <section class="section section-alt">
+        <div class="container-narrow">
+            <div class="prose">
+                <h2>炭素変換効率（CCE）</h2>
+                <p>
+                    炭素変換効率（CCE）は、炭素投入量（植物リター、動物糞尿、根滲出液など）の
+                    うち、安定した土壌炭素に生物学的に変換される割合です。
+                </p>
+                <p>
+                    現場で根をその場で育てた10の安定同位体実験の分析では、
+                    根由来の炭素の安定化は18〜91%（平均46%）でしたが、
+                    地上バイオマス由来の炭素の安定化は3〜17%（平均8.3%）でした。
+                </p>
+
+                <div class="data-box">
+                    <h4>炭素固定の効率</h4>
+                    <ul>
+                        <li>根由来の炭素 <span class="value">平均46%が安定化</span></li>
+                        <li>地上バイオマス由来 <span class="value">平均8.3%が安定化</span></li>
+                        <li>根由来は地上部の <span class="value">約5倍効率的</span></li>
+                    </ul>
+                </div>
+
+                <p>
+                    有機炭素は自重の4〜20倍の水を保持します。
+                    多くの環境では、水分の利用可能性が（養分の利用可能性よりも）
+                    生産の最も制限的な要因です。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conclusion -->
+    <section class="section">
+        <div class="container-narrow">
+            <div class="prose">
+                <h2>結論：光の農家として</h2>
+                <p>
+                    すべての食料・繊維生産者は—穀物、牛肉、牛乳、羊肉、羊毛、
+                    綿花、砂糖、ナッツ、果物、野菜、花、干し草、サイレージ、
+                    木材のいずれを生産するかにかかわらず—まず第一に「光の農家」です。
+                </p>
+                <p>
+                    私たちの役割は、緑の植物を管理する方法によって、
+                    できるだけ多くの光エネルギーを土壌のバッテリー—安定した土壌炭素として—
+                    に移転し、維持することです。
+                </p>
+
+                <div class="quote-block">
+                    <p class="quote-text">
+                        問題は「特定の方法で特定の場所でどれだけの炭素を隔離できるか」
+                        ではなく、「どれだけ多くの土壌が炭素を隔離しているか」なのです。
+                    </p>
+                    <p class="quote-author">— Christine Jones, PhD</p>
+                </div>
+
+                <p>
+                    土壌炭素のレベルを上げることは、農場の生産性を向上させ、
+                    景観機能を回復し、人為的排出の影響を減らし、
+                    気候変動への回復力を高めます。
+                </p>
+                <p>
+                    食の選択や農業・園芸の実践を通じて、私たち全員が土壌の管理方法に
+                    影響を与える機会があります。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reference -->
+    <section class="section section-alt">
+        <div class="container-narrow">
+            <div class="prose">
+                <h3>参考文献</h3>
+                <p style="font-size: 0.9rem;">
+                    このページの内容は、Christine Jones博士の論文
+                    「Light Farming: Restoring carbon, organic nitrogen and biodiversity to agricultural soils」（2018年）
+                    に基づいています。
+                </p>
+                <p style="font-size: 0.9rem;">
+                    詳細は <a href="https://www.amazingcarbon.com" target="_blank" rel="noopener noreferrer">Amazing Carbon</a> をご覧ください。
+                </p>
+
+                <h3 style="margin-top: 2rem;">全文翻訳</h3>
+                <p style="font-size: 0.9rem;">
+                    Christine Jones博士の論文の全文翻訳もご覧いただけます。
+                </p>
+                <div style="display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap;">
+                    <a href="full/" class="btn btn-primary">全訳（前半）</a>
+                    <a href="full-2/" class="btn btn-primary">全訳（後半）</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section section-green">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">Get Started</p>
+                <h2 class="section-title">今日から始める</h2>
+            </div>
+            <p class="cta-text">
+                子どもたちと孫たちの未来のために、<br>
+                今日から土壌の物語を書き換えてみませんか？
+            </p>
+            <div class="text-center">
+                <a href="/gallery/" class="btn btn-light">畑の記録を見る</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-about">
+                <h3>AI時代の暮らし</h3>
+                <p>AIが仕事、農業、暮らしを変える。化石資源、食料、エネルギー、AI、医療、年金——全ての構造は一つに繋がっている。</p>
+            </div>
+            <div class="footer-nav">
+                <h4>ページ</h4>
+                <ul>
+                    <li><a href="/">ホーム</a></li>
+                    <li><a href="/insights/">構造分析</a></li>
+                    <li><a href="/ai-native-software/">AI ネイティブなソフトウェア開発</a></li>
+                    <li><a href="/claude-debian/">Claudeと一緒に学ぶDebian</a></li>
+                    <li><a href="/debian-server/">Claudeと一緒に育てるDebian サーバー</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/natural-farming/">自然農法とは</a></li>
+                    <li><a href="/light-farming/">Light Farming</a></li>
+                    <li><a href="/gallery/">畑の記録</a></li>
+                    <li><a href="/privacy/">プライバシー</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>関連サイト</h4>
+                <ul>
+                    <li><a href="https://aiai.aiseed.dev/">aiai ── AI 時代の学び方</a></li>
+                    <li><a href="https://weather.time-j.net/">個人開発気象統計</a></li>
+                </ul>
+                <h4 style="margin-top: 1.5rem;">コミュニティ</h4>
+                <ul>
+                    <li><a href="https://www.facebook.com/groups/vegitage" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: -2px; margin-right: 4px;"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>AISeed — 生物多様性・食料・AIと暮らし</a></li>
+                    <li><a href="https://www.amazingcarbon.com/" target="_blank" rel="noopener noreferrer">Amazing Carbon</a></li>
+                    <li><a href="https://github.com/aiseed-dev/website" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                    <li><a href="/en/light-farming/">English Version</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copyright">&copy; 2026 aiseed.dev — <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">CC BY 4.0</a></p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js?v=36fe4824"></script>
+</body>
+
+</html>

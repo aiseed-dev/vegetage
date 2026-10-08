@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <!-- Apply saved theme immediately to avoid FOUC -->
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem('aiseed-theme');
+          if (t === 'light' || t === 'dark') {
+            document.documentElement.setAttribute('data-theme', t);
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9FLQ963JXM"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-9FLQ963JXM');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="リン資源の枯渇と、微生物型自然農法への構造的転換。なぜリン酸肥料は安価に戻らないのか、なぜ工業型農業は成立しないのか、そしてなぜ残された道が自然農法+輸入補完なのか ── 経済と物理が決める唯一の現実解。">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://static.cloudflareinsights.com https://challenges.cloudflare.com 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://cloudflareinsights.com https://challenges.cloudflare.com">
+    <title>Insights — リン資源枯渇と自然農法 | AI時代の暮らし</title>
+    <link rel="canonical" href="https://aiseed.dev/phosphorus-and-farming/">
+    <link rel="alternate" hreflang="ja" href="https://aiseed.dev/phosphorus-and-farming/">
+    <link rel="alternate" hreflang="en" href="https://aiseed.dev/en/phosphorus-and-farming/">
+    <!-- OGP -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Insights — リン資源枯渇と自然農法">
+    <meta property="og:description" content="リン資源の枯渇と、微生物型自然農法への構造的転換。なぜリン酸肥料は安価に戻らないのか、なぜ工業型農業は成立しないのか、そしてなぜ残された道が自然農法+輸入補完なのか ── 経済と物理が決める唯一の現実解。">
+    <meta property="og:url" content="https://aiseed.dev/phosphorus-and-farming/">
+    <meta property="og:site_name" content="aiseed.dev">
+    <meta property="og:image" content="https://aiseed.dev/images/IMG_3285.jpg">
+    <meta property="og:locale" content="ja_JP">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Insights — リン資源枯渇と自然農法">
+    <meta name="twitter:description" content="リン資源の枯渇と、微生物型自然農法への構造的転換。なぜリン酸肥料は安価に戻らないのか、なぜ工業型農業は成立しないのか、そしてなぜ残された道が自然農法+輸入補完なのか ── 経済と物理が決める唯一の現実解。">
+    <meta name="twitter:image" content="https://aiseed.dev/images/IMG_3285.jpg">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    <link rel="stylesheet" href="../css/style.css?v=36fe4824">
+    <style>
+        .highlight-box {
+            background: rgba(122, 154, 109, 0.08);
+            border: 1px solid rgba(122, 154, 109, 0.2);
+            padding: 1.5rem 2rem;
+            margin: 1.5rem 0;
+        }
+        .highlight-box p { margin-bottom: 0.5rem; }
+        .highlight-box p:last-child { margin-bottom: 0; }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-inner">
+            <a href="/" class="logo">
+                AI時代の暮らし
+                <span>aiseed.dev</span>
+            </a>
+            <nav class="nav">
+                <a href="/">ホーム</a>
+                <div class="nav-group">
+                    <button type="button" class="nav-parent" aria-haspopup="true" aria-expanded="false">記事<span class="nav-caret" aria-hidden="true">▾</span></button>
+                    <div class="nav-submenu" role="menu">
+                        <a href="/insights/" role="menuitem">構造分析</a>
+                        <a href="/ai-native-software/" role="menuitem">AI ネイティブなソフトウェア開発</a>
+                        <a href="/claude-debian/" role="menuitem">Claudeと一緒に学ぶDebian</a>
+                        <a href="/debian-server/" role="menuitem">Claudeと一緒に育てるDebian サーバー</a>
+                        <a href="/phosphorus-and-farming/" role="menuitem">リン資源枯渇と自然農法</a>
+                    </div>
+                </div>
+                <a href="/blog/">Blog</a>
+                <a href="/natural-farming/">自然農法とは</a>
+                <a href="/light-farming/">Light Farming</a>
+                <a href="/gallery/">畑の記録</a>
+                <a href="/en/phosphorus-and-farming/" class="lang-switch" hreflang="en" aria-label="View in English">🌐 EN</a>
+                <button type="button" class="theme-toggle" aria-label="テーマを切り替え" title="テーマ切り替え (Light / Dark)">
+                    <span class="theme-icon theme-icon-sun" aria-hidden="true">☀</span>
+                    <span class="theme-icon theme-icon-moon" aria-hidden="true">☾</span>
+                </button>
+            </nav>
+            <button class="nav-toggle" aria-label="メニュー">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="page-hero-image" style="background-image: url('../images/IMG_3285.jpg');"></div>
+        <div class="page-hero-content">
+            <p class="hero-label">Structural Analysis</p>
+            <h1 class="hero-title">リン資源枯渇と自然農法</h1>
+            <p class="hero-subtitle">経済が、農法を決める。</p>
+        </div>
+    </section>
+
+    <!-- Article List -->
+    <section class="section section-alt" id="series">
+        <div class="container">
+            <div class="activity-list">
+
+                <a href="/phosphorus-and-farming/prologue/" style="text-decoration: none; color: inherit;">
+                    <div class="activity-item fade-in">
+                        <div class="activity-number">00</div>
+                        <div class="activity-content">
+                            <h3>序章 ── 経済が農法を決める — なぜ自然農法以外に選択肢がないのか</h3>
+                            <p>中東紛争の影響で、日本では 2027 年にリン酸肥料の入手が困難になる。そして長期的に見ても、リン資源枯渇(ピーク・リン 2033 年頃)は深刻だ。短期と長期、両方の制約が同時に効いている。だから、リジェネラティブ農業への移行を、今、決断しよう。これは思想ではなく、経済と物理の帰結である。</p>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="/phosphorus-and-farming/supply-constraint/" style="text-decoration: none; color: inherit;">
+                    <div class="activity-item fade-in">
+                        <div class="activity-number">01</div>
+                        <div class="activity-content">
+                            <h3>第1章 リン酸肥料の供給制約 ── 何が起きているか — 中国・硫黄・PFAS、三つのルートが同時に細っている</h3>
+                            <p>日本のリン酸肥料は原料の全量を海外輸入に依存する(自給率0%)。供給ルートは中国経由・リン鉱石加工・下水汚泥回収の三つ。三つすべてが同時に細っている。World Bank の 2026 年肥料価格 30%+ 上昇予測、ホルムズ海峡を通る世界海上肥料貿易の 1/3、中国の 2026 年 3 月輸出停止、カタールの不可抗力宣言、PFAS 規制 ── 検証済みの一次データで整理する。</p>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="/phosphorus-and-farming/no-cheap-return/" style="text-decoration: none; color: inherit;">
+                    <div class="activity-item fade-in">
+                        <div class="activity-number">02</div>
+                        <div class="activity-content">
+                            <h3>第2章 リン酸肥料は安価には戻らない — 低品位鉱石の経済学 ── カドミウム・エネルギー・放射性廃棄物</h3>
+                            <p>短期(2027 年の肥料不足)と長期(ピーク・リン 2033 年頃)が同時に効いている。高品位鉱石の枯渇、低品位鉱石の三重コスト(カドミウム・エネルギー・TENORM)、世界埋蔵量の 70% がモロッコ・西サハラ偏在、Fitch Ratings の DAP 中長期 400 USD/t 上方修正。化学肥料(湿式法)の植物吸収率は 1〜2 割しかなく、熔成リン肥は 5 割以上だがエネルギー集約。「リサイクル」も化学肥料体系の根本非効率を温存しているに過ぎない。残された道は、菌根菌で土壌中のレガシーリン(蓄積リン)を動員する生物的マイニングである。</p>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="/phosphorus-and-farming/industrial-farming-fails/" style="text-decoration: none; color: inherit;">
+                    <div class="activity-item fade-in">
+                        <div class="activity-number">03</div>
+                        <div class="activity-content">
+                            <h3>第3章 慣行農業は経済的に成立しなくなる — 「挟み撃ち(pincer movement)」と利益の構造的圧縮</h3>
+                            <p>化学肥料を大量に使う慣行農業は、肥料価格が高止まりすると経済的に成立しない。値上がりするのは肥料だけではない ── 農薬(多くがリン化合物・中印産)も、資材も同じ地政学リスク。イラン戦争とホルムズ海峡封鎖により、メタノール・硫黄・ナフサが世界規模で枯渇し、マシン油乳剤、乳剤(EC)、フロアブル剤、展着剤、カーバメート系・有機リン系原体の供給が同時に細る。さらに致命的なのは、単一農薬の入手困難でも作物が全滅しうること(登録制度・抵抗性管理・種子処理剤・選択性除草剤の脆弱性)。「値上がり」と「全滅」── 性質の異なる二つのリスクが同時に効く。多種類の混植で転換すれば土壌微生物相は約 3 年で回復する。リジェネラティブ農業はそもそも特定農薬に依存しないため、サプライチェーン断絶下では遥かに頑健である。</p>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="/phosphorus-and-farming/realistic-position/" style="text-decoration: none; color: inherit;">
+                    <div class="activity-item fade-in">
+                        <div class="activity-number">04</div>
+                        <div class="activity-content">
+                            <h3>第4章 現実的な立ち位置 ── どこにも組みしない — エネルギー自給率向上は困難、循環畜産は不成立、リジェネラティブ農業の国際推進と輸入</h3>
+                            <p>慣行農業を続ける道はない ── というより、リン酸肥料が輸入できなくなる以上、続けたくても続けられない。「自給率向上」「日本型循環畜産」「工業型農業の温存/完全放棄」── どの処方箋も、肥料制約という物理的制約の前では空論になる。真の論点は「移行をどう管理するか」だ。本シリーズの立ち位置は、国内では小規模なリジェネラティブ農業へ段階的に移行しつつ、国際的にもリジェネラティブ農業の推進を支持し、再分散された世界供給網からの輸入で不足を補う、という三つの戦略の組み合わせである。</p>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="/phosphorus-and-farming/soil-microbes/" style="text-decoration: none; color: inherit;">
+                    <div class="activity-item fade-in">
+                        <div class="activity-number">05</div>
+                        <div class="activity-content">
+                            <h3>第5章 土壌微生物という戦略 — 蓄積リン、菌根菌、化学肥料が壊した共生</h3>
+                            <p>化学肥料に頼らない農業は精神論ではない。日本の農地土壌(黒ボク土)には既に膨大な「遺産リン」が蓄積している。イングランド長期実験では、リン肥料を完全停止しても 8 年間は通常通り生育した。4 億 7,500 万年の進化が築いた菌根菌共生は、1g の土壌に最長 90m の菌糸を張り巡らせ、必要な窒素・リンの最大 90% を供給する。AMF と PSB の相乗作用で化学肥料を 80% 削減できる実証データもある。化学肥料は GA シグナルを介して共生回路を「シャットダウン」する ── これは分子レベルで解明された現象。</p>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="/phosphorus-and-farming/co2-tailwind/" style="text-decoration: none; color: inherit;">
+                    <div class="activity-item fade-in">
+                        <div class="activity-number">06</div>
+                        <div class="activity-content">
+                            <h3>第6章 CO2 という追い風 — 大気中の炭素を、土に流し込む</h3>
+                            <p>大気中の CO2 濃度は産業革命前から約 50% 増えた。これは植物にとっては「食料の増加」を意味する。植物は光合成で得た炭素の 20〜60% を液体炭素として根から微生物に渡す。CO2 上昇 → 光合成増 → 微生物への炭素供給増 → 土壌肥沃化。気候変動の中に、農業にとっての追い風がある。</p>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="/phosphorus-and-farming/implementation/" style="text-decoration: none; color: inherit;">
+                    <div class="activity-item fade-in">
+                        <div class="activity-number">07</div>
+                        <div class="activity-content">
+                            <h3>第7章 どう実装するか ── 一反百姓と耕作放棄地 — できるだけ多くの人が、できるだけの規模で食料生産に関わる</h3>
+                            <p>肥料制約のもとで、日本では大規模農業そのものが成立しなくなる。作物を「機械化 × 再生農業 × 化学肥料依存」の三軸で見ると、自然農法で規模生産できるのは穀物・豆・牧草に絞られる(イネ科とマメ科の菌根菌・根粒菌共生による)。F1 加工用キャベツ・タマネギ・トマト・ジャガイモは複合圧力で細る。世界的に野菜供給が同時に縮むので、輸入で逃げ切れる国はなくなる。多くの人がそれぞれの規模で人手で作ることが、世界規模の食料生産再分散の現実解になる。</p>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="/phosphorus-and-farming/operating-principles/" style="text-decoration: none; color: inherit;">
+                    <div class="activity-item fade-in">
+                        <div class="activity-number">08</div>
+                        <div class="activity-content">
+                            <h3>第8章 運用原則 ── 何をして、何をしないか — 不耕起、裸地禁止、多様性、無除草、生きた根を絶やさない</h3>
+                            <p>微生物型農業の運用原則を整理する。不耕起、裸地禁止、多様性の確保、化学肥料・農薬の不使用、自家採種、保存と流通の工夫。福岡正信の「無除草」と Christine Jones の「液体炭素」が一致する点として、生きた根を絶やさないことが重要である。経済が農法を決めた、というシリーズの結論で締めくくる。</p>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="/phosphorus-and-farming/cuba-lessons/" style="text-decoration: none; color: inherit;">
+                    <div class="activity-item fade-in">
+                        <div class="activity-number">09</div>
+                        <div class="activity-content">
+                            <h3>第9章 キューバの教訓 — 国家規模の唯一の実例から、何を学べるか</h3>
+                            <p>ソ連崩壊後、燃料・肥料・農薬の供給が突然途絶えたキューバは、国家規模で有機農業・アグロエコロジーへの転換に踏み切った。オルガノポニコ(都市農業)、CREE(地域分散型のバイオ農薬生産)、Campesino a Campesino(農民から農民への水平的知識移転)── これらは化学投入なしで一定の生産性を確保した技術的・社会的イノベーションであり、グローバルサウス全体への参照モデルとなった。一方で、「Organic by default」(化学物質が輸入できないからそうせざるを得なかった)という側面、アコピオ(国家調達システム)による市場メカニズムの欠如、食料の 70〜80% を輸入に依存し続ける構造、そして 2020 年代の第二の複合危機(エネルギー・気候災害・人口流出)が、技術的代替だけでは食料主権を確立できないことを示している。日本への示唆は、技術と組織の両面 ── オルガノポニコや CREE の知見を取り入れ、Campesino a Campesino のような水平的知識移転を組み立てつつ、市場メカニズムと自律的生産インセンティブを保つこと。</p>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Quote -->
+    <section class="section">
+        <div class="container-narrow">
+            <div class="quote-block fade-in">
+                <p class="quote-text">リン酸肥料が高くなる、それだけで全部が決まる。<br>
+安価な工業型農業の時代は終わった。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section section-green">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">Explore</p>
+                <h2 class="section-title">序章から始める</h2>
+            </div>
+            <p class="cta-text">序章から、章ごとに読み進めよう。構造的な結論は、避けようがないことが分かる。</p>
+            
+            <div class="cta-buttons">
+                <a href="/light-farming/" class="btn btn-light">Light Farming</a>
+                <a href="/natural-farming/" class="btn btn-outline">自然農法とは</a>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-about">
+                <h3>AI時代の暮らし</h3>
+                <p>AIが仕事、農業、暮らしを変える。化石資源、食料、エネルギー、AI、医療、年金——全ての構造は一つに繋がっている。</p>
+            </div>
+            <div class="footer-nav">
+                <h4>ページ</h4>
+                <ul>
+                    <li><a href="/">ホーム</a></li>
+                    <li><a href="/natural-farming/">自然農法とは</a></li>
+                    <li><a href="/light-farming/">Light Farming</a></li>
+                    <li><a href="/about/">私たちのアプローチ</a></li>
+                    <li><a href="/gallery/">畑の記録</a></li>
+                    <li><a href="/insights/">構造分析</a></li>
+                    <li><a href="/ai-native-software/">AI ネイティブなソフトウェア開発</a></li>
+                    <li><a href="/claude-debian/">Claudeと一緒に学ぶDebian</a></li>
+                    <li><a href="/debian-server/">Claudeと一緒に育てるDebian サーバー</a></li>
+                    <li><a href="/phosphorus-and-farming/">リン資源枯渇と自然農法</a></li>
+                    <li><a href="/privacy/">プライバシー</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>関連サイト</h4>
+                <ul>
+                    <li><a href="https://aiai.aiseed.dev/">aiai ── AI 時代の学び方</a></li>
+                    <li><a href="https://weather.time-j.net/">個人開発気象統計</a></li>
+                </ul>
+                <h4 style="margin-top: 1.5rem;">関連リンク</h4>
+                <ul>
+                    <li><a href="https://www.facebook.com/groups/vegitage" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: -2px; margin-right: 4px;"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>AISeed — 生物多様性・食料・AIと暮らし</a></li>
+                    <li><a href="https://www.amazingcarbon.com/">Amazing Carbon (Dr. Christine Jones)</a></li>
+                    <li><a href="https://github.com/aiseed-dev/website" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copyright">&copy; 2026 aiseed.dev — <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">CC BY 4.0</a></p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js?v=36fe4824"></script>
+</body>
+
+</html>

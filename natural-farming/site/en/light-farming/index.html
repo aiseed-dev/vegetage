@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Apply saved theme immediately to avoid FOUC -->
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem('aiseed-theme');
+          if (t === 'light' || t === 'dark') {
+            document.documentElement.setAttribute('data-theme', t);
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9FLQ963JXM"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-9FLQ963JXM');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://static.cloudflareinsights.com https://challenges.cloudflare.com 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://cloudflareinsights.com https://challenges.cloudflare.com">
+    <meta name="description" content="Light Farming — the science of photosynthesis and soil carbon sequestration, based on Dr. Christine Jones's research. A way to regenerate soil without external inputs in the age of fertilizer crisis.">
+    <link rel="canonical" href="https://aiseed.dev/en/light-farming/">
+    <link rel="alternate" hreflang="ja" href="https://aiseed.dev/light-farming/">
+    <link rel="alternate" hreflang="en" href="https://aiseed.dev/en/light-farming/">
+    <link rel="alternate" hreflang="x-default" href="https://aiseed.dev/light-farming/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Living in the AI Era">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="ja_JP">
+    <meta property="og:title" content="Light Farming | Living in the AI Era">
+    <meta property="og:description" content="Light Farming — the science of photosynthesis and soil carbon sequestration, based on Dr. Christine Jones's research. A way to regenerate soil without external inputs in the age of fertilizer crisis.">
+    <meta property="og:url" content="https://aiseed.dev/en/light-farming/">
+    <meta property="og:image" content="https://aiseed.dev/images/IMG_3285.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Light Farming | Living in the AI Era">
+    <meta name="twitter:description" content="Light Farming — the science of photosynthesis and soil carbon sequestration, based on Dr. Christine Jones's research. A way to regenerate soil without external inputs in the age of fertilizer crisis.">
+    <meta name="twitter:image" content="https://aiseed.dev/images/IMG_3285.jpg">
+    <title>Light Farming | Living in the AI Era</title>
+    <link rel="stylesheet" href="../../css/style.css?v=36fe4824">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-inner">
+            <a href="/en/" class="logo">
+                Living in the AI Era
+                <span>aiseed.dev</span>
+            </a>
+            <nav class="nav">
+                <a href="/en/">Home</a>
+                <div class="nav-group">
+                    <button type="button" class="nav-parent" aria-haspopup="true" aria-expanded="false">Articles<span class="nav-caret" aria-hidden="true">▾</span></button>
+                    <div class="nav-submenu" role="menu">
+                        <a href="/en/insights/" role="menuitem">Structural Analysis</a>
+                        <a href="/en/ai-native-software/" role="menuitem">AI-Native Software Development</a>
+                        <a href="/en/claude-debian/" role="menuitem">Learning Debian with Claude</a>
+                        <a href="/en/debian-server/" role="menuitem">Growing a Debian Server with Claude</a>
+                    </div>
+                </div>
+                <a href="/en/blog/">Blog</a>
+                <a href="/en/natural-farming/">Natural Farming</a>
+                <a href="/en/light-farming/" class="active">Light Farming</a>
+                <a href="/gallery/">Field Notes</a>
+                <a href="/light-farming/" class="lang-switch" hreflang="ja" aria-label="日本語版を表示">🌐 日本語</a>
+                <button type="button" class="theme-toggle" aria-label="Switch theme" title="Theme (Light / Dark)">
+                    <span class="theme-icon theme-icon-sun" aria-hidden="true">☀</span>
+                    <span class="theme-icon theme-icon-moon" aria-hidden="true">☾</span>
+                </button>
+            </nav>
+            <button class="nav-toggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="page-hero-image" style="background-image: url('../../images/IMG_3285.jpg');"></div>
+        <div class="page-hero-content">
+            <p class="hero-label">Soil Science</p>
+            <h1 class="hero-title">Light Farming</h1>
+            <p class="hero-subtitle">
+                Regenerating soil through photosynthesis — the science for an era of fertilizer crisis
+            </p>
+        </div>
+    </section>
+
+    <!-- Introduction -->
+    <section class="section">
+        <div class="container-narrow">
+            <div class="prose">
+                <p style="font-size: 1.1rem; color: var(--earth-dark);">
+                    "Light Farming" is a concept advanced by Dr. Christine Jones.
+                    It holds that every food and fiber producer is first and foremost a "farmer of light."
+                </p>
+
+                <p>
+                    In the 2026 Middle East war, a significant share of the world's nitrogen fertilizer and sulfur supply was destroyed. Recovery will take 3–5 years.
+                    <a href="/en/blog/fertilizer-crisis-natural-farming/">Farming that depends on fertilizer</a> is no longer cheap farming.
+                    What Light Farming offers is an agriculture that doesn't depend on external inputs — food produced through photosynthesis and soil microbes.
+                    What <a href="/en/about/">Masanobu Fukuoka's natural farming</a> demonstrated in practice fifty years ago, Dr. Christine Jones has backed up with science.
+                </p>
+
+                <h2>In 2026, This Paper Took On a New Meaning</h2>
+                <p>
+                    Dr. Jones published this paper in 2018. At the time it was read as "idealism" or "a niche for the ecologically minded." As long as chemical fertilizer was cheap and abundant, the detour of cultivating soil microbes seemed unnecessary.
+                </p>
+                <p>
+                    In March–April 2026, the 39-day war between the United States and Iran led to airstrikes on petrochemical facilities around the Persian Gulf. Even with the ceasefire in place, broken plants don't produce fertilizer. Recovery is expected to take 3–5 years.
+                </p>
+
+                <div class="data-box">
+                    <h4>World share lost (Persian Gulf)</h4>
+                    <ul>
+                        <li>Seaborne urea exports <span class="value">46%</span></li>
+                        <li>Ammonia exports <span class="value">29%</span></li>
+                        <li>Sulfur exports <span class="value">~50%</span></li>
+                    </ul>
+                    <p style="font-size: 0.85rem; margin-top: 1rem; color: var(--soil-rich);">
+                        Both nitrogen fertilizer (ammonia, urea) and phosphate fertilizer (whose production depends on sulfur) have entered a years-long supply crunch.
+                    </p>
+                </div>
+
+                <p>
+                    <strong>"Mycorrhizal fungi can supply up to 90% of a plant's nitrogen and phosphorus requirements"</strong> — this finding from Dr. Jones's 2018 paper was once treated as "an option for the future." It has become <strong>the practical answer to "how do we make this year's planting work."</strong>
+                </p>
+                <p>
+                    When the flow of fossil resources is interrupted, food production can only be sustained by light and soil microbes. What <a href="/en/about/">Masanobu Fukuoka's natural farming</a> demonstrated in practice half a century ago, Dr. Jones backed up with science in 2018 — and the reality of 2026 has proven.
+                </p>
+                <p style="font-size: 0.9rem; margin-top: 1.5rem;">
+                    Related note: <a href="/en/blog/fertilizer-crisis-natural-farming/">The fertilizer shortage won't end when the Strait of Hormuz reopens — an era that forces natural farming on us</a>
+                </p>
+
+                <h2>Why It Matters in the AI Era</h2>
+                <p>
+                    AI replaces accounting, legal, translation, marketing, and programming. For a monthly subscription, a single person can now do work that required an entire company.
+                    This doesn't mean AI makes humans unnecessary — it means <strong>humans can return to their proper work.</strong>
+                </p>
+                <p>
+                    AI identifies pests through image recognition, tracks soil moisture from satellite data, and predicts optimal planting days from weather patterns.
+                    But smelling the soil, reading leaf color, and feeling the health of the mycorrhizal network remain things only humans can do.
+                    AI supports observation, records, and analysis, but the dialogue with nature itself cannot be outsourced.
+                </p>
+                <p>
+                    Light Farming is agriculture for living systems — systems you can measure but cannot fully control.
+                    The combination of AI and Light Farming makes small-scale distributed agriculture viable: no corporate-scale machinery investment, no massive chemical inputs required, just one person regenerating soil while producing food.
+                    At the intersection of an age without fertilizer and an age of AI, Light Farming becomes implementable.
+                </p>
+
+                <h2>What AI Does Well, What It Cannot — Complicated vs. Complex</h2>
+                <p>
+                    AI is strongest in the "<strong>complicated</strong>" domain — code, chess, accounting, logistics, insurance underwriting. Systems that decompose into parts, whose rules can be written down, and where scale improves accuracy. Here, AI is genuinely transformative.
+                </p>
+                <p>
+                    Soil microbiomes, ecosystems, climate, the human body, and culture are something else: they are "<strong>complex</strong>" systems. They have feedback loops, emergence, irreversibility, and path dependence. The moment you try to decompose them into parts, the essence is gone. "Solve" and "optimize" are not even the right verbs here.
+                </p>
+                <p>
+                    Because most AI practitioners are trained only on the success stories of the former, they import the same methodology into the latter: "scale will solve it," "reduce it to an optimization problem," "define the goal and you'll reach it." In a complex system, every one of these is wrong. AlphaFold predicting the structure of a single protein does not mean that intracellular dynamics or ecosystems have been "solved."
+                </p>
+                <p>
+                    The deeper blind spot is <strong>the asymmetry of irreversibility</strong>. Bad code from Copilot can be rolled back with <code>ctrl+z</code>. A farm whose mycorrhizal network has been destroyed does not come back for decades. <strong>A generation to destroy, decades to restore</strong> — Dr. Jones's 50-year message describes one of the structures that the AI community finds hardest to imagine. "AI will fix what AI broke" is a framing that misses this asymmetry entirely.
+                </p>
+                <p>
+                    Light Farming's method is humble before this asymmetry. Rather than controlling, it arranges the conditions and leaves the work to microbes and plants. It observes, records, and converses. AI is a perfect tool for supporting observation, but it is absolutely not a substitute for nature itself. <strong>The farmers who can hold this distinction will grow the food of the future.</strong>
+                </p>
+
+                <div class="quote-block">
+                    <p class="quote-text">
+                        What if there was a process that could remove carbon dioxide from the atmosphere, replace it with oxygen, support soil microbes, rebuild topsoil, enrich the nutrient-density of food, restore the water balance, and improve farm profitability?
+                        Fortunately, there is. It is called photosynthesis.
+                    </p>
+                    <p class="quote-author">— Christine Jones, PhD</p>
+                </div>
+
+                <h2>The Power of Photosynthesis</h2>
+                <p>
+                    Photosynthesis is the miraculous process performed in the chloroplasts of green leaves.
+                    It combines atmospheric carbon dioxide (CO2) and water (H2O) from the soil, capturing light energy to produce simple sugars — biochemical energy.
+                </p>
+                <p>
+                    These simple sugars — called "photosynthates" — are the foundation of life above and below ground.
+                    Plants convert these sugars into a diverse array of carbon compounds: starches, proteins, organic acids, cellulose, lignin, waxes, and oils.
+                </p>
+                <p>
+                    Fruits, vegetables, nuts, seeds, and grains are all "packaged sunlight," born of photosynthesis.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Plant-Microbe Bridge -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="two-col">
+                <div class="two-col-content fade-in">
+                    <p class="section-label">The Plant-Microbe Bridge</p>
+                    <h2>The Plant-Microbe Bridge</h2>
+                    <p>
+                        It surprises many people to learn that over 95% of life on land lives in the soil, and most of its energy comes from plant carbon.
+                    </p>
+                    <p>
+                        Exudates from living roots are the most energy-rich carbon source.
+                        In exchange for "liquid carbon," the microbes around plant roots increase the availability of minerals and trace elements needed to sustain the host's health and vitality.
+                    </p>
+                    <p>
+                        Unfortunately, many of today's farming practices significantly damage soil microbial communities, drastically reducing the amount of liquid carbon transferred to and stabilized in soil.
+                    </p>
+                </div>
+                <div class="two-col-image fade-in">
+                    <img src="../../images/IMG_3250.jpg" alt="Plant roots and soil">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Soil Carbon Loss -->
+    <section class="section">
+        <div class="container-narrow">
+            <div class="prose">
+                <h2>Soil Carbon Loss and Declining Nutrient Density</h2>
+                <p>
+                    Over the past 150 years, many of the world's major agricultural soils have lost 30–75% of their carbon, adding billions of tons of CO2 to the atmosphere.
+                    Soil carbon loss significantly reduces land productivity and farm profitability.
+                </p>
+
+                <div class="data-box">
+                    <h4>Mineral Decline in Vegetables (1940–1991)</h4>
+                    <ul>
+                        <li>Copper <span class="value">-76%</span></li>
+                        <li>Calcium <span class="value">-46%</span></li>
+                        <li>Iron <span class="value">-27%</span></li>
+                        <li>Magnesium <span class="value">-24%</span></li>
+                        <li>Potassium <span class="value">-16%</span></li>
+                    </ul>
+                    <p style="font-size: 0.85rem; margin-top: 1rem; color: var(--soil-rich);">
+                        Source: Thomas, D.E. (2003). Nutrition and Health
+                    </p>
+                </div>
+
+                <p>
+                    Over the past 70 years, nutrient levels have dropped 10–100% across nearly every type of food.
+                    Modern people would need to consume twice as much meat, three times as much fruit, and four to five times as many vegetables to obtain the same minerals and trace elements as in 1940.
+                </p>
+
+                <h2>Restoring Nutrient Density</h2>
+                <p>
+                    The dramatic decline in the nutrient density of today's chemically produced foods is commonly attributed to the "dilution effect" — mineral content falls as yields rise.
+                </p>
+                <p>
+                    But in high-yielding vegetables, crops, and pastures grown in healthy, biologically active soil, no decline in nutrient levels is observed.
+                    In fact, the opposite holds true.
+                </p>
+
+                <div class="quote-block">
+                    <p class="quote-text">
+                        There can be no life without soil and no soil without life; they have evolved together.
+                    </p>
+                    <p class="quote-author">— Charles E. Kellogg, USDA (1938)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Five Principles -->
+    <section class="section section-dark">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">Five Principles</p>
+                <h2 class="section-title">Five Principles of Soil Regeneration</h2>
+            </div>
+
+            <div class="card-grid">
+                <div class="principle-card fade-in">
+                    <div class="card-number">01</div>
+                    <h3 class="card-title" style="color: var(--sand-light);">Green Is Good, Year-Round Green Is Better</h3>
+                    <p class="card-text" style="color: var(--clay);">
+                        Bare ground has zero photosynthetic capacity. Bare ground is not only a carbon source — it is vulnerable to wind and water erosion.
+                        If you can see the soil, you are losing carbon and nitrogen.
+                    </p>
+                </div>
+
+                <div class="principle-card fade-in">
+                    <div class="card-number">02</div>
+                    <h3 class="card-title" style="color: var(--sand-light);">Microbes Matter</h3>
+                    <p class="card-text" style="color: var(--clay);">
+                        Mycorrhizal fungi transport nitrogen, phosphorus, sulfur, potassium, calcium, magnesium, iron, and trace elements in exchange for liquid carbon.
+                        When mycorrhizal symbiosis functions effectively, 20–60% of the carbon fixed by green leaves is sent directly to the soil mycelial network.
+                    </p>
+                </div>
+
+                <div class="principle-card fade-in">
+                    <div class="card-number">03</div>
+                    <h3 class="card-title" style="color: var(--sand-light);">Diversity Is Essential</h3>
+                    <p class="card-text" style="color: var(--clay);">
+                        Every plant exudes its own unique blend of sugars, enzymes, phenols, and amino acids.
+                        The greater the plant diversity, the greater the microbial diversity — and the more robust the soil ecosystem.
+                    </p>
+                </div>
+
+                <div class="principle-card fade-in">
+                    <div class="card-number">04</div>
+                    <h3 class="card-title" style="color: var(--sand-light);">Limit Chemical Use</h3>
+                    <p class="card-text" style="color: var(--clay);">
+                        Mycorrhizal fungi can supply up to 90% of a plant's nitrogen and phosphorus needs.
+                        Reducing the rate of high-analysis synthetic fertilizers and other chemicals allows microbes to do what they do best.
+                    </p>
+                </div>
+
+                <div class="principle-card fade-in">
+                    <div class="card-number">05</div>
+                    <h3 class="card-title" style="color: var(--sand-light);">Animal Integration</h3>
+                    <p class="card-text" style="color: var(--clay);">
+                        Before the intensification of agriculture, many animal species were in contact with soil.
+                        There is no doubt that the presence of animals improves soil function.
+                        Regenerative grazing is particularly effective at restoring deep soil carbon levels in perennial pastures.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Common Mycorrhizal Networks -->
+    <section class="section">
+        <div class="container">
+            <div class="two-col">
+                <div class="two-col-image fade-in">
+                    <img src="../../images/IMG_3308.jpg" alt="Intercropped diverse plants">
+                </div>
+                <div class="two-col-content fade-in">
+                    <p class="section-label">Underground Networks</p>
+                    <h2>Common Mycorrhizal Networks</h2>
+                    <p>
+                        Research has drawn attention to the existence of "common mycorrhizal networks" (CMNs) in diverse pastures, crops, and home gardens.
+                    </p>
+                    <p>
+                        Plants within a plant community are found to be connected to one another through vast underground "superhighways," capable of exchanging carbon, water, and nutrients.
+                    </p>
+                    <p>
+                        Common mycorrhizal networks increase plant resistance to pests and disease, improve plant vitality, and enhance soil health.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Carbon Conversion -->
+    <section class="section section-alt">
+        <div class="container-narrow">
+            <div class="prose">
+                <h2>Carbon Conversion Efficiency (CCE)</h2>
+                <p>
+                    Carbon conversion efficiency (CCE) is the proportion of carbon inputs (plant litter, animal dung, root exudates, etc.) that is biologically converted into stable soil carbon.
+                </p>
+                <p>
+                    Analysis of ten stable isotope experiments, where roots were grown in situ in the field, found that stabilization of root-derived carbon ranged from 18–91% (average 46%), while stabilization of carbon derived from above-ground biomass ranged from 3–17% (average 8.3%).
+                </p>
+
+                <div class="data-box">
+                    <h4>Efficiency of Carbon Sequestration</h4>
+                    <ul>
+                        <li>Root-derived carbon <span class="value">46% avg. stabilized</span></li>
+                        <li>Above-ground biomass <span class="value">8.3% avg. stabilized</span></li>
+                        <li>Root-derived is <span class="value">~5x more efficient</span></li>
+                    </ul>
+                </div>
+
+                <p>
+                    Organic carbon holds 4–20 times its own weight in water.
+                    In many environments, water availability — more than nutrient availability — is the most limiting factor for production.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conclusion -->
+    <section class="section">
+        <div class="container-narrow">
+            <div class="prose">
+                <h2>Conclusion: As Farmers of Light</h2>
+                <p>
+                    Every food and fiber producer — whether producing grain, beef, milk, lamb, wool, cotton, sugar, nuts, fruit, vegetables, flowers, hay, silage, or timber — is first and foremost a "farmer of light."
+                </p>
+                <p>
+                    Our role is to manage green plants in a way that transfers and maintains as much light energy as possible into the soil battery — as stable soil carbon.
+                </p>
+
+                <div class="quote-block">
+                    <p class="quote-text">
+                        The question is not "how much carbon can be sequestered in a particular way in a particular place," but "how much soil is sequestering carbon."
+                    </p>
+                    <p class="quote-author">— Christine Jones, PhD</p>
+                </div>
+
+                <p>
+                    Raising soil carbon levels improves farm productivity, restores landscape function, reduces the impact of anthropogenic emissions, and increases resilience to climate change.
+                </p>
+                <p>
+                    Through food choices and farming and gardening practices, every one of us has an opportunity to influence how soil is managed.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reference -->
+    <section class="section section-alt">
+        <div class="container-narrow">
+            <div class="prose">
+                <h3>Reference</h3>
+                <p style="font-size: 0.9rem;">
+                    This page is based on Dr. Christine Jones's paper
+                    "Light Farming: Restoring carbon, organic nitrogen and biodiversity to agricultural soils" (2018).
+                </p>
+                <p style="font-size: 0.9rem;">
+                    For details, visit <a href="https://www.amazingcarbon.com" target="_blank" rel="noopener noreferrer">Amazing Carbon</a>.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section section-green">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">Get Started</p>
+                <h2 class="section-title">Start Today</h2>
+            </div>
+            <p class="cta-text">
+                For the future of our children and grandchildren,<br>
+                will you begin rewriting the story of soil today?
+            </p>
+            <div class="text-center">
+                <a href="/gallery/" class="btn btn-light">See Field Notes</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-about">
+                <h3>Living in the AI Era</h3>
+                <p>AI changes how we work, farm, and live. Fossil resources, food, energy, AI, healthcare, pensions — every structure connects to one conclusion.</p>
+            </div>
+            <div class="footer-nav">
+                <h4>Pages</h4>
+                <ul>
+                    <li><a href="/en/">Home</a></li>
+                    <li><a href="/en/insights/">Structural Analysis</a></li>
+                    <li><a href="/en/ai-native-software/">AI-Native Software Development</a></li>
+                    <li><a href="/en/claude-debian/">Learning Debian with Claude</a></li>
+                    <li><a href="/en/debian-server/">Growing a Debian Server with Claude</a></li>
+                    <li><a href="/en/blog/">Blog</a></li>
+                    <li><a href="/en/natural-farming/">Natural Farming</a></li>
+                    <li><a href="/en/light-farming/">Light Farming</a></li>
+                    <li><a href="/gallery/">Field Notes</a></li>
+                    <li><a href="/en/privacy/">Privacy</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Related Sites</h4>
+                <ul>
+                    <li><a href="https://aiai.aiseed.dev/">aiai — Learning in the AI Era</a></li>
+                    <li><a href="https://weather.time-j.net/">Personal Weather Statistics for Japan</a></li>
+                </ul>
+                <h4 style="margin-top: 1.5rem;">Community</h4>
+                <ul>
+                    <li><a href="https://www.facebook.com/groups/vegitage" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: -2px; margin-right: 4px;"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>AISeed — Biodiversity, Food &amp; AI in Daily Life</a></li>
+                    <li><a href="https://www.amazingcarbon.com/" target="_blank" rel="noopener noreferrer">Amazing Carbon</a></li>
+                    <li><a href="https://github.com/aiseed-dev/website" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                    <li><a href="/light-farming/">日本語版</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copyright">&copy; 2026 aiseed.dev — <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">CC BY 4.0</a></p>
+        </div>
+    </footer>
+
+    <script src="../../js/main.js?v=36fe4824"></script>
+</body>
+
+</html>

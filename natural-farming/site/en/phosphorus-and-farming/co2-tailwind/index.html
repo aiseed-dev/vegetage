@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://static.cloudflareinsights.com https://challenges.cloudflare.com 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://cloudflareinsights.com https://challenges.cloudflare.com">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9FLQ963JXM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'G-9FLQ963JXM');
+</script>
+
+<title>Chapter 6: CO2 as a Tailwind — Phosphorus Depletion and Natural Farming Series | aiseed.dev</title>
+<meta name="description" content="Atmospheric CO2 has risen by about 50% since pre-industrial levels. For plants, that means more food. Plants pass 20-60% of the carbon they capture in photosynthesis to soil microbes through their roots as liquid carbon. Rising CO2 -> more photosynthesis -> more carbon supplied to microbes -> richer soil. Inside climate change, there is a tailwind for agriculture.">
+<link rel="canonical" href="https://aiseed.dev/en/phosphorus-and-farming/co2-tailwind/">
+<link rel="alternate" hreflang="ja" href="https://aiseed.dev/phosphorus-and-farming/co2-tailwind/">
+<link rel="alternate" hreflang="en" href="https://aiseed.dev/en/phosphorus-and-farming/co2-tailwind/">
+<link rel="alternate" hreflang="x-default" href="https://aiseed.dev/phosphorus-and-farming/co2-tailwind/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Living in the AI Era">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Chapter 6: CO2 as a Tailwind">
+<meta property="og:description" content="Atmospheric CO2 has risen by about 50% since pre-industrial levels. For plants, that means more food. Plants pass 20-60% of the carbon they capture in photosynthesis to soil microbes through their roots as liquid carbon. Rising CO2 -> more photosynthesis -> more carbon supplied to microbes -> richer soil. Inside climate change, there is a tailwind for agriculture.">
+<meta property="og:url" content="https://aiseed.dev/en/phosphorus-and-farming/co2-tailwind/">
+<meta property="og:image" content="https://aiseed.dev/images/IMG_3285.jpg">
+<meta property="article:section" content="Phosphorus Depletion and Natural Farming Series">
+<meta property="article:published_time" content="2026.05.11">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Chapter 6: CO2 as a Tailwind">
+<meta name="twitter:description" content="Atmospheric CO2 has risen by about 50% since pre-industrial levels. For plants, that means more food. Plants pass 20-60% of the carbon they capture in photosynthesis to soil microbes through their roots as liquid carbon. Rising CO2 -> more photosynthesis -> more carbon supplied to microbes -> richer soil. Inside climate change, there is a tailwind for agriculture.">
+<meta name="twitter:image" content="https://aiseed.dev/images/IMG_3285.jpg">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+
+<!-- No webfont delivery: local system fonts only (Georgia serif / system monospace) -->
+
+<style>
+:root {
+  --ink: #1a1a1a;
+  --paper: #f4f1ea;
+  --paper-deep: #ebe6d8;
+  --accent: #c8442a;
+  --rule: #d4cdb8;
+  --whisper: #6b665a;
+  --highlight: #f7e9c8;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", "Hiragino Mincho ProN", serif;
+  font-size: 18px;
+  line-height: 1.7;
+  letter-spacing: 0.005em;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background-image: radial-gradient(rgba(0,0,0,0.04) 1px, transparent 1px);
+  background-size: 3px 3px;
+  opacity: 0.5;
+  mix-blend-mode: multiply;
+}
+
+.container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 32px;
+  position: relative;
+  z-index: 2;
+}
+
+/* MASTHEAD */
+.masthead {
+  border-bottom: 3px double var(--ink);
+  padding: 24px 0 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--whisper);
+}
+.masthead-left  { font-weight: 700; color: var(--ink); }
+.masthead-left a { color: inherit; text-decoration: none; }
+.masthead-left a:hover { color: var(--accent); }
+.masthead-home { color: var(--whisper); }
+.masthead-sep { margin: 0 10px; color: var(--whisper); font-weight: 400; }
+.masthead-right { font-style: italic; }
+
+/* HERO */
+.hero {
+  padding: 80px 0 60px;
+}
+.hero-meta {
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  color: var(--accent);
+  margin-bottom: 32px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.hero-meta::before {
+  content: "";
+  width: 40px;
+  height: 1px;
+  background: var(--accent);
+}
+.hero-title {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 800;
+  font-size: clamp(34px, 5.2vw, 54px);
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  margin-bottom: 24px;
+}
+.hero-title .accent {
+  color: var(--accent);
+  font-style: italic;
+}
+.hero-subtitle {
+  font-size: 19px;
+  line-height: 1.65;
+  color: var(--whisper);
+  max-width: 580px;
+  border-left: 2px solid var(--accent);
+  padding-left: 20px;
+  margin-top: 32px;
+  font-style: italic;
+}
+.hero-byline {
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid var(--rule);
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--whisper);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  text-transform: uppercase;
+}
+
+/* ARTICLE */
+article p {
+  margin-bottom: 24px;
+}
+
+article h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 1.3;
+  margin: 72px 0 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--ink);
+  position: relative;
+  letter-spacing: -0.01em;
+}
+article h2::before {
+  content: "§";
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  color: var(--accent);
+  margin-right: 16px;
+  font-size: 22px;
+}
+
+article h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 600;
+  font-size: 22px;
+  margin: 40px 0 16px;
+  color: var(--ink);
+}
+article h3::before {
+  content: "—";
+  color: var(--accent);
+  margin-right: 12px;
+  font-weight: 400;
+}
+
+article strong {
+  font-weight: 700;
+  background: linear-gradient(to top, var(--highlight) 35%, transparent 35%);
+  padding: 0 2px;
+}
+
+article em {
+  font-style: italic;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+article a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  transition: color 0.2s;
+}
+article a:hover {
+  color: var(--accent);
+}
+
+/* BLOCKQUOTE */
+blockquote {
+  margin: 40px 0;
+  padding: 32px 40px;
+  background: var(--paper-deep);
+  border-left: 4px solid var(--accent);
+  position: relative;
+  font-size: 20px;
+  line-height: 1.6;
+  font-style: italic;
+}
+blockquote::before {
+  content: "\201C";
+  position: absolute;
+  top: 0;
+  left: 12px;
+  font-size: 64px;
+  color: var(--accent);
+  opacity: 0.3;
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1;
+}
+blockquote p {
+  margin-bottom: 0;
+}
+
+/* TABLE */
+article table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 32px 0;
+  font-size: 15px;
+  line-height: 1.7;
+}
+article thead th {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 700;
+  text-align: left;
+  padding: 14px 16px;
+  border-bottom: 2px solid var(--ink);
+  color: var(--ink);
+}
+article tbody td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+}
+article tbody tr:last-child td {
+  border-bottom: none;
+}
+@media (max-width: 720px) {
+  article table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* LISTS */
+article ol {
+  margin: 32px 0;
+  counter-reset: item;
+  padding: 0;
+}
+article ol li {
+  list-style: none;
+  position: relative;
+  padding: 16px 0 16px 56px;
+  border-bottom: 1px dashed var(--rule);
+  counter-increment: item;
+}
+article ol li::before {
+  content: counter(item, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 16px;
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  font-size: 14px;
+  color: var(--accent);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+article ul {
+  margin: 24px 0;
+  padding-left: 1.5em;
+}
+article ul li {
+  margin-bottom: 8px;
+}
+
+/* CODE BLOCK */
+article pre {
+  margin: 40px 0;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 24px 28px;
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  font-size: 13px;
+  line-height: 1.8;
+  position: relative;
+  overflow-x: auto;
+}
+article pre::before {
+  content: "● ● ●";
+  position: absolute;
+  top: 8px;
+  left: 12px;
+  font-size: 8px;
+  color: var(--whisper);
+  letter-spacing: 4px;
+}
+article pre code {
+  display: block;
+  padding-top: 16px;
+  white-space: pre;
+  background: transparent;
+  color: var(--paper);
+}
+
+article code {
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.9em;
+  background: var(--paper-deep);
+  padding: 2px 6px;
+  border-radius: 2px;
+  color: var(--ink);
+}
+
+/* HR */
+article hr {
+  border: none;
+  text-align: center;
+  margin: 64px 0;
+  height: 1em;
+}
+article hr::before {
+  content: "◆ ◆ ◆";
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  font-size: 14px;
+  color: var(--accent);
+  letter-spacing: 0.5em;
+}
+
+/* RELATED */
+.related-links {
+  margin-top: 64px;
+  padding: 32px 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.related-links h3 {
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  color: var(--whisper);
+  margin: 0 0 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.related-links h3::before { content: none; }
+.related-links ul { list-style: none; margin: 0; padding: 0; }
+.related-links li {
+  padding: 10px 0;
+  border-bottom: 1px dashed var(--rule);
+  margin-bottom: 0;
+}
+.related-links li:last-child { border-bottom: none; }
+.related-links a {
+  text-decoration: none;
+  color: var(--ink);
+  display: flex;
+  gap: 16px;
+  align-items: baseline;
+}
+.related-links .related-tag {
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+  text-transform: uppercase;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.related-links a:hover .related-title {
+  color: var(--accent);
+}
+
+/* FOOTER (site menu + colophon) */
+.site-footer {
+  margin-top: 96px;
+  border-top: 3px double var(--ink);
+  padding-top: 48px;
+}
+.footer-nav {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 32px 48px;
+}
+.footer-col h4 {
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--whisper);
+  font-weight: 700;
+  margin: 0 0 14px;
+}
+.footer-col ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.footer-col li {
+  padding: 6px 0;
+  font-size: 15px;
+  line-height: 1.6;
+}
+.footer-col a {
+  color: var(--ink);
+  text-decoration: none;
+}
+.footer-col a:hover { color: var(--accent); }
+
+.colophon {
+  margin-top: 48px;
+  padding: 32px 0 40px;
+  border-top: 1px solid var(--rule);
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: var(--whisper);
+  text-align: center;
+  line-height: 2;
+  text-transform: uppercase;
+}
+.colophon-mark {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 32px;
+  color: var(--accent);
+  margin-bottom: 16px;
+  text-transform: none;
+}
+
+/* SERIES TOC (all chapters in this series, collapsible) */
+.series-toc {
+  margin: 24px 0 40px;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 8px 0;
+}
+.series-toc details {
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+}
+.series-toc summary {
+  cursor: pointer;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--whisper);
+  font-weight: 700;
+  padding: 8px 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.series-toc summary::-webkit-details-marker { display: none; }
+.series-toc summary::before {
+  content: "▸";
+  color: var(--accent);
+  font-size: 10px;
+  display: inline-block;
+  transition: transform 0.15s ease;
+}
+.series-toc details[open] summary::before { transform: rotate(90deg); }
+.series-toc ol {
+  list-style: none;
+  margin: 12px 0 8px;
+  padding: 0;
+  counter-reset: none;
+}
+.series-toc li {
+  list-style: none;
+  padding: 9px 0;
+  border-bottom: 1px dashed var(--rule);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 14px;
+  line-height: 1.55;
+  display: flex;
+  gap: 16px;
+  align-items: baseline;
+}
+.series-toc li::before { content: none; }
+.series-toc li:last-child { border-bottom: none; }
+.series-toc li a {
+  display: flex;
+  gap: 16px;
+  align-items: baseline;
+  text-decoration: none;
+  color: var(--ink);
+  flex: 1;
+}
+.series-toc li a:hover .toc-title { color: var(--accent); }
+.series-toc .toc-num {
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
+  color: var(--accent);
+  text-transform: uppercase;
+  white-space: nowrap;
+  flex-shrink: 0;
+  min-width: 6em;
+}
+.series-toc li.current {
+  background: var(--paper-deep);
+  margin: 0 -12px;
+  padding: 9px 12px;
+}
+.series-toc li.current .toc-title {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+/* IMAGES */
+article img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 32px auto;
+}
+
+/* CUSTOM BLOCKS (:::chain / :::highlight / :::quote / :::compare) */
+.chain-diagram {
+  background: var(--paper-deep);
+  border-left: 4px solid var(--accent);
+  padding: 24px 28px;
+  margin: 32px 0;
+  font-size: 16px;
+  line-height: 2;
+}
+.chain-diagram .arrow {
+  color: var(--accent);
+  font-weight: 700;
+  margin: 0 0.3em;
+}
+.highlight-box {
+  background: var(--paper-deep);
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--accent);
+  padding: 24px 28px;
+  margin: 32px 0;
+}
+.highlight-box p { margin-bottom: 12px; }
+.highlight-box p:last-child { margin-bottom: 0; }
+.quote-block {
+  margin: 40px 0;
+  padding: 32px 40px;
+  background: var(--paper-deep);
+  border-left: 4px solid var(--accent);
+}
+.quote-block .quote-text {
+  font-size: 19px;
+  line-height: 1.7;
+  font-style: italic;
+  margin: 0;
+}
+
+/* ASCIIDOC BLOCKS (classes emitted by pyasciidoc for .adoc articles):
+   admonitions / attributed quotes / image blocks / footnotes / roles */
+.admonition {
+  background: var(--paper-deep);
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--accent);
+  padding: 24px 28px;
+  margin: 32px 0;
+}
+.admonition-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+.admonition p { margin-bottom: 12px; }
+.admonition p:last-child { margin-bottom: 0; }
+.quoteblock { margin: 40px 0; }
+.quoteblock blockquote { margin: 0; }
+.quoteblock .attribution {
+  margin-top: 12px;
+  text-align: right;
+  font-size: 14px;
+  color: var(--whisper);
+}
+.quoteblock .attribution cite { font-style: normal; }
+.imageblock { margin: 32px 0; text-align: center; }
+.imageblock .content img { max-width: 100%; height: auto; }
+sup.footnote { font-size: 12px; }
+sup.footnote a { text-decoration: none; }
+.footnotes {
+  margin-top: 64px;
+  padding-top: 24px;
+  border-top: 1px solid var(--rule);
+  font-size: 14px;
+  color: var(--whisper);
+}
+.footnotes ol { padding-left: 1.5em; }
+.footnotes li { margin-bottom: 8px; }
+.footnotes .footnote-backref { text-decoration: none; margin-left: 0.3em; }
+/* Roles: [.chain] (same look as :::chain) / [.accent]#…# */
+article .chain {
+  background: var(--paper-deep);
+  border-left: 4px solid var(--accent);
+  padding: 24px 28px;
+  margin: 32px 0;
+  font-size: 15px;
+  line-height: 2.2;
+}
+article .accent { color: var(--accent); }
+
+/* CHAPTER NAV (prev / next links) */
+.chapter-nav {
+  margin-top: 64px;
+  padding: 24px 0;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  font-size: 15px;
+}
+.chapter-nav a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--rule);
+  text-underline-offset: 4px;
+}
+.chapter-nav a:hover { color: var(--accent); }
+
+/* RESPONSIVE */
+@media (max-width: 640px) {
+  .container { padding: 0 20px; }
+  .hero { padding: 48px 0 40px; }
+  blockquote { padding: 24px 20px 24px 36px; }
+  article pre { padding: 20px 16px; font-size: 12px; }
+  article ol li { padding-left: 48px; }
+  .series-toc .toc-num { min-width: 5em; font-size: 10px; }
+  .series-toc li { font-size: 13px; gap: 12px; }
+}
+
+/* ANIMATIONS */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.hero-meta, .hero-title, .hero-subtitle, .hero-byline {
+  animation: rise 0.8s ease-out backwards;
+}
+.hero-meta     { animation-delay: 0.1s; }
+.hero-title    { animation-delay: 0.25s; }
+.hero-subtitle { animation-delay: 0.45s; }
+.hero-byline   { animation-delay: 0.65s; }
+.mermaid {
+  text-align: center;
+  margin: 2.5rem 0;
+  background: var(--paper-warm, #f5f1ea);
+  padding: 1.5rem 1rem;
+  border-radius: 4px;
+  overflow-x: auto;
+}
+.mermaid svg { max-width: 100%; height: auto; }
+
+/* WIDE LAYOUT (contents pinned as a left sidebar on wide screens) */
+@media (min-width: 1200px) {
+  body.has-toc .container {
+    max-width: 1300px;
+    display: grid;
+    grid-template-columns: 280px minmax(0, 860px);
+    column-gap: 64px;
+    justify-content: center;
+  }
+  body.has-toc .masthead,
+  body.has-toc .hero {
+    grid-column: 1 / -1;
+  }
+  /* Keep the grid item stretched to its rows and make the inner details
+     sticky instead (sticky grid items are constrained by the grid container,
+     not their grid area, in some browsers — the TOC would slide over the
+     footer otherwise). */
+  body.has-toc .series-toc {
+    grid-column: 1;
+    grid-row: 3 / span 2;
+    margin: 0;
+    padding: 0;
+    border-top: none;
+    border-bottom: none;
+  }
+  body.has-toc .series-toc details {
+    position: sticky;
+    top: 32px;
+    max-height: calc(100vh - 64px);
+    overflow-y: auto;
+    padding: 0 12px 12px 0;
+  }
+  /* Sidebar mode: no collapsing — the summary acts as a heading */
+  body.has-toc .series-toc summary {
+    pointer-events: none;
+    cursor: default;
+  }
+  body.has-toc .series-toc summary::before { content: none; }
+  body.has-toc .series-toc li { font-size: 14px; }
+  body.has-toc article    { grid-column: 2; grid-row: 3; }
+  body.has-toc .chapter-nav { grid-column: 2; grid-row: 4; }
+  body.has-toc .site-footer { grid-column: 1 / -1; grid-row: 5; }
+}
+
+/* ============================================================
+   DARK MODE (follows the OS color-scheme preference)
+   ============================================================ */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --ink: #e8e3d6;
+    --paper: #16140f;
+    --paper-deep: #211d16;
+    --accent: #e8765a;
+    --rule: #393428;
+    --whisper: #a39b88;
+    --highlight: rgba(220, 168, 78, 0.30);
+  }
+  /* Invert the paper-grain texture for a dark background */
+  body::before {
+    background-image: radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px);
+    mix-blend-mode: screen;
+    opacity: 0.4;
+  }
+  /* Keep code blocks as a dark terminal in both modes */
+  article pre {
+    background: #0d0c0a;
+    color: #e8e3d6;
+  }
+  article pre code {
+    color: #e8e3d6;
+  }
+  /* Dark frame for Mermaid diagrams */
+  .mermaid {
+    background: #211d16;
+  }
+}
+</style>
+
+</head>
+
+<body class="has-toc">
+<div class="container">
+
+  <header class="masthead">
+    <div class="masthead-left"><a href="/en/" class="masthead-home">aiseed.dev</a><span class="masthead-sep">›</span><a href="/en/phosphorus-and-farming/">Phosphorus Depletion and Natural Farming Series</a></div>
+    <div class="masthead-right">Chapter 6 / Essay</div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-meta">Chapter 6 № 06 · 2026</div>
+
+    <h1 class="hero-title">Pour the carbon of the air <br><span class="accent">into the soil</span>.</h1>
+
+    <p class="hero-subtitle">Pouring atmospheric carbon into the soil</p>
+
+    <div class="hero-byline">
+      <span>2026.05.11</span>
+      <span><a href="https://aiseed.dev/phosphorus-and-farming/co2-tailwind/" style="color: var(--whisper); text-decoration: underline; text-decoration-color: var(--rule);">🌐 日本語</a></span>
+    </div>
+  </section>
+
+  <!-- SERIES TOC (full chapter list for this series, current chapter highlighted) -->
+  <nav class="series-toc" aria-label="Series chapters">
+  <details>
+    <summary>Contents — all chapters</summary>
+    <ol>
+      <li><a href="/en/phosphorus-and-farming/prologue/"><span class="toc-num">Prologue</span><span class="toc-title">Economics Decides the Method of Farming</span></a></li>
+      <li><a href="/en/phosphorus-and-farming/supply-constraint/"><span class="toc-num">Chapter 1</span><span class="toc-title">Supply Constraints on Phosphate Fertilizer — What Is Happening</span></a></li>
+      <li><a href="/en/phosphorus-and-farming/no-cheap-return/"><span class="toc-num">Chapter 2</span><span class="toc-title">Phosphate Fertilizer Will Not Return to Low Prices</span></a></li>
+      <li><a href="/en/phosphorus-and-farming/industrial-farming-fails/"><span class="toc-num">Chapter 3</span><span class="toc-title">Conventional Farming Becomes Economically Unviable</span></a></li>
+      <li><a href="/en/phosphorus-and-farming/realistic-position/"><span class="toc-num">Chapter 4</span><span class="toc-title">A Realistic Position — Aligning With Neither Extreme</span></a></li>
+      <li><a href="/en/phosphorus-and-farming/soil-microbes/"><span class="toc-num">Chapter 5</span><span class="toc-title">What Soil Microbes Support</span></a></li>
+      <li class="current" aria-current="page"><span class="toc-num">Chapter 6</span><span class="toc-title">CO2 as a Tailwind</span></li>
+      <li><a href="/en/phosphorus-and-farming/implementation/"><span class="toc-num">Chapter 7</span><span class="toc-title">Implementation — One-Tan Smallholders and Abandoned Farmland</span></a></li>
+      <li><a href="/en/phosphorus-and-farming/operating-principles/"><span class="toc-num">Chapter 8</span><span class="toc-title">Operating Principles — What to Do, What Not to Do</span></a></li>
+      <li><a href="/en/phosphorus-and-farming/cuba-lessons/"><span class="toc-num">Chapter 9</span><span class="toc-title">Lessons from Cuba</span></a></li>
+    </ol>
+  </details>
+</nav>
+
+  <article>
+    <p>In Chapter 5 we saw that soil microbes — mycorrhizal fungi in particular — can supply nutrients to plants in place of chemical fertilizer.</p>
+<p>Here we add one more important fact.</p>
+<p><strong>The rise in atmospheric CO2 acts as a &quot;tailwind&quot; for this microbial form of agriculture.</strong></p>
+<p>Climate change is usually framed in negative terms. But seen from the angle of agriculture — and especially microbial agriculture — rising CO2 carries an unexpected benefit.</p>
+<p>This chapter examines the mechanism, drawing primarily on the work of Christine Jones.</p>
+<h2>6.1 CO2 is &quot;food&quot; for plants</h2>
+<p>Restating the obvious.</p>
+<p><strong>For plants, CO2 is food.</strong></p>
+<p>Plants use photosynthesis to make glucose (carbohydrate) from CO2, water, and sunlight. That carbohydrate becomes the material from which the plant builds its body, ripens its seeds, and extends its roots.</p>
+<p>Plant growth speed depends heavily on the CO2 concentration in the atmosphere. More CO2, more active photosynthesis. This is already established as the practice of intentionally raising CO2 in greenhouses (CO2 enrichment).</p>
+<div class="quoteblock">
+<blockquote>
+<p>Raising greenhouse CO2 to 1,000 ppm lifts tomato yield by 20–40%, and under some conditions by as much as 80% (a review of fifty years of observations, Horticulture Research 2023).
+This is common knowledge in farming.</p>
+</blockquote>
+</div>
+<h3>The change before and after the industrial revolution</h3>
+<p>The historical trajectory of atmospheric CO2 looks like this (NOAA GML, Mauna Loa annual means).</p>
+<table class="comparison-table fade-in">
+<thead>
+<tr>
+<th>Era</th>
+<th>CO2 concentration</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pre-industrial (~1800)</td>
+<td>~280 ppm</td>
+</tr>
+<tr>
+<td>1960</td>
+<td>317 ppm</td>
+</tr>
+<tr>
+<td>2000</td>
+<td>370 ppm</td>
+</tr>
+<tr>
+<td>2020</td>
+<td>414 ppm</td>
+</tr>
+<tr>
+<td>2025</td>
+<td>about 427 ppm (forecast annual mean)</td>
+</tr>
+</tbody>
+</table>
+<p>Compared with pre-industrial levels, that is <strong>roughly a 50% increase</strong>.</p>
+<p>This rise is causing serious effects on the climate — global warming, ocean acidification, and so on. That is a fact, and there is no intent to downplay it.</p>
+<p>But at the same time, for plants it means <strong>an increase in the resources for photosynthesis</strong>. That, too, is an unavoidable fact.</p>
+<p>The earth is &quot;processing&quot; this CO2 increase, in part, by accelerating plant growth. <strong>If humanity moves in a direction that puts plants to use, rising CO2 also functions as pressure to fix carbon into the soil.</strong></p>
+<h2>6.2 Liquid carbon — plants paying microbes a &quot;salary&quot;</h2>
+<p>This is where the heart of Christine Jones's work comes in.</p>
+<p>Plants do not use all of the carbon they capture through photosynthesis to build their own bodies. <strong>They release a substantial share of it from their roots into the soil.</strong> Measured values put it at 11% of the carbon crops fix, or 27% of what is allocated to roots (Pausch &amp; Kuzyakov 2018).</p>
+<p>This is not a &quot;leak&quot; — it is deliberate release. For what purpose?</p>
+<p><strong>To pay a &quot;salary&quot; to soil microbes.</strong></p>
+<p>The substances released are soluble organic compounds: sugars, organic acids, amino acids, enzymes. Collectively these are called <strong>root exudates</strong>, or <strong>liquid carbon</strong>.</p>
+<p>Plant -&gt; liquid carbon -&gt; microbes
+Microbes -&gt; minerals, water -&gt; plant</p>
+<p>This exchange is the economic transaction of the mycorrhizal symbiosis we saw in Chapter 5. The plant hands over carbon, and in return the microbes gather what the plant needs.</p>
+<h3>The size of the 20-60% share</h3>
+<p>What is striking is the magnitude of the share. Of the carbon a plant fixes in photosynthesis, <strong>up to 60%</strong> flows into the soil.</p>
+<p>This is not a &quot;cost&quot; to the plant. It is a <strong>strategic investment</strong>. What is invested in microbes returns as more nutrients. Over the long run the return is large, which is why evolution has preserved the behavior.</p>
+<p>Inside the soil, this liquid carbon is used in the following ways.</p>
+<ul>
+<li>As an energy source for microbes (microbes eat it)</li>
+<li>As building material for microbial bodies</li>
+<li>After microbes die, it becomes soil organic matter and is fixed as carbon</li>
+<li>As raw material for the glue (glomalin and others) that builds soil aggregate structure</li>
+</ul>
+<div class="quoteblock">
+<blockquote>
+<p>About half of the CO2 a plant draws from the atmosphere flows out from its roots into the soil and is fixed into the soil through microbes.</p>
+</blockquote>
+</div>
+<p>This means the plant itself functions as <strong>a natural carbon-sequestration device</strong>.</p>
+<h2>6.3 Two routes through which rising CO2 takes effect</h2>
+<p>Under this mechanism, rising CO2 affects agriculture along two routes.</p>
+<h3>Route 1: more photosynthesis</h3>
+<p>When CO2 increases, photosynthesis becomes more active. Plants simply fix more carbon.</p>
+<p>This may show up as higher yield, or as more developed roots, more vigorous foliage, or thicker stems. Across the plant as a whole, <strong>the floor of productive capacity rises</strong>.</p>
+<h3>Route 2: more carbon supplied to microbes</h3>
+<p>More CO2 -&gt; more photosynthesis -&gt; <strong>more liquid carbon released from the roots</strong>.</p>
+<p>That is, the amount of carbon the plant can hand to microbes goes up. Microbial activity rises. Mycorrhizal networks expand. Capacity to supply nitrogen, phosphorus, and minerals improves.</p>
+<p>The result: <strong>the rate at which soil becomes fertile is accelerated by rising CO2</strong>.</p>
+<p>This is the &quot;tailwind&quot; for microbial agriculture.</p>
+<p>In particular, the network of arbuscular mycorrhizal fungi (AMF) — which form symbiosis with plants and supply nutrients such as phosphorus — is strongly affected by rising CO2. Interestingly, <strong>adaptive AMF communities</strong> that have survived in conventional agriculture (environments with tillage and chemical fertilizer applications) have been reported to deliver a powerful growth-promoting effect under elevated CO2 (eCO2) when supplied with abundant photosynthate from plants — <strong>boosting crop biomass by up to 63%</strong>.</p>
+<h3>Stabilization of soil structure by glomalin</h3>
+<p>As the hyphal network expands, production of a glycoprotein called <strong>glomalin</strong> also increases.</p>
+<p>Glomalin</p>
+<ul>
+<li>functions as a <strong>powerful adhesive</strong> that binds soil particles into aggregate structure</li>
+<li>dramatically improves soil water retention, aeration, and erosion resistance</li>
+<li><strong>stably sequesters carbon (carbon storage) in the soil for decades to thousands of years</strong></li>
+</ul>
+<p>The aggressive mechanical tillage and biocide applications used in conventional agriculture physically and chemically destroy this hyphal network and glomalin, so <strong>conventional agriculture cannot capture the benefit of rising CO2 inside its system</strong>.</p>
+<h3>The nitrogen limitation paradox and &quot;hidden hunger&quot;</h3>
+<p>That said, the biomass increase under eCO2 triggers a complex biochemical limitation — the paradox of <strong>nitrogen (N) depletion</strong>.</p>
+<p>Even when atmospheric CO2 rises (with ΔCO2 above 200 ppm), the amount of nitrogen supplied to the soil is fixed, so the soil's <strong>C:N ratio (carbon-to-nitrogen ratio) expands sharply</strong>. Microbes proliferate rapidly and consume (immobilize) nitrogen, and the rapidly growing plants also demand it, so the system as a whole falls into severe nitrogen shortage.</p>
+<p>This nitrogen limitation has fatal effects on the nutritional value of crops. Crops grown under eCO2 (especially monocrops such as wheat and rice) have been widely reported to show <strong>markedly lower concentrations of essential nutrients — protein, minerals, vitamins</strong> — increasing the global malnutrition risk known as <strong>hidden hunger</strong>.</p>
+<p>Here, again, the superiority of microbial agriculture (regenerative agriculture) is demonstrated. To fill this nitrogen shortage, conventional agriculture has no option but to pour in still more synthetic nitrogen fertilizer (urea and the like) at ever-rising prices, which collapses economically almost immediately (covered in detail in Chapter 3).</p>
+<p>Regenerative agriculture, by contrast, assumes intercropping with legumes (broad bean, clover, and others) and the introduction of diverse cover crops. By making use of the biological nitrogen fixation of rhizobia symbiotic with legumes, the system can keep supplying the nitrogen it needs without buying expensive nitrogen fertilizer from outside.</p>
+<div class="quoteblock">
+<blockquote>
+<p>So the claim &quot;rising CO2 is a tailwind for microbial agriculture&quot; is <strong>a sharp piece of scientific and economic analysis</strong> — true only within a system that does not depend on chemical fertilizer and that secures plant diversity (the middle road).</p>
+</blockquote>
+</div>
+<h2>6.4 The Gabe Brown case</h2>
+<p>This is not theory only. There is a real example.</p>
+<p>Gabe Brown, a farmer in North Dakota, is known for <strong>raising the soil organic matter (SOM) content of his fields from 1.7–1.9% to 5–8%</strong> through more than 20 years of regenerative practice (1991 versus the 2020s, DTN 2023; one field went from 3% to 11% in six years).</p>
+<p>A rise in soil organic matter means <strong>carbon has been fixed into the soil</strong>. Concretely:</p>
+<ul>
+<li>No-till, so soil microbes are not destroyed</li>
+<li>Cover crops, so living roots are never absent</li>
+<li>Mixed cropping with diverse plants</li>
+<li>Livestock integrated through rotational grazing</li>
+</ul>
+<p>That alone increased SOM more than sixfold over 20 years.</p>
+<p>The implications:</p>
+<ul>
+<li>A drastic reduction in chemical fertilizer use</li>
+<li>Less irrigation water needed (SOM holds water)</li>
+<li>Better drought tolerance for crops</li>
+<li>Improved farm finances</li>
+</ul>
+<div class="quoteblock">
+<blockquote>
+<p>By NRCS (USDA) estimates, raising SOM by 1% adds <strong>up to about 20,000 gallons (75 tonnes)</strong> of water-holding capacity per acre (NRCS soil-health material; less on some soil textures).</p>
+</blockquote>
+</div>
+<p>This bears directly on irrigation cost and drought risk. SOM lowers not only fertilizer cost but also water cost.</p>
+<p>In other words, the present — when CO2 is overflowing in the atmosphere — is an era in which the tailwind blows for the Gabe Brown style.</p>
+<h2>6.5 Why &quot;now&quot; is a good moment</h2>
+<p>To sum up:</p>
+<ul>
+<li>Atmospheric CO2 is +50% over pre-industrial</li>
+<li>Plant photosynthesis resources are at a historic high</li>
+<li>The carbon that can be passed to soil microbes via liquid carbon is also at a historic high</li>
+<li>The farming methods that can make use of this can fertilize soil quickly</li>
+</ul>
+<p>On top of that:</p>
+<ul>
+<li>Chemical fertilizer is structurally expensive (Chapters 1 and 2)</li>
+<li>Industrial agriculture stops being economically viable (Chapter 3)</li>
+<li>Economic pressure to shift to the microbial model is high (Chapters 4 and 5)</li>
+</ul>
+<p>This <strong>economic pressure</strong> and this <strong>biological tailwind</strong> exist at the same time.</p>
+<p>Historically, this is a rare moment when the wind is at agriculture's back during a transition.</p>
+<div class="quoteblock">
+<blockquote>
+<p>Chemical fertilizer was cheap, so industrial agriculture was viable.
+Chemical fertilizer became expensive and CO2 increased, so microbial agriculture becomes viable.
+In both cases, external conditions decide the farming method.</p>
+</blockquote>
+</div>
+<h2>6.6 A caveat — the negative side of climate change</h2>
+<p>To be safe and avoid misreading, write this down explicitly.</p>
+<p>That rising CO2 has positive effects for agriculture <strong>does not mean climate change as a whole is good</strong>.</p>
+<p>The negative side of climate change is severe.</p>
+<ul>
+<li>More extreme weather (downpours, droughts, heat waves)</li>
+<li>Sea-level rise</li>
+<li>Ocean acidification</li>
+<li>Disruption of ecosystems</li>
+<li>Shifts in pest and disease distribution</li>
+<li>Desertification in some regions</li>
+</ul>
+<p>These are clear threats to agriculture as well. In Japan too — sudden torrential rains, more days of extreme heat, larger typhoons — adverse effects are already showing up.</p>
+<p>Even so:</p>
+<ul>
+<li>Against extreme weather, <strong>soil with high SOM acts as a buffer</strong> (resilient to both drought and downpour)</li>
+<li>Rising CO2 has the side of accelerating plant growth</li>
+<li>Rising temperatures expand cultivable regions and seasons in some places</li>
+</ul>
+<p>That is, <strong>the farming method that survives under climate change converges, in the end, on microbial agriculture</strong>.</p>
+<p>Industrial agriculture is fragile under climate change because it depends on chemical fertilizer and follows the convention of tilling bare earth. Microbial agriculture turns the biological health of the soil itself into shock-absorbing material.</p>
+<h2>6.7 Chapter 6 summary</h2>
+<ul>
+<li>Atmospheric CO2 has reached +50% versus pre-industrial</li>
+<li>For plants, this is an increase in photosynthetic resources</li>
+<li>Plants pass 20-60% of photosynthetic carbon as liquid carbon from roots to microbes</li>
+<li>Rising CO2 -&gt; more photosynthesis -&gt; more liquid carbon -&gt; more soil-microbe activity</li>
+<li>Microbial agriculture can therefore accelerate the fertilization of the soil</li>
+<li>The Gabe Brown case (SOM 1.7% -&gt; 11%, 20 years) demonstrates this</li>
+<li>Economic pressure (fertilizer prices) and a biological tailwind (CO2) exist simultaneously</li>
+<li>This is a historically favorable moment for a shift in farming method</li>
+</ul>
+<p>We have now seen why microbial agriculture is being chosen, why it is feasible, and why now is a good time.</p>
+<p>The next chapter, Chapter 7, looks at <strong>how to implement it</strong> — concrete implementation plans for realistic scales: one-tan smallholder farming, abandoned farmland, balcony gardens, and so on.</p>
+<h2>References</h2>
+<p><strong>CO2 concentration and photosynthesis</strong></p>
+<ul>
+<li>Historical trajectory of atmospheric CO2 (pre-industrial 280 ppm -&gt; ~425 ppm in 2026) — NOAA Mauna Loa observations</li>
+<li>Meta-analyses of Free-Air CO2 Enrichment (FACE) experiments</li>
+<li>Agronomy literature on yield increases (20-40%) from greenhouse CO2 enrichment</li>
+</ul>
+<p><strong>Liquid carbon pathway and glomalin</strong></p>
+<ul>
+<li>Christine Jones, &quot;Light Farming&quot; (2018) — root exudates moving 20-60% to soil</li>
+<li>Sara Wright (USDA-ARS) — discovery of glomalin (Glomalin-Related Soil Protein) and its contribution to soil aggregate structure</li>
+<li>Studies on +63% plant biomass increase by AMF under eCO2</li>
+</ul>
+<p><strong>Gabe Brown and regenerative agriculture</strong></p>
+<ul>
+<li>Gabe Brown, &quot;Dirt to Soil&quot; (2018) — North Dakota, SOM raised from 1.7% to 5–8%</li>
+<li>USDA NRCS (Natural Resources Conservation Service) — a 1% rise in SOM adds 75 tonnes (20,000 gallons) of water-holding capacity per acre</li>
+</ul>
+<p><strong>Nitrogen limitation paradox and hidden hunger</strong></p>
+<ul>
+<li>FAO and WHO literature on the &quot;hidden hunger&quot; concept</li>
+<li>Various studies on declining crop nutrient concentrations under eCO2</li>
+</ul>
+<p><strong>Negative side of climate change</strong></p>
+<ul>
+<li>IPCC AR6 (Sixth Assessment Report) — agricultural impacts of climate change</li>
+</ul>
+
+  </article>
+
+  <nav class="chapter-nav">
+  <a href="/en/phosphorus-and-farming/soil-microbes/" rel="prev">&larr; Prev: Chapter 5: Soil Microbes as a Strategy</a>
+  <a href="/en/phosphorus-and-farming/implementation/" rel="next">Next: Chapter 7: How to Implement It &rarr;</a>
+</nav>
+
+  <footer class="site-footer">
+    <nav class="footer-nav" aria-label="Site links">
+      <div class="footer-col">
+        <h4>Series</h4>
+        <ul>
+          <li><a href="/en/insights/">Structural Analysis</a></li>
+          <li><a href="/en/blog/">Blog</a></li>
+          <li><a href="/en/ai-native-software/">AI-Native Software Development</a></li>
+          <li><a href="/en/claude-debian/">Learning Debian with Claude</a></li>
+          <li><a href="/en/debian-server/">Growing a Debian Server with Claude</a></li>
+          <li><a href="/en/phosphorus-and-farming/">Phosphorus Depletion and Natural Farming</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Site</h4>
+        <ul>
+          <li><a href="/en/">Home</a></li>
+          <li><a href="/en/natural-farming/">Natural Farming</a></li>
+          <li><a href="/en/light-farming/">Light Farming</a></li>
+          <li><a href="/gallery/">Field Notes</a></li>
+          <li><a href="/en/about/">Our Approach</a></li>
+          <li><a href="/en/privacy/">Privacy</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Related Sites</h4>
+        <ul>
+          <li><a href="https://aiai.aiseed.dev/">aiai — Learning in the AI Era</a></li>
+          <li><a href="https://weather.time-j.net/">Personal Weather Statistics for Japan</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="colophon">
+      <div class="colophon-mark">§</div>
+      Phosphorus Depletion and Natural Farming Series · Chapter 6<br>
+      Tokushima · 2026.05.11<br>
+      <a href="/en/" style="color: var(--whisper); text-decoration: underline; text-decoration-color: var(--rule);">aiseed.dev</a> · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" style="color: var(--whisper); text-decoration: underline; text-decoration-color: var(--rule);">CC BY 4.0</a>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  // Keep the contents sidebar expanded on wide screens (collapsible on narrow ones)
+  (function () {
+    var toc = document.querySelector(".series-toc details");
+    if (!toc) return;
+    var mq = window.matchMedia("(min-width: 1200px)");
+    function sync() { toc.open = mq.matches; }
+    sync();
+    if (mq.addEventListener) mq.addEventListener("change", sync);
+    else mq.addListener(sync);
+  })();
+
+  // Mermaid loads only on pages that contain a .mermaid block.
+  // Self-hosted (no third-party CDN dependency); SRI verified.
+  if (document.querySelector(".mermaid")) {
+    const s = document.createElement("script");
+    s.src = "/js/vendor/mermaid-11.14.0.min.js";
+    s.integrity = "sha384-1CMXl090wj8Dd6YfnzSQUOgWbE6suWCaenYG7pox5AX7apTpY3PmJMeS2oPql4Gk";
+    s.crossOrigin = "anonymous";
+    s.onload = () => {
+      const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+      mermaid.initialize({ startOnLoad: false, theme: prefersDark ? "dark" : "default" });
+      mermaid.run();
+    };
+    document.head.appendChild(s);
+  }
+</script>
+
+</body>
+</html>

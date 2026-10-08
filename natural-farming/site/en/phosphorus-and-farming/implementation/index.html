@@ -1,0 +1,2382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://static.cloudflareinsights.com https://challenges.cloudflare.com 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://cloudflareinsights.com https://challenges.cloudflare.com">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9FLQ963JXM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'G-9FLQ963JXM');
+</script>
+
+<title>Chapter 7: Implementation — One-Tan Smallholders and Abandoned Farmland — Phosphorus Depletion and Natural Farming Series | aiseed.dev</title>
+<meta name="description" content="Under fertilizer constraints, large-scale farming itself stops working in Japan. Evaluating crops along the three axes of "mechanization × regenerative agriculture × chemical-fertilizer dependency," what can be produced at scale under natural farming narrows to grains, beans, and forage (thanks to the mycorrhizal/rhizobial symbioses of grasses and legumes). F1 processing cabbage, onion, tomato, and potato thin out under combined pressures. Because the global vegetable supply contracts at the same time, no country can simply import its way out. Many people producing by hand, each at their own scale, becomes the realistic answer to redistributing food production at a global scale.">
+<link rel="canonical" href="https://aiseed.dev/en/phosphorus-and-farming/implementation/">
+<link rel="alternate" hreflang="ja" href="https://aiseed.dev/phosphorus-and-farming/implementation/">
+<link rel="alternate" hreflang="en" href="https://aiseed.dev/en/phosphorus-and-farming/implementation/">
+<link rel="alternate" hreflang="x-default" href="https://aiseed.dev/phosphorus-and-farming/implementation/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Living in the AI Era">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Chapter 7: Implementation — One-Tan Smallholders and Abandoned Farmland">
+<meta property="og:description" content="Under fertilizer constraints, large-scale farming itself stops working in Japan. Evaluating crops along the three axes of "mechanization × regenerative agriculture × chemical-fertilizer dependency," what can be produced at scale under natural farming narrows to grains, beans, and forage (thanks to the mycorrhizal/rhizobial symbioses of grasses and legumes). F1 processing cabbage, onion, tomato, and potato thin out under combined pressures. Because the global vegetable supply contracts at the same time, no country can simply import its way out. Many people producing by hand, each at their own scale, becomes the realistic answer to redistributing food production at a global scale.">
+<meta property="og:url" content="https://aiseed.dev/en/phosphorus-and-farming/implementation/">
+<meta property="og:image" content="https://aiseed.dev/images/IMG_3285.jpg">
+<meta property="article:section" content="Phosphorus Depletion and Natural Farming Series">
+<meta property="article:published_time" content="2026.05.12">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Chapter 7: Implementation — One-Tan Smallholders and Abandoned Farmland">
+<meta name="twitter:description" content="Under fertilizer constraints, large-scale farming itself stops working in Japan. Evaluating crops along the three axes of "mechanization × regenerative agriculture × chemical-fertilizer dependency," what can be produced at scale under natural farming narrows to grains, beans, and forage (thanks to the mycorrhizal/rhizobial symbioses of grasses and legumes). F1 processing cabbage, onion, tomato, and potato thin out under combined pressures. Because the global vegetable supply contracts at the same time, no country can simply import its way out. Many people producing by hand, each at their own scale, becomes the realistic answer to redistributing food production at a global scale.">
+<meta name="twitter:image" content="https://aiseed.dev/images/IMG_3285.jpg">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+
+<!-- No webfont delivery: local system fonts only (Georgia serif / system monospace) -->
+
+<style>
+:root {
+  --ink: #1a1a1a;
+  --paper: #f4f1ea;
+  --paper-deep: #ebe6d8;
+  --accent: #c8442a;
+  --rule: #d4cdb8;
+  --whisper: #6b665a;
+  --highlight: #f7e9c8;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", "Hiragino Mincho ProN", serif;
+  font-size: 18px;
+  line-height: 1.7;
+  letter-spacing: 0.005em;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background-image: radial-gradient(rgba(0,0,0,0.04) 1px, transparent 1px);
+  background-size: 3px 3px;
+  opacity: 0.5;
+  mix-blend-mode: multiply;
+}
+
+.container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 32px;
+  position: relative;
+  z-index: 2;
+}
+
+/* MASTHEAD */
+.masthead {
+  border-bottom: 3px double var(--ink);
+  padding: 24px 0 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--whisper);
+}
+.masthead-left  { font-weight: 700; color: var(--ink); }
+.masthead-left a { color: inherit; text-decoration: none; }
+.masthead-left a:hover { color: var(--accent); }
+.masthead-home { color: var(--whisper); }
+.masthead-sep { margin: 0 10px; color: var(--whisper); font-weight: 400; }
+.masthead-right { font-style: italic; }
+
+/* HERO */
+.hero {
+  padding: 80px 0 60px;
+}
+.hero-meta {
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  color: var(--accent);
+  margin-bottom: 32px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.hero-meta::before {
+  content: "";
+  width: 40px;
+  height: 1px;
+  background: var(--accent);
+}
+.hero-title {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 800;
+  font-size: clamp(34px, 5.2vw, 54px);
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  margin-bottom: 24px;
+}
+.hero-title .accent {
+  color: var(--accent);
+  font-style: italic;
+}
+.hero-subtitle {
+  font-size: 19px;
+  line-height: 1.65;
+  color: var(--whisper);
+  max-width: 580px;
+  border-left: 2px solid var(--accent);
+  padding-left: 20px;
+  margin-top: 32px;
+  font-style: italic;
+}
+.hero-byline {
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid var(--rule);
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--whisper);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  text-transform: uppercase;
+}
+
+/* ARTICLE */
+article p {
+  margin-bottom: 24px;
+}
+
+article h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 1.3;
+  margin: 72px 0 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--ink);
+  position: relative;
+  letter-spacing: -0.01em;
+}
+article h2::before {
+  content: "§";
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  color: var(--accent);
+  margin-right: 16px;
+  font-size: 22px;
+}
+
+article h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 600;
+  font-size: 22px;
+  margin: 40px 0 16px;
+  color: var(--ink);
+}
+article h3::before {
+  content: "—";
+  color: var(--accent);
+  margin-right: 12px;
+  font-weight: 400;
+}
+
+article strong {
+  font-weight: 700;
+  background: linear-gradient(to top, var(--highlight) 35%, transparent 35%);
+  padding: 0 2px;
+}
+
+article em {
+  font-style: italic;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+article a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  transition: color 0.2s;
+}
+article a:hover {
+  color: var(--accent);
+}
+
+/* BLOCKQUOTE */
+blockquote {
+  margin: 40px 0;
+  padding: 32px 40px;
+  background: var(--paper-deep);
+  border-left: 4px solid var(--accent);
+  position: relative;
+  font-size: 20px;
+  line-height: 1.6;
+  font-style: italic;
+}
+blockquote::before {
+  content: "\201C";
+  position: absolute;
+  top: 0;
+  left: 12px;
+  font-size: 64px;
+  color: var(--accent);
+  opacity: 0.3;
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1;
+}
+blockquote p {
+  margin-bottom: 0;
+}
+
+/* TABLE */
+article table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 32px 0;
+  font-size: 15px;
+  line-height: 1.7;
+}
+article thead th {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 700;
+  text-align: left;
+  padding: 14px 16px;
+  border-bottom: 2px solid var(--ink);
+  color: var(--ink);
+}
+article tbody td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+}
+article tbody tr:last-child td {
+  border-bottom: none;
+}
+@media (max-width: 720px) {
+  article table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* LISTS */
+article ol {
+  margin: 32px 0;
+  counter-reset: item;
+  padding: 0;
+}
+article ol li {
+  list-style: none;
+  position: relative;
+  padding: 16px 0 16px 56px;
+  border-bottom: 1px dashed var(--rule);
+  counter-increment: item;
+}
+article ol li::before {
+  content: counter(item, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 16px;
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  font-size: 14px;
+  color: var(--accent);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+article ul {
+  margin: 24px 0;
+  padding-left: 1.5em;
+}
+article ul li {
+  margin-bottom: 8px;
+}
+
+/* CODE BLOCK */
+article pre {
+  margin: 40px 0;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 24px 28px;
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  font-size: 13px;
+  line-height: 1.8;
+  position: relative;
+  overflow-x: auto;
+}
+article pre::before {
+  content: "● ● ●";
+  position: absolute;
+  top: 8px;
+  left: 12px;
+  font-size: 8px;
+  color: var(--whisper);
+  letter-spacing: 4px;
+}
+article pre code {
+  display: block;
+  padding-top: 16px;
+  white-space: pre;
+  background: transparent;
+  color: var(--paper);
+}
+
+article code {
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.9em;
+  background: var(--paper-deep);
+  padding: 2px 6px;
+  border-radius: 2px;
+  color: var(--ink);
+}
+
+/* HR */
+article hr {
+  border: none;
+  text-align: center;
+  margin: 64px 0;
+  height: 1em;
+}
+article hr::before {
+  content: "◆ ◆ ◆";
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  font-size: 14px;
+  color: var(--accent);
+  letter-spacing: 0.5em;
+}
+
+/* RELATED */
+.related-links {
+  margin-top: 64px;
+  padding: 32px 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.related-links h3 {
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  color: var(--whisper);
+  margin: 0 0 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.related-links h3::before { content: none; }
+.related-links ul { list-style: none; margin: 0; padding: 0; }
+.related-links li {
+  padding: 10px 0;
+  border-bottom: 1px dashed var(--rule);
+  margin-bottom: 0;
+}
+.related-links li:last-child { border-bottom: none; }
+.related-links a {
+  text-decoration: none;
+  color: var(--ink);
+  display: flex;
+  gap: 16px;
+  align-items: baseline;
+}
+.related-links .related-tag {
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+  text-transform: uppercase;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.related-links a:hover .related-title {
+  color: var(--accent);
+}
+
+/* FOOTER (site menu + colophon) */
+.site-footer {
+  margin-top: 96px;
+  border-top: 3px double var(--ink);
+  padding-top: 48px;
+}
+.footer-nav {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 32px 48px;
+}
+.footer-col h4 {
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--whisper);
+  font-weight: 700;
+  margin: 0 0 14px;
+}
+.footer-col ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.footer-col li {
+  padding: 6px 0;
+  font-size: 15px;
+  line-height: 1.6;
+}
+.footer-col a {
+  color: var(--ink);
+  text-decoration: none;
+}
+.footer-col a:hover { color: var(--accent); }
+
+.colophon {
+  margin-top: 48px;
+  padding: 32px 0 40px;
+  border-top: 1px solid var(--rule);
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: var(--whisper);
+  text-align: center;
+  line-height: 2;
+  text-transform: uppercase;
+}
+.colophon-mark {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 32px;
+  color: var(--accent);
+  margin-bottom: 16px;
+  text-transform: none;
+}
+
+/* SERIES TOC (all chapters in this series, collapsible) */
+.series-toc {
+  margin: 24px 0 40px;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 8px 0;
+}
+.series-toc details {
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+}
+.series-toc summary {
+  cursor: pointer;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--whisper);
+  font-weight: 700;
+  padding: 8px 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.series-toc summary::-webkit-details-marker { display: none; }
+.series-toc summary::before {
+  content: "▸";
+  color: var(--accent);
+  font-size: 10px;
+  display: inline-block;
+  transition: transform 0.15s ease;
+}
+.series-toc details[open] summary::before { transform: rotate(90deg); }
+.series-toc ol {
+  list-style: none;
+  margin: 12px 0 8px;
+  padding: 0;
+  counter-reset: none;
+}
+.series-toc li {
+  list-style: none;
+  padding: 9px 0;
+  border-bottom: 1px dashed var(--rule);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 14px;
+  line-height: 1.55;
+  display: flex;
+  gap: 16px;
+  align-items: baseline;
+}
+.series-toc li::before { content: none; }
+.series-toc li:last-child { border-bottom: none; }
+.series-toc li a {
+  display: flex;
+  gap: 16px;
+  align-items: baseline;
+  text-decoration: none;
+  color: var(--ink);
+  flex: 1;
+}
+.series-toc li a:hover .toc-title { color: var(--accent); }
+.series-toc .toc-num {
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
+  color: var(--accent);
+  text-transform: uppercase;
+  white-space: nowrap;
+  flex-shrink: 0;
+  min-width: 6em;
+}
+.series-toc li.current {
+  background: var(--paper-deep);
+  margin: 0 -12px;
+  padding: 9px 12px;
+}
+.series-toc li.current .toc-title {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+/* IMAGES */
+article img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 32px auto;
+}
+
+/* CUSTOM BLOCKS (:::chain / :::highlight / :::quote / :::compare) */
+.chain-diagram {
+  background: var(--paper-deep);
+  border-left: 4px solid var(--accent);
+  padding: 24px 28px;
+  margin: 32px 0;
+  font-size: 16px;
+  line-height: 2;
+}
+.chain-diagram .arrow {
+  color: var(--accent);
+  font-weight: 700;
+  margin: 0 0.3em;
+}
+.highlight-box {
+  background: var(--paper-deep);
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--accent);
+  padding: 24px 28px;
+  margin: 32px 0;
+}
+.highlight-box p { margin-bottom: 12px; }
+.highlight-box p:last-child { margin-bottom: 0; }
+.quote-block {
+  margin: 40px 0;
+  padding: 32px 40px;
+  background: var(--paper-deep);
+  border-left: 4px solid var(--accent);
+}
+.quote-block .quote-text {
+  font-size: 19px;
+  line-height: 1.7;
+  font-style: italic;
+  margin: 0;
+}
+
+/* ASCIIDOC BLOCKS (classes emitted by pyasciidoc for .adoc articles):
+   admonitions / attributed quotes / image blocks / footnotes / roles */
+.admonition {
+  background: var(--paper-deep);
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--accent);
+  padding: 24px 28px;
+  margin: 32px 0;
+}
+.admonition-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+.admonition p { margin-bottom: 12px; }
+.admonition p:last-child { margin-bottom: 0; }
+.quoteblock { margin: 40px 0; }
+.quoteblock blockquote { margin: 0; }
+.quoteblock .attribution {
+  margin-top: 12px;
+  text-align: right;
+  font-size: 14px;
+  color: var(--whisper);
+}
+.quoteblock .attribution cite { font-style: normal; }
+.imageblock { margin: 32px 0; text-align: center; }
+.imageblock .content img { max-width: 100%; height: auto; }
+sup.footnote { font-size: 12px; }
+sup.footnote a { text-decoration: none; }
+.footnotes {
+  margin-top: 64px;
+  padding-top: 24px;
+  border-top: 1px solid var(--rule);
+  font-size: 14px;
+  color: var(--whisper);
+}
+.footnotes ol { padding-left: 1.5em; }
+.footnotes li { margin-bottom: 8px; }
+.footnotes .footnote-backref { text-decoration: none; margin-left: 0.3em; }
+/* Roles: [.chain] (same look as :::chain) / [.accent]#…# */
+article .chain {
+  background: var(--paper-deep);
+  border-left: 4px solid var(--accent);
+  padding: 24px 28px;
+  margin: 32px 0;
+  font-size: 15px;
+  line-height: 2.2;
+}
+article .accent { color: var(--accent); }
+
+/* CHAPTER NAV (prev / next links) */
+.chapter-nav {
+  margin-top: 64px;
+  padding: 24px 0;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  font-size: 15px;
+}
+.chapter-nav a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--rule);
+  text-underline-offset: 4px;
+}
+.chapter-nav a:hover { color: var(--accent); }
+
+/* RESPONSIVE */
+@media (max-width: 640px) {
+  .container { padding: 0 20px; }
+  .hero { padding: 48px 0 40px; }
+  blockquote { padding: 24px 20px 24px 36px; }
+  article pre { padding: 20px 16px; font-size: 12px; }
+  article ol li { padding-left: 48px; }
+  .series-toc .toc-num { min-width: 5em; font-size: 10px; }
+  .series-toc li { font-size: 13px; gap: 12px; }
+}
+
+/* ANIMATIONS */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.hero-meta, .hero-title, .hero-subtitle, .hero-byline {
+  animation: rise 0.8s ease-out backwards;
+}
+.hero-meta     { animation-delay: 0.1s; }
+.hero-title    { animation-delay: 0.25s; }
+.hero-subtitle { animation-delay: 0.45s; }
+.hero-byline   { animation-delay: 0.65s; }
+.mermaid {
+  text-align: center;
+  margin: 2.5rem 0;
+  background: var(--paper-warm, #f5f1ea);
+  padding: 1.5rem 1rem;
+  border-radius: 4px;
+  overflow-x: auto;
+}
+.mermaid svg { max-width: 100%; height: auto; }
+
+/* WIDE LAYOUT (contents pinned as a left sidebar on wide screens) */
+@media (min-width: 1200px) {
+  body.has-toc .container {
+    max-width: 1300px;
+    display: grid;
+    grid-template-columns: 280px minmax(0, 860px);
+    column-gap: 64px;
+    justify-content: center;
+  }
+  body.has-toc .masthead,
+  body.has-toc .hero {
+    grid-column: 1 / -1;
+  }
+  /* Keep the grid item stretched to its rows and make the inner details
+     sticky instead (sticky grid items are constrained by the grid container,
+     not their grid area, in some browsers — the TOC would slide over the
+     footer otherwise). */
+  body.has-toc .series-toc {
+    grid-column: 1;
+    grid-row: 3 / span 2;
+    margin: 0;
+    padding: 0;
+    border-top: none;
+    border-bottom: none;
+  }
+  body.has-toc .series-toc details {
+    position: sticky;
+    top: 32px;
+    max-height: calc(100vh - 64px);
+    overflow-y: auto;
+    padding: 0 12px 12px 0;
+  }
+  /* Sidebar mode: no collapsing — the summary acts as a heading */
+  body.has-toc .series-toc summary {
+    pointer-events: none;
+    cursor: default;
+  }
+  body.has-toc .series-toc summary::before { content: none; }
+  body.has-toc .series-toc li { font-size: 14px; }
+  body.has-toc article    { grid-column: 2; grid-row: 3; }
+  body.has-toc .chapter-nav { grid-column: 2; grid-row: 4; }
+  body.has-toc .site-footer { grid-column: 1 / -1; grid-row: 5; }
+}
+
+/* ============================================================
+   DARK MODE (follows the OS color-scheme preference)
+   ============================================================ */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --ink: #e8e3d6;
+    --paper: #16140f;
+    --paper-deep: #211d16;
+    --accent: #e8765a;
+    --rule: #393428;
+    --whisper: #a39b88;
+    --highlight: rgba(220, 168, 78, 0.30);
+  }
+  /* Invert the paper-grain texture for a dark background */
+  body::before {
+    background-image: radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px);
+    mix-blend-mode: screen;
+    opacity: 0.4;
+  }
+  /* Keep code blocks as a dark terminal in both modes */
+  article pre {
+    background: #0d0c0a;
+    color: #e8e3d6;
+  }
+  article pre code {
+    color: #e8e3d6;
+  }
+  /* Dark frame for Mermaid diagrams */
+  .mermaid {
+    background: #211d16;
+  }
+}
+</style>
+
+</head>
+
+<body class="has-toc">
+<div class="container">
+
+  <header class="masthead">
+    <div class="masthead-left"><a href="/en/" class="masthead-home">aiseed.dev</a><span class="masthead-sep">›</span><a href="/en/phosphorus-and-farming/">Phosphorus Depletion and Natural Farming Series</a></div>
+    <div class="masthead-right">Chapter 7 / Essay</div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-meta">Chapter 7 № 07 · 2026</div>
+
+    <h1 class="hero-title">As many people as possible,<br><span class="accent">take part in food production</span>.</h1>
+
+    <p class="hero-subtitle">As many people as possible, working at whatever scale they can, take part in food production</p>
+
+    <div class="hero-byline">
+      <span>2026.05.12</span>
+      <span><a href="https://aiseed.dev/phosphorus-and-farming/implementation/" style="color: var(--whisper); text-decoration: underline; text-decoration-color: var(--rule);">🌐 日本語</a></span>
+    </div>
+  </section>
+
+  <!-- SERIES TOC (full chapter list for this series, current chapter highlighted) -->
+  <nav class="series-toc" aria-label="Series chapters">
+  <details>
+    <summary>Contents — all chapters</summary>
+    <ol>
+      <li><a href="/en/phosphorus-and-farming/prologue/"><span class="toc-num">Prologue</span><span class="toc-title">Economics Decides the Method of Farming</span></a></li>
+      <li><a href="/en/phosphorus-and-farming/supply-constraint/"><span class="toc-num">Chapter 1</span><span class="toc-title">Supply Constraints on Phosphate Fertilizer — What Is Happening</span></a></li>
+      <li><a href="/en/phosphorus-and-farming/no-cheap-return/"><span class="toc-num">Chapter 2</span><span class="toc-title">Phosphate Fertilizer Will Not Return to Low Prices</span></a></li>
+      <li><a href="/en/phosphorus-and-farming/industrial-farming-fails/"><span class="toc-num">Chapter 3</span><span class="toc-title">Conventional Farming Becomes Economically Unviable</span></a></li>
+      <li><a href="/en/phosphorus-and-farming/realistic-position/"><span class="toc-num">Chapter 4</span><span class="toc-title">A Realistic Position — Aligning With Neither Extreme</span></a></li>
+      <li><a href="/en/phosphorus-and-farming/soil-microbes/"><span class="toc-num">Chapter 5</span><span class="toc-title">What Soil Microbes Support</span></a></li>
+      <li><a href="/en/phosphorus-and-farming/co2-tailwind/"><span class="toc-num">Chapter 6</span><span class="toc-title">CO2 as a Tailwind</span></a></li>
+      <li class="current" aria-current="page"><span class="toc-num">Chapter 7</span><span class="toc-title">Implementation — One-Tan Smallholders and Abandoned Farmland</span></li>
+      <li><a href="/en/phosphorus-and-farming/operating-principles/"><span class="toc-num">Chapter 8</span><span class="toc-title">Operating Principles — What to Do, What Not to Do</span></a></li>
+      <li><a href="/en/phosphorus-and-farming/cuba-lessons/"><span class="toc-num">Chapter 9</span><span class="toc-title">Lessons from Cuba</span></a></li>
+    </ol>
+  </details>
+</nav>
+
+  <article>
+    <p>So far, we have seen:</p>
+<ul>
+<li>Chemical fertilizers will rise structurally (Chapters 1–2)</li>
+<li>Industrial-style farming does not pencil out (Chapter 3)</li>
+<li>Don't aim for full self-sufficiency, but maintain domestic production (Chapter 4)</li>
+<li>Use soil microbes (Chapter 5)</li>
+<li>Rising CO2 is a tailwind (Chapter 6)</li>
+</ul>
+<p>So how do we <strong>implement</strong> this in the real Japan?</p>
+<p>First, one important recognition needs to be shared up front.</p>
+<div class="quoteblock">
+<blockquote>
+<p><strong>We are entering an era in which, unless as many people as possible grow at least some part of what they eat, society as a whole cannot produce enough food.</strong></p>
+</blockquote>
+</div>
+<p>This is not moralism. It is a direct consequence of &quot;industrial farming
+no longer pencils out,&quot; seen in Chapter 3. As full-time farmers exit
+because they cannot operate, <strong>domestic food production itself disappears</strong> unless someone fills the gap.</p>
+<p>But, as confirmed in Chapter 4, this does not mean &quot;everyone must become
+a full-time farmer.&quot; Different implementations at different scales —
+the full-time tan-no-hyakushō (one-tan smallholder farming), small-scale
+recovery of abandoned farmland, household balcony gardening — each carry
+food production at their own scale. <strong>Many people, a little at a time, each at their own scale.</strong> That is the realistic shape of food supply
+going forward.</p>
+<h2>7.1 In Japan, Large-Scale Farming Itself Becomes Impossible</h2>
+<p>In Chapter 3 we said &quot;the books don't close on industrial farming.&quot;
+Pushing one step further:</p>
+<div class="quoteblock">
+<blockquote>
+<p><strong>Under fertilizer constraints, in Japan, large-scale farming itself becomes physically impossible.</strong></p>
+</blockquote>
+</div>
+<p>It is not &quot;we'll shrink because it isn't profitable.&quot; It is &quot;even if you
+try, you can't&quot; — that stage.</p>
+<p>The reasons lie in conditions specific to Japan.</p>
+<p><strong>Without fertilizer arriving, large-scale farming does not run</strong></p>
+<p>As Chapters 1–2 showed, Japan <strong>depends on imports for roughly 90%</strong> of
+its chemical fertilizer. Phosphate, the raw materials for nitrogen,
+potash — almost all of it is imported. And those imports are
+structurally thinning.</p>
+<p>Large-scale farming — the mechanized operation of several to dozens of
+hectares — is <strong>designed on the assumption</strong> of heavy chemical-fertilizer
+input. Sow seed densely, force growth with chemical fertilizer, suppress
+pests and disease with pesticides, harvest in one sweep with machines.
+That structure only works when fertilizer arrives cheaply and abundantly.</p>
+<p>If the absolute supply of fertilizer falls, the very premise that
+supports large-scale operation disappears. <strong>&quot;Halve the fertilizer, keep the scale&quot; means a yield collapse.</strong> Where the soil microbiome has not
+recovered, take chemical fertilizer away and the crop does not grow.</p>
+<p><strong>Topography and the structure of farmland</strong></p>
+<p>Japan's farmland is small-scale and dispersed by origin. Mountainous,
+with many terraced rice paddies and stepped fields, with little of the
+continuous plain that exists in the United States or Ukraine. After the
+war, efforts were made to consolidate farmland into larger plots, but
+<strong>the topography places a hard limit on what can be done.</strong></p>
+<p>The economies of scale from mechanization also fail to bite as hard as
+they do in Europe and North America. Industrial farming nonetheless
+worked because of cheap fertilizer and machinery, and a division of
+labor with imported feed and imported grain.</p>
+<p>If fertilizer becomes expensive and the effects of scale are limited,
+<strong>both the economic and the physical foundations for sustaining large-scale farming in Japan collapse.</strong></p>
+<p><strong>Conclusion: the route of &quot;ride it out by going larger&quot; is closed</strong></p>
+<p>The prescription &quot;if fertilizer is expensive, scale up and become more
+efficient&quot; is the thinking of an era of cheap fertilizer. In a phase
+where the absolute amount of fertilizer is shrinking, scaling up means
+<strong>expanding costs</strong>; it does not avoid the fertilizer constraint.</p>
+<div class="quoteblock">
+<blockquote>
+<p>Fertilizer constraint + Japan's topography + soaring imported feed = large-scale farming is unsustainable.</p>
+</blockquote>
+</div>
+<p>There is only one answer that comes out of this:
+<strong>return to small-scale and dispersed.</strong> Society as a whole shifts to
+food production in which many people are involved, each at their own
+scale.</p>
+<p>But there is one important distinction to make here.
+<strong>We said &quot;large-scale farming becomes impossible,&quot; but not all crops fail uniformly.</strong> What is decisive is <strong>whether the crop rides on mechanization or not.</strong> That is the next section.</p>
+<h2>7.2 Crops That Mechanize, and Crops That No Longer Will</h2>
+<p>Industrial farming, at its core, is <strong>mechanization</strong>. Tractors,
+combines, harvesters, automated irrigation, post-harvest processing —
+these machines, in place of human hands, produce food at volume.
+Chemical fertilizer and pesticides are designed integrally with
+mechanization.</p>
+<p>That means, under fertilizer constraints and a shrinking labor force,
+what survives is</p>
+<div class="quoteblock">
+<blockquote>
+<p><strong>only the crops on which mechanization works.</strong></p>
+</blockquote>
+</div>
+<p>Conversely, <strong>crops that don't ride mechanization fall outside the industrial mass-production frame.</strong> These become &quot;must be grown by
+hand&quot; crops.</p>
+<p>This is the decisive distinction when thinking about crop choice and
+priorities for domestic production.</p>
+<h3>Crops that ride mechanization — those a combine can harvest in one pass</h3>
+<p>The core of mechanization is <strong>mechanized harvesting</strong>. Reaping a whole
+field in one pass with a combine, or digging it all up with a harvester —
+this has supported the productivity of industrial farming.</p>
+<p>Mechanization works for:</p>
+<table class="comparison-table fade-in">
+<thead>
+<tr>
+<th>Category</th>
+<th>Crops</th>
+<th>Mechanization key</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Grains</td>
+<td>Rice (plains, paddy), wheat, barley, rye</td>
+<td>Combine</td>
+</tr>
+<tr>
+<td>Feed and oilseed</td>
+<td>Corn, soy, rapeseed, sunflower</td>
+<td>Combine</td>
+</tr>
+<tr>
+<td>Pseudocereals</td>
+<td>Buckwheat</td>
+<td>Combine</td>
+</tr>
+<tr>
+<td>Root crops</td>
+<td>Potato, sweet potato, taro</td>
+<td>Potato harvester</td>
+</tr>
+<tr>
+<td>Forage and silage</td>
+<td>Timothy, dent corn (silage)</td>
+<td>Mower + baler</td>
+</tr>
+<tr>
+<td>Some processing vegetables</td>
+<td>Processing tomato, processing cabbage, onion</td>
+<td>Mechanical harvest</td>
+</tr>
+</tbody>
+</table>
+<p>For these crops, where <strong>broad plains</strong> and <strong>uniform fields</strong> can be
+secured, large volumes can be produced with few people. The U.S.
+Midwest, the Ukrainian black-soil belt, the Canadian prairies, the
+Australian wheat belt — industrial farming has worked on these
+conditions.</p>
+<p>Even as fertilizer thins, those regions retain <strong>large-scale machinery, vast land, and relatively fertile soils</strong> as assets. Some level of
+production can continue (even if quality and quantity drop).</p>
+<p>In other words, <strong>crops that ride mechanization will continue to be grown somewhere in the world.</strong> It will, for the time being, remain
+possible for Japan to keep importing them.</p>
+<h3>Crops that don't ride mechanization — those that need hands</h3>
+<p>The problem is the opposite case.</p>
+<p><strong>Most fresh vegetables and fruits resist mechanical harvest.</strong> Picking
+them one at a time by ripeness, without bruising, is hard for machines.
+Even today, these depend <strong>on human hands.</strong></p>
+<table class="comparison-table fade-in">
+<thead>
+<tr>
+<th>Category</th>
+<th>Crops</th>
+<th>Why mechanization is hard</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Leafy vegetables</td>
+<td>Cabbage, Chinese cabbage, lettuce, spinach, komatsuna, bok choy</td>
+<td>Per-piece ripeness check, easily bruised</td>
+</tr>
+<tr>
+<td>Fruiting vegetables</td>
+<td>Tomato (fresh), cucumber, eggplant, pepper, zucchini</td>
+<td>Successive harvests from the same plant</td>
+</tr>
+<tr>
+<td>Root crops (small fields)</td>
+<td>Daikon, carrot, turnip (Japanese fields)</td>
+<td>Fields too small for machinery</td>
+</tr>
+<tr>
+<td>Tree fruit</td>
+<td>Apple, pear, mandarin, grape, peach, persimmon, plum</td>
+<td>Height and complex tree shape</td>
+</tr>
+<tr>
+<td>Berries</td>
+<td>Strawberry, blueberry, raspberry</td>
+<td>Soft, easily bruised</td>
+</tr>
+<tr>
+<td>Specialty crops</td>
+<td>Tea, herbs, medicinal plants</td>
+<td>Fine hand picking</td>
+</tr>
+<tr>
+<td>Nuts</td>
+<td>Chestnut, walnut (individual quality check)</td>
+<td>Only partial mechanization</td>
+</tr>
+<tr>
+<td>Mushrooms</td>
+<td>Shiitake, nameko, oyster mushroom</td>
+<td>Fully manual</td>
+</tr>
+</tbody>
+</table>
+<p>Worldwide, these crops depend on human hands. <strong>Even in the United States, fresh-vegetable harvest still relies on hands — largely on seasonal workers from Mexico</strong> (as we'll see in 7.3, the U.S. imports
+roughly 30% of its fresh vegetables, which is the very structure of
+&quot;crops harvested by hand&quot;).</p>
+<p>In Japan the conditions are even worse:</p>
+<ul>
+<li>Fields are small, terraced rice paddies and stepped fields are common — machines do not enter</li>
+<li>The labor force is aging and shrinking</li>
+<li>Wage levels are high; the cost model of hiring large numbers of seasonal workers does not hold</li>
+</ul>
+<p>In short, <strong>even if you tried &quot;industrial-scale mass production&quot; of fresh vegetables and fruits in Japan, the structure does not exist for it in the first place.</strong></p>
+<h3>Mechanization and regenerative agriculture — even &quot;mechanizable crops&quot; do not always coexist with both</h3>
+<p>One more layer of consideration is needed here.</p>
+<p>The list of &quot;crops that ride mechanization&quot; above was written with
+20th-century industrial farming in mind — mechanization that assumes the
+abundant use of chemical fertilizer and pesticides.</p>
+<p>But as Chapter 8 will show, the principles of regenerative agriculture
+are <strong>no-till, no bare soil, never let the living roots die.</strong> The shape
+of mechanization does not always align with these.</p>
+<p>What is decisive is <strong>whether harvest disturbs the soil.</strong></p>
+<p><strong>Combine harvest — coexists with regenerative agriculture</strong></p>
+<p>A combine is a machine that <strong>cuts standing crops above ground</strong>.</p>
+<ul>
+<li>Wheat, barley, rye, oats: cut leaving 10–30 cm of stem at the base. Roots remain in the soil</li>
+<li>Rice (plains, paddy): similarly cut by combine. Roots remain</li>
+<li>Soy, beans, rapeseed, buckwheat: same</li>
+<li>Corn (grain): grain is taken from the standing stalk</li>
+<li>Forage and silage: simply mowed. If perennial, it regrows</li>
+</ul>
+<p>For these, <strong>roots remain in the soil and residue returns to the surface.</strong> Sow the next cover crop and living roots quickly come back.
+<strong>Compatible with no-till.</strong></p>
+<p>In fact, Gabe Brown has continued no-till combine-harvested grain and
+soy for over 20 years and raised SOM (soil organic matter) from 1.7% to
+over 11% (Chapter 6). <strong>This is the textbook case of regenerative ag × mechanization × mass production succeeding.</strong></p>
+<p><strong>Crops dug up by harvester — clash with regenerative agriculture</strong></p>
+<p>The problem is here.</p>
+<ul>
+<li>Potato: a potato harvester <strong>digs up</strong> soil 20–30 cm deep. Each year the topsoil of the entire field is disturbed</li>
+<li>Sweet potato: similarly dug up</li>
+<li>Onion: pulled or lifted, <strong>roots removed</strong></li>
+<li>Sugar beet: pulled from depth by a deep-digging harvester</li>
+<li>Mechanically harvested carrots and daikon (large fields): same</li>
+</ul>
+<p>For these, the very mechanization of harvest involves <strong>large-scale soil disturbance.</strong></p>
+<div class="quoteblock">
+<blockquote>
+<p>A field where potatoes are harvested mechanically every year is the
+same as a field that is &quot;fully tilled&quot; every year. The mycorrhizal
+network and the aggregate structure are destroyed every year. The
+microbiome cannot bear it.</p>
+</blockquote>
+</div>
+<p>The principles of no-till — do not destroy the microbial network, hold
+aggregate structure — are <strong>mutually exclusive</strong> with these mechanical
+harvests. Hand-digging at small volume coexists with regenerative
+agriculture (home garden / one-tan-smallholder level). But <strong>mechanized mass production</strong> does not coexist with regenerative agriculture.</p>
+<p><strong>Crops where the entire plant is cut or removed — intermediate</strong></p>
+<ul>
+<li>Processing tomato: a machine grabs the whole plant, vibrates the fruit off, discards the plant. <strong>The living roots all die at once.</strong></li>
+<li>Processing cabbage and lettuce: cut at the stem base. Roots remain, but the surface is easily left bare</li>
+<li>Mechanized onion mowing (the type that does not cut roots): closer to intermediate</li>
+</ul>
+<p>These do not directly dig up the soil, but they tend to clash with the
+principle of <strong>never letting living roots die</strong> (Chapter 8). Sowing a
+cover crop immediately afterward enables recovery, but the management
+overhead increases.</p>
+<h3>And further — monoculture damage and rotation constraints</h3>
+<p>One more important constraint comes in here. <strong>Continuous-cropping damage.</strong></p>
+<p>Industrial farming has supported same-crop, same-field every year — or
+short rotations — through chemical soil treatment. Soil sterilization,
+fungicides, nematicides, chemical pesticides. By suppressing soil
+disease with these, monoculture has held.</p>
+<p>Regenerative agriculture does not use these chemical treatments.
+Instead, it <strong>uses long rotations</strong> to dodge soil disease. This bears
+heavily, especially on the <strong>&quot;middle&quot; tier</strong> of crops.</p>
+<p><strong>Brassicas like cabbage and Chinese cabbage — clubroot, 5–7 year rotation</strong></p>
+<p>Brassicas (Brassicaceae) such as processing cabbage, broccoli, and
+Chinese cabbage carry the soil disease <strong>clubroot (Plasmodiophora brassicae).</strong></p>
+<ul>
+<li>Once it appears, the resting spores survive in the soil for <strong>over 10 years, up to 20</strong> (half-life 3–6 years; PNW plant disease handbook)</li>
+<li>Industrial methods have suppressed it with chemical fungicides and soil sterilization</li>
+<li>Regenerative agriculture cannot use these — the only countermeasure is to <strong>leave a 5–7 year rotation</strong> during which the field carries no Brassicas</li>
+</ul>
+<p>In other words, to grow mechanized cabbage on a given field, you can
+grow cabbage there <strong>only once every 5–7 years.</strong> The rest of the time
+the field must carry other crops (grains, legumes, forage, or non-root
+crops).</p>
+<p><strong>Onion — long rotation due to white rot</strong></p>
+<p>Onion also carries the soil disease <strong>white rot (Sclerotium cepivorum).</strong> The sclerotia (resting bodies) survive in the
+soil <strong>for 15–20 years or more</strong> (RHS; UC IPM).</p>
+<p>This too, without chemical fungicides, requires a long rotation
+(7+ years). The structure of mechanized mass production of onions on
+the same field every year does not hold under regenerative agriculture.</p>
+<p><strong>Processing tomato — 3–4 year rotation</strong></p>
+<p>Processing tomato also accumulates soil diseases under monoculture —
+<strong>bacterial wilt, fusarium wilt, root rot.</strong> The usual rotation interval for
+solanaceous crops is <strong>3–4 years</strong> (standard Japanese growing guidance; UC IPM calls for two or more years against fusarium wilt).</p>
+<p>Tomato is not as severe as Brassicas, but even so, industrial-style
+yearly continuous cropping is not possible.</p>
+<h3>What the rotation constraint means</h3>
+<p>What follows from this constraint?</p>
+<div class="quoteblock">
+<blockquote>
+<p><strong>The &quot;middle&quot; tier of crops — processing cabbage, processing onion, processing tomato — cannot be grown on the same field every year under regenerative agriculture.</strong></p>
+</blockquote>
+</div>
+<p>Mechanization itself is technically possible. But <strong>on a given field, they are actually grown only once every 3–7 years.</strong> The remaining years
+must rotate other crops.</p>
+<p>What this means is:</p>
+<ul>
+<li>To maintain the same production volume requires <strong>land with rotation headroom</strong> — 3 to 7 times the area</li>
+<li>Effective production density per unit area drops sharply versus industrial</li>
+<li>Machinery also has long idle periods because of rotation — recovering machinery investment becomes hard</li>
+</ul>
+<p>So technically these are &quot;mechanizable,&quot; but <strong>economically, mass production becomes hard to sustain.</strong> These crops are likely, while not
+as severely as the &quot;lower&quot; tier (potato, etc.), to <strong>slip out of the large-scale mechanized framework in practice.</strong></p>
+<p>This rotation constraint must be accepted as <strong>the price of regenerative agriculture's long-term durability.</strong> You cannot grow at high density in
+the short term. In exchange, you can maintain a healthy soil that is not
+dominated by disease.</p>
+<div class="quoteblock">
+<blockquote>
+<p>Industrial-style enabled monoculture through chemical treatment, but
+exhausted the soil ecosystem in return.
+Regenerative agriculture protects the soil through rotation, but
+gives up output per unit area.
+The choice isn't really between them — <strong>in an era when chemical treatment can no longer be used, only the latter remains.</strong></p>
+</blockquote>
+</div>
+<h3>And one more thing — these are also &quot;crops whose yield falls without chemical fertilizer&quot;</h3>
+<p>So far we have looked at two axes: &quot;compatibility with mechanization
+under regenerative agriculture&quot; and &quot;monoculture damage and rotation.&quot;
+There is, in fact, one decisive axis remaining.</p>
+<p><strong>Chemical-fertilizer dependency.</strong></p>
+<p>An important distinction is needed here.</p>
+<p>&quot;Crops whose yield falls without chemical fertilizer&quot; come in two stages.</p>
+<p><strong>Stage A: crops where the product itself does not exist without chemical fertilizer</strong></p>
+<p>This is especially marked in <strong>F1 hybrid vegetables.</strong></p>
+<ul>
+<li><strong>Cabbage, Chinese cabbage, broccoli (F1)</strong> — without nitrogen, <strong>head formation is incomplete</strong> and size is small. Even &quot;the cabbage shape&quot; doesn't form</li>
+<li><strong>Onion (F1)</strong> — large requirement for N → P/K. Without chemical fertilizer, <strong>the bulb does not develop properly</strong></li>
+<li><strong>Processing tomato (F1)</strong> — large N, P, K, Ca demand. <strong>Fruit set is poor; fruit is small and few</strong></li>
+<li><strong>Processing potato (modern cultivars)</strong> — Russet Burbank (U.S. fries), Toyoshiro, Atlantic (chips), etc. Heavy demand led by K. Without chemical fertilizer, <strong>tubers do not reach the size and specific gravity (dry-matter ratio) the spec requires</strong></li>
+</ul>
+<p>Without chemical fertilizer, these <strong>do not take their product form.</strong>
+Even if you grow them, they don't make the marketable spec. It moves
+beyond &quot;lower yield&quot; to &quot;the product does not exist.&quot;</p>
+<p>In fact, in natural-farming practice, cabbage, onion, and F1 tomato are
+often called &quot;hard for beginners&quot; or &quot;won't head until you've built
+good soil.&quot; This is empirical, but it aligns with the analysis above.</p>
+<p><strong>Stage B: crops where yield rises with chemical fertilizer but exists without it</strong></p>
+<p>To be distinguished are the <strong>grains.</strong></p>
+<ul>
+<li><strong>Modern wheat (short-stem high-yield cultivars)</strong> — bred for high nitrogen response, but heads still form under low input. Yield drops, but <strong>as a product, it stands</strong></li>
+<li><strong>Modern rice (Koshihikari lineage)</strong> — same. Biological nitrogen supply in paddies covers some of it</li>
+<li><strong>Soy and pulses</strong> — self-fix nitrogen via rhizobia; bred from origin for low input</li>
+</ul>
+<p>In fact, <strong>large-scale no-till and cover-crop operation of modern wheat is widely practiced around the world.</strong></p>
+<ul>
+<li><strong>Gabe Brown</strong> (North Dakota): modern wheat and soy, no-till and cover-cropped for over 20 years, SOM raised from 1.7% to 5–8% (Chapter 6)</li>
+<li><strong>Australia</strong>: <strong>74% of grain crop area is no-till</strong> (2016, Australian Bureau of Statistics), over 90% in Western Australia</li>
+<li><strong>Argentina, Canadian prairies</strong>: similarly large-scale no-till and cover-crop grain operations</li>
+<li><strong>Rodale Institute's 40-year long-term trial</strong>: organic grain yields are statistically equal to conventional once the five-year transition is over, and higher in drought years</li>
+</ul>
+<p>In other words, <strong>modern wheat clearly works under regenerative agriculture × mechanization × at scale.</strong> Just because it's a
+green-revolution cultivar doesn't mean it's chemical-fertilizer-only.
+Add nitrogen and you get maximum yield, but heads still form without it.
+Cover crops (legumes) supply N, rotation dodges disease, no-till
+maintains soil — that combination keeps scale.</p>
+<p><strong>However, modern corn is different</strong></p>
+<p>Modern corn (dent corn, sweet corn F1) <strong>has an unusually large nitrogen demand even among grains</strong>, and yield decline under low input is
+pronounced. Cover-cropping and rotating with legumes covers it
+partially, but not as well as for modern wheat. Within the green
+revolution, corn is more accurately treated as &quot;an extreme
+nitrogen-dependent crop.&quot;</p>
+<p><strong>Dependency comes in stages</strong></p>
+<table class="comparison-table fade-in">
+<thead>
+<tr>
+<th>Stage</th>
+<th>Crops</th>
+<th>If chemical fertilizer is removed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stage A: product does not exist</td>
+<td>F1 cabbage, onion, F1 tomato, F1 leafy vegetables, processing potato</td>
+<td>Doesn't make spec</td>
+</tr>
+<tr>
+<td>Strong dependence (intermediate)</td>
+<td>Modern corn</td>
+<td>Major yield drop</td>
+</tr>
+<tr>
+<td>Stage B: yield drops but product exists</td>
+<td>Modern wheat, modern rice, modern soy</td>
+<td>Holds at 70–90%</td>
+</tr>
+<tr>
+<td>Stage C: low-input from origin</td>
+<td>Heirloom grains, millets, legumes, root crops, traditional vegetables, tree fruit</td>
+<td>Almost no impact</td>
+</tr>
+</tbody>
+</table>
+<p>The crops hard to grow under natural farming are <strong>mainly Stage A</strong>.
+Stage B works at scale with proper regenerative-agriculture management
+(cover crops, rotation, no-till, mycorrhizal use). Stage C grows on low
+input from origin.</p>
+<h3>Why grains and legumes work at low input — symbiosis with mycorrhizal fungi</h3>
+<p>There is a <strong>botanical basis</strong> for this. As Chapter 5 showed, many
+plants have the capacity to symbiose with mycorrhizal fungi (mycorrhiza)
+and receive phosphorus, nitrogen, and minerals from the soil — the
+mechanism by which microbes carry nutrients even without chemical
+fertilizer.</p>
+<p>And <strong>this symbiotic capacity differs greatly between plant groups.</strong></p>
+<p><strong>Grasses (Poaceae)</strong> (rice, wheat, barley, corn, rye, millets, forage
+grasses)</p>
+<ul>
+<li><strong>Strongly form</strong> arbuscular mycorrhiza (AM)</li>
+<li>Most grasses gather phosphorus, water, and trace elements efficiently through the mycorrhizal network</li>
+<li>This is an evolutionarily deep symbiosis, in place long before chemical fertilizer existed</li>
+</ul>
+<p><strong>Legumes (Fabaceae)</strong> (soy, adzuki, kidney, peas, clover, milk vetch,
+alfalfa)</p>
+<ul>
+<li>In addition to AM mycorrhizal symbiosis, <strong>fix atmospheric nitrogen directly through symbiosis with rhizobia</strong></li>
+<li>That is, <strong>double biological nutrient supply</strong> — phosphorus and trace elements via mycorrhiza, nitrogen via rhizobia</li>
+<li>Rotating legumes as a cover crop leaves nitrogen in the soil, and the next grain crop benefits</li>
+</ul>
+<p>So grains and legumes are <strong>evolutionarily built to &quot;outsource to soil microbes.&quot;</strong> Even without chemical fertilizer, mycorrhiza and rhizobia
+deliver nutrients. They <strong>mesh biologically</strong> with regenerative
+agriculture's no-till, low input, and cover crops.</p>
+<div class="quoteblock">
+<blockquote>
+<p>Gabe Brown's no-till operation in North Dakota, Australia's no-till
+wheat belt, prewar Japanese rice cultivation — all of them, in
+effect, drew on the power of grass and legume mycorrhizal/rhizobial
+partnerships.</p>
+</blockquote>
+</div>
+<p>This is the basis directly connecting to Chapter 5 (the soil-microbe
+strategy).</p>
+<p><strong>Brassicaceae and Chenopodiaceae botanically do not symbiose with mycorrhizal fungi</strong></p>
+<p>The reverse — why the Stage A crop group depends so strongly on
+chemical fertilizer — has its root here too.</p>
+<p>Brassicas (Brassicaceae) such as cabbage, Chinese cabbage, broccoli,
+cauliflower, daikon, and turnip are a plant group that <strong>scarcely symbioses with mycorrhizal fungi</strong> (Brundrett &amp; Tedersoo 2018 and others; their roots lack the signal that recruits the fungi and secrete antifungal compounds). This
+is botanically established; Brassicaceae is one of the few families that
+largely lost mycorrhizal symbiosis over evolutionary time.</p>
+<p>As a result:</p>
+<ul>
+<li>They cannot collect soil phosphorus or trace elements via the hyphal network</li>
+<li>They can only use nutrients within direct reach of their own roots</li>
+<li>To secure nutrients, <strong>they must be supplied externally in volume</strong> — chemical-fertilizer dependency rises by necessity</li>
+<li>Continuous-cropping damage (clubroot) also spreads easily in soils that lack mycorrhizal-network protection</li>
+</ul>
+<p>So <strong>Brassicas are biologically &quot;ill-suited to natural farming.&quot;</strong> F1
+breeding has driven them further into a chemical-fertilizer premise, but
+the underlying dependence is in the plant family itself.</p>
+<p>The <strong>Amaranthaceae (Chenopodiaceae)</strong> family of spinach and sugar beet
+is similarly known not to symbiose with mycorrhizal fungi. These too
+fall into the category of &quot;hard to grow under natural farming.&quot;</p>
+<h3>Improved cultivars have converged on the same pattern</h3>
+<p>A note here on the historical structure of cultivar improvement.</p>
+<p>F1 cabbage, F1 onion, F1 processing tomato, processing potato — these
+are different crops, but <strong>the direction of breeding is strikingly similar.</strong></p>
+<ul>
+<li>Selected for <strong>mass, uniform, spec-grade product</strong></li>
+<li>Bred to give <strong>maximum yield and uniformity under high-fertilizer input</strong></li>
+<li>Selected for <strong>traits that withstand large-scale mechanical harvest</strong> (cabbage: simultaneous heading, onion: simultaneous toppling, tomato: simultaneous coloring, potato: simultaneous bulking)</li>
+<li>The result: a constitution that <strong>performs only on the premise of large external chemical-fertilizer inputs</strong></li>
+</ul>
+<p>Late 20th-century breeding advanced as one body with chemical
+fertilizer, pesticides, and mechanization. <strong>&quot;Improved&quot; was almost synonymous with &quot;optimized to industrial farming.&quot;</strong> The wheat and corn
+cultivars of the green revolution are the archetypes, but vegetables and
+tubers underwent the same convergence.</p>
+<p>As a result, processing potato cultivars, F1 onion, F1 processing
+tomato, and F1 Brassica vegetables — though different crops as such —
+<strong>resemble each other like siblings in their chemical-fertilizer dependency.</strong> Treating them together as &quot;Stage A&quot; rests on the
+historical structure of cultivar improvement.</p>
+<p>Conversely, <strong>return to heirloom (traditional) varieties and you can grow them, after a fashion, on low input.</strong></p>
+<ul>
+<li>Heirloom potato (Andean lineages, older cultivars like May Queen): yields fall, but tubers do form on low input</li>
+<li>Heirloom cabbage (loose-heading types, older European cultivars): the head is loose, but it is still edible</li>
+<li>Heirloom tomato (open-pollinated, home-garden suitable): less uniform than F1, but grows on low input</li>
+</ul>
+<p>So <strong>the Stage A crop group can, to some extent, be grown by &quot;returning varieties to heirloom&quot; + &quot;intercropping and rotation&quot; + &quot;harvest by hand.&quot;</strong> But the volume is, as the next section shows, on the order of
+5–10% of industrial output.</p>
+<h3>Growing Brassicas and Chenopodiaceae under natural farming — Brassica intercropping and rotation, but production drops drastically</h3>
+<p>We said &quot;Brassicas and Chenopodiaceae are hard to grow under natural
+farming,&quot; but <strong>it is not zero.</strong> There are ways to grow these
+non-mycorrhizal crops without external chemical-fertilizer input. But
+<strong>the scale becomes orders of magnitude smaller.</strong></p>
+<p>There are two main means.</p>
+<p><strong>1. Intercropping (companion planting)</strong></p>
+<p>Plant strongly mycorrhizal partners — grasses, legumes — <strong>on the same ridge as, or on adjacent ridges to</strong>, Brassica or Chenopodiaceae crops.</p>
+<ul>
+<li>The mycorrhizal network spreads from the surrounding grass and legume roots</li>
+<li>Nitrogen fixed by legumes circulates in the soil to other plants too</li>
+<li>Brassicas do not bind directly to mycorrhiza, but benefit indirectly via root-exudate-mediated nutrient cycling <strong>from a soil with high surrounding mycorrhizal activity</strong></li>
+<li>Pest disorientation also adds (it becomes harder for cabbage white butterflies and the like to find cabbages)</li>
+</ul>
+<p>Examples:</p>
+<ul>
+<li>Cabbage + clover (legume)</li>
+<li>Cabbage + cereals (grasses)</li>
+<li>Spinach + carrot (Apiaceae) + lettuce (Asteraceae) mixed sowing</li>
+<li>Cabbage + nasturtium (flower) for pest control</li>
+</ul>
+<p>This is a method long known in traditional European home gardens, in
+Japanese heirloom plots, and in permaculture practice.</p>
+<p><strong>2. Crop rotation</strong></p>
+<p>Separate the years that grow Brassicas / Chenopodiaceae from the years
+that recover the soil.</p>
+<p>As an example, one 7-year rotation:</p>
+<table class="comparison-table fade-in">
+<thead>
+<tr>
+<th>Year</th>
+<th>Crop</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Clover (legume)</td>
+<td>N fixation, soil recovery</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Wheat (grass)</td>
+<td>Maintain mycorrhizal network, harvest</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Potato</td>
+<td>A different family from Brassicaceae for a break</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Cereal + clover mix</td>
+<td>Re-accumulate N</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Soy (legume)</td>
+<td>N fixation, harvest</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>Cabbage, Chinese cabbage</strong></td>
+<td>The Brassica year</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Rye + hairy vetch (cover crop)</td>
+<td>Toward next year</td>
+</tr>
+</tbody>
+</table>
+<p>In this case, <strong>cabbage can be grown only once every 7 years.</strong> The
+remaining 6 years another crop uses the same field.</p>
+<h3>Result — production drops to 5–10% of the industrial scale</h3>
+<p>With intercropping and rotation, you can indeed grow Brassicas and
+Chenopodiaceae without chemical fertilizer. But when you do the math:</p>
+<ul>
+<li>Brassica yield per unit area drops to roughly <strong>30–50% of industrial</strong> (spacing under intercropping, low-input growth — this essay's assumption)</li>
+<li>In rotation, Brassicas are actually grown only <strong>once every 5–7 years</strong></li>
+<li>The result: <strong>annual Brassica production across the field is on the order of 5–10% of industrial</strong></li>
+</ul>
+<p>In other words, <strong>growing these crops under natural farming is possible, but the volume is orders of magnitude smaller.</strong></p>
+<p>If society as a whole tried to maintain cabbage, onion, and spinach at
+industrial-equivalent scale, <strong>5–10× the farmland</strong> would be needed. In
+Japan that is impossible (it would exceed total arable land).</p>
+<h3>Three-axis summary — mechanization × regenerative agriculture × chemical-fertilizer dependency</h3>
+<p>Re-evaluating the discussion so far on the three axes of &quot;mechanization
+× regenerative agriculture × chemical-fertilizer dependency&quot;:</p>
+<table class="comparison-table fade-in">
+<thead>
+<tr>
+<th>Crop</th>
+<th>Mechanization</th>
+<th>Regen. ag. principles</th>
+<th>Chem. fert. dependency</th>
+<th>Overall under natural farming</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rice (heirloom and modern)</td>
+<td>Yes</td>
+<td>Coexists</td>
+<td>Low–medium</td>
+<td><strong>Workable (at scale)</strong></td>
+</tr>
+<tr>
+<td>Modern wheat</td>
+<td>Yes</td>
+<td>Coexists</td>
+<td>Medium (Stage B)</td>
+<td><strong>Workable (at scale)</strong></td>
+</tr>
+<tr>
+<td>Soy and pulses</td>
+<td>Yes</td>
+<td>Coexists</td>
+<td>Low (self-fixation)</td>
+<td><strong>Workable (at scale)</strong></td>
+</tr>
+<tr>
+<td>Heirloom wheat, millets</td>
+<td>Yes</td>
+<td>Coexists</td>
+<td>Low</td>
+<td><strong>Workable (at scale)</strong></td>
+</tr>
+<tr>
+<td>Forage and silage</td>
+<td>Yes</td>
+<td>Coexists</td>
+<td>Low</td>
+<td><strong>Workable (at scale)</strong></td>
+</tr>
+<tr>
+<td>Modern corn</td>
+<td>Yes</td>
+<td>Coexists</td>
+<td>High</td>
+<td>Partially workable (legume CC complementation)</td>
+</tr>
+<tr>
+<td>Sweet potato</td>
+<td>Partial</td>
+<td>Conflicts</td>
+<td>Low</td>
+<td>Workable (by hand)</td>
+</tr>
+<tr>
+<td>Heirloom root crops</td>
+<td>Partial</td>
+<td>Conflicts</td>
+<td>Low</td>
+<td>Workable (by hand)</td>
+</tr>
+<tr>
+<td>Heirloom potato</td>
+<td>Partial</td>
+<td>Conflicts</td>
+<td>Low–medium</td>
+<td>Workable (by hand, small scale)</td>
+</tr>
+<tr>
+<td><strong>Processing potato (modern)</strong></td>
+<td><strong>Yes</strong></td>
+<td><strong>Conflicts</strong></td>
+<td><strong>High (Stage A)</strong></td>
+<td><strong>Hard to grow</strong></td>
+</tr>
+<tr>
+<td>Processing cabbage (F1)</td>
+<td>Yes</td>
+<td>Conflicts (rotation)</td>
+<td><strong>High (Stage A)</strong></td>
+<td><strong>Hard to grow</strong></td>
+</tr>
+<tr>
+<td>Onion (F1)</td>
+<td>Yes</td>
+<td>Conflicts (rotation)</td>
+<td><strong>High (Stage A)</strong></td>
+<td><strong>Hard to grow</strong></td>
+</tr>
+<tr>
+<td>Processing tomato (F1)</td>
+<td>Yes</td>
+<td>Conflicts (rotation)</td>
+<td><strong>High (Stage A)</strong></td>
+<td><strong>Hard to grow</strong></td>
+</tr>
+<tr>
+<td>Modern F1 leafy vegetables</td>
+<td>No</td>
+<td>Rotation possible but soil temp unstable</td>
+<td><strong>High (Stage A)</strong></td>
+<td><strong>Hard to grow</strong></td>
+</tr>
+</tbody>
+</table>
+<p>The crops graded &quot;hard to grow&quot; face</p>
+<ul>
+<li>yield drop as chemical fertilizer rises (fertilizer constraint)</li>
+<li>conflict between regenerative-agriculture principles and mechanization</li>
+<li>lower production density due to rotation</li>
+<li>F1 seed supply itself riding on a chemical-fertilizer premise</li>
+</ul>
+<p>— <strong>compound pressures.</strong> These are crops that <strong>become hard to grow both under industrial and under natural farming.</strong></p>
+<p>Production volume of these crops at the social level <strong>can only move, in the long run, in one direction: down.</strong></p>
+<h3>The table itself changes structurally</h3>
+<p>What follows is the prospect that <strong>the table itself shifts structurally.</strong></p>
+<p>The structure under which <strong>Stage A crops have been mass-supplied cheaply</strong> — based on chemical fertilizer, large-scale mechanization, and
+monoculture — thins.</p>
+<ul>
+<li>Processing tomato (ketchup, pizza sauce, canned tomato)</li>
+<li>Processing cabbage (frozen vegetables, salad mix)</li>
+<li>Onion (the base of all kinds of processed food)</li>
+<li>F1 hybrid leafy vegetables</li>
+<li>Potato (modern cultivars, for processed food)</li>
+</ul>
+<p>These move toward being unable to be sustained at present prices and
+volumes.</p>
+<p>Meanwhile, <strong>grains, soy, and forage</strong> sustain mass production even as
+the world transitions to regenerative agriculture. Modern wheat, soy,
+and forage no-till operation in the U.S., Canada, Australia, and Ukraine
+already works at large scale. The main parts of the Japanese table —</p>
+<ul>
+<li>rice, wheat products (bread, noodles)</li>
+<li>soy products (miso, natto, tofu, soy sauce)</li>
+<li>forage-based livestock products (dairy, pasture-raised meat)</li>
+</ul>
+<p>— can be sustained under the natural-farming and regenerative-agriculture
+frame.</p>
+<p>And the things easy to grow under natural farming —</p>
+<ul>
+<li>millets, traditional grains</li>
+<li>sweet potato, traditional root crops</li>
+<li>seasonal mountain vegetables, herbs</li>
+<li>seasonal fish, mushrooms and tree nuts gathered from the mountain</li>
+</ul>
+<p>— gain relative weight.</p>
+<p>Overall, the table is reorganized from the postwar structure centered on
+&quot;Stage A F1 high-fertilizer-eating processed foods&quot; toward a more
+unadorned structure of <strong>grains + legumes + root crops + seasonal vegetables</strong>. As a side effect, it approaches the era before the
+postwar diet began — the basic structure of traditional Japanese food.</p>
+<p>The wartime British example mentioned in Chapter 4 was the same pattern.
+<strong>The improvement of British nutrition under rationing</strong> came from
+lowering dependence on processed meat and processed wheat and raising
+dependence on root crops, legumes, dairy, and grains. &quot;Volume going
+down&quot; and &quot;nutrition going down&quot; are not the same thing.</p>
+<div class="quoteblock">
+<blockquote>
+<p>The era when chemical fertilizer, mechanization, and monoculture all
+worked at once will end with that era.
+What remains is a more unadorned, but nutritionally sufficient, core
+of traditional food.</p>
+</blockquote>
+</div>
+<h3>This is not just a Japanese story — a global vegetable shortage will occur</h3>
+<p>The analysis so far has been written in the Japanese context, but the
+elements composing the logic are <strong>all global.</strong></p>
+<ul>
+<li>Chemical-fertilizer supply constraint (China's export controls, low-grade ores, the sulfur problem) — global</li>
+<li>High fertilizer dependency of improved cultivars — common across the world's commercial farmland</li>
+<li>Brassicaceae and Chenopodiaceae not symbiosing with mycorrhizal fungi — botanical fact</li>
+<li>Soil disturbance from mechanization, monoculture damage — physical and ecological fact</li>
+</ul>
+<p>In other words, <strong>the phenomenon of Stage A crops (F1 cabbage, onion, processing tomato, processing potato, etc.) becoming impossible to mass produce will happen everywhere in the world.</strong></p>
+<p>The same pressures fall in the U.S., in Europe, in Mexico, in China.</p>
+<h3>The structure of the global vegetable shortage</h3>
+<p>Concretely, what happens?</p>
+<p><strong>1. Production drops in the major producing regions</strong></p>
+<ul>
+<li>California (lettuce, broccoli, processing tomato): water-resource constraint + fertilizer constraint</li>
+<li>Mexico (winter vegetables for the U.S.): same fertilizer constraint</li>
+<li>Spain, Netherlands (vegetables for Europe): same</li>
+<li>China (the world's largest vegetable producer): self-priority + fertilizer constraint</li>
+</ul>
+<p><strong>2. Export capacity disappears</strong></p>
+<p>Each country prioritizes the food supply of its own people. The volume
+available to export drops. <strong>Even the U.S. imports about 30% of its fresh vegetables</strong> (as we'll see in 7.3) — if that source (mostly
+Mexico) thins, U.S. supermarket shelves lose winter vegetables.</p>
+<p><strong>3. Seasonally shipped vegetables collapse first</strong></p>
+<p><strong>Winter fresh vegetables</strong> carried from warm regions (Mexico, southern
+Europe, North Africa) — which depend on fertilizer + transport + labor + mechanization all at once — thin first, structurally.</p>
+<p>Each region is forced back to seasonal vegetables it can grow at home.</p>
+<p><strong>4. Prices rise globally</strong></p>
+<p>If supply thins, world-market vegetable prices rise. It hits Japan's
+imported vegetable prices directly.</p>
+<h3>Japan's options are limited</h3>
+<p>If world vegetable supply thins everywhere, even saying &quot;import what
+falls short&quot; approaches a state where <strong>there are no vegetables to buy, or prices are orders of magnitude higher.</strong></p>
+<p>The strategy &quot;make up the shortfall through imports,&quot; confirmed in
+Chapter 4, holds for</p>
+<ul>
+<li><strong>grains, legumes, livestock products</strong>: holds (grasses and legumes will continue to be grown worldwide under regenerative agriculture × mechanization)</li>
+<li><strong>vegetables, fruits</strong>: <strong>becomes hard to hold</strong> (Stage A crops thin globally; non-mechanized crops are short of hands worldwide)</li>
+</ul>
+<p>We have to grow them domestically by hand. And that is only possible
+through food production in which <strong>many people are involved, each at their own scale.</strong></p>
+<div class="quoteblock">
+<blockquote>
+<p>The proposition &quot;as many people as possible take part in food
+production&quot; is not just about Japan's food security.
+<strong>It is also the only realistic answer to the global vegetable supply constraint.</strong></p>
+</blockquote>
+</div>
+<p>When the same pressure falls everywhere at once, no country can simply
+import its way out. Each country, region, and community shifts toward
+growing by hand at home. This is not a Japan-specific challenge but
+part of a <strong>global redistribution of food production.</strong></p>
+<h2>7.3 Imports Carry Us For Now — But Not Forever</h2>
+<p>While domestic large-scale farming shrinks and the transition to
+small-scale, dispersed production takes time, how do we fill the gap?</p>
+<p>There is only one answer. <strong>For now, we ride imports.</strong></p>
+<p>Fortunately, the world has countries with farmland far richer than
+Japan's. The U.S. (Midwest plains), Ukraine (black-soil belt), Canada,
+Australia, Brazil — these countries possess</p>
+<ul>
+<li>continuous plains</li>
+<li>fertile topsoil (Ukraine's black soil is among the world's best)</li>
+<li>topography suited to mechanization</li>
+<li>yields possible with smaller fertilizer inputs from origin (smaller than Japan's)</li>
+</ul>
+<p>The fertilizer constraint affects everyone, but <strong>the richer the soil to begin with, the lighter the relative impact.</strong> Some countries are
+not built such that taking fertilizer away triggers yield collapse, as
+Japan is.</p>
+<p>So <strong>for the next several to ten-plus years, supporting Japan's table through imports from these countries is itself a realistic choice.</strong>
+There is no need to deny it.</p>
+<div class="quoteblock">
+<blockquote>
+<p>In the transition period as industrial farming collapses, imports
+function as society's cushion. Using them is itself realistic and
+rational.</p>
+</blockquote>
+</div>
+<p>But <strong>it doesn't continue forever.</strong> And <strong>the assumption that &quot;exporting countries grow it all themselves&quot; is in fact not true.</strong></p>
+<h3>Even the U.S. imports vegetables</h3>
+<p>It may come as a surprise, but <strong>the world's largest agricultural country, the United States, imports a substantial share of its vegetables.</strong></p>
+<p>According to USDA statistics:</p>
+<ul>
+<li><strong>35% of fresh vegetables in the U.S. are imported</strong> (2023)</li>
+<li><strong>59% of fresh fruit is imported</strong> (same year; USDA ERS)</li>
+<li>Main sources: <strong>Mexico</strong> (tomato, pepper, cucumber, zucchini, berries, etc.), then <strong>Canada, Guatemala, Costa Rica, Peru</strong>, etc.</li>
+<li>Import share is especially high in winter (when the U.S. mainland is too cold to grow vegetables)</li>
+</ul>
+<p>In other words:</p>
+<div class="quoteblock">
+<blockquote>
+<p>The U.S. is an <strong>export superpower in grains, soy, and meat</strong>, but
+also <strong>an import superpower in vegetables and fruit.</strong></p>
+</blockquote>
+</div>
+<p>This shows that modern food supply is <strong>divided globally.</strong> Even the
+U.S. with its fertile plains does not grow everything down to the
+vegetables itself. <strong>Because it is more rational to ship winter vegetables from warmer Mexico or Central America</strong>, that is what is
+done.</p>
+<p>Australia and European countries are in similar shape. There is
+practically no country in the modern world that &quot;fully self-supplies its
+own food.&quot;</p>
+<h3>What this fact shows</h3>
+<p>Two things follow.</p>
+<p><strong>One: Japan is not uniquely strange</strong></p>
+<p>The argument that &quot;Japan's food self-sufficiency is low&quot; often paints
+Japan as an anomaly. But modern food supply is globally woven from the
+start. The U.S., Europe, and Canada all import what they cannot grow.
+Japan's reliance on imports is, in itself, the normal shape of modern
+food systems. The problem is that <strong>we are entering a phase where the stability of imports is collapsing</strong>, not that imports themselves are
+bad.</p>
+<p><strong>Two: but the web is thinner than you think</strong></p>
+<p>Just as the U.S. imports vegetables from Mexico, each country's food
+supply is composed of a <strong>thin, mutually dependent web.</strong> Climate, war,
+trade friction, currency, energy prices — break any one and the web
+breaks somewhere.</p>
+<p>If the U.S. cannot pull vegetables from Mexico, U.S. supermarket
+shelves may lose winter vegetables. The U.S. tries to buy from other
+countries. World-market vegetable prices rise. Aftershocks reach Japan.</p>
+<div class="quoteblock">
+<blockquote>
+<p>Food is connected from origin to table by a long, hard-to-see web.
+In peacetime the web works. But it breaks easily.</p>
+</blockquote>
+</div>
+<h3>Four reasons imports cannot last forever</h3>
+<p><strong>Reason 1: exporting countries also turn inward</strong></p>
+<p>The same dynamic seen in China's export restrictions in Chapter 1 can
+happen with food. Neither the U.S. nor Ukraine has any obligation to
+keep exporting if it threatens their own people's food security. <strong>A shock — climate, war, regime change, disease</strong> — triggers export
+restrictions; the volume reaching Japan drops sharply.</p>
+<p>This has happened many times before. The U.S. soy export ban (1973),
+Russia's wheat export restrictions (2010), the halt of grain exports
+from Ukraine due to the war (2022) — food exports are merely a
+peacetime structure; in crisis they stop.</p>
+<p><strong>Reason 2: the fertilizer constraint is global</strong></p>
+<p>It is not just Japan facing rising fertilizer costs. The U.S., Europe,
+and emerging economies all face the same. As the books fail to close
+on industrial farming worldwide, the production volume of exporting
+countries themselves drops. <strong>Less to sell means higher prices.</strong></p>
+<p>Ukraine's black-soil belt is indeed rich, but war and geopolitical
+instability have been added. And as energy and fertilizer prices rise
+in the U.S., its export capacity drops too.</p>
+<p><strong>Reason 3: geopolitics and shipping</strong></p>
+<p>Food comes by ship. Strait of Hormuz, Strait of Malacca, Suez Canal,
+Panama Canal — anything happens to these routes and food stops too.</p>
+<p>Middle East situation, South China Sea, Taiwan Strait, Arctic routes —
+21st-century geopolitics does not guarantee the stability of food
+shipping. <strong>The premise &quot;if you pay, it comes&quot; is a peacetime one.</strong></p>
+<p><strong>Reason 4: prices squeeze household budgets</strong></p>
+<p>Even if you can physically import, the constraint comes in the form of
+<strong>prices hitting households directly.</strong> Imported meat, imported wheat,
+imported soy, imported feed — if they double or triple, diets begin to
+fall apart from the lower-income tier.</p>
+<p>&quot;Can be imported&quot; and &quot;ordinary households can afford it&quot; are different
+things.</p>
+<h3>The time imports continue is the grace period for transition</h3>
+<p>The conclusion that follows is:</p>
+<div class="quoteblock">
+<blockquote>
+<p><strong>The time imports continue is the grace period for standing up dispersed food production.</strong></p>
+</blockquote>
+</div>
+<p>While imports continue, we need to:</p>
+<ul>
+<li>complete full-time farmers' transition to microbe-based agriculture</li>
+<li>launch small-scale production by retirees and migrants</li>
+<li>advance recovery of abandoned farmland</li>
+<li>expand balcony gardening and community gardens for urban households</li>
+<li>build up seed banks, distribution networks, and regional infrastructure</li>
+</ul>
+<p>We need to <strong>make these things in time.</strong></p>
+<p>If we start in a panic when the import tap thins, we are too late.
+Soil-building takes years (the Gabe Brown case in Chapter 6). On a
+field where the soil isn't ready, even starting suddenly will produce
+no yield in the first few years.</p>
+<p>So:</p>
+<ul>
+<li>now is the era when &quot;imports are still arriving&quot;</li>
+<li>but that time is not time to do nothing —</li>
+<li><strong>it is time to use to transition to the next regime.</strong></li>
+</ul>
+<p>This is the heart of the realistic strategy that combines imports with
+domestic production.</p>
+<h2>7.4 &quot;As Many People As Possible, At Whatever Scale They Can&quot;</h2>
+<p>So who grows, and how much?</p>
+<p>The answer is:</p>
+<div class="quoteblock">
+<blockquote>
+<p><strong>As many people as possible, working at whatever scale they can.</strong></p>
+</blockquote>
+</div>
+<p>Concretely:</p>
+<ul>
+<li>Full-time farmers stay full-time, but transition away from chemical-fertilizer dependency</li>
+<li>Retirees, side-business holders, and migrants begin small-scale production around one tan</li>
+<li>Urban households grow part of their vegetables on balconies and in community gardens</li>
+<li>Schools, companies, and NPOs hold plots as education / training / community activity</li>
+<li>Restaurants, inns, and welfare facilities secure part of their ingredients from their own plots</li>
+</ul>
+<p>Every layer takes part in food production at a scale that suits them
+without strain. Each individual scale is small, but <strong>stacked across society as a whole, it becomes a pillar of the food supply.</strong></p>
+<p>This is not the rhetoric of &quot;the ideal of self-sufficiency.&quot; As
+confirmed in Chapter 4, we do not aim for full self-sufficiency. There
+is feed and fuel headroom on world markets, and we can cover the
+shortfall with imports — but only, as 7.3 showed, for now.</p>
+<p>This is not a story of &quot;domestic production can be zero.&quot; In a phase of
+shrinking full-time farmers, unless someone grows in their stead,
+<strong>domestic production itself disappears.</strong> <strong>Imports and domestic production both have to exist before the food supply stabilizes.</strong></p>
+<div class="quoteblock">
+<blockquote>
+<p>It is not &quot;everyone becomes a farmer.&quot;
+It is &quot;many people, each at their own scale, grow something.&quot;
+Each person small, summed across society into a pillar.</p>
+</blockquote>
+</div>
+<p>This is the realistic dispersed strategy in a phase where industrial
+farming collapses.</p>
+<h2>7.5 Masanobu Fukuoka's &quot;One-Tan Smallholder&quot; — The Minimum Unit at Personal Scale</h2>
+<p>As a scale anchor, there is the <strong>tan-no-hyakushō (one-tan smallholder farming)</strong> idea proposed by Masanobu Fukuoka.</p>
+<p>One tan is about 10 ares, that is, 1,000 square meters. About 30 m × 33 m.</p>
+<p>From years of practice in Iyo, Shikoku, Fukuoka wrote in <em>The One-Straw Revolution</em>:</p>
+<div class="quoteblock">
+<blockquote>
+<p>If 22 bushels (about 590 kg) of rice and 22 bushels of winter grain
+are harvested from a quarter-acre field (one tan), the field will
+support five to ten people, each investing less than an hour of labor
+a day. A quarter acre per person is more than enough to live on for a
+year.</p>
+</blockquote>
+</div>
+<p>This claim sounds too small by the standards of postwar agriculture.
+Conventional full-time farmers ordinarily cultivate 1 hectare (10 tan)
+or more. One tan looks like an extension of a &quot;home garden.&quot;</p>
+<p>But what Fukuoka was saying is different.</p>
+<ul>
+<li><strong>No-till, no-weeding, no-fertilizer</strong>, you can run a rice-and-wheat double crop</li>
+<li>Once the soil becomes fertile, yield comes out comparable to conventional</li>
+<li>No machinery, so cost is almost nothing</li>
+<li><strong>One tan covers a family's staple food</strong></li>
+</ul>
+<p>If true, the economic-model implications are large.</p>
+<h3>The economics of one tan</h3>
+<p>Let's think about it in modern numbers (rough order of magnitude).</p>
+<table class="comparison-table fade-in">
+<thead>
+<tr>
+<th>Item</th>
+<th>Industrial 1 tan</th>
+<th>Natural 1 tan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Machinery</td>
+<td>¥50,000/yr</td>
+<td>nearly 0</td>
+</tr>
+<tr>
+<td>Fertilizer</td>
+<td>¥15,000–30,000/yr</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Pesticides</td>
+<td>¥10,000/yr</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Fuel</td>
+<td>¥8,000/yr</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Seed</td>
+<td>¥5,000–10,000/yr</td>
+<td>self-saved (0) to little</td>
+</tr>
+<tr>
+<td>Labor hours</td>
+<td>200–300 hrs/yr</td>
+<td>100–200 hrs/yr</td>
+</tr>
+<tr>
+<td>Rice yield</td>
+<td>~530 kg/yr (FY2023 national average)</td>
+<td>assumed 300–400 kg/yr (Fukuoka himself reported about 590 kg)</td>
+</tr>
+<tr>
+<td>Food value</td>
+<td>a family's staple</td>
+<td>a family's staple</td>
+</tr>
+<tr>
+<td>Required outlay</td>
+<td>¥80,000–100,000/yr</td>
+<td>¥10,000–20,000/yr</td>
+</tr>
+</tbody>
+</table>
+<p>(All figures are this essay's rough estimates. Conventional rice yield from MAFF crop statistics; Fukuoka's yield from <em>The One-Straw Revolution</em>.)</p>
+<p>Yield, in this essay's conservative assumption, is below industrial. But cost is also lower. From the standpoint
+of &quot;growing only what a family eats,&quot; the lower cost is what tells.</p>
+<div class="quoteblock">
+<blockquote>
+<p>As &quot;commercial crops,&quot; it makes less money than conventional.
+As &quot;family food,&quot; it costs much less than conventional.</p>
+</blockquote>
+</div>
+<p>Implementation at this scale carries strong meaning as a
+<strong>hedge to secure food for yourself and your family by yourself.</strong></p>
+<p>And at the social level, <strong>the existence of countless one-tan-scale producers</strong> becomes a pillar that compensates for the decline of
+full-time farmers.</p>
+<h2>7.6 Using Abandoned Farmland — The Reality in MAFF Statistics</h2>
+<p>In Chapter 3 we touched on Japan's abandoned farmland. Let's confirm
+the <strong>precise definitions</strong> based on MAFF's most recent statistics.</p>
+<table class="comparison-table fade-in">
+<thead>
+<tr>
+<th>MAFF statistical item</th>
+<th>Area / scale</th>
+<th>Survey year</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Total arable land nationally</td>
+<td><strong>4.239 million ha</strong></td>
+<td>2025</td>
+<td>A sustained downtrend from 4.471 million ha in 2016</td>
+</tr>
+<tr>
+<td><strong>Recoverable degraded farmland</strong></td>
+<td><strong>98,000 ha</strong></td>
+<td>FY2024</td>
+<td>Land where ordinary agricultural work — stump removal, leveling, plot consolidation, etc. — is expected to make cultivation possible again (idle farmland)</td>
+</tr>
+<tr>
+<td>Operating area per farm operation</td>
+<td>3.6 ha</td>
+<td>2025</td>
+<td>Excluding Hokkaido (33.7 ha), the prefectures average <strong>2.6 ha</strong> — extremely small and dispersed</td>
+</tr>
+</tbody>
+</table>
+<p><code>[source: MAFF (Ministry of Agriculture, Forestry and Fisheries) statistics, 2024–2025]</code></p>
+<p>What deserves attention is the fact that, by MAFF's strict definition of
+&quot;<strong>recoverable (recoverable through ordinary agricultural work)</strong>,&quot;
+degraded farmland is <strong>98,000 ha</strong> as of the most recent FY2024 data.
+The widely cited figure of <strong>&quot;420,000 ha&quot;</strong> likely refers to a
+<strong>&quot;total area&quot; of cumulative historical degraded farmland</strong>, which adds
+to the &quot;recoverable farmland (98,000 ha)&quot; the <strong>&quot;non-recoverable degraded farmland&quot; (where forest succession has progressed to the point that ordinary agricultural work can no longer recover it).</strong></p>
+<p>That said, this definitional drift does not undermine the logic of this
+series' argument. Rather:</p>
+<div class="quoteblock">
+<blockquote>
+<p>Even land that, from the conventional industrial-farming view, is
+seen as &quot;hard to recover (requires massive earthworks costs and large
+chemical-fertilizer input)&quot; because it is reverting to forest can,
+by applying the framework of Tony Rinaudo's <strong>FMNR (Farmer Managed Natural Regeneration; using the cut stumps for natural recovery)</strong> or
+Masanobu Fukuoka's natural farming (a no-till, no-weeding approach
+that uses natural succession), be <strong>gradually used as an ecological production base without injecting massive capital.</strong></p>
+</blockquote>
+</div>
+<p>Add to this that Japan's average per-operation farmland is 3.6 ha
+(2.6 ha in the prefectures) — extremely small — which shows it is
+<strong>structurally unsuited to the U.S.-style industrial monoculture that presupposes huge machinery and large chemical-fertilizer input.</strong> This
+physical constraint <strong>paradoxically supports the validity of the &quot;tan-no-hyakushō (around 0.1-hectare-scale micro-agriculture) model&quot; proposed in this series.</strong></p>
+<p>On small-scale, dispersed farmland, an operational principle that pushes
+external inputs (purchased costs) toward zero and treats &quot;things not
+done (no weeding, etc.)&quot; as a rational economic choice <strong>makes profound sense as a localized survival strategy in a high-cost era.</strong></p>
+<p>Such abandoned farmland is, under current industrial farming, land on
+which &quot;there is no economic rationale to recover.&quot; So it is abandoned.</p>
+<p>But from the microbe-based-farming view, it looks different.</p>
+<ul>
+<li>No tilling, no chemical fertilizer used, so initial investment is low</li>
+<li>Recovering the soil microbiome takes a few years (time-consuming, but not money-consuming)</li>
+<li>The small fields in mountainous areas are blessed with diverse plant communities to begin with</li>
+<li>Even where machines cannot enter, hands can manage just fine</li>
+</ul>
+<p>In short, <strong>land that does not fit the scale of industrial farming comes back to life at the scale of microbe-based farming.</strong></p>
+<p>The same structure has played out before. Japan's satoyama (village
+mountainsides) was long &quot;abandoned because it didn't pay
+economically.&quot; But it has come to be re-evaluated in the context of
+renewable energy (firewood, woody biomass), tourism, and education.
+<strong>The value of land changes with the economic model used to measure it.</strong></p>
+<p>Abandoned farmland is the same. A liability under the industrial model;
+potentially an asset under the microbial model.</p>
+<h3>Who does it</h3>
+<p>Recovering abandoned farmland is not something only full-time farmers
+do.</p>
+<ul>
+<li>Retirees with two-region living</li>
+<li>Young families migrating from cities</li>
+<li>Mid-career people doing it as a side business at small scale</li>
+<li>NPOs, citizen groups, educational institutions</li>
+<li>Groups combining it with satoyama conservation</li>
+</ul>
+<p>These actors recover, each at a manageable scale, a little at a time.
+There is no need to recover the whole country at once. It is enough for
+it to grow gradually on a 10-year scale.</p>
+<p>But <strong>late is also bad.</strong> The longer abandoned farmland sits, the more
+it returns to forest. The cost of recovery rises with time. Those who
+can move are rational to start moving now.</p>
+<h2>7.7 Balcony Gardens and Small Urban Spaces</h2>
+<p>At an even smaller scale, there are levels like <strong>balcony gardening, rooftop gardens, and community gardens.</strong></p>
+<p>&quot;Growing vegetables on a balcony — what difference can that possibly
+make?&quot; That's the urge. True, this is not a story about volume. It is
+only some percentage of a family's vegetables.</p>
+<p>But this is where there is important meaning.</p>
+<p><strong>Meaning 1: the only scale where many households can take part</strong></p>
+<p>Few can become full-time farmers. Few can hold a one-tan field. <strong>For the majority of households living in apartment buildings in cities, the only scale they can take part in is the balcony or the community garden.</strong></p>
+<p>If we don't move here, the majority of households remain entirely
+disconnected from food production. That thins the floor of society's
+production capacity.</p>
+<p><strong>Meaning 2: a place to learn microbe-based agriculture skills</strong></p>
+<p>Even in a balcony planter, you can observe soil microbe behavior. Use
+compost, never let the living roots die, don't use chemical fertilizer —
+these principles can be acquired at a small scale.</p>
+<p>In the future, when someone steps into one-tan smallholding, or recovers
+abandoned farmland, the skills learned here pay off. <strong>The balcony is also an entry to larger scales.</strong></p>
+<p><strong>Meaning 3: a household cushion against rising prices</strong></p>
+<p>As imported and domestic vegetable prices rise, even producing
+<strong>cucumbers, tomatoes, herbs, and leafy greens</strong> on a balcony gives the
+household a cushion.</p>
+<p>In particular, easily damaged leafy items (lettuce, salad greens, basil,
+mint, shiso) are expensive to buy at the supermarket but easy to grow
+in small amounts on a balcony.</p>
+<p><strong>Meaning 4: rebuilding the relationship between food and farming</strong></p>
+<p>This is a side that does not show up in the numbers but cannot be
+ignored.</p>
+<p>When children and adults <strong>physically experience</strong> where their food
+comes from, it has long-term meaning. They come to know — not in their
+heads but in their hands — that <strong>food comes from nature, that soil and microbes grow it.</strong></p>
+<p>This raises society's understanding of food and farming policy across
+the board.</p>
+<h2>7.8 Full-time, Side, Self-sufficient — All Three Layers Are Needed</h2>
+<p>Organizing the implementation by scale:</p>
+<table class="comparison-table fade-in">
+<thead>
+<tr>
+<th>Scale</th>
+<th>Carriers</th>
+<th>Size</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Full-time</td>
+<td>Pro farmers</td>
+<td>Several tan to several ha</td>
+<td>Commercial crops, regional food-supply core</td>
+</tr>
+<tr>
+<td>Side / small</td>
+<td>Migrants, side-job holders, retirees</td>
+<td>Around one tan</td>
+<td>Family staple + selling/bartering surplus</td>
+</tr>
+<tr>
+<td>Self-sufficient / supplementary</td>
+<td>General households, organizations</td>
+<td>Planter to dozens of tsubo</td>
+<td>Household cushion, education, place to engage</td>
+</tr>
+</tbody>
+</table>
+<p>What I want to emphasize here:</p>
+<div class="quoteblock">
+<blockquote>
+<p><strong>If any layer is missing, food production at the social level does not stand.</strong></p>
+</blockquote>
+</div>
+<ul>
+<li>If the full-time layer disappears, stable supply volume is lost</li>
+<li>Without the side / small layer, the decline of full-time cannot be filled</li>
+<li>Without the self-sufficient / supplementary layer, the majority of households are cut off from food production</li>
+</ul>
+<p>In the era of industrial farming, only the full-time layer was needed.
+That was because of chemical fertilizer, imports, and population growth.
+<strong>After those conditions break, only when all three layers are stacked together does the food supply hold.</strong></p>
+<p>Not the same person needs to do every layer. Full-time farmers do
+full-time, side-job holders do side, households do household — each in a
+form that fits their own scale. <strong>But if the majority remain people who do nothing — pure consumers — society collapses.</strong></p>
+<h2>7.9 Transition Timeline</h2>
+<p>It takes time to move from soil that depended on chemical fertilizer to
+the soil of microbe-based agriculture. <strong>But choose the method, and that time can be shortened drastically.</strong></p>
+<h3>The mistaken single-crop transition (removing chemical fertilizer while staying single-crop)</h3>
+<ul>
+<li>Year 1: yield drops sharply</li>
+<li>Years 2–3: mycorrhiza not rebuilt, yields stay low</li>
+<li>Years 4–5: signs of recovery at last</li>
+<li>Years 5–10: returns to conventional level</li>
+</ul>
+<p>This requires a long, harsh &quot;endurance&quot; period.</p>
+<h3>Multi-species cover cropping (the right transition)</h3>
+<p>Intercrop grasses + legumes + resilient crops + diverse cover crops:</p>
+<ul>
+<li>Year 1: legume rhizobia fix nitrogen; grasses rapidly stand up the AM (arbuscular mycorrhizal) network</li>
+<li>Year 2: hyphal networks spread, beginning to mobilize accumulated phosphorus (legacy P)</li>
+<li><strong>Year 3: soil microbiome functionally recovers</strong>, yields return to practical levels</li>
+<li>Year 4 onward: soil continues to enrich, yield and quality stabilize</li>
+<li>Year 10 onward: reaches levels above conventional farming (in Rodale's 40-year trial, yields match conventional once the five-year transition is over, and exceed it in drought years)</li>
+</ul>
+<div class="quoteblock">
+<blockquote>
+<p>&quot;Short-term yield-collapse risk&quot; <strong>depends on the method of transition.</strong>
+If multi-species cover cropping rapidly stands up the <strong>biological network of mycorrhiza and rhizobia</strong>, you can return to practical
+levels in 3 years. The &quot;endurance period&quot; can be minimized.</p>
+</blockquote>
+</div>
+<h3>Empirical data on the transition penalty</h3>
+<p>&quot;Yields fall in the first few years when chemical fertilizer is
+abruptly halted&quot; — this phenomenon is widely recognized as the
+<strong>transition penalty</strong> and demonstrated in large meta-analyses.</p>
+<p><strong>Pittelkow et al. 2015 meta-analysis (48 crops, 63 countries, 610 studies)</strong>, based on observational data of <strong>5,463 paired-years</strong> drawn
+from 610 studies covering 48 crops in 63 countries:</p>
+<ul>
+<li>The transition to no-till brings a clear yield drop in the early period</li>
+<li>Cotton seed yield under no-till was <strong>6%–20% lower</strong> versus conventional tillage; on degraded soils starting from a degraded baseline, the yield penalty reached up to <strong>25%</strong></li>
+<li>Crop height was 9–13% shorter</li>
+</ul>
+<p>Importantly, <strong>this initial yield drop on transition cannot be overcome simply by adding more chemical fertilizer.</strong> The root cause is physical
+and biological soil dysfunction, and what resolves the root cause is
+<strong>diverse cover crops.</strong></p>
+<h3>Dramatic acceleration of recovery via diverse cover crops</h3>
+<p>Conventional fallow (bare soil) and reliance on single-species green
+manure (monoculture cover crops) require <strong>3–6 years or more</strong> for
+biological soil function to recover. But in recent years, strong
+scientific evidence and field data have accumulated showing that using
+<strong>highly diverse multi-species cover cropping</strong> can dramatically shorten
+this biological lag and <strong>recover the soil ecosystem to a practical and economic level in about 3 years.</strong></p>
+<p>The mechanism at the core of the acceleration is the <strong>niche complementarity</strong> generated by plant-species diversity, and the
+explosive activation of the soil microbiome that comes with it.</p>
+<h3>Niche complementarity through four functional groups</h3>
+<p>Sowing and growing several different plant functional groups in the
+same field at the same time exerts strong &quot;niche complementarity&quot;
+spatially and functionally in the soil.</p>
+<table class="comparison-table fade-in">
+<thead>
+<tr>
+<th>Functional group</th>
+<th>Representative species</th>
+<th>Ecological function / contribution to legacy-P mobilization</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Grasses (Poaceae)</strong></td>
+<td>Oats, rye, sorghum</td>
+<td>Vast fibrous roots for broad soil exploration. Very high C:N for long-term SOM formation. <strong>Oats in particular is an excellent host for AMF network construction</strong></td>
+</tr>
+<tr>
+<td><strong>Legumes (Fabaceae)</strong></td>
+<td>Hairy vetch, clover, peas, fava</td>
+<td><strong>Biological fixation of atmospheric nitrogen</strong> through symbiosis with rhizobia. Solubilization of mineral-bound phosphorus through organic-acid root exudates</td>
+</tr>
+<tr>
+<td><strong>Brassicas (Brassicaceae)</strong></td>
+<td>Daikon (radish), mustard, turnip, forage rape</td>
+<td>Strong <strong>taproots that physically break up soil hardpan (biodrilling)</strong>. Rapid solubilization of legacy P through abundant secretion of strong organic acids like citric and malic</td>
+</tr>
+<tr>
+<td><strong>Broadleaves</strong></td>
+<td>Buckwheat, sunflower</td>
+<td><strong>A unique ability to directly solubilize and absorb rock phosphate (insoluble phosphorus rock) and legacy P</strong>. Excellent as a P-supply source for the next crop</td>
+</tr>
+</tbody>
+</table>
+<p>When these plant groups with different functional traits grow at once,
+biomass production and underground carbon supply that exceed the sum of
+their solo cultivations are achieved — the <strong>&quot;transgressive overyielding&quot;</strong> phenomenon — and the speed of soil-function recovery
+multiplies in synergy.</p>
+<h3>Quantitative data on &quot;3-year recovery&quot;</h3>
+<p>Multiple empirical studies confirm that combining cover cropping,
+no-till, and integration of livestock yields very clear numerical
+results in the recovery of core soil function <strong>within 3 years.</strong></p>
+<table class="comparison-table fade-in">
+<thead>
+<tr>
+<th>Soil-health indicator</th>
+<th>Empirical data (year 3 of transition)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Water holding capacity</strong></td>
+<td>Weber &amp; Gokhale (2011) — fields under holistic grazing management showed water retention <strong>+54% versus fallow</strong> after just &quot;3 years&quot; of treatment. Compared to mixed fallow / pasture, retention was 32% higher</td>
+</tr>
+<tr>
+<td><strong>WSA (Water-Stable Aggregates)</strong></td>
+<td>Long-term empirical platform research — while conventional-farming soils stayed at &quot;moderate (34.1–50% WSA),&quot; <strong>regenerative soils improved dramatically to &quot;very high levels (66%+ WSA)&quot;</strong></td>
+</tr>
+<tr>
+<td><strong>Carrying capacity</strong></td>
+<td>Soil Health Academy / Dr. Allen Williams demonstrations — combining proper multi-species cover crops with grazing brought the carrying capacity (livestock-supporting capacity) of the field to <strong>at least 5× in just &quot;3 years,&quot; even on degraded soil</strong></td>
+</tr>
+<tr>
+<td><strong>Net economic profit</strong></td>
+<td>Datu Research case study at the Willis Farm in Missouri, USA — introducing diverse cover crops yielded profit gains in 3 of 4 years, <strong>+$17/acre on average net profit</strong></td>
+</tr>
+</tbody>
+</table>
+<div class="quoteblock">
+<blockquote>
+<p>The hypothesis that &quot;with diverse cover crops, even broken soil
+recovers in about 3 years and the transition penalty can be overcome&quot;
+is not conceptual idealism; it is <strong>strongly supported quantitatively by rigorous scientific meta-analyses, long-term field demonstrations, and the vast data of pioneering regenerative-agriculture farmers.</strong></p>
+</blockquote>
+</div>
+<h3>Economic data: regenerative ag vs conventional farming</h3>
+<p>Empirical research on corn-production systems in the U.S. Northern
+Plains:</p>
+<ul>
+<li>Conventional farming, strongly dependent on insecticides and chemical fertilizer, has a pest incidence <strong>10×</strong> that of the regenerative model that does not use insecticides</li>
+<li>A vicious cycle leading to further escalation in chemical-symptomatic costs</li>
+<li>Even though fields adopting regenerative systems had <strong>grain yields 29% lower</strong> than conventional, <strong>final profit was 78% higher</strong></li>
+<li>This profit increase correlates directly not with maximizing yield, but with <strong>&quot;a dramatic reduction in input costs&quot;</strong> that comes with the rise in soil particulate organic matter (POM)</li>
+</ul>
+<p>Under fertilizer inflation, <strong>the structure of &quot;costs eat profit&quot; is already quantitatively proven.</strong></p>
+<p>This timeline must be considered overlaid with <strong>the time imports continue.</strong></p>
+<p>As 7.3 showed, imports continue for now. But not forever. <strong>Standing up domestic dispersed production before the import tap thins</strong> is the
+social schedule.</p>
+<p>&quot;Transition once chemical fertilizer is high&quot; is too late. &quot;Begin
+farming once imports stop&quot; is even later. <strong>Starting now and completing the transition over 3–5 years</strong> is the realistic schedule.</p>
+<p>The same applies to new entrants. Whether starting tan-no-hyakushō,
+recovering abandoned farmland, or starting a balcony garden, <strong>the first few years are a learning and soil-building period.</strong> Starting in a
+panic when price spikes and supply constraints hit will not produce a
+harvest that year.</p>
+<div class="quoteblock">
+<blockquote>
+<p>Expanding the carriers of food production is the kind of issue that
+won't be in time unless we move now.</p>
+</blockquote>
+</div>
+<h2>7.10 Chapter 7 summary</h2>
+<p><strong>The crop structure</strong></p>
+<ul>
+<li>Under fertilizer constraints, large-scale farming itself stops working in Japan</li>
+<li>Crop evaluation runs on the three axes of <strong>&quot;mechanization × regenerative agriculture × chemical-fertilizer dependency&quot;</strong><ul>
+<li><strong>Producible at scale under natural farming</strong>: rice, <strong>grains in general including modern wheat</strong>, soy and pulses, forage — combine / mower harvest above ground, roots remain. <strong>Grasses (Poaceae) symbiose strongly with mycorrhizal fungi; legumes (Fabaceae) with mycorrhizal fungi + rhizobia</strong> — biologically built for low input. Demonstrated by Gabe Brown, Australia, Argentina</li>
+<li><strong>Thinning under compound pressures</strong>: F1 processing cabbage, onion, F1 tomato, F1 leafy vegetables, processing potato (modern cultivars) — Stage A, where removing chemical fertilizer breaks the spec. Improved cultivars have converged in similar shapes optimized for chemical fertilizer, mechanization, and mass-spec uniformity. <strong>Brassicaceae and Chenopodiaceae botanically do not symbiose with mycorrhizal fungi</strong> — biologically destined for external-nutrient dependence. Even with intercropping and rotation, <strong>production volume is on the order of 5–10% of industrial scale</strong></li>
+<li><strong>Hand-dependent from origin</strong>: leafy vegetables, fruits, specialty crops — domestically, only growable by many people each at their own scale</li>
+</ul>
+</li>
+<li>The table reorganizes from the postwar structure centered on Stage A toward the more unadorned structure of grains + legumes + root crops + seasonal vegetables (approaching the basic structure of traditional Japanese food)</li>
+<li><strong>This is not just a Japanese story.</strong> Vegetable supply thins globally (the U.S., Mexico, Europe, China face the same pressure) — no country can simply import its way out</li>
+</ul>
+<p><strong>The implementation structure</strong></p>
+<ul>
+<li>For now, ride imports from countries with rich farmland — the U.S., Ukraine, etc.</li>
+<li>But that is not infinite. <strong>The time imports continue is the grace period for transition</strong></li>
+<li>Leaving it to full-time farmers alone cannot maintain domestic food production</li>
+<li>Only when the three layers — full-time, side, self-sufficient — all stack does it stand<ul>
+<li><strong>Full-time</strong> (pro farmers, several tan to several ha): commercial crops, regional core</li>
+<li><strong>Tan-no-hyakushō</strong> (migrants, side-job holders, retirees, around one tan): family staple + selling surplus</li>
+<li><strong>Balcony / community garden</strong> (general households): the only scale the majority of households can take part in, household cushion, education, place to engage</li>
+</ul>
+</li>
+<li><strong>Abandoned farmland</strong> is a liability under industrial, potentially an asset under microbial</li>
+<li>A society of pure consumers alone can no longer grow food</li>
+<li>Transition with multi-species cover cropping completes in <strong>about 3 years</strong> (the mistaken single-crop transition that just removes chemical fertilizer takes 5–10 years; choose the method and you can shorten it)</li>
+<li>Therefore, starting <strong>now</strong>, while imports continue, is realistic</li>
+</ul>
+<p>The direction of implementation by scale is clear. Next, <strong>specific operating principles</strong> — what to do, what not to do — follow.</p>
+<p>In the next, final chapter (Chapter 8), we summarize the operational
+principles: no-till, no bare soil, diversity, no weeding, no chemical
+fertilizer, self-saved seed, considerations for storage and
+distribution. And we present the conclusion of the entire series.</p>
+<h2>References</h2>
+<p><strong>Transition penalty / meta-analyses</strong></p>
+<ul>
+<li>Pittelkow et al. 2015 meta-analysis (48 crops, 63 countries, 610 studies, 5,463 paired-years) — global meta-analysis of the transition to no-till</li>
+<li>Knapp &amp; van der Heijden — meta-analysis of temporal stability under organic agriculture</li>
+<li>&quot;Regenerative agriculture: merging farming and natural resource conservation profitably&quot; — PMC5831153</li>
+</ul>
+<p><strong>3-year recovery via diverse cover crops</strong></p>
+<ul>
+<li>Weber &amp; Gokhale (2011) — water retention +54% under holistic grazing management (after 3-year treatment)</li>
+<li>Long-term empirical platform research — WSA (Water-Stable Aggregates) from moderate 34.1–50% to 66%+</li>
+<li>Soil Health Academy / Dr. Allen Williams — carrying capacity 5× (3 years)</li>
+<li>Datu Research / Willis Farm case study, Missouri, USA — net profit +$17/acre in 3 of 4 years</li>
+<li>Plant-ecology literature on niche complementarity</li>
+<li>Literature on the roles of the four functional groups (grasses, legumes, Brassicas, broadleaves)</li>
+</ul>
+<p><strong>Economic data: regenerative vs conventional</strong></p>
+<ul>
+<li>U.S. Northern Plains corn-production system empirical research — conventional has 10× the pest incidence of regenerative; regenerative has yield -29% but profit +78%</li>
+<li>Research on input-cost reduction associated with rising particulate organic matter (POM)</li>
+</ul>
+<p><strong>Pioneers: Gabe Brown</strong></p>
+<ul>
+<li>Gabe Brown, <em>Dirt to Soil: One Family's Journey into Regenerative Agriculture</em> (2018) — multi-dozen-species cover-crop cocktails, SOM 1.7% → 5〜8%</li>
+</ul>
+<p><strong>Structural data on Japanese agriculture</strong></p>
+<ul>
+<li>MAFF (Ministry of Agriculture, Forestry and Fisheries) statistics (FY2024–2025)<ul>
+<li>Total arable land nationally 4.239 million ha (2025)</li>
+<li>Recoverable degraded farmland 98,000 ha (FY2024)</li>
+<li>Operating area per farm operation 3.6 ha (prefectures 2.6 ha; Hokkaido 33.7 ha)</li>
+</ul>
+</li>
+<li>Historical trend of abandoned-farmland statistics (210,000 ha in 2000 → 420,000 ha in 2020)</li>
+</ul>
+<p><strong>U.S. agricultural-import data</strong></p>
+<ul>
+<li>USDA import statistics — about 30% of fresh vegetables imported (mainly from Mexico); about 50% of fresh fruit imported</li>
+</ul>
+<p><strong>Coexistence of mechanization and regenerative agriculture</strong></p>
+<ul>
+<li>Equipment specs of potato harvesters, onion harvesters, sugar-beet harvesters, etc. (digging 20–30 cm into the soil)</li>
+<li>Monoculture-damage management in Gabe Brown-style no-till grain operations</li>
+</ul>
+<p><strong>Continuous-cropping damage</strong></p>
+<ul>
+<li>Clubroot (Plasmodiophora brassicae) — soil survival of spores 5–10 years or more</li>
+<li>White rot (Sclerotium cepivorum) — necessity of long rotation for onion</li>
+<li>Bacterial wilt, fusarium wilt, root rot — 3–4 year rotation for processing tomato</li>
+</ul>
+<p><strong>Mycorrhizal symbiosis</strong></p>
+<ul>
+<li>See Chapter 5 references (grass / legume symbiosis; Brassicaceae / Chenopodiaceae non-symbiosis)</li>
+</ul>
+<p><strong>Masanobu Fukuoka, &quot;tan-no-hyakushō&quot;</strong></p>
+<ul>
+<li>Masanobu Fukuoka, <em>Shizen Nōhō: Wara Ippon no Kakumei</em> (Natural Farming: The One-Straw Revolution) (Shunjusha, 1975)</li>
+<li>Masanobu Fukuoka, <em>Shizen ni Kaeru</em> (Returning to Nature) (Shunjusha, 1983) — the economics of tan-no-hyakushō</li>
+</ul>
+
+  </article>
+
+  <nav class="chapter-nav">
+  <a href="/en/phosphorus-and-farming/co2-tailwind/" rel="prev">&larr; Prev: Chapter 6: The CO2 Tailwind</a>
+  <a href="/en/phosphorus-and-farming/operating-principles/" rel="next">Next: Chapter 8: Operating Principles &rarr;</a>
+</nav>
+
+  <footer class="site-footer">
+    <nav class="footer-nav" aria-label="Site links">
+      <div class="footer-col">
+        <h4>Series</h4>
+        <ul>
+          <li><a href="/en/insights/">Structural Analysis</a></li>
+          <li><a href="/en/blog/">Blog</a></li>
+          <li><a href="/en/ai-native-software/">AI-Native Software Development</a></li>
+          <li><a href="/en/claude-debian/">Learning Debian with Claude</a></li>
+          <li><a href="/en/debian-server/">Growing a Debian Server with Claude</a></li>
+          <li><a href="/en/phosphorus-and-farming/">Phosphorus Depletion and Natural Farming</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Site</h4>
+        <ul>
+          <li><a href="/en/">Home</a></li>
+          <li><a href="/en/natural-farming/">Natural Farming</a></li>
+          <li><a href="/en/light-farming/">Light Farming</a></li>
+          <li><a href="/gallery/">Field Notes</a></li>
+          <li><a href="/en/about/">Our Approach</a></li>
+          <li><a href="/en/privacy/">Privacy</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Related Sites</h4>
+        <ul>
+          <li><a href="https://aiai.aiseed.dev/">aiai — Learning in the AI Era</a></li>
+          <li><a href="https://weather.time-j.net/">Personal Weather Statistics for Japan</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="colophon">
+      <div class="colophon-mark">§</div>
+      Phosphorus Depletion and Natural Farming Series · Chapter 7<br>
+      Tokushima · 2026.05.12<br>
+      <a href="/en/" style="color: var(--whisper); text-decoration: underline; text-decoration-color: var(--rule);">aiseed.dev</a> · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" style="color: var(--whisper); text-decoration: underline; text-decoration-color: var(--rule);">CC BY 4.0</a>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  // Keep the contents sidebar expanded on wide screens (collapsible on narrow ones)
+  (function () {
+    var toc = document.querySelector(".series-toc details");
+    if (!toc) return;
+    var mq = window.matchMedia("(min-width: 1200px)");
+    function sync() { toc.open = mq.matches; }
+    sync();
+    if (mq.addEventListener) mq.addEventListener("change", sync);
+    else mq.addListener(sync);
+  })();
+
+  // Mermaid loads only on pages that contain a .mermaid block.
+  // Self-hosted (no third-party CDN dependency); SRI verified.
+  if (document.querySelector(".mermaid")) {
+    const s = document.createElement("script");
+    s.src = "/js/vendor/mermaid-11.14.0.min.js";
+    s.integrity = "sha384-1CMXl090wj8Dd6YfnzSQUOgWbE6suWCaenYG7pox5AX7apTpY3PmJMeS2oPql4Gk";
+    s.crossOrigin = "anonymous";
+    s.onload = () => {
+      const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+      mermaid.initialize({ startOnLoad: false, theme: prefersDark ? "dark" : "default" });
+      mermaid.run();
+    };
+    document.head.appendChild(s);
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://static.cloudflareinsights.com https://challenges.cloudflare.com 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://cloudflareinsights.com https://challenges.cloudflare.com">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9FLQ963JXM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'G-9FLQ963JXM');
+</script>
+
+<title>Chapter 5: What Soil Microbes Support — Phosphorus Depletion and Natural Farming Series | aiseed.dev</title>
+<meta name="description" content="Farming without chemical fertilizer is not spiritualism. Japan's farmland soils (Andisols, the kuroboku volcanic ash soils) already hold enormous legacy phosphorus. In Rothamsted's long-term experiments, even after halting phosphorus fertilizer entirely, crops grew normally for 8 years. The mycorrhizal symbiosis built over 475 million years of evolution stretches up to 90m of fungal hyphae per 1g of soil and can supply up to 90% of a plant's nitrogen and phosphorus needs. AMF + PSB synergy has been shown to cut chemical fertilizer use by 80%. Chemical fertilizers "shut down" the symbiotic circuit via GA signaling — a mechanism resolved at the molecular level.">
+<link rel="canonical" href="https://aiseed.dev/en/phosphorus-and-farming/soil-microbes/">
+<link rel="alternate" hreflang="ja" href="https://aiseed.dev/phosphorus-and-farming/soil-microbes/">
+<link rel="alternate" hreflang="en" href="https://aiseed.dev/en/phosphorus-and-farming/soil-microbes/">
+<link rel="alternate" hreflang="x-default" href="https://aiseed.dev/phosphorus-and-farming/soil-microbes/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Living in the AI Era">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Chapter 5: What Soil Microbes Support">
+<meta property="og:description" content="Farming without chemical fertilizer is not spiritualism. Japan's farmland soils (Andisols, the kuroboku volcanic ash soils) already hold enormous legacy phosphorus. In Rothamsted's long-term experiments, even after halting phosphorus fertilizer entirely, crops grew normally for 8 years. The mycorrhizal symbiosis built over 475 million years of evolution stretches up to 90m of fungal hyphae per 1g of soil and can supply up to 90% of a plant's nitrogen and phosphorus needs. AMF + PSB synergy has been shown to cut chemical fertilizer use by 80%. Chemical fertilizers "shut down" the symbiotic circuit via GA signaling — a mechanism resolved at the molecular level.">
+<meta property="og:url" content="https://aiseed.dev/en/phosphorus-and-farming/soil-microbes/">
+<meta property="og:image" content="https://aiseed.dev/images/IMG_3285.jpg">
+<meta property="article:section" content="Phosphorus Depletion and Natural Farming Series">
+<meta property="article:published_time" content="2026.05.10">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Chapter 5: What Soil Microbes Support">
+<meta name="twitter:description" content="Farming without chemical fertilizer is not spiritualism. Japan's farmland soils (Andisols, the kuroboku volcanic ash soils) already hold enormous legacy phosphorus. In Rothamsted's long-term experiments, even after halting phosphorus fertilizer entirely, crops grew normally for 8 years. The mycorrhizal symbiosis built over 475 million years of evolution stretches up to 90m of fungal hyphae per 1g of soil and can supply up to 90% of a plant's nitrogen and phosphorus needs. AMF + PSB synergy has been shown to cut chemical fertilizer use by 80%. Chemical fertilizers "shut down" the symbiotic circuit via GA signaling — a mechanism resolved at the molecular level.">
+<meta name="twitter:image" content="https://aiseed.dev/images/IMG_3285.jpg">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+
+<!-- No webfont delivery: local system fonts only (Georgia serif / system monospace) -->
+
+<style>
+:root {
+  --ink: #1a1a1a;
+  --paper: #f4f1ea;
+  --paper-deep: #ebe6d8;
+  --accent: #c8442a;
+  --rule: #d4cdb8;
+  --whisper: #6b665a;
+  --highlight: #f7e9c8;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", "Hiragino Mincho ProN", serif;
+  font-size: 18px;
+  line-height: 1.7;
+  letter-spacing: 0.005em;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background-image: radial-gradient(rgba(0,0,0,0.04) 1px, transparent 1px);
+  background-size: 3px 3px;
+  opacity: 0.5;
+  mix-blend-mode: multiply;
+}
+
+.container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 32px;
+  position: relative;
+  z-index: 2;
+}
+
+/* MASTHEAD */
+.masthead {
+  border-bottom: 3px double var(--ink);
+  padding: 24px 0 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--whisper);
+}
+.masthead-left  { font-weight: 700; color: var(--ink); }
+.masthead-left a { color: inherit; text-decoration: none; }
+.masthead-left a:hover { color: var(--accent); }
+.masthead-home { color: var(--whisper); }
+.masthead-sep { margin: 0 10px; color: var(--whisper); font-weight: 400; }
+.masthead-right { font-style: italic; }
+
+/* HERO */
+.hero {
+  padding: 80px 0 60px;
+}
+.hero-meta {
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  color: var(--accent);
+  margin-bottom: 32px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.hero-meta::before {
+  content: "";
+  width: 40px;
+  height: 1px;
+  background: var(--accent);
+}
+.hero-title {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 800;
+  font-size: clamp(34px, 5.2vw, 54px);
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  margin-bottom: 24px;
+}
+.hero-title .accent {
+  color: var(--accent);
+  font-style: italic;
+}
+.hero-subtitle {
+  font-size: 19px;
+  line-height: 1.65;
+  color: var(--whisper);
+  max-width: 580px;
+  border-left: 2px solid var(--accent);
+  padding-left: 20px;
+  margin-top: 32px;
+  font-style: italic;
+}
+.hero-byline {
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid var(--rule);
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--whisper);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  text-transform: uppercase;
+}
+
+/* ARTICLE */
+article p {
+  margin-bottom: 24px;
+}
+
+article h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 1.3;
+  margin: 72px 0 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--ink);
+  position: relative;
+  letter-spacing: -0.01em;
+}
+article h2::before {
+  content: "§";
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  color: var(--accent);
+  margin-right: 16px;
+  font-size: 22px;
+}
+
+article h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 600;
+  font-size: 22px;
+  margin: 40px 0 16px;
+  color: var(--ink);
+}
+article h3::before {
+  content: "—";
+  color: var(--accent);
+  margin-right: 12px;
+  font-weight: 400;
+}
+
+article strong {
+  font-weight: 700;
+  background: linear-gradient(to top, var(--highlight) 35%, transparent 35%);
+  padding: 0 2px;
+}
+
+article em {
+  font-style: italic;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+article a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  transition: color 0.2s;
+}
+article a:hover {
+  color: var(--accent);
+}
+
+/* BLOCKQUOTE */
+blockquote {
+  margin: 40px 0;
+  padding: 32px 40px;
+  background: var(--paper-deep);
+  border-left: 4px solid var(--accent);
+  position: relative;
+  font-size: 20px;
+  line-height: 1.6;
+  font-style: italic;
+}
+blockquote::before {
+  content: "\201C";
+  position: absolute;
+  top: 0;
+  left: 12px;
+  font-size: 64px;
+  color: var(--accent);
+  opacity: 0.3;
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1;
+}
+blockquote p {
+  margin-bottom: 0;
+}
+
+/* TABLE */
+article table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 32px 0;
+  font-size: 15px;
+  line-height: 1.7;
+}
+article thead th {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 700;
+  text-align: left;
+  padding: 14px 16px;
+  border-bottom: 2px solid var(--ink);
+  color: var(--ink);
+}
+article tbody td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+}
+article tbody tr:last-child td {
+  border-bottom: none;
+}
+@media (max-width: 720px) {
+  article table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* LISTS */
+article ol {
+  margin: 32px 0;
+  counter-reset: item;
+  padding: 0;
+}
+article ol li {
+  list-style: none;
+  position: relative;
+  padding: 16px 0 16px 56px;
+  border-bottom: 1px dashed var(--rule);
+  counter-increment: item;
+}
+article ol li::before {
+  content: counter(item, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 16px;
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  font-size: 14px;
+  color: var(--accent);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+article ul {
+  margin: 24px 0;
+  padding-left: 1.5em;
+}
+article ul li {
+  margin-bottom: 8px;
+}
+
+/* CODE BLOCK */
+article pre {
+  margin: 40px 0;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 24px 28px;
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  font-size: 13px;
+  line-height: 1.8;
+  position: relative;
+  overflow-x: auto;
+}
+article pre::before {
+  content: "● ● ●";
+  position: absolute;
+  top: 8px;
+  left: 12px;
+  font-size: 8px;
+  color: var(--whisper);
+  letter-spacing: 4px;
+}
+article pre code {
+  display: block;
+  padding-top: 16px;
+  white-space: pre;
+  background: transparent;
+  color: var(--paper);
+}
+
+article code {
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.9em;
+  background: var(--paper-deep);
+  padding: 2px 6px;
+  border-radius: 2px;
+  color: var(--ink);
+}
+
+/* HR */
+article hr {
+  border: none;
+  text-align: center;
+  margin: 64px 0;
+  height: 1em;
+}
+article hr::before {
+  content: "◆ ◆ ◆";
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  font-size: 14px;
+  color: var(--accent);
+  letter-spacing: 0.5em;
+}
+
+/* RELATED */
+.related-links {
+  margin-top: 64px;
+  padding: 32px 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.related-links h3 {
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  color: var(--whisper);
+  margin: 0 0 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.related-links h3::before { content: none; }
+.related-links ul { list-style: none; margin: 0; padding: 0; }
+.related-links li {
+  padding: 10px 0;
+  border-bottom: 1px dashed var(--rule);
+  margin-bottom: 0;
+}
+.related-links li:last-child { border-bottom: none; }
+.related-links a {
+  text-decoration: none;
+  color: var(--ink);
+  display: flex;
+  gap: 16px;
+  align-items: baseline;
+}
+.related-links .related-tag {
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+  text-transform: uppercase;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.related-links a:hover .related-title {
+  color: var(--accent);
+}
+
+/* FOOTER (site menu + colophon) */
+.site-footer {
+  margin-top: 96px;
+  border-top: 3px double var(--ink);
+  padding-top: 48px;
+}
+.footer-nav {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 32px 48px;
+}
+.footer-col h4 {
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--whisper);
+  font-weight: 700;
+  margin: 0 0 14px;
+}
+.footer-col ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.footer-col li {
+  padding: 6px 0;
+  font-size: 15px;
+  line-height: 1.6;
+}
+.footer-col a {
+  color: var(--ink);
+  text-decoration: none;
+}
+.footer-col a:hover { color: var(--accent); }
+
+.colophon {
+  margin-top: 48px;
+  padding: 32px 0 40px;
+  border-top: 1px solid var(--rule);
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: var(--whisper);
+  text-align: center;
+  line-height: 2;
+  text-transform: uppercase;
+}
+.colophon-mark {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 32px;
+  color: var(--accent);
+  margin-bottom: 16px;
+  text-transform: none;
+}
+
+/* SERIES TOC (all chapters in this series, collapsible) */
+.series-toc {
+  margin: 24px 0 40px;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 8px 0;
+}
+.series-toc details {
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+}
+.series-toc summary {
+  cursor: pointer;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--whisper);
+  font-weight: 700;
+  padding: 8px 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.series-toc summary::-webkit-details-marker { display: none; }
+.series-toc summary::before {
+  content: "▸";
+  color: var(--accent);
+  font-size: 10px;
+  display: inline-block;
+  transition: transform 0.15s ease;
+}
+.series-toc details[open] summary::before { transform: rotate(90deg); }
+.series-toc ol {
+  list-style: none;
+  margin: 12px 0 8px;
+  padding: 0;
+  counter-reset: none;
+}
+.series-toc li {
+  list-style: none;
+  padding: 9px 0;
+  border-bottom: 1px dashed var(--rule);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 14px;
+  line-height: 1.55;
+  display: flex;
+  gap: 16px;
+  align-items: baseline;
+}
+.series-toc li::before { content: none; }
+.series-toc li:last-child { border-bottom: none; }
+.series-toc li a {
+  display: flex;
+  gap: 16px;
+  align-items: baseline;
+  text-decoration: none;
+  color: var(--ink);
+  flex: 1;
+}
+.series-toc li a:hover .toc-title { color: var(--accent); }
+.series-toc .toc-num {
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
+  color: var(--accent);
+  text-transform: uppercase;
+  white-space: nowrap;
+  flex-shrink: 0;
+  min-width: 6em;
+}
+.series-toc li.current {
+  background: var(--paper-deep);
+  margin: 0 -12px;
+  padding: 9px 12px;
+}
+.series-toc li.current .toc-title {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+/* IMAGES */
+article img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 32px auto;
+}
+
+/* CUSTOM BLOCKS (:::chain / :::highlight / :::quote / :::compare) */
+.chain-diagram {
+  background: var(--paper-deep);
+  border-left: 4px solid var(--accent);
+  padding: 24px 28px;
+  margin: 32px 0;
+  font-size: 16px;
+  line-height: 2;
+}
+.chain-diagram .arrow {
+  color: var(--accent);
+  font-weight: 700;
+  margin: 0 0.3em;
+}
+.highlight-box {
+  background: var(--paper-deep);
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--accent);
+  padding: 24px 28px;
+  margin: 32px 0;
+}
+.highlight-box p { margin-bottom: 12px; }
+.highlight-box p:last-child { margin-bottom: 0; }
+.quote-block {
+  margin: 40px 0;
+  padding: 32px 40px;
+  background: var(--paper-deep);
+  border-left: 4px solid var(--accent);
+}
+.quote-block .quote-text {
+  font-size: 19px;
+  line-height: 1.7;
+  font-style: italic;
+  margin: 0;
+}
+
+/* ASCIIDOC BLOCKS (classes emitted by pyasciidoc for .adoc articles):
+   admonitions / attributed quotes / image blocks / footnotes / roles */
+.admonition {
+  background: var(--paper-deep);
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--accent);
+  padding: 24px 28px;
+  margin: 32px 0;
+}
+.admonition-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+.admonition p { margin-bottom: 12px; }
+.admonition p:last-child { margin-bottom: 0; }
+.quoteblock { margin: 40px 0; }
+.quoteblock blockquote { margin: 0; }
+.quoteblock .attribution {
+  margin-top: 12px;
+  text-align: right;
+  font-size: 14px;
+  color: var(--whisper);
+}
+.quoteblock .attribution cite { font-style: normal; }
+.imageblock { margin: 32px 0; text-align: center; }
+.imageblock .content img { max-width: 100%; height: auto; }
+sup.footnote { font-size: 12px; }
+sup.footnote a { text-decoration: none; }
+.footnotes {
+  margin-top: 64px;
+  padding-top: 24px;
+  border-top: 1px solid var(--rule);
+  font-size: 14px;
+  color: var(--whisper);
+}
+.footnotes ol { padding-left: 1.5em; }
+.footnotes li { margin-bottom: 8px; }
+.footnotes .footnote-backref { text-decoration: none; margin-left: 0.3em; }
+/* Roles: [.chain] (same look as :::chain) / [.accent]#…# */
+article .chain {
+  background: var(--paper-deep);
+  border-left: 4px solid var(--accent);
+  padding: 24px 28px;
+  margin: 32px 0;
+  font-size: 15px;
+  line-height: 2.2;
+}
+article .accent { color: var(--accent); }
+
+/* CHAPTER NAV (prev / next links) */
+.chapter-nav {
+  margin-top: 64px;
+  padding: 24px 0;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  font-size: 15px;
+}
+.chapter-nav a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--rule);
+  text-underline-offset: 4px;
+}
+.chapter-nav a:hover { color: var(--accent); }
+
+/* RESPONSIVE */
+@media (max-width: 640px) {
+  .container { padding: 0 20px; }
+  .hero { padding: 48px 0 40px; }
+  blockquote { padding: 24px 20px 24px 36px; }
+  article pre { padding: 20px 16px; font-size: 12px; }
+  article ol li { padding-left: 48px; }
+  .series-toc .toc-num { min-width: 5em; font-size: 10px; }
+  .series-toc li { font-size: 13px; gap: 12px; }
+}
+
+/* ANIMATIONS */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.hero-meta, .hero-title, .hero-subtitle, .hero-byline {
+  animation: rise 0.8s ease-out backwards;
+}
+.hero-meta     { animation-delay: 0.1s; }
+.hero-title    { animation-delay: 0.25s; }
+.hero-subtitle { animation-delay: 0.45s; }
+.hero-byline   { animation-delay: 0.65s; }
+.mermaid {
+  text-align: center;
+  margin: 2.5rem 0;
+  background: var(--paper-warm, #f5f1ea);
+  padding: 1.5rem 1rem;
+  border-radius: 4px;
+  overflow-x: auto;
+}
+.mermaid svg { max-width: 100%; height: auto; }
+
+/* WIDE LAYOUT (contents pinned as a left sidebar on wide screens) */
+@media (min-width: 1200px) {
+  body.has-toc .container {
+    max-width: 1300px;
+    display: grid;
+    grid-template-columns: 280px minmax(0, 860px);
+    column-gap: 64px;
+    justify-content: center;
+  }
+  body.has-toc .masthead,
+  body.has-toc .hero {
+    grid-column: 1 / -1;
+  }
+  /* Keep the grid item stretched to its rows and make the inner details
+     sticky instead (sticky grid items are constrained by the grid container,
+     not their grid area, in some browsers — the TOC would slide over the
+     footer otherwise). */
+  body.has-toc .series-toc {
+    grid-column: 1;
+    grid-row: 3 / span 2;
+    margin: 0;
+    padding: 0;
+    border-top: none;
+    border-bottom: none;
+  }
+  body.has-toc .series-toc details {
+    position: sticky;
+    top: 32px;
+    max-height: calc(100vh - 64px);
+    overflow-y: auto;
+    padding: 0 12px 12px 0;
+  }
+  /* Sidebar mode: no collapsing — the summary acts as a heading */
+  body.has-toc .series-toc summary {
+    pointer-events: none;
+    cursor: default;
+  }
+  body.has-toc .series-toc summary::before { content: none; }
+  body.has-toc .series-toc li { font-size: 14px; }
+  body.has-toc article    { grid-column: 2; grid-row: 3; }
+  body.has-toc .chapter-nav { grid-column: 2; grid-row: 4; }
+  body.has-toc .site-footer { grid-column: 1 / -1; grid-row: 5; }
+}
+
+/* ============================================================
+   DARK MODE (follows the OS color-scheme preference)
+   ============================================================ */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --ink: #e8e3d6;
+    --paper: #16140f;
+    --paper-deep: #211d16;
+    --accent: #e8765a;
+    --rule: #393428;
+    --whisper: #a39b88;
+    --highlight: rgba(220, 168, 78, 0.30);
+  }
+  /* Invert the paper-grain texture for a dark background */
+  body::before {
+    background-image: radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px);
+    mix-blend-mode: screen;
+    opacity: 0.4;
+  }
+  /* Keep code blocks as a dark terminal in both modes */
+  article pre {
+    background: #0d0c0a;
+    color: #e8e3d6;
+  }
+  article pre code {
+    color: #e8e3d6;
+  }
+  /* Dark frame for Mermaid diagrams */
+  .mermaid {
+    background: #211d16;
+  }
+}
+</style>
+
+</head>
+
+<body class="has-toc">
+<div class="container">
+
+  <header class="masthead">
+    <div class="masthead-left"><a href="/en/" class="masthead-home">aiseed.dev</a><span class="masthead-sep">›</span><a href="/en/phosphorus-and-farming/">Phosphorus Depletion and Natural Farming Series</a></div>
+    <div class="masthead-right">Chapter 5 / Essay</div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-meta">Chapter 5 № 05 · 2026</div>
+
+    <h1 class="hero-title">Let microbes <br><span class="accent">stand in for chemical fertilizer</span>.</h1>
+
+    <p class="hero-subtitle">Legacy phosphorus, mycorrhizal fungi, and the symbioses chemical fertilizer broke</p>
+
+    <div class="hero-byline">
+      <span>2026.05.10</span>
+      <span><a href="https://aiseed.dev/phosphorus-and-farming/soil-microbes/" style="color: var(--whisper); text-decoration: underline; text-decoration-color: var(--rule);">🌐 日本語</a></span>
+    </div>
+  </section>
+
+  <!-- SERIES TOC (full chapter list for this series, current chapter highlighted) -->
+  <nav class="series-toc" aria-label="Series chapters">
+  <details>
+    <summary>Contents — all chapters</summary>
+    <ol>
+      <li><a href="/en/phosphorus-and-farming/prologue/"><span class="toc-num">Prologue</span><span class="toc-title">Economics Decides the Method of Farming</span></a></li>
+      <li><a href="/en/phosphorus-and-farming/supply-constraint/"><span class="toc-num">Chapter 1</span><span class="toc-title">Supply Constraints on Phosphate Fertilizer — What Is Happening</span></a></li>
+      <li><a href="/en/phosphorus-and-farming/no-cheap-return/"><span class="toc-num">Chapter 2</span><span class="toc-title">Phosphate Fertilizer Will Not Return to Low Prices</span></a></li>
+      <li><a href="/en/phosphorus-and-farming/industrial-farming-fails/"><span class="toc-num">Chapter 3</span><span class="toc-title">Conventional Farming Becomes Economically Unviable</span></a></li>
+      <li><a href="/en/phosphorus-and-farming/realistic-position/"><span class="toc-num">Chapter 4</span><span class="toc-title">A Realistic Position — Aligning With Neither Extreme</span></a></li>
+      <li class="current" aria-current="page"><span class="toc-num">Chapter 5</span><span class="toc-title">What Soil Microbes Support</span></li>
+      <li><a href="/en/phosphorus-and-farming/co2-tailwind/"><span class="toc-num">Chapter 6</span><span class="toc-title">CO2 as a Tailwind</span></a></li>
+      <li><a href="/en/phosphorus-and-farming/implementation/"><span class="toc-num">Chapter 7</span><span class="toc-title">Implementation — One-Tan Smallholders and Abandoned Farmland</span></a></li>
+      <li><a href="/en/phosphorus-and-farming/operating-principles/"><span class="toc-num">Chapter 8</span><span class="toc-title">Operating Principles — What to Do, What Not to Do</span></a></li>
+      <li><a href="/en/phosphorus-and-farming/cuba-lessons/"><span class="toc-num">Chapter 9</span><span class="toc-title">Lessons from Cuba</span></a></li>
+    </ol>
+  </details>
+</nav>
+
+  <article>
+    <p>Through Chapter 4, the conclusion came out like this.</p>
+<ul>
+<li>Chemical fertilizers will rise structurally in price</li>
+<li>Industrial agriculture that depends on chemical fertilizer cannot stand</li>
+<li>Full self-sufficiency cannot stand either</li>
+<li>The shortfall is covered by imports, and domestic production migrates to methods that do not depend on chemical fertilizer</li>
+</ul>
+<p>That last item — &quot;methods that do not depend on chemical fertilizer&quot; —
+this chapter says, concretely, what that is.</p>
+<p>The conclusion is <strong>agriculture that uses the work of soil microbes</strong>.
+This is the scientific core of the family of methods that have been
+called &quot;natural farming,&quot; &quot;regenerative agriculture,&quot; and so on.</p>
+<h2>5.1 The soil already holds enormous phosphorus — &quot;legacy phosphorus&quot; and biological mining</h2>
+<p>Let me start with one surprising fact.</p>
+<p><strong>Most farmland already holds enormous accumulated phosphorus.</strong></p>
+<p>It may sound surprising. In an &quot;era when phosphate fertilizer is
+running short,&quot; is there really phosphorus in the soil? There is.
+Often there is, in fact, an excess.</p>
+<p>On farmland that has used chemical fertilizer, the <strong>plant uptake rate of applied phosphorus runs from a few percent to about 20%</strong>, with the
+remainder <strong>fixed</strong> in the soil.</p>
+<p>What does &quot;fixed&quot; mean here? Phosphate ions bind with iron, aluminum,
+and calcium in the soil to form <strong>insoluble phosphates</strong>. Plants
+cannot absorb insoluble phosphorus. So most of the applied fertilizer
+remains in the soil in a form plants cannot use. This is called
+<strong>&quot;legacy phosphorus.&quot;</strong></p>
+<p>After decades to a century of chemical fertilizer use, the topsoil of
+Japan's farmland is estimated to <strong>already contain enough phosphorus to grow crops for years to more than a decade</strong>.</p>
+<p>Add to that: in regions with geological mineral sources, nutrients
+beyond phosphorus are also potentially abundant.</p>
+<ul>
+<li>Weathering of <strong>green chlorite schist</strong> — silicate minerals containing
+magnesium and iron dissolve over long timescales</li>
+<li><strong>Alluvial silt</strong> from flooding — mineral-rich sediments brought
+from upstream</li>
+<li><strong>Volcanic ash soils</strong> — rich in many trace elements beyond phosphorus</li>
+</ul>
+<div class="quoteblock">
+<blockquote>
+<p>The problem is not a shortage of phosphorus or nutrients.
+<strong>It is the inability to convert the enormous nutrients already present into a form plants can use.</strong></p>
+</blockquote>
+</div>
+<p>The architecture that changes this is <strong>&quot;biological mining&quot;</strong> — the
+autonomous nutrient-recovery system based on the symbiosis of
+mycorrhizal fungi and plants, touched on at the end of Chapter 3.</p>
+<h3>Rothamsted long-term experiments — 8 years of normal growth on legacy phosphorus alone</h3>
+<p>The amount of legacy phosphorus is vast, and it is estimated that
+<strong>even if external phosphate fertilizer input is halted entirely, enough already lies in the topsoil for crops to grow healthily for several years, more than a decade, or even decades</strong>.</p>
+<p>In long-term field experiments conducted in England (Rothamsted),</p>
+<div class="quoteblock">
+<blockquote>
+<p>in barley cultivation, even when phosphate fertilizer was halved
+and finally halted entirely, <strong>for the first 8 years the surplus nutrients in the soil (legacy phosphorus) were sufficient to grow the crop normally, with no impact on yield.</strong></p>
+</blockquote>
+</div>
+<p>In other words, the real challenge of modern agriculture is not an
+&quot;absolute shortage of phosphorus.&quot; It is <strong>the lack of a biochemical mechanism to unlock the vault of accumulated &quot;legacy phosphorus&quot; and convert it into the soluble forms plants can use</strong>.</p>
+<table class="comparison-table fade-in">
+<thead>
+<tr>
+<th>Phosphorus dynamics</th>
+<th>Industrial agriculture (current)</th>
+<th>Biological-use potential</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Same-year recovery of applied P</td>
+<td><strong>10–25%</strong></td>
+<td>Approaching 100% over multiple years</td>
+</tr>
+<tr>
+<td>Treatment of residual soil P</td>
+<td>&quot;Loss&quot; — unabsorbed and inactivated</td>
+<td>&quot;Legacy phosphorus&quot; — usable via microbes</td>
+</tr>
+<tr>
+<td>Root cause of P shortage</td>
+<td>Insufficient physical input</td>
+<td>Dysfunction in microbial communities that solubilize accumulated P</td>
+</tr>
+</tbody>
+</table>
+<h3>Japan's Andisols — exceptionally high phosphate-fixation capacity, even by world standards</h3>
+<p>This phosphorus accumulation is <strong>especially pronounced in Japanese soils</strong>. The <strong>volcanic ash soils (Andisols, Japan's kuroboku volcanic ash soils)</strong> that dominate Japan's farmland have a high
+capacity for storing organic carbon, but also have very distinctive
+chemical properties.</p>
+<ul>
+<li>Andisols <strong>contain large amounts of amorphous aluminum (Alo) and iron (Feo)</strong></li>
+<li>The phosphate absorption coefficient (the soil's ability to bind
+phosphorus tightly to soil particles, turning it into insoluble
+forms unavailable to plants) is <strong>proportional to the Alo + 1/2 Feo content</strong></li>
+<li>As a result, Japanese soils have <strong>exceptionally high phosphate-fixation capacity, even by world standards</strong></li>
+</ul>
+<p>Farmers, to prevent phosphate deficiency in their crops, have for
+decades applied excess phosphate fertilizer continuously.
+<strong>Examples of organic phosphorus accumulation in Japanese farmland soils, based on measured data</strong> (about 50–60% of total phosphate
+accumulates as organic P):</p>
+<table class="comparison-table fade-in">
+<thead>
+<tr>
+<th>Soil condition / treatment</th>
+<th>pH</th>
+<th>Organic P (mg/kg)</th>
+<th>Organic P share</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Immature field (2010-UD1)</td>
+<td>5.4 ± 0.2</td>
+<td>329.0 ± 28.3</td>
+<td><strong>59.6%</strong></td>
+</tr>
+<tr>
+<td>Mature field (2010-FD1)</td>
+<td>5.8 ± 0.6</td>
+<td>321.3 ± 5.8</td>
+<td>52.4%</td>
+</tr>
+<tr>
+<td>Fertilizer-managed (1995-D2)</td>
+<td>6.5 ± 0.5</td>
+<td>243.7 ± 25.7</td>
+<td>55.2%</td>
+</tr>
+<tr>
+<td>Fertilizer-managed (2010-UD2)</td>
+<td>6.3 ± 0.2</td>
+<td>312.8 ± 32.8</td>
+<td><strong>62.7%</strong></td>
+</tr>
+</tbody>
+</table>
+<p>This phosphorus is physically and chemically there, but it <strong>lies dormant as &quot;unavailable phosphate,&quot; which plant roots alone cannot absorb</strong>. There is no physical necessity to keep importing expensive
+phosphate rock from outside. <strong>How to mobilize this &quot;phosphorus already present&quot; is the core determinant of the economics of next-generation agriculture.</strong></p>
+<h3>How the autonomous loop is configured</h3>
+<p>Instead of continually supplying precisely calculated chemical
+fertilizer from outside,</p>
+<ul>
+<li>Atmospheric CO2 → plant photosynthesis → soil via root exudates</li>
+<li>Root exudates feed <strong>mycorrhizal fungi</strong></li>
+<li>The fungal hyphae dissolve <strong>legacy phosphorus and weathered minerals</strong> in the soil</li>
+<li>Returned to plants as nutrients</li>
+</ul>
+<p>an <strong>autonomous loop</strong> is set up. The cost structure is fundamentally
+different.</p>
+<table class="comparison-table fade-in">
+<thead>
+<tr>
+<th>Item</th>
+<th>Industrial (incl. precision agriculture)</th>
+<th>Biological mining</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Inputs</td>
+<td>Fossil fuels, phosphate rock, naphtha-based coatings, sensors, cloud</td>
+<td>Sunlight, atmospheric CO2, seeds</td>
+</tr>
+<tr>
+<td>Running cost</td>
+<td>High (external materials, fuel, renewals, licenses)</td>
+<td>Near zero</td>
+</tr>
+<tr>
+<td>Control style</td>
+<td>Sensor + algorithm reactive control</td>
+<td>Real-time optimization by the mycorrhizal network</td>
+</tr>
+<tr>
+<td>Resilience</td>
+<td>Vulnerable to supply-chain breaks</td>
+<td>Resilient to environmental change and material shortages</td>
+</tr>
+</tbody>
+</table>
+<p>This is where soil microbes — especially mycorrhizal fungi — enter.</p>
+<h2>5.2 Mycorrhizal fungi — the plant's hidden partner</h2>
+<p>Plants look as if they are absorbing nutrients directly through their
+roots. The reality is different.</p>
+<p><strong>More than 80% of vascular plant species form symbioses with mycorrhizal fungi</strong> (Brundrett &amp; Tedersoo 2018: 72% arbuscular mycorrhizal, 8% non-mycorrhizal).</p>
+<p>Mycorrhizal fungi are fungi (relatives of molds) that live inside or
+around plant roots. They extend hyphae into the plant's roots,
+penetrating into the cells of the root. From there they extend
+countless hyphae outward, building a <strong>vast network</strong> in the soil.</p>
+<p>This network reaches far beyond the roots themselves. Plants can collect water
+and nutrients via mycorrhizal fungi from regions their own roots
+cannot reach.</p>
+<h3>A universal symbiosis built over 475 million years of evolution</h3>
+<p>The history of mycorrhizal–plant symbiosis is ancient, <strong>going back about 475 million years, to the early stage when plants emerged from the sea onto barren land</strong>. The first land plants, in a harsh
+environment of rock and sand where the very concept of &quot;soil&quot; did not
+yet exist, only succeeded in colonizing land by partnering with fungi
+to acquire essential minerals. <strong>This co-evolution of plants and fungi fundamentally rewrote the planetary carbon cycle, bringing about a dramatic environmental change in which atmospheric carbon dioxide (CO2) was reduced by as much as 90%.</strong></p>
+<p>Even today, this partnership is maintained with extreme robustness.
+By the latest estimates, <strong>80–90% of plants form symbioses with mycorrhizal fungi — an overwhelming majority of known land-plant species</strong>. There are several diverse groups, including
+<strong>ectomycorrhizae</strong> common to trees, and <strong>arbuscular mycorrhizal fungi (AMF)</strong>, which form symbioses with nearly all major crops —
+maize, wheat, soybean, and others.</p>
+<div class="quoteblock">
+<blockquote>
+<p>In nature, plants absorbing nutrients alone is the exception, not
+the rule. <strong>&quot;Outsourcing to mycorrhizal fungi&quot; is the default strategy</strong> of plant survival.</p>
+</blockquote>
+</div>
+<h3>The spatial reach of the hyphal network — beyond the roots</h3>
+<p>The volume of soil a plant can explore with its own root hairs alone
+amounts to just a few percent of the total soil. Most of the fine
+gaps inside the soil (micropores) are too tight for even root hairs,
+let alone roots, to enter. This is where mycorrhizal fungi exert
+their overwhelming physical advantage.</p>
+<p>Arbuscular mycorrhizal fungi (AMF) penetrate even into the cortical
+cells inside the plant root, forming a tiny nutrient-exchange organ
+called an <strong>&quot;arbuscule&quot; (the tree-shaped body)</strong>. From there they
+radiate countless microscopically thin hyphae outward into the soil,
+building a vast three-dimensional network (mycelium).</p>
+<p>The physical scale of this hyphal network is hard to imagine:</p>
+<ul>
+<li>Reaching a wide area, <strong>45–60 cm or more</strong> beyond the root itself</li>
+<li>Expanding the plant's effective nutrient-absorbing surface area
+<strong>greatly</strong></li>
+<li><strong>Up to about 90 m of fungal hyphae per 1 g of healthy soil</strong></li>
+<li>It is not unusual for <strong>several kilometers of hyphae</strong> to be
+threaded through a single teaspoon of soil</li>
+<li>The total length of fungal hyphae in the top 10 cm of soil across
+the entire planet is estimated at about <strong>4.5 quintillion km — half the Milky Way galaxy</strong></li>
+</ul>
+<p>Because hyphae are far thinner than root hairs, they readily enter
+microscopic soil pores and access water and nutrients tightly bound
+to mineral surfaces. Plants use this <strong>&quot;world's largest straw&quot; and &quot;giant underground communications network&quot;</strong> of mycorrhizal hyphae to
+gather resources from a wide range — including regions their own
+roots could never reach.</p>
+<h3>What mycorrhizal fungi do — a sophisticated nutrient-supply mechanism</h3>
+<p>The Australian soil scientist Christine Jones summarized it as follows
+in her paper &quot;Light Farming&quot; (2018).</p>
+<ul>
+<li><strong>Up to 90% of the nitrogen and phosphorus the plant needs</strong> can be
+supplied via mycorrhizal fungi</li>
+<li>By <strong>secreting powerful enzymes such as phosphatase, and organic acids</strong>, from the tip of the hyphae, they dissolve hard-to-solubilize
+phosphates bound to iron and calcium in the soil and convert them
+into phosphate ions plants can use</li>
+<li><strong>Phosphorus uptake by hyphae is 6 times faster than by root hairs; transport is 10 times faster</strong></li>
+<li>Mycorrhizal fungi can <strong>directly absorb organic nitrogen</strong> such as
+amino acids in the soil and, while preserving the molecular
+structure, deliver it through the hyphal network into the vacuoles
+of root cells, then transport it systemically all the way to the
+chloroplasts in the leaves</li>
+<li>They sharply increase the <strong>plant's drought tolerance</strong> (the
+network gathers water)</li>
+<li>They form physical and chemical barriers against pathogens, induce
+the production of defensive enzymes, and suppress and isolate
+uptake of heavy metals and excess salt</li>
+</ul>
+<p>So you can almost say &quot;the plant employs mycorrhizal fungi as a
+contractor.&quot; The plant is good at producing carbon by photosynthesis.
+Mycorrhizal fungi are good at gathering nutrients in the soil. They
+divide the labor and trade.</p>
+<p>Plant → mycorrhizal fungi: <strong>carbon</strong> (up to 20% of photosynthetic
+output)
+Mycorrhizal fungi → plant: <strong>water, phosphorus, nitrogen, minerals</strong></p>
+<p>This is a symbiosis built over 475 million years of evolution.</p>
+<h3>The synergistic consortium: AMF + phosphate-solubilizing bacteria (PSB)</h3>
+<p>AMF do not work alone — they form a synergistic functional consortium
+with <strong>PSB (phosphate-solubilizing bacteria)</strong>.</p>
+<ul>
+<li><strong>PSB</strong> produce inorganic acids such as carbonic acid (H₂CO₃),
+hydrochloric acid (HCl), nitric acid (HNO₃), and sulfuric acid
+(H₂SO₄), and a variety of organic acids, with the capacity to
+<strong>dissolve and solubilize insoluble inorganic phosphorus</strong></li>
+<li>AMF hyphae act as a <strong>physical &quot;highway&quot; for these PSB to move beyond the rhizosphere into patches of insoluble phosphorus in the soil</strong></li>
+<li>As a result, the resource-mobilization efficiency of the microbial
+community as a whole improves dramatically</li>
+</ul>
+<p>In field trials of maize on saline-alkaline soils in China (BeiWuLao
+and XuJiaZhen), in plots that integrated AMF while reducing chemical
+fertilizer (AHCF), compared to conventional fertilization plots,</p>
+<ul>
+<li>Yield increased by <strong>23.5% (11,475 → 14,175 kg/ha) up to a maximum of 81.2% (7,245 → 13,125 kg/ha)</strong></li>
+<li><strong>Available potassium (AK) in soil rose 77.7%</strong></li>
+<li><strong>Available phosphorus (AP) rose 33.9%</strong></li>
+<li>Ammonium nitrogen (AN) rose 57.3%</li>
+<li>Soil organic matter (SOM) rose 96.4%</li>
+</ul>
+<p>— a dramatic improvement in soil fertility was confirmed. <strong>It has been demonstrated that using AMF can cut the recommended chemical phosphate fertilizer application for crops by up to about 80%.</strong></p>
+<h3>The &quot;liquid carbon pathway&quot; — root exudates, not residue</h3>
+<p>Jones's central claim is the <strong>&quot;liquid carbon pathway.&quot;</strong> It is also
+an important correction to the agricultural science community.</p>
+<p>Industrial agriculture has misunderstood, believing that soil carbon
+is maintained by tilling <strong>crop residues (above-ground biomass)</strong> into
+the soil.</p>
+<p>But the result of Jones's <strong>analysis of 10 experiments</strong> showed:</p>
+<table class="comparison-table fade-in">
+<thead>
+<tr>
+<th>Carbon source</th>
+<th>Soil-stabilization rate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Above-ground biomass</td>
+<td>average <strong>only 8.3%</strong></td>
+</tr>
+<tr>
+<td>Plant <strong>root exudates</strong></td>
+<td>average <strong>46%</strong></td>
+</tr>
+</tbody>
+</table>
+<div class="quoteblock">
+<blockquote>
+<p>In other words, what makes soil fertile is not dead plant residue
+but <strong>the liquid carbon compounds living plants produce by photosynthesis and exude through their roots</strong>.</p>
+</blockquote>
+</div>
+<p>Plants exude sugars, enzymes, amino acids, and other compounds
+produced through photosynthesis through the roots, and these become
+strong signals and food for soil microbes (bacteria and mycorrhizal
+fungi). Microbes use this liquid carbon as an energy source to
+dissolve nutrients such as inorganic phosphate tightly bound to soil
+minerals, and supply them to the plant.</p>
+<p>Jones emphasizes that <strong>&quot;plant diversity&quot;</strong> is essential for this
+biological exchange to function. <strong>Industrial agriculture, growing a single crop with chemical fertilizer and fungicides, directly inhibits microbial activity and thereby drives farmers further into dependence on more expensive pesticides and fertilizers.</strong></p>
+<p>This means that modern soil ecology independently corroborates the
+<strong>&quot;no weeding&quot;</strong> principle Masanobu Fukuoka articulated — keeping
+living grass roots in the ground continuously — covered in Chapter 8.</p>
+<h3>Why &quot;up to 90%&quot;</h3>
+<p>In a natural state without chemical fertilizers, plants getting their
+nutrients <strong>via mycorrhizal fungi</strong> is far more efficient than
+absorbing them directly through their own roots.</p>
+<p>Because:</p>
+<ul>
+<li>Hyphae are far thinner than roots and can enter the soil's tiny
+spaces</li>
+<li>The hyphal network is on a wholly different scale</li>
+<li>Mycorrhizal fungi have enzymes that solubilize insoluble phosphorus</li>
+</ul>
+<p>Evolutionarily, plants chose the path of &quot;outsourcing to mycorrhizal
+fungi&quot; because it was efficient.</p>
+<div class="quoteblock">
+<blockquote>
+<p>In natural conditions without chemical fertilizer, the lead actor
+in plant nutrition was the mycorrhizal network — not the roots.</p>
+</blockquote>
+</div>
+<h2>5.3 Chemical fertilizer has been breaking the symbiosis</h2>
+<p>Here is an ironic fact.</p>
+<p><strong>Chemical fertilizer breaks the mycorrhizal symbiosis.</strong></p>
+<p>This is not a story about &quot;overuse.&quot; It is the fact that <strong>the moment water-soluble chemical fertilizer is applied, the symbiotic circuit shuts down at the molecular level</strong>.</p>
+<h3>Closing the &quot;carbon faucet&quot; and the GA signal</h3>
+<p>The mechanism by which chemical fertilizer destroys the soil
+ecosystem is not direct toxicity, like a pesticide's. It is the
+<strong>&quot;cancellation of an economic transaction&quot; (ecological decoupling)</strong>
+between plants and microbes that had been operating at a sophisticated
+level.</p>
+<p>The plant–mycorrhizal relationship is a mutual exchange of carbon and
+nutrients (phosphorus, nitrogen, and so on). However:</p>
+<div class="quoteblock">
+<blockquote>
+<p>When high concentrations of water-soluble phosphate fertilizer or
+synthetic nitrogen fertilizer are scattered across the soil, the
+area around the plant's roots is temporarily overflowing with
+nutrients that can be absorbed directly without relying on the
+mycorrhizal network. When the plant's sensors perceive this excess
+nutrient state, the plant performs an evolutionary-chemical cost
+calculation. It judges, &quot;if there are nutrients this easily
+absorbable around me, there is no need to spend precious energy
+(liquid carbon) handing it over to mycorrhizal fungi,&quot; and <strong>stops investing in the symbiosis</strong>.</p>
+</blockquote>
+</div>
+<p>This closure of the &quot;carbon faucet&quot; has had its <strong>detailed mechanism elucidated</strong> in recent molecular-biological research.</p>
+<p><strong>Normal symbiosis process:</strong></p>
+<ol>
+<li>The plant releases molecular signals from its roots, such as
+strigolactones and flavonoids</li>
+<li>AMF hyphal growth is promoted</li>
+<li>AMF produce <strong>&quot;Myc factor&quot; (a mixture of chitooligosaccharides and ribosaccharides)</strong></li>
+<li>Recognized at the plant cell membrane, <strong>calcium oscillations</strong> in
+and around the nucleus are triggered, activating the symbiotic
+pathway</li>
+</ol>
+<p><strong>Chemical fertilizer's blocking of the symbiotic circuit:</strong></p>
+<ul>
+<li>When high concentrations of phosphate (Pi) are supplied, the plant
+itself blocks the symbiotic pathway via the plant hormone
+<strong>GA (gibberellic acid)</strong></li>
+<li>Under high-phosphate conditions, <strong>GA biosynthesis levels rise</strong> in
+mycorrhized roots, acting as a powerful inhibitor of AMF symbiotic
+development</li>
+<li>In genetically modified tobacco lines that express GA
+methyltransferase to lower GA signaling, <strong>AMF colonization levels rise even under high-phosphate conditions</strong> has been demonstrated</li>
+<li>High-phosphate treatment does not immediately destroy already
+formed, finely branched arbuscules (the main nutrient-exchange
+sites), but it <strong>selectively inhibits &quot;the development of new arbuscules&quot;</strong></li>
+</ul>
+<p>In other words, when chemical fertilizer is applied, the plant senses
+&quot;phosphorus is easily obtainable from outside,&quot; and to save energy
+(carbon) <strong>voluntarily shuts down the symbiotic circuit with AMF</strong> via
+GA signaling and the like.</p>
+<h3>The death of the network and &quot;fertilizer addiction&quot;</h3>
+<p>Arbuscular mycorrhizal fungi, which depend entirely on plant-derived
+liquid carbon as their energy source, are <strong>obligate biotrophs</strong>, so
+when the host's carbon supply is cut off, they cannot survive. As a
+result, the mycorrhizal fungi's activity slows, and over time the
+vast hyphal network dies and shrinks.</p>
+<p>When the mycorrhizal network collapses, a fatal domino effect (a
+negative loop) propagates through the entire soil ecosystem.</p>
+<ol>
+<li><strong>Collapse of physical structure</strong>: with mycorrhizal fungi dying,
+the continuous production of glomalin — soil's adhesive — ceases.
+Soil aggregate structure gradually breaks down, the soil hardens
+(compaction), and drainage and air permeability deteriorate
+sharply</li>
+<li><strong>Loss of environmental tolerance</strong>: the water-collection system
+provided by hyphal networks far wider
+than the root system is lost, leaving plants extremely vulnerable
+to drought</li>
+<li><strong>Trace-element deficiency and falling nutrient density</strong>:
+chemical fertilizer supplies major elements such as N, P, K in
+bulk, but the mycorrhizal system that gathers diverse trace
+minerals such as zinc, copper, magnesium, and cobalt from a wide
+range is lost. As a result, the crop may grow large in appearance
+while internal mineral density (nutrient value) drops sharply —
+the <strong>&quot;empty calorie&quot; effect</strong> advances</li>
+<li><strong>Fertilizer runoff and immobilized legacy phosphorus</strong>: the
+soil's retention functions (aggregates and microbial biomass) are
+lost, so most of the heavily applied fertilizer does not stay in
+the soil and flows into groundwater and rivers, causing serious
+water pollution (eutrophication). At the same time, the means
+for solubilizing the enormous &quot;legacy phosphorus&quot; immobilized in
+the soil by phosphatase enzymes is also entirely lost, and farmers
+must keep buying expensive water-soluble phosphate fertilizer
+every year</li>
+</ol>
+<p>A soil that has been on chemical fertilizer for years to decades like
+this falls into a state of severely impoverished microbial flora and
+physical degradation. <strong>In this state, the soil environment has been optimized for microbes &quot;not to work.&quot;</strong></p>
+<div class="quoteblock">
+<blockquote>
+<p>When you use chemical fertilizer, the plant itself sends the signal
+to soil microbes: &quot;you are no longer needed.&quot; As a result, the
+microbes are out of work and disappear from the soil. That is why
+a state arises in which &quot;without chemical fertilizer, the crop
+won't grow at all.&quot; This is by no means natural law — it is the
+result of a self-fulfilling <strong>&quot;withdrawal symptom&quot; produced by the structure of dependence on chemical fertilizer itself</strong>.</p>
+</blockquote>
+</div>
+<p>If you stop chemical fertilizer all at once, yields drop for the
+first few years. <strong>It takes time for the soil ecosystem to recover.</strong></p>
+<p>Conversely: with time, it does recover. <strong>Mycorrhizal fungi return as long as living roots are there</strong> (as noted, AMF are obligate
+biotrophs, so living roots are essential).</p>
+<h2>5.4 The misconception that &quot;natural farming is spiritualism&quot;</h2>
+<p>Let me emphasize an important point here.</p>
+<p>When this series says &quot;migrate to natural farming,&quot; it is not based on</p>
+<ul>
+<li>The philosophy of &quot;respect for the wisdom of our ancestors&quot;</li>
+<li>The aesthetics of &quot;harmony with nature&quot;</li>
+<li>The norm of &quot;organic is correct&quot;</li>
+</ul>
+<p>Rather, it is based on:</p>
+<ul>
+<li>Chemical fertilizer rises in price (economics)</li>
+<li>The accounting of industrial agriculture breaks down (economics)</li>
+<li>The soil already has phosphorus (physics)</li>
+<li>Microbes can mobilize it (biology)</li>
+<li>Chemical fertilizer was stopping the microbes (biology)</li>
+</ul>
+<p>— from these facts of economics, physics, and biology, microbe-based
+farming is what remains by elimination.</p>
+<div class="quoteblock">
+<blockquote>
+<p>It is not &quot;live in harmony with nature.&quot;
+It is &quot;let microbes stand in, because we won't be able to buy
+chemical fertilizer.&quot;</p>
+</blockquote>
+</div>
+<p>This is not spiritualism — it is a story of accounting and physics.
+And so, independent of whether you sympathize with organic farming or
+hold any naturalist faith, the conclusion follows: <strong>only this direction is economically viable.</strong></p>
+<h3>But human knowledge has limits — learn from 500 million years of evolution</h3>
+<p>Here a very important caveat must be added.</p>
+<div class="quoteblock">
+<blockquote>
+<p>The conclusion &quot;microbe-based farming,&quot; derived from facts of
+economics, physics, and biology, is <strong>the most coherent answer within what humans currently know</strong>.
+But it is <strong>not necessarily the right answer</strong>.</p>
+</blockquote>
+</div>
+<p>What humans know about nature is only a small part.</p>
+<p>Land plants have a history of <strong>about 500 million years</strong>.</p>
+<ul>
+<li>475 million years ago: plants moved onto land (covered earlier in
+this chapter)</li>
+<li>Since then, through countless trial and error, <strong>enormous diversity</strong>
+has emerged</li>
+<li>Millions of plant species, tens of millions of microbial species,
+and the ecosystems they weave</li>
+<li>For each region, each climate, each soil, <strong>&quot;the answer that holds there&quot;</strong> has evolved on its own</li>
+</ul>
+<p>Against this <strong>500-million-year accumulation of evolution</strong>, human
+scientific knowledge has only <strong>about 150 years</strong> of history.
+Discoveries such as the function of AMF, the liquid carbon pathway,
+and glomalin are stories of <strong>the last 30 years</strong>.</p>
+<div class="quoteblock">
+<blockquote>
+<p>Concluding &quot;microbe-based farming&quot; from facts of economics,
+physics, and biology is the most coherent answer at present.
+But it is only the optimum <strong>within the range humans know</strong>.
+<strong>Nature itself knows much more.</strong></p>
+</blockquote>
+</div>
+<h3>Diversity is the answer of 500 million years</h3>
+<p>What 500 million years of evolution produced is <strong>not a single &quot;correct answer.&quot;</strong> It is <strong>an enormous number of locally balanced solutions</strong> combining region, climate, soil, microbes, plants, and
+animals.</p>
+<ul>
+<li>Tropical rainforest ecosystems</li>
+<li>Temperate deciduous forest ecosystems</li>
+<li>Volcanic ash soil (Andisols) ecosystems</li>
+<li>Wetland ecosystems</li>
+<li>Terraced rice field ecosystems (made by humans, but already
+thousands of years old)</li>
+<li>Secondary-forest ecosystems of satoyama</li>
+</ul>
+<p>All of these are <strong>separate answers optimized for their place</strong>. When
+this series says &quot;migrate to microbe-based agriculture,&quot; it does not
+mean <strong>unifying everything to a particular form</strong>.</p>
+<div class="quoteblock">
+<blockquote>
+<p>The answer 500 million years of evolution gave is <strong>diversity itself</strong>.
+Each region, each field, each household — learning from nature's
+diversity and <strong>finding their own answer</strong> — that is the proper
+picture.</p>
+</blockquote>
+</div>
+<h3>&quot;Deduction&quot; alone is not enough — observation is required</h3>
+<p><strong>Deductive reasoning</strong> from economics, physics, and biology is
+sufficient to indicate direction. But <strong>in the actual field, observation and trial and error are equally important.</strong></p>
+<ul>
+<li>Look at your own field carefully</li>
+<li>Listen to the behavior of plants and microbes that have 500 million
+years of history</li>
+<li>Don't apply textbook answers; learn what is happening in your land</li>
+<li>Learn from failures; adjust</li>
+<li>Respect diversity</li>
+</ul>
+<p>When Masanobu Fukuoka arrived at the principles of &quot;no weeding, no
+tilling, no fertilizer, no pesticide,&quot; it was not from <strong>deduction</strong>
+but from <strong>observation and practice</strong>. His four principles have since
+been backed up by scientific research (as we saw in this chapter) —
+but he did not start from scientific facts; <strong>he started from observing nature</strong>.</p>
+<div class="quoteblock">
+<blockquote>
+<p>The direction shown by economics, physics, and biology is probably
+right.
+But to implement that direction, <strong>the humility to learn from nature itself</strong> is required.
+Diversity with 500 million years of history cannot be replaced by
+150 years of science alone.</p>
+</blockquote>
+</div>
+<p>The logic this series presents is <strong>a first sense of direction</strong>.
+When you actually move with it, you must observe <strong>your own land, your own climate, your own microbial flora, your own crops</strong> carefully,
+and find your own solution while respecting the <strong>diversity</strong> that
+500 million years of evolution shows.</p>
+<h3>Delegating farming to AI overlooks a double limitation</h3>
+<p>Here let me add one more important caveat. In recent years,
+<strong>&quot;AI-driven precision agriculture&quot;</strong> — integrating satellite imagery,
+drones, soil sensors, and AI analysis — has sometimes been spoken of
+as the savior of agriculture.</p>
+<p>But AI has an <strong>essential limitation</strong>.</p>
+<div class="quoteblock">
+<blockquote>
+<p><strong>AI has only learned from books and the internet — text.</strong></p>
+</blockquote>
+</div>
+<p>AI is</p>
+<ul>
+<li>not directly touching the soil</li>
+<li>not directly looking at plant roots</li>
+<li>not directly observing the mycorrhizal hyphal network</li>
+<li>not directly feeling the microclimate or water veins of that field</li>
+</ul>
+<p>What AI &quot;knows&quot; is limited to <strong>what humans have written down up to now</strong>. Further: it is limited to <strong>what has been digitized and exists on the internet</strong>.</p>
+<p>In other words,</p>
+<div class="quoteblock">
+<blockquote>
+<p>AI is merely organizing, summarizing, and combining <strong>what 150 years of human science has recorded</strong>.
+Most of the diversity 500 million years of evolution produced has
+<strong>not been recorded by humans</strong>. What is not recorded, AI does not
+know either.
+AI is <strong>a &quot;copy of a copy&quot; of human knowledge</strong> — not a primary
+observer.</p>
+</blockquote>
+</div>
+<h3>A double limitation</h3>
+<p>To elevate &quot;AI-driven precision agriculture&quot; to be agriculture's final
+arbiter overlooks a <strong>double limitation</strong>.</p>
+<ul>
+<li><strong>First limitation</strong>: human science itself is only <strong>150 years</strong>
+against 500 million years of evolution</li>
+<li><strong>Second limitation</strong>: of that 150 years, AI only knows the part
+that has been <strong>written down and digitized</strong></li>
+</ul>
+<p>Much of traditional farming wisdom — for example, the decades of
+observation through which Fukuoka arrived at &quot;no weeding,&quot; local
+indigenous farming methods, the bodily sense required to maintain
+terraced rice fields — has been <strong>neither published as papers nor digitized</strong>. There is currently no way for AI to learn it.</p>
+<p>In addition, the <strong>specificity</strong> of each field — where water tends to
+pool, which slopes catch the sun, where animal trails run, what weeds
+grow where and how — is <strong>living information</strong> that changes year by
+year, day by day. This too is impossible for AI to learn in advance.</p>
+<h3>Use AI as an &quot;assistant&quot;</h3>
+<p>This is not a &quot;don't use AI&quot; story. This site (aiseed.dev) runs in
+parallel a series, <a href="/ai-native-software/">AI-Native Software Development</a>, that
+recommends using AI as a &quot;colleague.&quot; AI is</p>
+<ul>
+<li>organizing and summarizing literature</li>
+<li>aggregating and visualizing data</li>
+<li>reminders for seasonal work</li>
+<li>early warning of pests and diseases (image recognition)</li>
+<li>question-answering that draws out existing knowledge</li>
+</ul>
+<p>— extremely useful as an assistant.</p>
+<p>But:</p>
+<div class="quoteblock">
+<blockquote>
+<p><strong>It is wrong to entrust the final agricultural decision to AI.</strong>
+AI has only learned from what humans have written. It is not
+directly looking at soil, plants, or mycorrhizal fungi.
+Touching your own soil, observing plants, listening to the behavior
+of microbes — none of this can be substituted by AI.
+AI is the assistant; the final call is made by <strong>a flesh-and-blood human, observing 500 million years of nature</strong> — that is the right
+way to use it.</p>
+</blockquote>
+</div>
+<p>If you place precision agriculture or AI analysis at the
+&quot;destination,&quot; then on top of the supply-chain trap (Chapter 3), you
+are also locked inside the <strong>epistemological trap of &quot;the range of human written knowledge.&quot;</strong></p>
+<p>Tools are tools. <strong>Judgment is made by a human in direct dialogue with nature.</strong></p>
+<h2>5.5 The method that remains by elimination</h2>
+<p>Let me organize. What disappears, and why?</p>
+<table class="comparison-table fade-in">
+<thead>
+<tr>
+<th>Option</th>
+<th>Why it disappears</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Continue industrial agriculture</td>
+<td>Soaring fertilizer prices eat profits</td>
+</tr>
+<tr>
+<td>Aim for full self-sufficiency</td>
+<td>Fertilizer, land, energy all insufficient</td>
+</tr>
+<tr>
+<td>Sustain via government subsidies</td>
+<td>The funding source can't last; you can't buy fertilizer with subsidies</td>
+</tr>
+<tr>
+<td>Total dependence on overseas produce</td>
+<td>Rising import prices squeeze household budgets</td>
+</tr>
+</tbody>
+</table>
+<p>What remains is:</p>
+<ul>
+<li>Maintain domestic production as much as possible</li>
+<li>But by methods that do not depend on chemical fertilizer</li>
+<li>Use the phosphorus already in the soil and the soil microbial
+network</li>
+<li>Cover the shortfall with imports</li>
+</ul>
+<p>This is the elimination conclusion.</p>
+<h2>5.6 Selecting resilient crops — minimize input resources</h2>
+<p>To run the biological-mining architecture cost-efficiently, beyond
+the mycorrhizal network, <strong>the choice of crop itself</strong> is decisively
+important.</p>
+<p>Precision agriculture and industrial agriculture have presupposed
+<strong>varieties whose performance only emerges when humans pour in massive management resources</strong> — the F1 hybrid varieties being the
+representative case (covered in detail in Chapter 7). Biological
+mining, by contrast, can minimize human and material input by
+choosing</p>
+<ul>
+<li>crops with <strong>the vitality of weeds</strong></li>
+<li><strong>indigenous varieties with high environmental adaptability and open-pollinated reproducibility</strong></li>
+<li>crops <strong>that can be deployed at scale by direct seeding</strong></li>
+</ul>
+<h3>Examples of resilient crops</h3>
+<table class="comparison-table fade-in">
+<thead>
+<tr>
+<th>Group</th>
+<th>Crop</th>
+<th>Why it is resilient</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cucurbits</td>
+<td><strong>Trombetta di Albenga (Trombetta squash, the elongated squash type)</strong></td>
+<td>Weed-like vitality, open-pollinated, dozens of fruits per single vine</td>
+</tr>
+<tr>
+<td>Legumes (Fabaceae)</td>
+<td>Soybean, azuki, pea, clover, milkvetch (renge)</td>
+<td>Self-fixes N via rhizobia, AMF symbiosis</td>
+</tr>
+<tr>
+<td>Grasses (Poaceae)</td>
+<td>Native rice, traditional wheat, millets (buckwheat, foxtail millet, barnyard millet)</td>
+<td>Bred for low input, strong AMF symbiosis</td>
+</tr>
+<tr>
+<td>Root crops</td>
+<td>Sweet potato, taro, yam, konjac</td>
+<td>Tolerant of poor soils, good storage</td>
+</tr>
+<tr>
+<td>Perennial fruit</td>
+<td>Persimmon, chestnut, mandarin, peach, plum, loquat</td>
+<td>Mycorrhizal + deep roots, low management labor</td>
+</tr>
+<tr>
+<td>Perennial herbs</td>
+<td>Myoga, garlic chives, shiso, ashitaba, butterbur</td>
+<td>Once rooted, self-propagate autonomously</td>
+</tr>
+<tr>
+<td>Mushrooms</td>
+<td>Shiitake, nameko, oyster, naratake</td>
+<td>Recover nutrients from rotting wood and fallen leaves</td>
+</tr>
+</tbody>
+</table>
+<p>In particular, <strong>Trombetta di Albenga (Trombetta squash, an elongated zucchini/squash originating in Italy)</strong>:</p>
+<ul>
+<li>bears 10–30 fruits on a single vine even on weed-overgrown
+wasteland</li>
+<li>maintains stable traits even when seed-saved</li>
+<li>has high pest and disease resistance and can be grown without
+pesticides</li>
+<li>the young fruit (as zucchini) and mature fruit (as squash) are
+both edible</li>
+<li>stores for long periods (months to half a year)</li>
+</ul>
+<p>— a typical example of a crop <strong>optimal for the biological-mining architecture</strong>.</p>
+<h3>A &quot;plant and wait&quot; system</h3>
+<p>Deploying these resilient crops with <strong>diversity, in mixed direct seeding</strong>, makes the following system possible:</p>
+<ul>
+<li>Sow seeds (or plant seedlings)</li>
+<li>Minimum protection if needed (e.g., against animal damage)</li>
+<li>Management close to leaving alone until harvest</li>
+</ul>
+<p>There is no need to <strong>monitor sensors daily and calculate inputs</strong>, as
+in precision agriculture.</p>
+<div class="quoteblock">
+<blockquote>
+<p>What achieves &quot;the cost structure with the least waste&quot; is not
+adding complex control, but combining <strong>crops with autonomous vitality and the soil microbial network that supports them</strong>.</p>
+</blockquote>
+</div>
+<p>As we will see in Chapter 6, rising CO2 concentration acts as a
+<strong>tailwind</strong> for this autonomous system. Conversely, industrial
+agriculture, premised on chemical fertilizer, pesticide, and F1
+varieties, faces the paradoxes of &quot;nitrogen depletion&quot; and &quot;hidden
+hunger&quot; under rising CO2 (see Chapter 6).</p>
+<h2>5.7 So how do you actually run it?</h2>
+<p>&quot;Have microbes stand in&quot; — concretely, what do you do?</p>
+<p>This is the theme of the second half of this series — Chapters 7 and
+8. The concrete principles are:</p>
+<ul>
+<li><strong>Don't till</strong> (so as not to break the microbial network)</li>
+<li><strong>Don't make bare soil</strong> (to preserve soil temperature and moisture
+and protect microbes)</li>
+<li><strong>Grow diverse plants</strong> (to support diverse microbes)</li>
+<li><strong>Don't use chemical fertilizer or pesticide</strong> (so as not to kill
+microbes)</li>
+<li><strong>Don't let living roots disappear</strong> (mycorrhizal fungi can only
+receive nutrients from living roots)</li>
+</ul>
+<p>There is one point here that is easily misunderstood.</p>
+<p>In Japan, Masanobu Fukuoka's natural farming has held <strong>no weeding</strong> —
+not cutting weeds — as a principle. By contrast, in regenerative
+agriculture overseas, <strong>grass mulch</strong> and <strong>cover crops</strong> are
+sometimes recommended.</p>
+<p>How should this difference be understood? Chapter 8 covers it in
+detail. Just to summarize the gist:</p>
+<div class="quoteblock">
+<blockquote>
+<p><strong>What mycorrhizal fungi need is &quot;living roots.&quot;</strong>
+Cut grass laid on the ground does not become a nutrient source for
+mycorrhizal fungi. Fukuoka's &quot;no weeding&quot; is consistent with the
+principle of mycorrhizal symbiosis in that it keeps living roots
+from being severed.</p>
+</blockquote>
+</div>
+<p>This is the point at which traditional natural farming and the latest
+soil science are, in the end, saying the same thing.</p>
+<h2>5.8 Summary of Chapter 5</h2>
+<ul>
+<li>The soil already holds enormous phosphorus (cumulative chemical
+fertilizer)</li>
+<li>The accumulated phosphorus is in a form (insoluble) plants cannot
+absorb</li>
+<li>Mycorrhizal fungi solubilize insoluble phosphorus and supply it to
+the plant</li>
+<li>Up to 90% of the nutrients a plant needs can be obtained via
+mycorrhizal fungi</li>
+<li>Chemical fertilizer has been breaking this symbiotic relationship</li>
+<li>If you stop using chemical fertilizer and keep living roots in the
+ground, the symbiosis recovers</li>
+<li>This is not spiritualism — it is derived from facts of economics,
+physics, and biology</li>
+</ul>
+<p>The next chapter looks at one more tailwind fact: <strong>rising CO2 concentration boosts plant growth</strong>. Climate change is often
+described in negative terms, but for agriculture there are also
+unexpected positives.</p>
+<p>Looking at the relationship between CO2 and soil microbes, you can
+see that now is a <strong>rare opportunity</strong> to migrate to microbe-based
+agriculture.</p>
+<h2>References</h2>
+<p><strong>Mycorrhizal fungi and soil microbiome science</strong></p>
+<ul>
+<li>Christine Jones, &quot;Light Farming: Restoring Carbon, Organic Nitrogen
+and Biodiversity to Agricultural Soils&quot; (2018) — the liquid carbon
+pathway, soil-stabilization rates of 8.3% (above-ground) vs 46%
+(root exudates)</li>
+<li>&quot;Mycorrhizal Fungi Explainer and Definition&quot; — Society for the
+Protection of Underground Networks (SPUN) — 475 million years of
+evolution; 4.5 quintillion km of fungal hyphae globally</li>
+<li>&quot;Mycorrhiza: The Hidden Plant Support Network&quot; — USDA NRCS</li>
+<li>&quot;A phosphorus threshold for mycoheterotrophic plants in tropical
+forests&quot; — PMC NIH (about 80–90% of land plants form mycorrhizal
+symbioses)</li>
+<li>Sara F. Wright (USDA-ARS) — discovery of glomalin and its
+contribution to soil aggregate structure</li>
+<li>Kristine Nichols — glomalin secretion from AMF hyphae</li>
+<li>Plantae plant database — literature on the non-mycorrhizal families
+Brassicaceae and Amaranthaceae (Chenopodiaceae)</li>
+</ul>
+<p><strong>Legacy phosphorus</strong></p>
+<ul>
+<li>&quot;Farmers are facing a phosphorus crisis. The solution starts with
+soil.&quot; — National Geographic</li>
+<li>&quot;USDA Legacy Phosphorus Assessment Project&quot; — Natural Resources
+Conservation Service</li>
+<li>&quot;The Occurrence of Legacy P Soils and Potential Mitigation
+Practices Using Activated Biochar&quot; — PMC9238423</li>
+<li>&quot;Evaluation of Phosphorus Enrichment in Groundwater by Legacy
+Phosphorus in Orchard Soils&quot; — ACS Publications, acs.est.3c07170</li>
+<li>&quot;Characteristics of Organic Phosphorus Pool in Soil of Typical
+Agriculture Systems in South China&quot; — MDPI 2311-7524/8/11/1055</li>
+<li>&quot;Phosphate binding to allophane and ferrihydrite with implications
+for volcanic ash soils&quot; — ResearchGate (Andisols, Japan's kuroboku
+volcanic ash soils)</li>
+</ul>
+<p><strong>Plant uptake rates and fixation mechanisms of chemical fertilizer</strong></p>
+<ul>
+<li>&quot;A new perspective on the efficiency of phosphorus fertilizer use&quot; —
+IUSS 19th WCSS Symposium (10–25% same-year recovery, wet-process
+method)</li>
+<li>&quot;A review on phosphorus drip fertigation in the Mediterranean
+region&quot; — PMC10850969</li>
+<li>&quot;Which method for calculation of fertilizer phosphorus use
+efficiency is better?&quot; — ResearchGate</li>
+<li>Technical literature on the absorption rate and manufacturing
+process of fused phosphate fertilizer</li>
+</ul>
+<p><strong>AMF + PSB synergy and demonstration data</strong></p>
+<ul>
+<li>Maize AHCF field trials on saline-alkaline soils in China
+(BeiWuLao and XuJiaZhen) — yield +23.5–81.2%, fertilizer reduction
+potential of 80%</li>
+<li>&quot;Mycorrhiza: a natural resource assists plant growth under varied
+soil conditions&quot; — PMC7165205</li>
+<li>Microbiology literature on the synergistic consortium of phosphate-
+solubilizing bacteria (PSB) and arbuscular mycorrhizal fungi</li>
+</ul>
+<p><strong>Molecular mechanisms of symbiosis inhibition by chemical fertilizer</strong></p>
+<ul>
+<li>Molecular biology literature on the shutdown of the AMF symbiotic
+circuit by GA (gibberellic acid) signaling</li>
+<li>Research on activation of the symbiotic pathway by strigolactones,
+Myc factor, and calcium oscillations</li>
+<li>Research on rising GA biosynthesis under high-phosphate conditions
+and inhibition of AMF colonization</li>
+</ul>
+<p><strong>Resilient crops</strong></p>
+<ul>
+<li>Horticultural literature on the cultivation characteristics of
+Trombetta di Albenga, the elongated squash originating in Italy</li>
+<li>Local case reports on the low-input suitability of indigenous
+potatoes, indigenous root crops, and traditional grains</li>
+</ul>
+<p><strong>Green chlorite schist and alluvial silt</strong></p>
+<ul>
+<li>Geological literature on mineral supply from weathered green
+chlorite schist</li>
+<li>Soil science literature on agricultural mineral supply from
+alluvial silt</li>
+</ul>
+
+  </article>
+
+  <nav class="chapter-nav">
+  <a href="/en/phosphorus-and-farming/realistic-position/" rel="prev">&larr; Prev: Chapter 4: A Realistic Position</a>
+  <a href="/en/phosphorus-and-farming/co2-tailwind/" rel="next">Next: Chapter 6: CO2 as a Tailwind &rarr;</a>
+</nav>
+
+  <footer class="site-footer">
+    <nav class="footer-nav" aria-label="Site links">
+      <div class="footer-col">
+        <h4>Series</h4>
+        <ul>
+          <li><a href="/en/insights/">Structural Analysis</a></li>
+          <li><a href="/en/blog/">Blog</a></li>
+          <li><a href="/en/ai-native-software/">AI-Native Software Development</a></li>
+          <li><a href="/en/claude-debian/">Learning Debian with Claude</a></li>
+          <li><a href="/en/debian-server/">Growing a Debian Server with Claude</a></li>
+          <li><a href="/en/phosphorus-and-farming/">Phosphorus Depletion and Natural Farming</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Site</h4>
+        <ul>
+          <li><a href="/en/">Home</a></li>
+          <li><a href="/en/natural-farming/">Natural Farming</a></li>
+          <li><a href="/en/light-farming/">Light Farming</a></li>
+          <li><a href="/gallery/">Field Notes</a></li>
+          <li><a href="/en/about/">Our Approach</a></li>
+          <li><a href="/en/privacy/">Privacy</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Related Sites</h4>
+        <ul>
+          <li><a href="https://aiai.aiseed.dev/">aiai — Learning in the AI Era</a></li>
+          <li><a href="https://weather.time-j.net/">Personal Weather Statistics for Japan</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="colophon">
+      <div class="colophon-mark">§</div>
+      Phosphorus Depletion and Natural Farming Series · Chapter 5<br>
+      Tokushima · 2026.05.10<br>
+      <a href="/en/" style="color: var(--whisper); text-decoration: underline; text-decoration-color: var(--rule);">aiseed.dev</a> · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" style="color: var(--whisper); text-decoration: underline; text-decoration-color: var(--rule);">CC BY 4.0</a>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  // Keep the contents sidebar expanded on wide screens (collapsible on narrow ones)
+  (function () {
+    var toc = document.querySelector(".series-toc details");
+    if (!toc) return;
+    var mq = window.matchMedia("(min-width: 1200px)");
+    function sync() { toc.open = mq.matches; }
+    sync();
+    if (mq.addEventListener) mq.addEventListener("change", sync);
+    else mq.addListener(sync);
+  })();
+
+  // Mermaid loads only on pages that contain a .mermaid block.
+  // Self-hosted (no third-party CDN dependency); SRI verified.
+  if (document.querySelector(".mermaid")) {
+    const s = document.createElement("script");
+    s.src = "/js/vendor/mermaid-11.14.0.min.js";
+    s.integrity = "sha384-1CMXl090wj8Dd6YfnzSQUOgWbE6suWCaenYG7pox5AX7apTpY3PmJMeS2oPql4Gk";
+    s.crossOrigin = "anonymous";
+    s.onload = () => {
+      const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+      mermaid.initialize({ startOnLoad: false, theme: prefersDark ? "dark" : "default" });
+      mermaid.run();
+    };
+    document.head.appendChild(s);
+  }
+</script>
+
+</body>
+</html>

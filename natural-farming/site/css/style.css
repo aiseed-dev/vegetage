@@ -1,0 +1,1729 @@
+/* ============================================
+   Natural Farming Website - Main Stylesheet
+   AI時代の暮らし
+   ============================================ */
+
+/* CSS Variables */
+:root {
+    --earth-dark: #2d2a24;
+    --earth-brown: #5c4a3d;
+    --soil-rich: #6b5344;
+    --leaf-green: #4a6741;
+    --leaf-dark: #3a5331;
+    --moss-green: #7a9a6d;
+    --sand-light: #f5f0e8;
+    --cream: #faf8f3;
+    --clay: #c9b8a3;
+    --root-tan: #d4c4a8;
+    --sky-pale: #e8ebe4;
+    --olive: #808a5c;
+
+    --font-serif: 'Georgia', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+    --font-sans: -apple-system, BlinkMacSystemFont, 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Meiryo', sans-serif;
+
+    --transition-base: 0.3s ease;
+    --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.08);
+    --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.12);
+
+    /* Adaptive border tints (subtle dividers). Reassigned in dark mode so
+       they remain visible against the dark background. */
+    --border-subtle: rgba(0, 0, 0, 0.08);
+    --border-faint: rgba(0, 0, 0, 0.05);
+    --hover-tint: rgba(0, 0, 0, 0.03);
+
+    /* Inverted / anchor sections (footer, dark sections, green CTA).
+       These are dark-on-light bands in light mode and must stay dark in
+       dark mode — so they are NOT derived from the flipping palette. */
+    --footer-bg: #2d2a24;
+    --footer-text: #c9b8a3;
+    --footer-heading: #f5f0e8;
+    --section-dark-bg: #2d2a24;
+    --section-dark-text: #f5f0e8;
+    --cta-bg: #4a6741;
+    --cta-text: #faf8f3;
+}
+
+/* --- Dark theme (warm dark / 暖かい焼げ茶系) ---
+   Variables are re-bound so the existing CSS continues to work as-is.
+   The earth-tone identity is preserved: backgrounds are dark warm browns,
+   text is warm off-cream. Pure black is avoided. */
+:root[data-theme="dark"] {
+    --earth-dark: #f0e5cf;   /* was the darkest — now becomes lightest (titles) */
+    --earth-brown: #d0c2a6;  /* mid contrast text */
+    --soil-rich: #b8aa8c;    /* secondary text, breadcrumb, captions */
+    --leaf-green: #a8d094;   /* link color — boosted lightness for readability */
+    --leaf-dark: #c7e3b5;    /* link hover */
+    --moss-green: #94c184;   /* accent / borders */
+    --sand-light: #28241d;   /* alt-section background */
+    --cream: #1a1814;        /* main background — warm dark soil */
+    --clay: #5a4e3d;         /* mid earth */
+    --root-tan: #3d362b;     /* borders */
+    --sky-pale: #211e18;     /* gradient stop — slightly darker than cream */
+    --olive: #b3bd84;        /* accent green-yellow */
+
+    --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.4);
+    --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.55);
+
+    --border-subtle: rgba(255, 255, 255, 0.12);
+    --border-faint: rgba(255, 255, 255, 0.07);
+    --hover-tint: rgba(255, 255, 255, 0.05);
+
+    /* Anchor sections stay dark in dark mode (do not flip to light) */
+    --footer-bg: #211d16;
+    --footer-text: #c9b8a3;
+    --footer-heading: #f0e5cf;
+    --section-dark-bg: #211d16;
+    --section-dark-text: #e0d4be;
+    --cta-bg: #2e4429;
+    --cta-text: #ece3d2;
+}
+
+/* Respect OS preference when the user hasn't set a manual override.
+   We use both attribute selectors so the rule only fires when no
+   explicit `data-theme` is set on <html>. */
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]):not([data-theme="dark"]) {
+        --earth-dark: #f0e5cf;
+        --earth-brown: #d0c2a6;
+        --soil-rich: #b8aa8c;
+        --leaf-green: #a8d094;
+        --leaf-dark: #c7e3b5;
+        --moss-green: #94c184;
+        --sand-light: #28241d;
+        --cream: #1a1814;
+        --clay: #5a4e3d;
+        --root-tan: #3d362b;
+        --sky-pale: #211e18;
+        --olive: #b3bd84;
+
+        --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.4);
+        --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.55);
+
+        --border-subtle: rgba(255, 255, 255, 0.12);
+        --border-faint: rgba(255, 255, 255, 0.07);
+        --hover-tint: rgba(255, 255, 255, 0.05);
+
+        --footer-bg: #211d16;
+        --footer-text: #c9b8a3;
+        --footer-heading: #f0e5cf;
+        --section-dark-bg: #211d16;
+        --section-dark-text: #e0d4be;
+        --cta-bg: #2e4429;
+        --cta-text: #ece3d2;
+    }
+}
+
+/* Apply the cream/text colors to the page itself so the html element
+   matches when no explicit background is set on body. */
+html { background: var(--cream); color: var(--earth-dark); }
+body { background: var(--cream); }
+
+/* Reset & Base */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-sans);
+    font-weight: 400;
+    background: var(--cream);
+    color: var(--earth-dark);
+    line-height: 1.9;
+    overflow-x: hidden;
+}
+
+/* Grain overlay - removed for simpler design */
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    color: var(--leaf-green);
+    text-decoration: none;
+    transition: var(--transition-base);
+}
+
+a:hover {
+    color: var(--leaf-dark);
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    line-height: 1.4;
+    letter-spacing: 0.05em;
+}
+
+h1 {
+    font-size: clamp(2.2rem, 6vw, 3.5rem);
+}
+
+h2 {
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+}
+
+h3 {
+    font-size: clamp(1.2rem, 3vw, 1.6rem);
+}
+
+p {
+    margin-bottom: 1.5rem;
+}
+
+/* Layout */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.container-narrow {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Header & Navigation */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: color-mix(in srgb, var(--cream) 95%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-faint);
+    transition: var(--transition-base);
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    color: var(--earth-dark);
+    letter-spacing: 0.1em;
+}
+
+.logo span {
+    display: block;
+    font-size: 0.65rem;
+    color: var(--soil-rich);
+    letter-spacing: 0.2em;
+    margin-top: 0.2rem;
+}
+
+.nav {
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+}
+
+.nav a {
+    font-size: 0.85rem;
+    color: var(--earth-brown);
+    letter-spacing: 0.1em;
+    position: relative;
+    padding: 0.5rem 0;
+}
+
+.nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--leaf-green);
+    transition: width 0.3s ease;
+}
+
+.nav a:hover::after,
+.nav a.active::after {
+    width: 100%;
+}
+
+/* 一行に収める: サイト名と項目名は折り返さない。英語は項目名が長いので、
+   字間と間隔を詰める(768px 以下は縦並びのメニューになるので対象外) */
+.logo,
+.nav a,
+.nav .nav-parent {
+    white-space: nowrap;
+}
+
+@media (min-width: 769px) {
+    html[lang="en"] .nav {
+        gap: 1.6rem;
+    }
+
+    html[lang="en"] .nav a,
+    html[lang="en"] .nav .nav-parent {
+        font-size: 0.8rem;
+        letter-spacing: 0.04em;
+    }
+}
+
+/* 769〜1100px: 折り返さない項目が収まるように、字と間隔をさらに詰める。
+   それでも収まらないときは右端で折り返し、切れないようにする */
+@media (min-width: 769px) and (max-width: 1100px) {
+    .nav {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+    }
+
+    .nav a,
+    .nav .nav-parent {
+        font-size: 0.75rem;
+        letter-spacing: 0.03em;
+    }
+
+    html[lang="en"] .nav {
+        gap: 0.9rem;
+    }
+
+    html[lang="en"] .nav a,
+    html[lang="en"] .nav .nav-parent {
+        font-size: 0.72rem;
+        letter-spacing: 0.02em;
+    }
+}
+
+.nav .lang-switch {
+    opacity: 0.75;
+    letter-spacing: 0.05em;
+}
+
+.nav .lang-switch:hover {
+    opacity: 1;
+}
+
+/* Dropdown: "Articles" parent with children */
+.nav-group {
+    position: relative;
+}
+
+.nav-parent {
+    font-size: 0.85rem;
+    color: var(--earth-brown);
+    letter-spacing: 0.1em;
+    background: none;
+    border: none;
+    padding: 0.5rem 0;
+    cursor: pointer;
+    font-family: inherit;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25em;
+}
+
+.nav-parent .nav-caret {
+    font-size: 0.7em;
+    transition: transform 0.2s ease;
+}
+
+.nav-group.open > .nav-parent .nav-caret {
+    transform: rotate(180deg);
+}
+
+.nav-submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 14rem;
+    background: var(--cream);
+    border: 1px solid var(--root-tan);
+    padding: 0.25rem 0;
+    z-index: 10;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+.nav-submenu a {
+    display: block;
+    padding: 0.6rem 1rem;
+    white-space: nowrap;
+    letter-spacing: 0.05em;
+}
+
+.nav-submenu a::after {
+    display: none;
+}
+
+.nav-submenu a:hover {
+    background: var(--hover-tint);
+}
+
+/* Desktop: open on hover or keyboard focus */
+@media (min-width: 769px) {
+    .nav-group:hover .nav-submenu,
+    .nav-group:focus-within .nav-submenu,
+    .nav-group.open .nav-submenu {
+        display: block;
+    }
+}
+
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.nav-toggle span {
+    width: 24px;
+    height: 2px;
+    background: var(--earth-dark);
+    transition: var(--transition-base);
+}
+
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 6rem 2rem 4rem;
+    background: linear-gradient(180deg, var(--sky-pale) 0%, var(--cream) 100%);
+    text-align: center;
+}
+
+.hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.15;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+}
+
+.hero-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--moss-green);
+    margin-bottom: 1.5rem;
+}
+
+.hero-title {
+    color: var(--earth-dark);
+    margin-bottom: 2rem;
+    animation: fadeUp 1s ease-out;
+}
+
+.hero-subtitle {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    color: var(--soil-rich);
+    line-height: 2;
+    animation: fadeUp 1s ease-out 0.2s both;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--soil-rich);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+}
+
+.scroll-line {
+    width: 1px;
+    height: 40px;
+    background: var(--soil-rich);
+    animation: scrollPulse 2s ease-in-out infinite;
+}
+
+/* Hero Buttons */
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+@media (max-width: 600px) {
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Page Hero (smaller) */
+.page-hero {
+    padding: 10rem 2rem 4rem;
+    background: linear-gradient(180deg, var(--sky-pale) 0%, var(--cream) 100%);
+    text-align: center;
+    position: relative;
+}
+
+/* No background image: collapse padding and tighten internal spacing.
+   Insights / book chapters use this — the area becomes a compact title
+   block instead of a hero. */
+.page-hero.page-hero-noimg {
+    padding: 7.5rem 2rem 1.5rem;
+    background: none;
+}
+.page-hero.page-hero-noimg .hero-label {
+    margin-bottom: 0.6rem;
+}
+.page-hero.page-hero-noimg .hero-title {
+    margin-bottom: 0.6rem;
+}
+.page-hero.page-hero-noimg .hero-subtitle {
+    margin-bottom: 0;
+}
+/* Tighten the section that follows when hero has no image */
+.page-hero.page-hero-noimg + .section-with-sidebar,
+.page-hero.page-hero-noimg + .section {
+    padding-top: 0.5rem;
+}
+
+.page-hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.12;
+}
+
+.page-hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+/* Sections */
+.section {
+    padding: 5rem 0;
+}
+
+.section-alt {
+    background: var(--sand-light);
+}
+
+.section-dark {
+    background: var(--section-dark-bg);
+    color: var(--section-dark-text);
+}
+
+.section-green {
+    background: var(--cta-bg);
+    color: var(--cta-text);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--moss-green);
+    margin-bottom: 0.8rem;
+}
+
+.section-dark .section-label {
+    color: var(--moss-green);
+}
+
+.section-green .section-label {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.section-title {
+    color: var(--earth-dark);
+}
+
+.section-dark .section-title {
+    color: var(--sand-light);
+}
+
+.section-green .section-title {
+    color: var(--cream);
+}
+
+/* Cards */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    background: var(--cream);
+    border: 1px solid var(--root-tan);
+    padding: 2rem;
+    transition: var(--transition-base);
+}
+
+.card:hover {
+    box-shadow: var(--shadow-soft);
+}
+
+.card-number {
+    font-family: var(--font-serif);
+    font-size: 2.5rem;
+    color: var(--moss-green);
+    opacity: 0.5;
+    line-height: 1;
+    margin-bottom: 1rem;
+}
+
+.card-title {
+    margin-bottom: 1rem;
+    color: var(--earth-dark);
+}
+
+.card-text {
+    font-size: 0.95rem;
+    color: var(--soil-rich);
+    line-height: 1.8;
+}
+
+/* Principle Cards (dark bg) */
+.principle-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 2.5rem 2rem;
+    position: relative;
+    transition: var(--transition-base);
+}
+
+.principle-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--moss-green), var(--leaf-green));
+    opacity: 0.3;
+}
+
+.principle-card:hover {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+/* Quote Block */
+.quote-block {
+    background: linear-gradient(135deg, var(--sand-light) 0%, var(--sky-pale) 100%);
+    border-left: 3px solid var(--moss-green);
+    padding: 2.5rem;
+    margin: 2rem 0;
+    position: relative;
+}
+
+.quote-block::before {
+    content: '"';
+    font-family: var(--font-serif);
+    font-size: 4rem;
+    color: var(--moss-green);
+    opacity: 0.15;
+    position: absolute;
+    top: 0.5rem;
+    left: 1rem;
+    line-height: 1;
+}
+
+.quote-text {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    color: var(--earth-dark);
+    font-style: italic;
+    position: relative;
+    z-index: 1;
+    line-height: 2;
+}
+
+.quote-author {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: var(--soil-rich);
+}
+
+/* Gallery */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    cursor: pointer;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+.gallery-item-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.5rem;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+    color: white;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover .gallery-item-caption {
+    transform: translateY(0);
+}
+
+.gallery-item-caption h4 {
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+}
+
+.gallery-item-caption p {
+    font-size: 0.8rem;
+    opacity: 0.8;
+    margin: 0;
+}
+
+/* Activity Items */
+.activity-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.activity-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 2rem;
+    background: var(--cream);
+    border: 1px solid var(--root-tan);
+    transition: var(--transition-base);
+    position: relative;
+    overflow: hidden;
+}
+
+.activity-item::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--moss-green);
+    transform: scaleY(0);
+    transition: transform 0.3s ease;
+}
+
+.activity-item:hover {
+    box-shadow: var(--shadow-soft);
+}
+
+.activity-icon {
+    width: 60px;
+    height: 60px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--sand-light);
+    border-radius: 50%;
+}
+
+.activity-icon svg {
+    width: 28px;
+    height: 28px;
+    stroke: var(--leaf-green);
+    fill: none;
+    stroke-width: 1.5;
+}
+
+.activity-content h3 {
+    margin-bottom: 0.5rem;
+    color: var(--earth-dark);
+}
+
+.activity-content p {
+    color: var(--soil-rich);
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+/* Activity Number (for numbered steps) */
+.activity-number {
+    width: 60px;
+    height: 60px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--leaf-green);
+    color: var(--cream);
+    border-radius: 50%;
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+/* CTA Section */
+.cta-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.cta-text {
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    opacity: 0.9;
+    line-height: 2;
+    text-align: center;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    font-family: var(--font-serif);
+    font-size: 0.95rem;
+    letter-spacing: 0.1em;
+    text-align: center;
+    cursor: pointer;
+    transition: var(--transition-base);
+    border: 2px solid transparent;
+}
+
+.btn-primary {
+    background: var(--leaf-green);
+    color: var(--cream);
+}
+
+.btn-primary:hover {
+    background: var(--leaf-dark);
+    color: var(--cream);
+}
+
+.btn-outline {
+    background: transparent;
+    border-color: var(--cream);
+    color: var(--cream);
+}
+
+.btn-outline:hover {
+    background: var(--cream);
+    color: var(--leaf-green);
+}
+
+.btn-light {
+    background: var(--cream);
+    color: var(--leaf-green);
+}
+
+.btn-light:hover {
+    background: transparent;
+    border-color: var(--cream);
+    color: var(--cream);
+}
+
+.btn-outline-dark {
+    background: transparent;
+    border-color: var(--earth-dark);
+    color: var(--earth-dark);
+}
+
+.btn-outline-dark:hover {
+    background: var(--earth-dark);
+    color: var(--cream);
+}
+
+/* Two Column Layout */
+.two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.two-col-content h2 {
+    margin-bottom: 1.5rem;
+}
+
+.two-col-image {
+    position: relative;
+}
+
+.two-col-image img {
+    width: 100%;
+    object-fit: cover;
+}
+
+/* Removed decorative border for simpler design */
+
+/* Prose Content */
+.prose {
+    font-size: 1.05rem;
+    line-height: 2;
+    color: var(--earth-dark);
+}
+
+.prose h2 {
+    margin: 3.5rem 0 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-subtle);
+    color: var(--earth-dark);
+    scroll-margin-top: 90px;
+}
+
+.prose h3 {
+    margin: 2rem 0 1rem;
+    color: var(--earth-dark);
+}
+
+.prose ul,
+.prose ol {
+    margin: 1.5rem 0;
+    padding-left: 1.5rem;
+}
+
+.prose li {
+    margin-bottom: 0.8rem;
+}
+
+.prose strong {
+    color: var(--earth-dark);
+    font-weight: 500;
+}
+
+.prose table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+.prose thead th {
+    background: var(--sand-light);
+    color: var(--earth-dark);
+    font-weight: 500;
+    text-align: left;
+    padding: 0.75rem 1rem;
+    border-bottom: 2px solid var(--clay);
+}
+
+.prose tbody td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid rgba(201, 184, 163, 0.5);
+    vertical-align: top;
+}
+
+.prose tbody tr:last-child td {
+    border-bottom: none;
+}
+
+@media (max-width: 720px) {
+    .prose table {
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+/* --- Prose: low-level headings ------------------------------------ */
+.prose h4 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin: 2rem 0 0.8rem;
+    color: var(--earth-dark);
+}
+
+/* Long URLs / tokens must wrap rather than overflow on mobile */
+.prose {
+    overflow-wrap: break-word;
+}
+
+/* --- Prose: inline code ------------------------------------------- */
+.prose code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas,
+        'Liberation Mono', monospace;
+    font-size: 0.875em;
+    background: var(--sand-light);
+    border: 1px solid var(--border-faint);
+    border-radius: 3px;
+    padding: 0.1em 0.4em;
+    color: var(--earth-dark);
+}
+
+/* --- Prose: code blocks (terminal-style panel) ---------------------
+   Fixed dark colors on purpose: a terminal stays dark in both themes,
+   like the footer / anchor sections. */
+.prose pre {
+    background: #262219;
+    color: #e8e0d0;
+    margin: 2rem 0;
+    padding: 1.25rem 1.5rem;
+    border-radius: 4px;
+    overflow-x: auto;
+    scrollbar-width: thin;
+    line-height: 1.75;
+    font-size: 0.875rem;
+}
+
+.prose pre code {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    color: inherit;
+    font-size: inherit;
+}
+
+/* --- Prose: blockquote (dialogue-template callout) ------------------
+   The book's 「Claudeに聞いてみよう」 boxes are blockquotes: render them
+   as a distinct prompt card the reader copies and fills in. */
+.prose blockquote {
+    background: rgba(122, 154, 109, 0.08);
+    border-left: 3px solid var(--moss-green);
+    border-radius: 0 4px 4px 0;
+    margin: 1.75rem 0;
+    padding: 1.25rem 1.5rem;
+    font-size: 0.97em;
+}
+
+.prose blockquote p {
+    margin-bottom: 0.8rem;
+}
+
+.prose blockquote p:last-child {
+    margin-bottom: 0;
+}
+
+.prose blockquote pre {
+    margin: 1rem 0;
+}
+
+/* --- Prose: horizontal rule (section break before footer) ---------- */
+.prose hr {
+    border: none;
+    border-top: 1px solid var(--border-subtle);
+    max-width: 16rem;
+    margin: 3rem auto;
+}
+
+/* Light Farming specific */
+.data-box {
+    background: var(--sand-light);
+    border-left: 4px solid var(--moss-green);
+    padding: 1.5rem 2rem;
+    margin: 2rem 0;
+}
+
+.data-box h4 {
+    font-size: 1rem;
+    color: var(--leaf-dark);
+    margin-bottom: 1rem;
+}
+
+.data-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.data-box li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border-faint);
+    font-size: 0.95rem;
+}
+
+.data-box li:last-child {
+    border-bottom: none;
+}
+
+.data-box .value {
+    font-weight: 500;
+    color: var(--leaf-dark);
+}
+
+/* Footer */
+.footer {
+    background: var(--footer-bg);
+    color: var(--footer-text);
+    padding: 4rem 2rem 2rem;
+}
+
+.footer-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 3rem;
+}
+
+.footer-about h3 {
+    color: var(--footer-heading);
+    margin-bottom: 1rem;
+}
+
+.footer-about p {
+    font-size: 0.9rem;
+    line-height: 1.8;
+}
+
+.footer-nav h4,
+.footer-contact h4 {
+    color: var(--footer-heading);
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 1.5rem;
+}
+
+.footer-nav ul {
+    list-style: none;
+}
+
+.footer-nav a {
+    color: var(--footer-text);
+    font-size: 0.9rem;
+    display: block;
+    padding: 0.4rem 0;
+}
+
+.footer-nav a:hover {
+    color: var(--footer-heading);
+}
+
+.footer-bottom {
+    max-width: 1100px;
+    margin: 3rem auto 0;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+.footer-quote {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    color: var(--footer-heading);
+    margin-bottom: 1rem;
+    opacity: 0.8;
+}
+
+.footer-copyright {
+    font-size: 0.8rem;
+    opacity: 0.6;
+}
+
+/* Animations */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scrollPulse {
+
+    0%,
+    100% {
+        transform: scaleY(1);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: scaleY(1.2);
+        opacity: 1;
+    }
+}
+
+.fade-in {
+    /* fade-in disabled for performance and CSP compatibility */
+}
+
+/* Simplified scroll animation */
+@keyframes scrollPulse {
+
+    0%,
+    100% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .two-col {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .two-col-image::after {
+        display: none;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--cream);
+        flex-direction: column;
+        align-items: stretch;
+        padding: 1.5rem 2rem;
+        gap: 0;
+        border-bottom: 1px solid var(--root-tan);
+    }
+
+    .nav.active {
+        display: flex;
+    }
+
+    .nav a {
+        padding: 0.8rem 0;
+        border-bottom: 1px solid var(--border-faint);
+    }
+
+    .nav-toggle {
+        display: flex;
+    }
+
+    /* Accordion submenu inside the mobile nav */
+    .nav-group {
+        border-bottom: 1px solid var(--border-faint);
+    }
+
+    .nav-parent {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.8rem 0;
+        text-align: left;
+    }
+
+    .nav-submenu {
+        position: static;
+        display: none;
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        padding: 0 0 0.5rem 1rem;
+        min-width: 0;
+    }
+
+    .nav-group.open .nav-submenu {
+        display: block;
+    }
+
+    .nav-submenu a {
+        padding: 0.6rem 0;
+        border-bottom: 1px solid var(--border-faint);
+    }
+
+    .nav-submenu a:last-child {
+        border-bottom: none;
+    }
+
+    .nav-group .nav-parent,
+    .nav-submenu a {
+        white-space: normal;
+    }
+
+    .section {
+        padding: 3rem 0;
+    }
+
+    .activity-item {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .hero {
+        padding: 8rem 1.5rem 3rem;
+    }
+
+    .page-hero.page-hero-noimg {
+        padding: 6.5rem 1.25rem 1rem;
+    }
+
+    .page-hero {
+        padding: 8rem 1.5rem 3rem;
+    }
+}
+
+/* Utility Classes */
+.text-center {
+    text-align: center;
+}
+
+.mb-0 {
+    margin-bottom: 0;
+}
+
+.mb-1 {
+    margin-bottom: 1rem;
+}
+
+.mb-2 {
+    margin-bottom: 2rem;
+}
+
+.mb-3 {
+    margin-bottom: 3rem;
+}
+
+.mt-2 {
+    margin-top: 2rem;
+}
+
+.mt-3 {
+    margin-top: 3rem;
+}
+/* ============================================================
+   Series TOC sidebar (Wikipedia-style) for insights / book
+   ============================================================ */
+
+/* Two-column layout */
+.section-with-sidebar {
+    padding: 2rem 1rem 4rem;
+}
+.article-layout {
+    display: grid;
+    grid-template-columns: 260px minmax(0, 1fr);
+    gap: 2.5rem;
+    max-width: 1280px;
+    margin: 0 auto;
+    align-items: start;
+}
+
+.article-main {
+    min-width: 0; /* prevent grid blowout from wide pre/code blocks */
+    max-width: 760px;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+    font-size: 0.8rem;
+    color: var(--soil-rich, #6b5b3a);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border-subtle);
+    line-height: 1.6;
+}
+.breadcrumb a {
+    color: var(--leaf-green, #5a8a4a);
+    text-decoration: none;
+}
+.breadcrumb a:hover { text-decoration: underline; }
+.breadcrumb .crumb-sep {
+    color: var(--soil-rich, #6b5b3a);
+    opacity: 0.6;
+    margin: 0 0.15rem;
+}
+.breadcrumb .crumb-part {
+    color: var(--earth-dark, #3a2e1f);
+}
+.breadcrumb .crumb-current {
+    color: var(--earth-dark, #3a2e1f);
+    font-weight: 600;
+}
+
+/* Sidebar */
+.series-toc {
+    position: sticky;
+    top: 90px;
+    align-self: start;
+    max-height: calc(100vh - 110px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    padding-right: 0.5rem;
+    /* Keep the sidebar's own scrollbar discreet — it sits between the TOC
+       and the article and must not read as a splitter. */
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-subtle) transparent;
+}
+.series-toc::-webkit-scrollbar {
+    width: 6px;
+}
+.series-toc::-webkit-scrollbar-track {
+    background: transparent;
+}
+.series-toc::-webkit-scrollbar-thumb {
+    background: var(--border-subtle);
+    border-radius: 3px;
+}
+.series-toc:hover::-webkit-scrollbar-thumb {
+    background: var(--clay);
+}
+.series-toc-close {
+    display: none; /* mobile only */
+    position: absolute;
+    top: 0.5rem;
+    right: 0.75rem;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    line-height: 1;
+    color: var(--earth-dark, #3a2e1f);
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+}
+.series-toc-inner { padding: 0.5rem 0; }
+.series-toc-title {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--soil-rich, #6b5b3a);
+    margin: 0 0 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-subtle);
+    font-weight: 500;
+}
+.series-toc-title a {
+    color: inherit;
+    text-decoration: none;
+}
+.series-toc-title a:hover { color: var(--leaf-green, #5a8a4a); }
+
+.toc-part {
+    margin-bottom: 1.5rem;
+}
+.toc-part-title {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--earth-dark, #3a2e1f);
+    margin: 0 0 0.5rem;
+    padding: 0.25rem 0;
+    letter-spacing: 0.05em;
+}
+.toc-chapters {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.toc-chapters li {
+    margin: 0;
+    padding: 0;
+}
+.toc-chapter {
+    display: block;
+    padding: 0.3rem 0.5rem;
+    color: var(--soil-rich, #6b5b3a);
+    text-decoration: none;
+    border-left: 2px solid transparent;
+    transition: background-color 0.12s, border-color 0.12s, color 0.12s;
+    line-height: 1.4;
+}
+.toc-chapter:hover {
+    background-color: rgba(122, 154, 109, 0.08);
+    color: var(--earth-dark, #3a2e1f);
+}
+.toc-chapter.is-current {
+    background-color: rgba(122, 154, 109, 0.15);
+    border-left-color: var(--moss-green, #7a9a6d);
+    color: var(--earth-dark, #3a2e1f);
+    font-weight: 600;
+}
+.toc-num {
+    display: inline-block;
+    min-width: 1.8em;
+    color: var(--soil-rich, #6b5b3a);
+    opacity: 0.75;
+    font-variant-numeric: tabular-nums;
+    font-size: 0.8em;
+}
+.toc-chapter.is-current .toc-num {
+    color: var(--moss-green, #7a9a6d);
+    opacity: 1;
+}
+.toc-title {
+    display: inline;
+}
+
+/* In-page section list under the current chapter (built by main.js),
+   highlighted by scrollspy while reading. */
+.toc-sections {
+    list-style: none;
+    margin: 0.2rem 0 0.6rem;
+    padding-left: 1.6rem;
+}
+.toc-sections li {
+    margin: 0;
+    padding: 0;
+}
+.toc-sections a {
+    display: block;
+    padding: 0.2rem 0.5rem;
+    font-size: 0.8rem;
+    line-height: 1.45;
+    color: var(--soil-rich, #6b5b3a);
+    border-left: 2px solid var(--border-subtle);
+    text-decoration: none;
+    transition: background-color 0.12s, border-color 0.12s, color 0.12s;
+}
+.toc-sections a:hover {
+    background-color: rgba(122, 154, 109, 0.08);
+    color: var(--earth-dark, #3a2e1f);
+}
+.toc-sections a.is-active {
+    background-color: rgba(122, 154, 109, 0.12);
+    border-left-color: var(--moss-green, #7a9a6d);
+    color: var(--earth-dark, #3a2e1f);
+    font-weight: 600;
+}
+
+.toc-related {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-subtle);
+}
+.toc-related-title {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--soil-rich, #6b5b3a);
+    margin: 0 0 0.5rem;
+}
+.toc-related ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.toc-related li {
+    margin: 0;
+}
+.toc-related a {
+    display: block;
+    padding: 0.3rem 0.5rem;
+    color: var(--leaf-green, #5a8a4a);
+    text-decoration: none;
+    font-size: 0.82rem;
+}
+.toc-related a:hover {
+    background-color: rgba(122, 154, 109, 0.08);
+}
+
+/* Mobile TOC toggle */
+.series-toc-toggle {
+    display: none; /* desktop hides */
+    position: fixed;
+    bottom: 1.25rem;
+    right: 1.25rem;
+    z-index: 90;
+    background: var(--earth-dark, #3a2e1f);
+    color: var(--cream, #f5ead7);
+    border: none;
+    border-radius: 999px;
+    padding: 0.7rem 1.2rem;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+    cursor: pointer;
+    gap: 0.4rem;
+    align-items: center;
+}
+.series-toc-toggle-icon { font-size: 1.1em; }
+
+.series-toc-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    z-index: 99;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+/* Narrow viewport: single column + slide-in sidebar */
+@media (max-width: 960px) {
+    .article-layout {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+    .article-main {
+        max-width: 100%;
+    }
+    .series-toc {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: min(85vw, 360px);
+        height: 100vh;
+        max-height: none;
+        margin: 0;
+        background: var(--cream, #f5ead7);
+        box-shadow: 2px 0 14px rgba(0,0,0,0.2);
+        padding: 3.5rem 1rem 1.5rem 1.25rem;
+        z-index: 100;
+        transform: translateX(-100%);
+        transition: transform 0.25s ease;
+    }
+    .series-toc.is-open { transform: translateX(0); }
+    .series-toc-close { display: block; }
+    .series-toc-toggle { display: inline-flex; }
+    .series-toc-backdrop.is-open {
+        display: block;
+        opacity: 1;
+    }
+    /* Lock background scroll when sidebar is open */
+    body.series-toc-open { overflow: hidden; }
+}
+
+/* Print: hide all TOC chrome */
+@media print {
+    .series-toc,
+    .series-toc-toggle,
+    .series-toc-backdrop,
+    .breadcrumb {
+        display: none !important;
+    }
+    .article-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ============================================================
+   Theme toggle (light / dark)
+   ============================================================ */
+
+.theme-toggle {
+    background: none;
+    border: 1px solid var(--border-subtle);
+    border-radius: 999px;
+    padding: 0.25rem 0.55rem;
+    cursor: pointer;
+    color: var(--earth-brown);
+    font-size: 0.95rem;
+    line-height: 1;
+    transition: background-color 0.15s, border-color 0.15s, color 0.15s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.2rem;
+    margin-left: 0.5rem;
+}
+.theme-toggle:hover {
+    background: var(--hover-tint);
+    color: var(--earth-dark);
+    border-color: var(--moss-green);
+}
+.theme-icon {
+    display: inline-block;
+    width: 1em;
+    text-align: center;
+}
+/* Show the icon for the OTHER theme — the one the toggle will switch to */
+.theme-icon-moon { display: none; }
+:root[data-theme="dark"] .theme-icon-sun,
+:root[data-theme="dark"] .theme-icon-moon { display: none; }
+:root[data-theme="dark"] .theme-icon-sun { display: inline-block; }
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]):not([data-theme="dark"]) .theme-icon-sun {
+        display: inline-block;
+    }
+    :root:not([data-theme="light"]):not([data-theme="dark"]) .theme-icon-moon {
+        display: none;
+    }
+}
+:root[data-theme="light"] .theme-icon-sun { display: none; }
+:root[data-theme="light"] .theme-icon-moon { display: inline-block; }
+
+/* Dark-mode tweaks for the .highlight-box callout — the original
+   warm-cream tint looks off on the dark background. */
+:root[data-theme="dark"] .highlight-box {
+    background: rgba(148, 193, 132, 0.07);
+    border-color: rgba(148, 193, 132, 0.2);
+}
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .highlight-box {
+        background: rgba(148, 193, 132, 0.07);
+        border-color: rgba(148, 193, 132, 0.2);
+    }
+}
+
+/* Mermaid diagrams: invert default white panel in dark mode */
+:root[data-theme="dark"] .mermaid,
+:root[data-theme="dark"] svg[id^="mermaid"] {
+    filter: invert(0.92) hue-rotate(180deg);
+}
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .mermaid,
+    :root:not([data-theme="light"]) svg[id^="mermaid"] {
+        filter: invert(0.92) hue-rotate(180deg);
+    }
+}

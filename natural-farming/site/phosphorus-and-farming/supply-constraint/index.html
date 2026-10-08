@@ -1,0 +1,1327 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://static.cloudflareinsights.com https://challenges.cloudflare.com 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://cloudflareinsights.com https://challenges.cloudflare.com">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9FLQ963JXM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'G-9FLQ963JXM');
+</script>
+
+<title>第1章 リン酸肥料の供給制約 ── 何が起きているか — リン資源枯渇と自然農法シリーズ | aiseed.dev</title>
+<meta name="description" content="日本のリン酸肥料は原料の全量を海外輸入に依存する(自給率0%)。供給ルートは中国経由・リン鉱石加工・下水汚泥回収の三つ。三つすべてが同時に細っている。World Bank の 2026 年肥料価格 30%+ 上昇予測、ホルムズ海峡を通る世界海上肥料貿易の 1/3、中国の 2026 年 3 月輸出停止、カタールの不可抗力宣言、PFAS 規制 ── 検証済みの一次データで整理する。">
+<link rel="canonical" href="https://aiseed.dev/phosphorus-and-farming/supply-constraint/">
+<link rel="alternate" hreflang="ja" href="https://aiseed.dev/phosphorus-and-farming/supply-constraint/">
+<link rel="alternate" hreflang="en" href="https://aiseed.dev/en/phosphorus-and-farming/supply-constraint/">
+<link rel="alternate" hreflang="x-default" href="https://aiseed.dev/phosphorus-and-farming/supply-constraint/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="AI時代の暮らし">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="第1章 リン酸肥料の供給制約 ── 何が起きているか">
+<meta property="og:description" content="日本のリン酸肥料は原料の全量を海外輸入に依存する(自給率0%)。供給ルートは中国経由・リン鉱石加工・下水汚泥回収の三つ。三つすべてが同時に細っている。World Bank の 2026 年肥料価格 30%+ 上昇予測、ホルムズ海峡を通る世界海上肥料貿易の 1/3、中国の 2026 年 3 月輸出停止、カタールの不可抗力宣言、PFAS 規制 ── 検証済みの一次データで整理する。">
+<meta property="og:url" content="https://aiseed.dev/phosphorus-and-farming/supply-constraint/">
+<meta property="og:image" content="https://aiseed.dev/images/IMG_3285.jpg">
+<meta property="article:section" content="リン資源枯渇と自然農法シリーズ">
+<meta property="article:published_time" content="2026.05.06">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="第1章 リン酸肥料の供給制約 ── 何が起きているか">
+<meta name="twitter:description" content="日本のリン酸肥料は原料の全量を海外輸入に依存する(自給率0%)。供給ルートは中国経由・リン鉱石加工・下水汚泥回収の三つ。三つすべてが同時に細っている。World Bank の 2026 年肥料価格 30%+ 上昇予測、ホルムズ海峡を通る世界海上肥料貿易の 1/3、中国の 2026 年 3 月輸出停止、カタールの不可抗力宣言、PFAS 規制 ── 検証済みの一次データで整理する。">
+<meta name="twitter:image" content="https://aiseed.dev/images/IMG_3285.jpg">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+
+<!-- フォントは Web 配信せず、すべて端末のローカルフォントで賄う。
+     和文: UDデジタル教科書体 → BIZ UDP明朝(いずれも Windows 標準搭載の
+     モリサワ UD 書体) → ヒラギノ明朝・游明朝などのシステム明朝。
+     等幅: 端末のシステム等幅フォント。 -->
+
+<style>
+/* ============================================================
+   LOCAL FONT: UDデジタル教科書体(モリサワ)
+   Windows・教育向け端末に無償搭載。端末にあれば local() で拾い、
+   なければ BIZ UDP明朝(同じく Windows 標準搭載)→ システム明朝へ
+   フォールバックする。R と B は別ファミリー名なので、太字(700)を
+   B 書体に明示的にマッピングして疑似ボールドを避ける。
+   ============================================================ */
+@font-face {
+  font-family: "UD Digital Kyokasho";
+  font-weight: 400;
+  src: local("UD デジタル 教科書体 NK-R"), local("UD Digital Kyokasho NK-R"),
+       local("UD デジタル 教科書体 NP-R"), local("UD Digital Kyokasho NP-R"),
+       local("UD デジタル 教科書体 N-R"), local("UD Digital Kyokasho N-R");
+}
+@font-face {
+  font-family: "UD Digital Kyokasho";
+  font-weight: 700;
+  src: local("UD デジタル 教科書体 NK-B"), local("UD Digital Kyokasho NK-B"),
+       local("UD デジタル 教科書体 NP-B"), local("UD Digital Kyokasho NP-B"),
+       local("UD デジタル 教科書体 N-B"), local("UD Digital Kyokasho N-B");
+}
+
+/* ============================================================
+   COLOR & DESIGN TOKENS
+   aiseed.dev 全体のスタイルに合わせる場合は、ここの変数を
+   既存サイトのCSS変数に差し替える。
+   ============================================================ */
+:root {
+  --ink: #1a1a1a;
+  --paper: #f4f1ea;
+  --paper-deep: #ebe6d8;
+  --accent: #c8442a;
+  --rule: #d4cdb8;
+  --whisper: #6b665a;
+  --highlight: #f7e9c8;
+}
+
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+/* 本文: 端末にあれば UDデジタル教科書体を最優先、次に BIZ UDP明朝
+   (Windows 標準搭載)、どちらもなければヒラギノ明朝等のシステム明朝 */
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "UD Digital Kyokasho",
+               "BIZ UDPMincho", "BIZ UDP明朝",
+               "Hiragino Mincho ProN", "ヒラギノ明朝 ProN",
+               "Yu Mincho", "游明朝", "YuMincho",
+               "Noto Serif CJK JP", "Noto Serif JP", serif;
+  font-size: 17px;
+  line-height: 1.9;
+  letter-spacing: 0.02em;
+  font-feature-settings: "palt";
+  overflow-x: hidden;
+}
+
+/* グレインテクスチャ(紙の質感) */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background-image: radial-gradient(rgba(0,0,0,0.04) 1px, transparent 1px);
+  background-size: 3px 3px;
+  opacity: 0.5;
+  mix-blend-mode: multiply;
+}
+
+.container {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0 32px;
+  position: relative;
+  z-index: 2;
+}
+
+/* ============================================================
+   MASTHEAD(シリーズ名・章番号)
+   ============================================================ */
+.masthead {
+  border-bottom: 3px double var(--ink);
+  padding: 24px 0 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--whisper);
+}
+.masthead-left  { font-weight: 700; color: var(--ink); }
+.masthead-left a { color: inherit; text-decoration: none; }
+.masthead-left a:hover { color: var(--accent); }
+.masthead-home { color: var(--whisper); }
+.masthead-sep { margin: 0 10px; color: var(--whisper); font-weight: 400; }
+.masthead-right { font-style: italic; }
+
+/* ============================================================
+   HERO(タイトル領域)
+   ============================================================ */
+.hero {
+  padding: 80px 0 60px;
+}
+.hero-meta {
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  color: var(--accent);
+  margin-bottom: 32px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.hero-meta::before {
+  content: "";
+  width: 40px;
+  height: 1px;
+  background: var(--accent);
+}
+.hero-title {
+  font-family: "UD Digital Kyokasho", "BIZ UDPMincho", "BIZ UDP明朝", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  font-weight: 800;
+  font-size: clamp(32px, 5.5vw, 56px);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  margin-bottom: 24px;
+}
+.hero-title .accent {
+  color: var(--accent);
+}
+.hero-subtitle {
+  font-size: 18px;
+  line-height: 1.85;
+  color: var(--whisper);
+  max-width: 580px;
+  border-left: 2px solid var(--accent);
+  padding-left: 20px;
+  margin-top: 32px;
+}
+.hero-byline {
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid var(--rule);
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--whisper);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* ============================================================
+   ARTICLE BODY
+   ============================================================ */
+article p {
+  margin-bottom: 24px;
+}
+
+article h2 {
+  font-family: "UD Digital Kyokasho", "BIZ UDPMincho", "BIZ UDP明朝", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 1.4;
+  margin: 72px 0 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--ink);
+  position: relative;
+}
+article h2::before {
+  content: "§";
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+  color: var(--accent);
+  margin-right: 16px;
+  font-size: 22px;
+}
+
+article h3 {
+  font-family: "UD Digital Kyokasho", "BIZ UDPMincho", "BIZ UDP明朝", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  font-weight: 600;
+  font-size: 19px;
+  margin: 40px 0 16px;
+  color: var(--ink);
+}
+article h3::before {
+  content: "—";
+  color: var(--accent);
+  margin-right: 12px;
+  font-weight: 400;
+}
+
+article strong {
+  font-weight: 700;
+  background: linear-gradient(to top, var(--highlight) 35%, transparent 35%);
+  padding: 0 2px;
+}
+
+article em {
+  font-style: normal;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+article a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  transition: color 0.2s;
+}
+article a:hover {
+  color: var(--accent);
+}
+
+/* ============================================================
+   BLOCKQUOTE
+   ============================================================ */
+blockquote {
+  margin: 40px 0;
+  padding: 32px 40px;
+  background: var(--paper-deep);
+  border-left: 4px solid var(--accent);
+  position: relative;
+  font-size: 18px;
+  line-height: 1.85;
+  font-style: normal;
+  color: var(--ink);
+}
+blockquote::before {
+  content: "「";
+  position: absolute;
+  top: 4px;
+  left: 8px;
+  font-size: 48px;
+  color: var(--accent);
+  opacity: 0.3;
+  font-family: "Hiragino Mincho ProN", serif;
+}
+blockquote p {
+  margin-bottom: 0;
+}
+
+/* ============================================================
+   TABLE
+   ============================================================ */
+article table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 32px 0;
+  font-size: 15px;
+  line-height: 1.7;
+}
+article thead th {
+  font-family: "UD Digital Kyokasho", "BIZ UDPMincho", "BIZ UDP明朝", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  font-weight: 700;
+  text-align: left;
+  padding: 14px 16px;
+  border-bottom: 2px solid var(--ink);
+  color: var(--ink);
+}
+article tbody td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+}
+article tbody tr:last-child td {
+  border-bottom: none;
+}
+@media (max-width: 720px) {
+  article table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* ============================================================
+   ORDERED LIST(番号付きリスト)
+   ============================================================ */
+article ol {
+  margin: 32px 0;
+  counter-reset: item;
+  padding: 0;
+}
+article ol li {
+  list-style: none;
+  position: relative;
+  padding: 16px 0 16px 56px;
+  border-bottom: 1px dashed var(--rule);
+  counter-increment: item;
+}
+article ol li::before {
+  content: counter(item, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 16px;
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+  font-size: 14px;
+  color: var(--accent);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+/* 通常のul(章末の関連リンクなど) */
+article ul {
+  margin: 24px 0;
+  padding-left: 1.5em;
+}
+article ul li {
+  margin-bottom: 8px;
+}
+
+/* ============================================================
+   CODE BLOCK(疑似ターミナル風)
+   ============================================================ */
+article pre {
+  margin: 40px 0;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 24px 28px;
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+  font-size: 13px;
+  line-height: 1.8;
+  position: relative;
+  overflow-x: auto;
+}
+article pre::before {
+  content: "● ● ●";
+  position: absolute;
+  top: 8px;
+  left: 12px;
+  font-size: 8px;
+  color: var(--whisper);
+  letter-spacing: 4px;
+}
+article pre code {
+  display: block;
+  padding-top: 16px;
+  white-space: pre;
+}
+
+/* インラインコード */
+article code {
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+  font-size: 0.9em;
+  background: var(--paper-deep);
+  padding: 2px 6px;
+  border-radius: 2px;
+  color: var(--ink);
+}
+article pre code {
+  background: transparent;
+  padding: 16px 0 0 0;
+  color: var(--paper);
+}
+
+/* ============================================================
+   HORIZONTAL RULE(本文中の区切り)
+   ============================================================ */
+article hr {
+  border: none;
+  text-align: center;
+  margin: 64px 0;
+  height: 1em;
+}
+article hr::before {
+  content: "◆ ◆ ◆";
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+  font-size: 14px;
+  color: var(--accent);
+  letter-spacing: 0.5em;
+}
+
+/* ============================================================
+   RELATED LINKS(章末の関連記事)
+   ============================================================ */
+.related-links {
+  margin-top: 64px;
+  padding: 32px 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.related-links h3 {
+  font-family: "UD Digital Kyokasho", "BIZ UDPMincho", "BIZ UDP明朝", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  font-size: 14px;
+  letter-spacing: 0.2em;
+  color: var(--whisper);
+  margin: 0 0 20px;
+  font-weight: 600;
+}
+.related-links h3::before {
+  content: none;
+}
+.related-links ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.related-links li {
+  padding: 10px 0;
+  border-bottom: 1px dashed var(--rule);
+  margin-bottom: 0;
+}
+.related-links li:last-child {
+  border-bottom: none;
+}
+.related-links a {
+  text-decoration: none;
+  color: var(--ink);
+  display: flex;
+  gap: 16px;
+  align-items: baseline;
+}
+.related-links .related-tag {
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+  text-transform: uppercase;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.related-links a:hover .related-title {
+  color: var(--accent);
+}
+
+/* ============================================================
+   FOOTER(サイト内メニュー+奥付)
+   ============================================================ */
+.site-footer {
+  margin-top: 96px;
+  border-top: 3px double var(--ink);
+  padding-top: 48px;
+}
+.footer-nav {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 32px 48px;
+}
+.footer-col h4 {
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--whisper);
+  font-weight: 700;
+  margin: 0 0 14px;
+}
+.footer-col ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.footer-col li {
+  padding: 6px 0;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.footer-col a {
+  color: var(--ink);
+  text-decoration: none;
+}
+.footer-col a:hover { color: var(--accent); }
+
+.colophon {
+  margin-top: 48px;
+  padding: 32px 0 40px;
+  border-top: 1px solid var(--rule);
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: var(--whisper);
+  text-align: center;
+  line-height: 2;
+}
+.colophon-mark {
+  font-family: "UD Digital Kyokasho", "BIZ UDPMincho", "Hiragino Mincho ProN", serif;
+  font-size: 32px;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+
+/* ============================================================
+   SERIES TOC(全章一覧・折りたたみ式)
+   ============================================================ */
+.series-toc {
+  margin: 24px 0 40px;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 8px 0;
+}
+.series-toc details {
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+}
+.series-toc summary {
+  cursor: pointer;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--whisper);
+  font-weight: 700;
+  padding: 8px 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.series-toc summary::-webkit-details-marker { display: none; }
+.series-toc summary::before {
+  content: "▸";
+  color: var(--accent);
+  font-size: 10px;
+  display: inline-block;
+  transition: transform 0.15s ease;
+}
+.series-toc details[open] summary::before { transform: rotate(90deg); }
+.series-toc ol {
+  list-style: none;
+  margin: 12px 0 8px;
+  padding: 0;
+  counter-reset: none;
+}
+.series-toc li {
+  list-style: none;
+  padding: 9px 0;
+  border-bottom: 1px dashed var(--rule);
+  font-family: "UD Digital Kyokasho", "BIZ UDPMincho", "BIZ UDP明朝", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  font-size: 14px;
+  line-height: 1.55;
+  display: flex;
+  gap: 16px;
+  align-items: baseline;
+}
+.series-toc li::before { content: none; }
+.series-toc li:last-child { border-bottom: none; }
+.series-toc li a {
+  display: flex;
+  gap: 16px;
+  align-items: baseline;
+  text-decoration: none;
+  color: var(--ink);
+  flex: 1;
+}
+.series-toc li a:hover .toc-title { color: var(--accent); }
+.series-toc .toc-num {
+  font-family: "SF Mono", Menlo, Consolas, "BIZ UDGothic", "BIZ UDゴシック", monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
+  color: var(--accent);
+  text-transform: uppercase;
+  white-space: nowrap;
+  flex-shrink: 0;
+  min-width: 5em;
+}
+.series-toc li.current {
+  background: var(--paper-deep);
+  margin: 0 -12px;
+  padding: 9px 12px;
+}
+.series-toc li.current .toc-title {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+/* ============================================================
+   IMAGES
+   ============================================================ */
+article img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 32px auto;
+}
+
+/* ============================================================
+   CUSTOM BLOCKS(:::chain / :::highlight / :::quote / :::compare)
+   ============================================================ */
+.chain-diagram {
+  background: var(--paper-deep);
+  border-left: 4px solid var(--accent);
+  padding: 24px 28px;
+  margin: 32px 0;
+  font-size: 15px;
+  line-height: 2.2;
+}
+.chain-diagram .arrow {
+  color: var(--accent);
+  font-weight: 700;
+  margin: 0 0.3em;
+}
+.highlight-box {
+  background: var(--paper-deep);
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--accent);
+  padding: 24px 28px;
+  margin: 32px 0;
+}
+.highlight-box p { margin-bottom: 12px; }
+.highlight-box p:last-child { margin-bottom: 0; }
+.quote-block {
+  margin: 40px 0;
+  padding: 32px 40px;
+  background: var(--paper-deep);
+  border-left: 4px solid var(--accent);
+}
+.quote-block .quote-text {
+  font-size: 18px;
+  line-height: 1.85;
+  margin: 0;
+}
+
+/* ============================================================
+   ASCIIDOC BLOCKS(pyasciidoc が出力するクラス。.adoc 記事用)
+   admonition / 帰属つき引用 / 画像ブロック / 脚注 / ロール
+   ============================================================ */
+.admonition {
+  background: var(--paper-deep);
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--accent);
+  padding: 24px 28px;
+  margin: 32px 0;
+}
+.admonition-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+.admonition p { margin-bottom: 12px; }
+.admonition p:last-child { margin-bottom: 0; }
+.quoteblock { margin: 40px 0; }
+.quoteblock blockquote { margin: 0; }
+.quoteblock .attribution {
+  margin-top: 12px;
+  text-align: right;
+  font-size: 14px;
+  color: var(--whisper);
+}
+.quoteblock .attribution cite { font-style: normal; }
+.imageblock { margin: 32px 0; text-align: center; }
+.imageblock .content img { max-width: 100%; height: auto; }
+sup.footnote { font-size: 12px; }
+sup.footnote a { text-decoration: none; }
+.footnotes {
+  margin-top: 64px;
+  padding-top: 24px;
+  border-top: 1px solid var(--rule);
+  font-size: 14px;
+  color: var(--whisper);
+}
+.footnotes ol { padding-left: 1.5em; }
+.footnotes li { margin-bottom: 8px; }
+.footnotes .footnote-backref { text-decoration: none; margin-left: 0.3em; }
+/* ロール: [.chain](:::chain と同じ見た目)/ [.accent]#…# */
+article .chain {
+  background: var(--paper-deep);
+  border-left: 4px solid var(--accent);
+  padding: 24px 28px;
+  margin: 32px 0;
+  font-size: 15px;
+  line-height: 2.2;
+}
+article .accent { color: var(--accent); }
+
+/* ============================================================
+   CHAPTER NAV(前後の記事へのリンク)
+   ============================================================ */
+.chapter-nav {
+  margin-top: 64px;
+  padding: 24px 0;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  font-size: 14px;
+}
+.chapter-nav a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--rule);
+  text-underline-offset: 4px;
+}
+.chapter-nav a:hover { color: var(--accent); }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 640px) {
+  .container { padding: 0 20px; }
+  .hero { padding: 48px 0 40px; }
+  blockquote { padding: 24px 20px 24px 28px; }
+  article pre { padding: 20px 16px; font-size: 12px; }
+  article ol li { padding-left: 48px; }
+  .series-toc .toc-num { min-width: 4em; font-size: 10px; }
+  .series-toc li { font-size: 13px; gap: 12px; }
+}
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.hero-meta, .hero-title, .hero-subtitle, .hero-byline {
+  animation: rise 0.8s ease-out backwards;
+}
+.hero-meta     { animation-delay: 0.1s; }
+.hero-title    { animation-delay: 0.25s; }
+.hero-subtitle { animation-delay: 0.45s; }
+.hero-byline   { animation-delay: 0.65s; }
+.mermaid {
+  text-align: center;
+  margin: 2.5rem 0;
+  background: var(--paper-warm, #f5f1ea);
+  padding: 1.5rem 1rem;
+  border-radius: 4px;
+  overflow-x: auto;
+}
+.mermaid svg { max-width: 100%; height: auto; }
+
+/* ============================================================
+   WIDE LAYOUT(広い画面では目次を左サイドバーに常時展開)
+   ============================================================ */
+@media (min-width: 1200px) {
+  body.has-toc .container {
+    max-width: 1320px;
+    display: grid;
+    grid-template-columns: 280px minmax(0, 880px);
+    column-gap: 64px;
+    justify-content: center;
+  }
+  body.has-toc .masthead,
+  body.has-toc .hero {
+    grid-column: 1 / -1;
+  }
+  /* グリッドアイテム自体は行いっぱいに伸ばし、内側の details を sticky に
+     する(sticky なグリッドアイテムはグリッドエリアではなくコンテナ全体で
+     制約されるブラウザ挙動があり、フッターに重なってしまうため)。 */
+  body.has-toc .series-toc {
+    grid-column: 1;
+    grid-row: 3 / span 2;
+    margin: 0;
+    padding: 0;
+    border-top: none;
+    border-bottom: none;
+  }
+  body.has-toc .series-toc details {
+    position: sticky;
+    top: 32px;
+    max-height: calc(100vh - 64px);
+    overflow-y: auto;
+    padding: 0 12px 12px 0;
+  }
+  /* サイドバーでは折りたたみを無効化し、見出しとして表示 */
+  body.has-toc .series-toc summary {
+    pointer-events: none;
+    cursor: default;
+  }
+  body.has-toc .series-toc summary::before { content: none; }
+  body.has-toc .series-toc li { font-size: 13.5px; }
+  body.has-toc article    { grid-column: 2; grid-row: 3; }
+  body.has-toc .chapter-nav { grid-column: 2; grid-row: 4; }
+  body.has-toc .site-footer { grid-column: 1 / -1; grid-row: 5; }
+}
+
+/* ============================================================
+   DARK MODE(OS の配色設定に追従して自動で暗色に切り替え)
+   ============================================================ */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --ink: #e8e3d6;
+    --paper: #16140f;
+    --paper-deep: #211d16;
+    --accent: #e8765a;
+    --rule: #393428;
+    --whisper: #a39b88;
+    --highlight: rgba(220, 168, 78, 0.30);
+  }
+  /* 紙の質感(グレイン)を暗色背景向けに反転 */
+  body::before {
+    background-image: radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px);
+    mix-blend-mode: screen;
+    opacity: 0.4;
+  }
+  /* コードブロックは両モードとも暗いターミナル調を維持 */
+  article pre {
+    background: #0d0c0a;
+    color: #e8e3d6;
+  }
+  article pre code {
+    color: #e8e3d6;
+  }
+  /* Mermaid 図の枠を暗色に */
+  .mermaid {
+    background: #211d16;
+  }
+}
+</style>
+
+</head>
+
+<body class="has-toc">
+
+<div class="container">
+
+  <!-- MASTHEAD(ホーム › シリーズ目次) -->
+  <header class="masthead">
+    <div class="masthead-left"><a href="/" class="masthead-home">aiseed.dev</a><span class="masthead-sep">›</span><a href="/phosphorus-and-farming/">リン資源枯渇と自然農法シリーズ</a></div>
+    <div class="masthead-right">第1章 / Essay</div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-meta">第1章 № 01 · 2026</div>
+
+    <h1 class="hero-title">三つの供給ルートが、<br><span class="accent">同時に細る</span>。</h1>
+
+    <p class="hero-subtitle">中国・硫黄・PFAS、三つのルートが同時に細っている</p>
+
+    <div class="hero-byline">
+      <span>2026.05.06</span>
+      <span><a href="https://aiseed.dev/en/phosphorus-and-farming/supply-constraint/" style="color: var(--whisper); text-decoration: underline; text-decoration-color: var(--rule);">🌐 EN</a></span>
+    </div>
+  </section>
+
+  <!-- SERIES TOC(全章一覧・現在の章をハイライト) -->
+  <nav class="series-toc" aria-label="シリーズ章一覧">
+  <details>
+    <summary>目次 — 全章</summary>
+    <ol>
+      <li><a href="/phosphorus-and-farming/prologue/"><span class="toc-num">序章</span><span class="toc-title">経済が農法を決める</span></a></li>
+      <li class="current" aria-current="page"><span class="toc-num">第1章</span><span class="toc-title">リン酸肥料の供給制約 ── 何が起きているか</span></li>
+      <li><a href="/phosphorus-and-farming/no-cheap-return/"><span class="toc-num">第2章</span><span class="toc-title">リン酸肥料は安価には戻らない</span></a></li>
+      <li><a href="/phosphorus-and-farming/industrial-farming-fails/"><span class="toc-num">第3章</span><span class="toc-title">慣行農業は経済的に成立しなくなる</span></a></li>
+      <li><a href="/phosphorus-and-farming/realistic-position/"><span class="toc-num">第4章</span><span class="toc-title">現実的な立ち位置 ── どこにも組みしない</span></a></li>
+      <li><a href="/phosphorus-and-farming/soil-microbes/"><span class="toc-num">第5章</span><span class="toc-title">土壌微生物という戦略</span></a></li>
+      <li><a href="/phosphorus-and-farming/co2-tailwind/"><span class="toc-num">第6章</span><span class="toc-title">CO2 という追い風</span></a></li>
+      <li><a href="/phosphorus-and-farming/implementation/"><span class="toc-num">第7章</span><span class="toc-title">どう実装するか ── 一反百姓と耕作放棄地</span></a></li>
+      <li><a href="/phosphorus-and-farming/operating-principles/"><span class="toc-num">第8章</span><span class="toc-title">運用原則 ── 何をして、何をしないか</span></a></li>
+      <li><a href="/phosphorus-and-farming/cuba-lessons/"><span class="toc-num">第9章</span><span class="toc-title">キューバの教訓</span></a></li>
+    </ol>
+  </details>
+</nav>
+
+  <!-- ARTICLE BODY -->
+  <article>
+    <p>リン酸肥料は、化学肥料の三本柱(窒素・リン酸・カリ)の一つである。植物の生育に不可欠で、特に <strong>根の発達、開花、結実</strong> に関わる。</p>
+<p>窒素肥料が「葉を育てる肥料」、カリ肥料が「実を育てる肥料」と呼ばれるのに対し、リン酸肥料は「根と花を育てる肥料」とされる。リン酸が不足すると、植物は根を張れず、花芽を作れず、実を結べない。</p>
+<p>化学的・地球科学的にも、リン酸には特異性がある。窒素は同じ第15族元素
+(プニクトゲン)でハーバー・ボッシュ法により大気中の窒素から無限に合成できるが、<strong>同じプニクトゲン元素であるリンは、地殻に存在するリン鉱石という有限の枯渇性資源にのみ依存している</strong>。工業的な代替物質は存在しない <code>[出典:Phosphorus dynamics, PMC11647644]</code>。</p>
+<p>このリン酸肥料の <strong>原料を、日本は全量海外輸入に依存している(自給率 0%)</strong> <code>[出典:農林水産省「肥料をめぐる情勢」2026年4月版]</code>。</p>
+<p>国内で取れる量はゼロ。現代農業を支える化学肥料の大半は、船で運ばれてくる。船が止まれば、肥料は来ない。</p>
+<p>供給ルートは大きく三つある。<strong>そして、三つすべてが、同時に細っている</strong>。</p>
+<h2>ルート 1:中国経由の製品輸入</h2>
+<p>日本のリン酸肥料供給の中心は、依然として中国である。</p>
+<p>中国は世界最大級のリン鉱石産出国で、鉱石を国内で加工して <strong>リン安</strong>
+(リン酸アンモニウム、化学式 (NH4)H2PO4 または (NH4)2HPO4)などの製品まで一貫生産する能力を持つ。</p>
+<h3>令和6年度肥料年度の実績データ</h3>
+<p>農林水産省が 2026 年 4 月 24 日に公表した最新データによれば、
+<strong>令和6年度肥料年度(2024年7月〜2025年6月)</strong> における日本の主要肥料輸入の構造はこうである <code>[出典:MAFF「肥料をめぐる情勢」]</code>。</p>
+<table class="comparison-table fade-in">
+<thead>
+<tr>
+<th>肥料区分</th>
+<th>主な輸入元と占有率</th>
+<th>全輸入量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>尿素(窒素肥料原料)</td>
+<td>マレーシア 74%、ベトナム 10%、サウジ 5%、中国 3%</td>
+<td>25.6 万トン</td>
+</tr>
+<tr>
+<td><strong>リン安</strong></td>
+<td><strong>中国 72%、モロッコ 21%、イスラエル 7%</strong></td>
+<td><strong>37.0 万トン</strong></td>
+</tr>
+<tr>
+<td>塩化加里</td>
+<td>カナダ 78%、イスラエル 7%、ヨルダン 4%、ラオス 3%</td>
+<td>22.8 万トン</td>
+</tr>
+</tbody>
+</table>
+<p>リン安への中国依存度は、</p>
+<ul>
+<li>令和2年度(2020):<strong>90%</strong></li>
+<li>令和4年度(2022):<strong>76%</strong></li>
+<li>令和6年度(2024):<strong>72%</strong></li>
+</ul>
+<p>と段階的に下がっており、<strong>18 ポイント低下している</strong>。これは政府と肥料メーカーが分散調達(モロッコ・イスラエル等)を進めた成果である。ただし依然として <strong>特定国(中国)への 7 割超の集中構造は残っている</strong>。</p>
+<p>そして世界のリン鉱石埋蔵量は、<strong>中国とモロッコの 2 カ国で全体の約 70%</strong> を占めるという極端な偏在構造があり、この地政学的脆弱性は日本の農業基盤に対する構造的リスクとして残り続ける。</p>
+<h3>2026 年 3 月、中国の輸出実質停止</h3>
+<p>このルートが、2026 年に入って急速に細った。</p>
+<p><strong>2026 年 3 月 14 日</strong>、中国政府は <strong>尿素・DAP(リン酸二アンモニウム)・ MAP(リン酸一アンモニウム)</strong> の輸出を突如、実質停止した。<strong>8 月までの約半年間</strong> という長期措置である <code>[出典:iru-miru.com 82119]</code>。</p>
+<p>時期は日本の春〜夏の決定的な需要期。背景は、</p>
+<p><strong>国家食糧安全保障の優先</strong></p>
+<p>中国は人口約 14 億の食糧自給を最優先課題としている。異常気象やグローバルなサプライチェーン分断が常態化する中、国内農業に肥料を回し、食料価格高騰(フードインフレ)による社会不安を未然に防ぐために、輸出を構造的に絞ってきた。</p>
+<p><strong>LFP バッテリー需要の拡大</strong></p>
+<p>リン酸鉄リチウム(LFP)バッテリーの需要が EV・定置型蓄電池・スマートフォンで爆発的に拡大している。LFP の正極材製造には、農業用とは別グレードの <strong>高純度リン酸</strong> が大量に必要である。</p>
+<p>経済合理性の観点から見れば、肥料メーカーにとって付加価値が低く政府の価格統制を受けやすい農業用肥料の生産ラインを維持する動機は薄い。結果として、限られた資源(設備、原料、人員)はより高値で取引される
+LFP バッテリー向けの工業用リン酸の生産へと優先的に再配分される。</p>
+<div class="quoteblock">
+<blockquote>
+<p>「脱炭素化の推進が食糧安全保障を破壊する」── この相反関係
+(トレードオフ)が、農業用リン酸の供給パイを <strong>不可逆的かつ恒久的に</strong>
+縮小させる構造的要因として機能している。</p>
+</blockquote>
+</div>
+<p><strong>地政学的圧力</strong></p>
+<p>中国は近年、レアアース、ガリウム、ゲルマニウム、グラファイトなど、戦略物資の輸出を制限してきた。リン酸肥料も、その流れの一部に組み込まれつつある。</p>
+<p>これらが重なって、2026 年春以降、<strong>日本の輸入実績は急減</strong> している。</p>
+<h2>ルート 2:リン鉱石輸入 + 国内加工</h2>
+<p>中国依存からの脱却を目指し、日本政府と国内肥料メーカー(片倉コープアグリ、多木化学など)は、モロッコ、ヨルダン、米国等から
+<strong>未加工のリン鉱石を直接輸入し、国内自社工場でリン酸肥料に加工</strong>
+する代替ルートの開拓を推進してきた。</p>
+<p>2022 年 5 月の武部農林水産副大臣(当時)によるモロッコ訪問など、積極的な資源外交の成果もあり、モロッコからの輸入比率は急伸した。</p>
+<p>しかしここでも問題が起きている。</p>
+<h3>硫酸供給のボトルネック</h3>
+<p>リン鉱石を肥料に加工するには、大量の <strong>硫酸</strong> が必要だ。難溶性のリン鉱石(主成分はリン酸カルシウム)を硫酸で分解して、植物が吸収できる形態(過リン酸石灰など)に変換する。これが工業プロセスの中核である。</p>
+<div class="quoteblock">
+<blockquote>
+<p>硫酸が足りなければ、リン鉱石があっても肥料にならない。</p>
+</blockquote>
+</div>
+<p>硫酸の原料である <strong>硫黄</strong> は、現代の産業構造では、<strong>石油・天然ガスを精製する際の脱硫プロセスの副産物</strong> として生産されている。日本はこの硫黄および化石燃料の供給を、<strong>サウジアラビア、UAE、カタール</strong> といった中東の湾岸諸国に極めて高く依存している。</p>
+<div class="quoteblock">
+<blockquote>
+<p>仮にリン鉱石をアフリカ大陸から順調に調達できたとしても、中東からのエネルギー・硫黄供給が途絶えれば、日本の工場は化学反応を起こすことができず、肥料を生産できない ── という間接的かつ致命的な弱点が内包されている。</p>
+</blockquote>
+</div>
+<h3>2026 年:カタールエネルギーの不可抗力宣言</h3>
+<p>この構造的弱点は、2026 年に最悪の形で顕在化した。</p>
+<p>中東情勢の急激な悪化に伴い、窒素肥料の主原料である天然ガスの世界有数の輸出拠点 <strong>カタールエネルギー</strong> が、イランのドローンによる直接攻撃を受け、生産の一時停止に追い込まれた。同社は、戦争等の制御不能な事態を理由に契約上の供給義務を免責される <strong>「不可抗力条項(Force Majeure)」</strong> を宣言した
+<code>[出典:central-green.jp 2026年最新肥料価格]</code>。</p>
+<p>法的に損害賠償を伴わない形での一方的な供給停止が合法的に行われ、原材料の調達コストが急騰した。</p>
+<h3>ホルムズ海峡:世界肥料貿易の 1/3</h3>
+<p>さらに、<strong>世界の海上肥料貿易の約 3 分の 1(年間 1,600 万トン)</strong> が通過する国際チョークポイント、<strong>ホルムズ海峡</strong> 周辺が、紛争の影響で極度の混乱状態に陥っている <code>[出典:Strait of Hormuz Disruption Scenarios, farmdocdaily]</code>。</p>
+<ul>
+<li>2026 年 4 月 28 日:イエメンのフーシ派がイスラエルを攻撃 ── 中東紛争は新たな局面に</li>
+<li>紅海および周辺海域の船舶攻撃リスクが常態化</li>
+<li>海上運賃・海上保険料が記録的水準まで跳ね上がる</li>
+<li>燃料緊急割増金(EFS)の追加適用が常態化</li>
+<li>船会社が新たな輸送契約の見積提示(オファー)すら拒否・停止する事例が相次ぐ</li>
+</ul>
+<p>米国ノースダコタ州立大学(NDSU)の農業貿易モニターによる <strong>シナリオ分析</strong> は、価格高騰が一時的ショックではなく長期的な農家購買サイクルを直撃することを示唆している。</p>
+<table class="comparison-table fade-in">
+<thead>
+<tr>
+<th>シナリオ</th>
+<th>尿素予測ピーク価格(NOLA指標)</th>
+<th>価格高騰(700ドル/st 以上)継続期間</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>早期再開</td>
+<td>1ショートトン当たり 782 ドル(6 月)</td>
+<td>第4四半期までに緩和</td>
+</tr>
+<tr>
+<td>通航妨害継続</td>
+<td>784 ドル(7 月)</td>
+<td>11 月まで長期化</td>
+</tr>
+<tr>
+<td>紛争長期化</td>
+<td><strong>996 ドル(10 月)</strong></td>
+<td><strong>翌年まで無期限に継続</strong></td>
+</tr>
+</tbody>
+</table>
+<p>直近実績では、尿素は前月比 <strong>53.7%増</strong> の 1 トン <strong>725.6 ドル</strong>
+(過去 4 年最高値)、<strong>DAP は 658.3 ドル(5%増)、塩化加里(MOP)は 380.6 ドル</strong> と上昇を記録している。<strong>World Bank</strong> は 2026 年中に肥料価格が <strong>30% 以上上昇</strong> すると予測している
+<code>[出典:World Bank Commodity Markets Outlook]</code>。</p>
+<p>硫黄が来なければ、硫酸が作れない。硫酸がなければ、リン鉱石を加工できない。ルート 1 とは別の経路で、リン酸肥料が作れなくなる。</p>
+<p><strong>中東情勢とリン酸肥料は、間接的だが、確実につながっている</strong>。</p>
+<h2>ルート 3:下水汚泥回収 ── みどりの食料システム戦略と PFAS の足枷</h2>
+<p>第一・第二の輸入ルートが崩壊の危機に瀕する中、日本政府が国家戦略として推進しているのが、国内未利用資源(下水汚泥や家畜糞堆肥など)
+からリンを回収・再利用する <strong>リサイクルルート(ルート3)</strong> の確立である。</p>
+<h3>みどりの食料システム戦略</h3>
+<p>農林水産省は、持続可能な農業を実現するための <strong>「みどりの食料システム戦略」</strong> の一環として、</p>
+<ul>
+<li>化学肥料使用量を <strong>30% 低減</strong></li>
+<li>肥料使用量(リンベース)に占める <strong>国内資源の利用割合を現在の 25% から 2030 年までに 40% へ引き上げる</strong></li>
+</ul>
+<p>という野心的な政策目標を設定している <code>[出典:smartagri.jp 肥料をめぐる情勢解説]</code>。</p>
+<p>理論上、日本の下水汚泥から回収可能なリンの潜在量は <strong>年間約 5 万トン</strong> と推計されており、これは輸入依存を緩和する上で極めて重要なポテンシャルを秘めている。具体的な実装事例として:</p>
+<ul>
+<li><strong>神戸市</strong>:下水汚泥からの「こうべ再生リン」の回収と、それを利用した有機配合肥料「こうべハーベスト」の製造・活用</li>
+<li>福岡市、鳥取市、大阪府でリン回収パイロットプロジェクト</li>
+<li>政府は <strong>令和4年度補正予算から令和7年度にかけて累計 300 億円超</strong>
+の国費を措置し、インフラ整備を強力に後押し</li>
+</ul>
+<h3>PFAS(有機フッ素化合物)規制という致命的足枷</h3>
+<p>しかし、このリサイクルルートの全面的な実用化を阻む致命的な壁が存在する。<strong>PFAS(有機フッ素化合物)</strong> による広範な汚染問題である。</p>
+<p>PFAS は、撥水剤、フライパンのコーティング、泡消火剤、フッ素樹脂などに広く使用されてきた数千種類に及ぶ人工化学物質の総称で、<strong>自然界で極めて分解されにくく「永遠の化学物質(Forever Chemicals)」と形容される</strong>。これは下水処理施設に集まる汚泥(ISSA:焼却下水汚泥灰などを含む)に高濃度で蓄積されやすい性質を持つ。</p>
+<p>規制は急速に進む。</p>
+<ul>
+<li><strong>2020 年 3 月</strong>:水質管理目標設定項目として暫定目標値が設定</li>
+<li><strong>2026 年 4 月</strong>:水道水中の <strong>PFOS および PFOA(代表的な PFAS)</strong>
+の合算値に対する基準値(<strong>50 ng/L 以下</strong>)が、法的義務を伴う正式な水質基準として施行 <code>[出典:envix.co.jp]</code></li>
+<li><strong>2026 年 6 月</strong>:農林水産省も下水汚泥肥料に対する PFAS 暫定基準を施行する見通し</li>
+</ul>
+<p>ただし、国際的な規制動向と比較すると <strong>日本の基準は依然として緩やか</strong>。米国では 2024 年 4 月に新規制案が提示され、PFOS、PFOA
+それぞれ単独で <strong>「4 ng/L 未満」</strong> という極めて厳格な基準値が設定されている。<strong>この 4 ng/L という数値は、現在の検査方法における「定量下限以下であること」を意味し、実質的に「一切検出されてはならない(ゼロトレランス)」を求めているに等しい</strong>。</p>
+<h3>国内下水汚泥肥料の PFAS 実測データ</h3>
+<p>一般社団法人農民連食品分析センターが 2024 年に実施した下水汚泥肥料の PFAS 調査データは、汚染の深刻さを物語っている
+<code>[出典:shiryo_setagaya_pfas_250510a]</code>。</p>
+<table class="comparison-table fade-in">
+<thead>
+<tr>
+<th>試料の採取地域</th>
+<th>肥料中の PFOS+PFOA 合算検出値 (µg/kg)</th>
+<th>評価</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>S 県 下水汚泥肥料</strong></td>
+<td><strong>103.4</strong></td>
+<td>著しく高い蓄積。欧米基準では使用不能</td>
+</tr>
+<tr>
+<td>O 県 下水汚泥肥料</td>
+<td>21.3</td>
+<td>高度な汚染の蓄積</td>
+</tr>
+<tr>
+<td>W 県 下水汚泥肥料</td>
+<td>3.1</td>
+<td>相対的には低いが、蓄積リスクは残存</td>
+</tr>
+<tr>
+<td>K 県 下水汚泥肥料</td>
+<td>1.5</td>
+<td>同上</td>
+</tr>
+</tbody>
+</table>
+<p>S 県で検出された <strong>103.4 µg/kg</strong> は、農地への長期的な散布に伴う土壌への蓄積、降雨による地下水への溶出リスク、そして農作物への移行を通じた人体への発癌性や免疫系への悪影響を考慮した場合、
+<strong>極めて憂慮すべき水準</strong> である。</p>
+<div class="quoteblock">
+<blockquote>
+<p>厳格な安全基準が適用された場合、現在流通している下水汚泥肥料の多くが基準不適合として廃棄処分となる可能性が高い。これをクリアするには、下水処理プロセス自体に PFAS の吸着・分解プロセス
+(活性炭処理や高度酸化処理など)を組み込む根本的なインフラ改良が必要となるが、全国の処理施設にこの技術を導入するには <strong>「数年〜十年の期間と多額の投資」</strong> を要する。</p>
+</blockquote>
+</div>
+<p>つまり、リサイクルルートは即効性のある供給源にはなり得ない。</p>
+<h2>三つのルートの同時的な細り方</h2>
+<p>整理すると、こうなる。</p>
+<table class="comparison-table fade-in">
+<thead>
+<tr>
+<th>ルート</th>
+<th>現状</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. 中国製品輸入</td>
+<td>国家安保 + LFP 需要で構造的縮小、2026 年 3 月実質停止</td>
+</tr>
+<tr>
+<td>2. リン鉱石加工</td>
+<td>硫酸供給(中東硫黄)の制約、カタール不可抗力宣言、ホルムズ海峡混乱</td>
+</tr>
+<tr>
+<td>3. 下水汚泥回収</td>
+<td>規模が小さく、PFAS 規制が即効性を奪う</td>
+</tr>
+</tbody>
+</table>
+<p>三つすべてが、独立した理由で、同時に細っている。これは偶然の同時発生ではなく、それぞれの構造的な制約が同じ時期に顕在化したということだ。</p>
+<h3>価格と国内市場の硬直性</h3>
+<p>国内農家向けの <strong>過リン酸石灰(20kg 袋)</strong> の小売価格は、グローバル肥料価格との連動でこう推移している <code>[出典:smartagri.jp]</code>。</p>
+<table class="comparison-table fade-in">
+<thead>
+<tr>
+<th>年次</th>
+<th>国内農家向け小売価格</th>
+<th>グローバル複合肥料価格</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2020</td>
+<td>1,800 円</td>
+<td>平時水準</td>
+</tr>
+<tr>
+<td>2021</td>
+<td>2,150 円</td>
+<td>上昇局面</td>
+</tr>
+<tr>
+<td>2022</td>
+<td><strong>3,400 円(ピーク)</strong></td>
+<td>815 ドル/トン(平時の約 3 倍)</td>
+</tr>
+<tr>
+<td>2023</td>
+<td>3,200 円</td>
+<td>下落傾向</td>
+</tr>
+<tr>
+<td>2024</td>
+<td>2,900 円</td>
+<td>327 ドル/トン(ピークから大幅下落)</td>
+</tr>
+</tbody>
+</table>
+<p>特筆すべきは、<strong>グローバル価格が 2022 年ピーク 815 ドル/トンから 2024 年に 327 ドル/トンへ半値以下に下落しても、国内小売価格は 2,900 円と高止まり</strong> していることだ。主要因は <strong>歴史的水準の円安</strong>
+である。国際市場でドル建て価格が下がっても、為替の減価で輸入コストの引き下げ効果が完全に相殺される。リン安に至っては平時回帰には程遠い状況にある。</p>
+<h3>政府備蓄と需給シミュレーション</h3>
+<p>政府は経済安全保障推進法に基づき、リン安を <strong>「特定重要物資」</strong> に指定し、2027 年度までに年間需要量の <strong>「3 か月分」</strong> を備蓄する目標を掲げた <code>[出典:smartagri.jp]</code>。</p>
+<p>令和8年(2026 年)4 月時点での備蓄量は <strong>「2.4 か月分」</strong> に到達。国内の春の需要期向け肥料は、昨年の原料在庫を用いてすでに製造され流通網に乗っているため、政府(農林水産省)も「<strong>過度な懸念は不要</strong>」とのアナウンスを行っている。</p>
+<p>しかし、</p>
+<ul>
+<li>中国の輸出停止が 8 月まで継続</li>
+<li>中東ルートの物流麻痺が長期化</li>
+<li>夏以降に製造・出荷される秋作向けの肥料供給に深刻な遅延が生じる</li>
+</ul>
+<p>ことは避けられない。<strong>現在の 2.4 か月分の備蓄は、あくまで一時的なショックアブソーバーに過ぎず</strong>、新規の調達ルートが絶たれた状態が半年以上継続すれば、<strong>2026 年の秋作の消費を以て国内在庫は事実上底を突き始める</strong>。</p>
+<div class="quoteblock">
+<blockquote>
+<p>農家が希望する量の肥料を購入できない「<strong>アロケーション(割当配給)状態</strong>」に陥るリスクは極めて高い。</p>
+</blockquote>
+</div>
+<h2>「危機」ではなく、構造の話</h2>
+<p>ここで強調したいのは、これは「危機」ではない、ということだ。</p>
+<p>危機という言葉は、想定外のショックを示唆する。何か特別な事件が起きて、通常の状態が乱れた、という含意がある。</p>
+<p>しかし、いま起きていることは違う。</p>
+<ul>
+<li>中国の輸出規制 ── 国家安保上の合理的な選択である</li>
+<li>硫黄供給制約 ── 中東の地政学的緊張は数十年の文脈で見れば常態である</li>
+<li>LFP バッテリー需要 ── EV シフトの結果として予測可能である</li>
+<li>下水汚泥の PFAS 規制 ── 環境保護と公衆衛生の必然的帰結である</li>
+<li>円安 ── 日米金利差・経常収支構造から来る長期トレンド</li>
+</ul>
+<p>それぞれは構造的な要因で、いずれも長期的に続く。<strong>危機ではなく、構造が顕在化した</strong>。これがいまの姿である。</p>
+<div class="quoteblock">
+<blockquote>
+<p>サプライチェーンの構造を見れば、こうなる。</p>
+</blockquote>
+</div>
+<p>これは農業政策の失敗でも、誰かの陰謀でもない。世界の鉱物資源、地政学、工業需要、環境規制、為替 ── すべての構造が、リン酸肥料の供給を細らせる方向に同時に動いている。</p>
+<p>その帰結を、人は受け入れるしかない。</p>
+<p>次章では、これが一時的なショックではなく <strong>長期的な高価格時代の入口</strong>
+であることを、低品位鉱石の経済学とピーク・リン(Peak Phosphorus)
+から確認する。</p>
+<h2>参考資料</h2>
+<p><strong>政府・公的機関</strong></p>
+<ul>
+<li>農林水産省「肥料をめぐる情勢」令和8年(2026年)4月版</li>
+<li>環境省 PFOS・PFOA 水質基準(2026 年 4 月施行)</li>
+<li>経済安全保障推進法に基づく特定重要物資指定</li>
+</ul>
+<p><strong>業界レポート・解説</strong></p>
+<ul>
+<li>World Bank &quot;Commodity Markets Outlook&quot;(リン酸価格上昇予測)</li>
+<li>&quot;Strait of Hormuz Disruption Scenarios and Fertilizer Purchasing
+Risks for U.S. Crop Producers&quot; — farmdocdaily.illinois.edu</li>
+<li>「2026年最新】肥料価格高騰と供給不安について|中東紛争・中国…」
+— central-green.jp</li>
+<li>「中国、肥料輸出を 8 月まで実質停止 国内農家保護の余波で顕在化」
+— iru-miru.com</li>
+<li>「【図解解説】『肥料をめぐる情勢』令和8年4月版を読み解く」
+— smartagri.jp</li>
+</ul>
+<p><strong>学術文献</strong></p>
+<ul>
+<li>&quot;Phosphorus dynamics and sustainable agriculture: The role of
+microbial solubilization and innovations in nutrient management&quot;
+— PMC11647644(リンの代替不能性、農業生産の半分が合成肥料依存)</li>
+</ul>
+<p><strong>PFAS 関連</strong></p>
+<ul>
+<li>一般社団法人農民連食品分析センター「下水汚泥肥料の PFAS 調査」
+(2024 年)</li>
+<li>「身近な製品に潜む PFAS」(setagaya 区資料)</li>
+<li>envix.co.jp「日本・環境省、PFOS および PFOA を水道法の水質基準項目に追加、2026 年 4 月施行へ」</li>
+</ul>
+
+  </article>
+
+  <!-- CHAPTER NAV(前後の記事) -->
+  <nav class="chapter-nav">
+  <a href="/phosphorus-and-farming/prologue/" rel="prev">&larr; 前: 序章 ── 経済が農法を決める</a>
+  <a href="/phosphorus-and-farming/no-cheap-return/" rel="next">次: 第2章 リン酸肥料は安価には戻らない &rarr;</a>
+</nav>
+
+  <!-- FOOTER(サイト内メニュー+奥付) -->
+  <footer class="site-footer">
+    <nav class="footer-nav" aria-label="サイト内リンク">
+      <div class="footer-col">
+        <h4>記事シリーズ</h4>
+        <ul>
+          <li><a href="/insights/">構造分析</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/ai-native-software/">AI ネイティブなソフトウェア開発</a></li>
+          <li><a href="/claude-debian/">Claudeと一緒に学ぶDebian</a></li>
+          <li><a href="/debian-server/">Claudeと一緒に育てるDebian サーバー</a></li>
+          <li><a href="/phosphorus-and-farming/">リン資源枯渇と自然農法</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>サイト</h4>
+        <ul>
+          <li><a href="/">ホーム</a></li>
+          <li><a href="/natural-farming/">自然農法とは</a></li>
+          <li><a href="/light-farming/">Light Farming</a></li>
+          <li><a href="/gallery/">畑の記録</a></li>
+          <li><a href="/about/">私たちのアプローチ</a></li>
+          <li><a href="/privacy/">プライバシー</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>関連サイト</h4>
+        <ul>
+          <li><a href="https://aiai.aiseed.dev/">aiai ── AI 時代の学び方</a></li>
+          <li><a href="https://weather.time-j.net/">個人開発気象統計</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="colophon">
+      <div class="colophon-mark">§</div>
+      リン資源枯渇と自然農法シリーズ · 第1章<br>
+      Tokushima · 2026.05.06<br>
+      <a href="/" style="color: var(--whisper); text-decoration: underline; text-decoration-color: var(--rule);">aiseed.dev</a> · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" style="color: var(--whisper); text-decoration: underline; text-decoration-color: var(--rule);">CC BY 4.0</a>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  // 広い画面ではサイドバー目次を常時展開する(狭い画面では折りたたみに戻す)
+  (function () {
+    var toc = document.querySelector(".series-toc details");
+    if (!toc) return;
+    var mq = window.matchMedia("(min-width: 1200px)");
+    function sync() { toc.open = mq.matches; }
+    sync();
+    if (mq.addEventListener) mq.addEventListener("change", sync);
+    else mq.addListener(sync);
+  })();
+
+  // Mermaid loads only on pages that contain a .mermaid block.
+  // Self-hosted (no third-party CDN dependency); SRI verified.
+  if (document.querySelector(".mermaid")) {
+    const s = document.createElement("script");
+    s.src = "/js/vendor/mermaid-11.14.0.min.js";
+    s.integrity = "sha384-1CMXl090wj8Dd6YfnzSQUOgWbE6suWCaenYG7pox5AX7apTpY3PmJMeS2oPql4Gk";
+    s.crossOrigin = "anonymous";
+    s.onload = () => {
+      const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+      mermaid.initialize({ startOnLoad: false, theme: prefersDark ? "dark" : "default" });
+      mermaid.run();
+    };
+    document.head.appendChild(s);
+  }
+</script>
+
+
+</body>
+</html>

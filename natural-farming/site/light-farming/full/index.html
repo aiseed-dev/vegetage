@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <!-- Apply saved theme immediately to avoid FOUC -->
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem('aiseed-theme');
+          if (t === 'light' || t === 'dark') {
+            document.documentElement.setAttribute('data-theme', t);
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9FLQ963JXM"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-9FLQ963JXM');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Light Farming: 農業土壌への炭素、有機窒素、生物多様性の回復 - Christine Jones博士による論文の日本語全訳">
+    <title>Light Farming 全訳 | AI時代の暮らし</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <style>
+        .article-header {
+            text-align: center;
+            padding: 2rem 0;
+            border-bottom: 1px solid var(--root-tan);
+            margin-bottom: 3rem;
+        }
+
+        .article-title {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .article-author {
+            font-size: 1.1rem;
+            color: var(--soil-rich);
+            margin-bottom: 0.5rem;
+        }
+
+        .article-source {
+            font-size: 0.9rem;
+            color: var(--moss-green);
+        }
+
+        .article-body {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .article-body h2 {
+            font-size: 1.6rem;
+            margin: 3rem 0 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--moss-green);
+        }
+
+        .article-body h3 {
+            font-size: 1.3rem;
+            margin: 2.5rem 0 1rem;
+            color: var(--leaf-dark);
+        }
+
+        .article-body p {
+            font-size: 1.05rem;
+            line-height: 2;
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        .article-body ul,
+        .article-body ol {
+            margin: 1.5rem 0;
+            padding-left: 1.5rem;
+        }
+
+        .article-body li {
+            margin-bottom: 0.8rem;
+            line-height: 1.8;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            font-size: 0.95rem;
+        }
+
+        .data-table th,
+        .data-table td {
+            padding: 0.8rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--root-tan);
+        }
+
+        .data-table th {
+            background: var(--sand-light);
+            font-weight: 500;
+            color: var(--earth-dark);
+        }
+
+        .data-table caption {
+            text-align: left;
+            font-weight: 500;
+            padding: 1rem 0;
+            color: var(--leaf-dark);
+        }
+
+        .highlight-box {
+            background: var(--sand-light);
+            border-left: 4px solid var(--moss-green);
+            padding: 1.5rem 2rem;
+            margin: 2rem 0;
+        }
+
+        .highlight-box p {
+            margin-bottom: 0;
+        }
+
+        .figure {
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .figure img {
+            max-width: 100%;
+            margin-bottom: 1rem;
+        }
+
+        .figure-caption {
+            font-size: 0.9rem;
+            color: var(--soil-rich);
+            font-style: italic;
+        }
+
+        .references {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 2px solid var(--root-tan);
+        }
+
+        .references h2 {
+            border-bottom: none;
+        }
+
+        .references ol {
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        .references li {
+            margin-bottom: 1rem;
+            word-break: break-word;
+        }
+
+        .translation-note {
+            background: rgba(122, 154, 109, 0.1);
+            border-radius: 4px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            font-size: 0.9rem;
+        }
+
+        .translation-note h4 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            color: var(--leaf-dark);
+        }
+
+        .page-break {
+            page-break-after: always;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-inner">
+            <a href="/" class="logo">
+                AI時代の暮らし
+                <span>aiseed.dev</span>
+            </a>
+            <nav class="nav">
+                <a href="/">ホーム</a>
+                <a href="/insights/">Insights</a>
+                <a href="/blog/">Blog</a>
+                <a href="/natural-farming/">自然農法とは</a>
+                <a href="/light-farming/" class="active">Light Farming</a>
+                <a href="/gallery/">畑の記録</a>
+                <a href="/en/light-farming/" class="lang-switch" hreflang="en" aria-label="View in English">🌐 EN</a>
+                <button type="button" class="theme-toggle" aria-label="テーマを切り替え" title="テーマ切り替え (Light / Dark)">
+                    <span class="theme-icon theme-icon-sun" aria-hidden="true">☀</span>
+                    <span class="theme-icon theme-icon-moon" aria-hidden="true">☾</span>
+                </button>
+            </nav>
+            <button class="nav-toggle" aria-label="メニュー">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Article -->
+    <article class="section">
+        <div class="container-narrow">
+
+            <div class="article-header">
+                <h1 class="article-title">Light Farming:<br>農業土壌への炭素、有機窒素、生物多様性の回復</h1>
+                <p class="article-author">Christine Jones, PhD<br>Amazing Carbon 創設者</p>
+                <p class="article-source">www.amazingcarbon.com（2018年）</p>
+            </div>
+
+            <div class="translation-note">
+                <h4>翻訳について</h4>
+                <p>この翻訳は、Christine Jones博士の許可を得て、AIによって翻訳しました。正確な内容については<a href="https://amazingcarbon.com/JONES-LightFarmingFINAL(2018).pdf" target="_blank" rel="noopener noreferrer">原文（PDF）</a>をご確認ください。</p>
+            </div>
+
+            <div class="article-body">
+
+                <p>大気中の二酸化炭素（CO2）を除去し、生命を与える酸素に置き換え、堅牢な土壌微生物叢を支え、表土を再生し、食料の栄養密度を高め、景観の水バランスを回復し、農業の収益性を向上させるプロセスがあるとしたら、どうでしょうか？
+                </p>
+
+                <p>幸いなことに、そのようなプロセスは存在します。</p>
+
+                <p>それは<strong>光合成</strong>と呼ばれています。</p>
+
+                <h2>光合成の力</h2>
+
+                <p>光合成という奇跡のプロセスでは、緑の葉の葉緑体において、大気中の二酸化炭素（CO2）と土壌からの水（H2O）が組み合わされ、光エネルギーを捕捉して単糖という形の生化学的エネルギーに変換します。</p>
+
+                <p>これらの単糖—一般に「光合成産物（photosynthate）」と呼ばれる—は、地上と地中の生命の基礎となる構成要素です。植物は糖を、デンプン、タンパク質、有機酸、セルロース、リグニン、ワックス、油脂など、非常に多様な他の炭素化合物に変換します。
+                </p>
+
+                <p>果物、野菜、ナッツ、種子、穀物は、光合成から生まれた「パッケージされた太陽光」です。私たちの細胞や他の生物の細胞が好気呼吸の際に利用する酸素もまた、光合成に由来しています。</p>
+
+                <p>私たちは緑の植物に大いに感謝すべきなのです！！</p>
+
+                <p>重要なことに、光合成中に形成される単糖から誘導される炭素化合物の多くは、岩石の風化によって生成された生命のない鉱物土壌から、よく構造化された表土を作り出すためにも不可欠です。</p>
+
+                <div class="highlight-box">
+                    <p><strong>光合成がなければ土壌は存在しません。</strong><br>
+                        風化した岩石鉱物はあるでしょう...しかし、肥沃な表土は存在しないのです。</p>
+                </div>
+
+                <h2>植物-微生物の架け橋</h2>
+
+                <p>陸上の生命の95%以上が土壌に存在し、この足元の驚くべき世界のエネルギーのほとんどが植物の炭素に由来していることを知ると、多くの人が驚きます。</p>
+
+                <p>生きた根からの滲出液（exudates）は、これらの炭素源の中で最もエネルギーに富んでいます。「液体炭素（liquid
+                    carbon）」と引き換えに、植物の根の周辺の微生物—そして有益な菌類のネットワークを介して植物とつながった微生物—は、宿主の健康と活力を維持するために必要なミネラルと微量元素の利用可能性を高めます(1,
+                    2)。微生物の活動はまた、団粒化のプロセスを駆動し、土壌構造の安定性、通気性、浸透性、保水能力を向上させます。植物-微生物の架け橋が効果的に機能しているとき、地上と地下のすべての生物が恩恵を受けます。
+                </p>
+
+                <p>残念ながら、今日の農法の多くは土壌微生物群集を著しく損ない、土壌に移転され安定化される液体炭素の量を大幅に減少させています。これは一連の負のフィードバックを生み出します。</p>
+
+                <p>過去150年間で、世界の主要な農業土壌の多くが炭素の30%から75%を失い、大気中に数十億トンのCO2を追加しました(3)。土壌炭素の喪失は、土地の生産ポテンシャルと農業の収益性を著しく低下させます。土壌の劣化は近年激化しており、過去40年間で世界の農地の約30%が土壌の衰退により放棄されています(4)。世界人口が2050年までに100億人近くに達すると予測される中、土壌修復の必要性はかつてないほど切迫しています。
+                </p>
+
+                <p>土壌の機能不全は、人間と動物の健康にも影響を与えます。過去70年間で、ほぼすべての種類の食品においてすべての栄養素のレベルが10〜100%の範囲で低下していることを考えると、考えさせられます。現代の個人は、1940年に同じ食品から得られたのと同じ量のミネラルと微量元素を得るために、2倍の肉、3倍の果物、4〜5倍の野菜を消費する必要があります。
+                </p>
+
+                <p>David Thomas博士(5,
+                    6)は、医学研究評議会、農業漁業食品省、食品基準庁が発行した表から、食品組成の歴史的変化の包括的な分析を提供しました。1940年と1991年のデータを比較することにより、Thomasは調査されたすべての食品グループにおいて、ミネラルと微量元素の含有量の大幅な損失を実証しました。
+                </p>
+
+                <table class="data-table">
+                    <caption>野菜のミネラル減少（1940年〜1991年）- 27種類の野菜の平均</caption>
+                    <thead>
+                        <tr>
+                            <th>ミネラル</th>
+                            <th>減少率</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>銅</td>
+                            <td>76%減少</td>
+                        </tr>
+                        <tr>
+                            <td>カルシウム</td>
+                            <td>46%減少</td>
+                        </tr>
+                        <tr>
+                            <td>鉄</td>
+                            <td>27%減少</td>
+                        </tr>
+                        <tr>
+                            <td>マグネシウム</td>
+                            <td>24%減少</td>
+                        </tr>
+                        <tr>
+                            <td>カリウム</td>
+                            <td>16%減少</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <table class="data-table">
+                    <caption>肉類のミネラル減少（1940年〜1991年）- 10種類の肉の平均</caption>
+                    <thead>
+                        <tr>
+                            <th>ミネラル</th>
+                            <th>減少率</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>銅</td>
+                            <td>24%減少</td>
+                        </tr>
+                        <tr>
+                            <td>カルシウム</td>
+                            <td>41%減少</td>
+                        </tr>
+                        <tr>
+                            <td>鉄</td>
+                            <td>54%減少</td>
+                        </tr>
+                        <tr>
+                            <td>マグネシウム</td>
+                            <td>10%減少</td>
+                        </tr>
+                        <tr>
+                            <td>カリウム</td>
+                            <td>16%減少</td>
+                        </tr>
+                        <tr>
+                            <td>リン</td>
+                            <td>28%減少</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p class="figure-caption">出典：Thomas, D.E. (2003). A study of the mineral depletion of foods available to
+                    us as a nation over the period 1940 to 1991. Nutrition and Health, 17: 85–115.</p>
+
+                <p>Thomasのレビューで要約された栄養素の減少は、27種類の野菜と10種類の肉におけるミネラルと微量元素の変化の加重平均を表しています。同時期にテストされた17品種の果物と2つの乳製品においても、顕著なミネラルと微量元素の減少が記録されました(5)。
+                </p>
+
+                <p>肉と乳製品のミネラル減少は、動物がそれ自体がミネラル不足の植物や穀物を消費しているという事実を反映しています。</p>
+
+                <p>全体的な栄養密度の低下に加えて、Thomasはミネラル同士の比率に有意な変化があることを発見しました。最適な生理機能のためにはミネラルと微量元素の重要な比率が存在することを考えると、これらの歪んだ比率が動物と人間の健康と幸福に影響を与える可能性が非常に高いです(5)。
+                </p>
+
+                <h2>食品の栄養密度を回復する</h2>
+
+                <p>今日の化学的に生産された食品の栄養密度が著しく低下しているのは、「希釈効果」によるものだと一般的に信じられています。つまり、収量が増加すると、ミネラル含有量が低下するというものです。しかし、健康で生物学的に活性な土壌で栽培された高収量の野菜、作物、牧草では、栄養レベルの低下は観察されません。実際、逆のことが当てはまります。
+                </p>
+
+                <p>ミネラルと微量元素が土壌から完全に欠如しているケースはまれです。今日の植物、動物、人間に見られる「欠乏症」のほとんどは、土壌条件が栄養素の吸収に適していないことが原因です。ミネラルは存在していますが、単に植物が利用できない状態なのです。これらのいわゆる欠乏症を是正するために無機元素を添加することは非効率的な慣行です。むしろ、機能不全の生物学的原因に対処する必要があります。
+                </p>
+
+                <div class="quote-block">
+                    <p class="quote-text">「土壌なくして生命はなく、生命なくして土壌はない。両者は共に進化してきた」</p>
+                    <p class="quote-author">— Charles E. Kellogg, USDA Yearbook of Agriculture, 1938</p>
+                </div>
+
+                <p>土壌が栄養密度の高い、高活力の作物、牧草、果物、野菜を支える能力は、さまざまな機能グループからの多様な土壌微生物の存在を必要とします。栄養素獲得に関与する微生物の大部分は植物依存性です。つまり、活発に成長している緑の植物の根から滲出する炭素化合物に応答するのです。
+                </p>
+
+                <p>植物依存性微生物のほとんどは、「サイド（cides）」— 除草剤、殺虫剤、農薬、殺菌剤 — の使用によって悪影響を受けます。これらの化学物質の使用は栄養素の吸収を減少させ、植物の免疫応答を損ない、しばしばさらなる化学物質の使用を必要とします。
+                </p>
+
+                <p>要するに、土壌生態系の機能は、活発に成長している緑の植物の存在、多様性、光合成速度—ならびに化学毒素の存在または不在—によって決定されます。</p>
+
+                <p>では、植物を管理し、化学物質を管理するのは誰でしょうか？</p>
+
+                <p>おわかりのとおり...私たちです。</p>
+
+                <p>幸いなことに、消費者は食品が単なる商品以上のものであることをますます認識するようになっています。実際、食品の品質、土壌機能、地球の健康との関連についての世界的な認識の高まりは、切実に必要とされている社会的・環境的変化の重要な推進力となる可能性があります(7)。症状に「絆創膏」を貼るのではなく、食料生産システムの管理方法によって、土壌の完全性、肥沃度、構造、保水能力を回復させるのは私たち次第なのです。
+                </p>
+
+                <h2>土壌炭素シンク</h2>
+
+                <p>土壌は炭素の排出源（source）—大気の炭素を増加させる—として機能することも、炭素の吸収源（sink）—大気からCO2を除去する—として機能することもできます。排出・吸収方程式のダイナミクスは、主に土地管理によって決定されます。
+                </p>
+
+                <p>数千年にわたり、非常に効果的な炭素循環が進化してきました。そこでは、炭素化合物の形での生化学的エネルギーの捕捉、貯蔵、移転、放出、再捕捉が何度も繰り返されます。土壌の健康—そして植物、動物、人間の活力—は、この循環の効果的な機能に依存しています。
+                </p>
+
+                <p>産業革命以降の技術発展は、地球表面下から膨大な量の化石燃料を抽出できる機械—そして草原や森林の広大な地帯を剥き出しにできる機械—を生み出しました。これらの要因を合わせると、大気へのCO2の放出量が増加する一方で、私たちが管理できる最大の自然吸収を同時に破壊する結果となりました。自然吸収容量の減少は、人為的排出の影響を増幅させています。
+                </p>
+
+                <h2>炭素、窒素、水</h2>
+
+                <p>手つかずの植生がある地域を最初に作付けすると、通常、肥料を追加することなく、高タンパク質穀物の良好な収量を得ることができます。時間の経過とともに、多様な生態系を単一種作物に置き換えること、過度の耕作を行うこと、現金作物間で「裸休閑」を維持する慣行は、土壌炭素の損失と土壌の健康の悪化をもたらします。収量を維持しようとして、ますます多くの肥料、特に無機形態の窒素がしばしば施用されます。
+                </p>
+
+                <p>「より多くの肥料」を施用するよりも、土壌機能の悪化に対する解決策は、安定した土壌炭素のレベルを増加させる管理慣行の採用にあります。有機炭素、有機窒素、保水能力は常に一緒に動きます。土壌炭素のレベルが増加すると、有機窒素のレベルと土壌が水を浸透させ貯蔵する能力も増加します。
+                </p>
+
+                <p>有機炭素は自重の4〜20倍の水を保持します。多くの環境では、水分の利用可能性が（栄養素の利用可能性よりも）生産の最も制限的な要因です。時間の経過とともに、土壌炭素レベルの改善により、無機肥料の必要性がなくなります。
+                </p>
+
+                <p>安定した土壌炭素のレベルを増加させることは、景観機能にもプラスの効果をもたらします。炭素は、土壌構造を向上させる水安定性団粒の形成に不可欠であり、これにより流出が減少し、浸食が最小限に抑えられます。
+                </p>
+
+                <h2>炭素変換効率（CCE）</h2>
+
+                <p>炭素変換効率（CCE）は、炭素投入量（植物枯死物（litter）、動物糞尿、根滲出液など）のうち、安定した土壌炭素に生物学的に変換される割合です。物理的、生物学的、化学的なさまざまな理由により、炭素投入物の安定した炭素への変換は、地上バイオマスよりも根由来の材料の方が高くなります(8,
+                    9)。</p>
+
+                <p>現場で根をその場で育てた（つまり、土壌を撹乱しない）10の安定同位体実験の分析では、根由来の炭素の安定化は18〜91%で、平均46%でしたが、地上バイオマス由来の炭素の安定化は3〜17%で、平均8.3%でした(9)。全体として、根由来の炭素の安定化は地上バイオマスからのものより5倍高かったのです(9)。著者らは、根由来の炭素の安定化は、研究された一年生システムよりも多年生ベースの生態系でさらに高くなる可能性があると示唆しました(9)。
+                </p>
+
+                <p>根由来の材料が安定した土壌炭素プールにこれほど積極的に貢献する理由の1つは、炭素源を提供することに加えて、根圏が安定化に不可欠な自由生活窒素固定細菌と有益な菌類を支持していることです。安定した土壌炭素は約60%が炭素で、6〜8%が窒素です。理想的には、この窒素は大気から来るべきです。よく団粒化された土壌は多孔質で、ガス交換率が高くなります。土壌炭素レベルが改善されると、土壌構造が改善され、協同的（associative）な生物学的窒素固定の条件が強化され、正のフィードバックループが作成されます。土壌炭素が減少しているときは、その逆が当てはまります。有益な菌類の個体数が減少し、団粒安定性が低下し、その結果として生じる貧弱な構造がガス交換を制限します。これにより、自由生活細菌による生物学的窒素固定が減少し、したがって炭素の安定化も減少します。
+                </p>
+
+                <p>現在、多くの農業、園芸、林業、庭園の土壌は、純炭素排出源となっています。つまり、これらの土壌は隔離しているよりも多くの炭素を失っています。</p>
+
+                <p>植物と土壌管理の改善を通じて、大気へのCO2の正味の移動を逆転させる可能性は計り知れません。実際、安定した形で大量の大気炭素を隔離し貯蔵する土壌の能力を高める方法で植生被覆を管理することは、現在人類が直面している最も困難な問題のいくつかに対する実用的でほぼ即座の解決策を提供します。
+                </p>
+
+                <p>成功する隔離の鍵は、基本を正しく行うことです。</p>
+
+            </div>
+        </div>
+    </article>
+
+    <!-- Continue to Part 2 -->
+    <section class="section section-alt">
+        <div class="container text-center">
+            <p>続きは<a href="../full-2/">次のページ</a>へ</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-about">
+                <h3>AI時代の暮らし</h3>
+                <p>福岡正信氏の自然農法とリジェネラティブ農業の実践を通じて、土壌の再生と自然との共生を目指しています。</p>
+            </div>
+            <div class="footer-nav">
+                <h4>ページ</h4>
+                <ul>
+                    <li><a href="/">ホーム</a></li>
+                    <li><a href="/natural-farming/">自然農法とは</a></li>
+                    <li><a href="/light-farming/">Light Farming</a></li>
+                    <li><a href="/gallery/">畑の記録</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>関連リンク</h4>
+                <ul>
+                    <li><a href="https://www.facebook.com/groups/vegitage" target="_blank" rel="noopener noreferrer">Facebook Group</a></li>
+                    <li><a href="https://www.amazingcarbon.com" target="_blank" rel="noopener noreferrer">Amazing Carbon</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copyright">&copy; 2026 aiseed.dev — <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">CC BY 4.0</a></p>
+        </div>
+    </footer>
+
+    <script src="../../js/main.js"></script>
+</body>
+
+</html>
