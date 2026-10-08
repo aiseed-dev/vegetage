@@ -46,3 +46,6 @@ natural-farming/
 website 側でページを消して 301 で転送するのは、新しい URL で実際にページが配信されてからにする。
 先に転送を張るとリンク切れになる。新しい URL が決まったら、その一覧を website 側に渡す。
 website 側はそれをもとに `_redirects`、トップページ、テンプレート、本文中のリンクを書き換える。
+
+連載を書き直すときは、いまの日英の章の分け方と slug(`prologue`、`supply-constraint` …… `cuba-lessons` など)をそのまま使う。
+website 側は、slug ごとに古い URL と新しい URL を対応づけて転送するため。
