@@ -1,23 +1,27 @@
 [
   {
-    "label": "web ビルド (リリース)",
+    "label": "aiseed.page ビルド",
+    "command": "python3 web/build_all.py && python3 web/check_site.py"
+  },
+  {
+    "label": "aiseed.page ローカル確認 (port 8099)",
+    "command": "python3 -m http.server 8099 --directory web/site"
+  },
+  {
+    "label": "aiseed.page デプロイ (dry-run)",
+    "command": "cf-publish web/site --project vegetage --dry-run"
+  },
+  {
+    "label": "aiseed.page デプロイ (本番)",
+    "command": "cf-publish web/site --project vegetage"
+  },
+  {
+    "label": "Flutter web ビルド (リリース・確認用)",
     "command": "cd frontend/vegetage && flutter build web --release --dart-define=FLUTTER_WEB_CANVASKIT_URL=canvaskit/",
     "env": { "PATH": "$HOME/development/flutter/bin:$PATH" }
   },
   {
     "label": "フォント再生成 (データ更新後)",
     "command": "cd frontend/vegetage && [ -d .venv-fonts ] || (python3 -m venv .venv-fonts && .venv-fonts/bin/pip install fonttools); .venv-fonts/bin/python tool/subset_fonts.py"
-  },
-  {
-    "label": "Pages デプロイ (dry-run)",
-    "command": "cd frontend/vegetage && cf-publish build/web --project vegetage --dry-run"
-  },
-  {
-    "label": "Pages デプロイ (本番)",
-    "command": "cd frontend/vegetage && cf-publish build/web --project vegetage"
-  },
-  {
-    "label": "ローカル確認 (port 5051)",
-    "command": "cd frontend/vegetage && python3 -m http.server 5051 --directory build/web"
   }
 ]

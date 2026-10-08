@@ -1,9 +1,13 @@
 # Vegetage Web — 操作ガイド
 
+更新から公開までの手順は [`../docs/aiseed-page-操作マニュアル.md`](../docs/aiseed-page-操作マニュアル.md)。
+ここはビルダーの仕様。
+
 ## 全部まとめてビルド(aiseed.page の公開物)
 
 ```bash
 python3 web/build_all.py      # リポジトリ直下で → web/site/
+python3 web/check_site.py     # サイト内のリンク切れチェック
 python3 -m http.server 8099 --directory web/site   # 確認
 ```
 

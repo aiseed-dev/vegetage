@@ -1,4 +1,10 @@
-# Vegetage Web版 公開マニュアル (Cloudflare Pages)
+# Vegetage Web版 公開マニュアル (Cloudflare Pages) — 旧手順
+
+> **2026-10-08 以降、aiseed.page は Flutter アプリではなく `web/site/`(辞典と読みもの)を配信する。**
+> 今の手順は [`aiseed-page-操作マニュアル.md`](aiseed-page-操作マニュアル.md)。
+> 下の手順 2・3 の `cf-publish build/web --project vegetage` を流すと、aiseed.page が
+> Flutter アプリで上書きされるので**実行しないこと**。Flutter Web 版を別の場所に出すときは、
+> 別のプロジェクト名を使う。
 
 設計の背景・決定事項は [`../DESIGN.md`](../DESIGN.md) を参照。
 これはコマンドだけをまとめた実行手順。

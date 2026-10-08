@@ -58,7 +58,7 @@ web/                 aiseed.page の公開物。イタリア図鑑(italian/)・�
 research/            調査データ(deep_research・master_lists)とリサーチエージェント(src/)
 natural-farming/     自然農法のページの website 時代の控え(正本は web/pages/)
 data_processing/     ハッカソン版のデータ生成パイプライン(プロンプトと生成データ)
-docs/                設計・計画・手順書
+docs/                設計・計画・手順書(aiseed.page の更新・公開は docs/aiseed-page-操作マニュアル.md)
 ```
 
 ## 🛠️ 技術スタック
