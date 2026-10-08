@@ -502,6 +502,18 @@ def build_root_index():
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vegetage — 世界の伝統野菜辞典</title>
+<script>
+  // ハッカソン版アプリ(Flutter)の URL を新しい辞典へ振り替える。
+  // QR コードは https://aiseed.page/#/vegetables/<id> を指して印刷済み。
+  // # 以降はサーバーに届かないので、_redirects ではなくここで処理する。
+  (function () {
+    var m = location.hash.match(/^#\\/vegetables(?:\\/([^?]+))?/);
+    if (!m) return;
+    if (!m[1]) { location.replace("/vegetables/"); return; }
+    var id = decodeURIComponent(m[1]).trim().replace(/\\s*[\\\\/]\\s*/g, "-");
+    location.replace("/vegetables/" + encodeURIComponent(id) + ".html");
+  })();
+</script>
 <style>
   body { font-family: serif; background: #faf9f6; color: #2c2c2c;
     max-width: 720px; margin: 0 auto; padding: 3em 1.5em; line-height: 1.8; }
