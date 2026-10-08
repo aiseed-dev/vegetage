@@ -224,7 +224,7 @@ class _QrCodeSectionState extends State<_QrCodeSection> {
 
       await Share.shareXFiles(
         [xFile],
-        text: '${widget.vegetableId} - Vegitage QRコード',
+        text: '${widget.vegetableId} - Vegetage QRコード',
       );
     } catch (e) {
       // mounted プロパティで、ウィジェットがまだ画面に存在するか確認

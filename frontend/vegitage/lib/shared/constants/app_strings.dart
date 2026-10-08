@@ -13,7 +13,7 @@ class AppStrings {
   AppStrings._();
 
   // --- アプリ全体で使われる文字列 ---
-  static const String appTitle = 'Vegitage';
+  static const String appTitle = 'Vegetage';
   static const String searchHint = '野菜を検索...';
   static const String errorTitle = 'エラー';
   static const String errorMessage = '問題が発生しました。しばらくしてからもう一度お試しください。';

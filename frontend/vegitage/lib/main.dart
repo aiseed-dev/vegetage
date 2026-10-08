@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      title: 'Vegitage',
+      title: 'Vegetage',
 
       // AppThemeからテーマを読み込む
       theme: AppTheme.lightTheme,

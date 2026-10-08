@@ -1,12 +1,12 @@
-# Vegitage - 生きた伝統野菜&料理辞典 🌱
+# Vegetage - 生きた伝統野菜&料理辞典 🌱
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Data License: CC BY-SA 4.0](https://img.shields.io/badge/Data%20License-CC%20BY--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
 
-『Vegitage（ベジテージ）』へようこそ。
+『Vegetage（ベジテージ）』へようこそ。
 このプロジェクトは、AIの力を借りて、世界中に眠る伝統野菜や伝統料理の「物語」を再発見し、未来へ繋ぐためのオープンなデータベースを構築する試みです。
 
-**「Vegitage」は、Heritage Vegetables（伝統野菜）からの造語です。**
+**「Vegetage」は、Heritage Vegetables（伝統野菜）からの造語です。**
 
 ---
 
@@ -24,7 +24,7 @@
 
 ## ✨ 私たちのソリューション
 
-`Vegitage`は、この断絶を、テクノロジーとコミュニティの力で繋ぎ直します。
+`Vegetage`は、この断絶を、テクノロジーとコミュニティの力で繋ぎ直します。
 
 1.  **AIによる物語の発見:**
     `Gemini API`を駆使した独自の2段階パイプラインで、忘れられた野菜の文化的価値や栽培法を、世界中の文献から体系的に発掘します。
@@ -60,7 +60,7 @@ https://aiseed.page
 
 ## 🤝 仲間を募集しています！
 
-`Vegitage`は、まだ生まれたばかりの「種」です。
+`Vegetage`は、まだ生まれたばかりの「種」です。
 この種を、共に水やりし、育ててくれる仲間を、心から募集しています。
 
 *   伝統野菜のデータや写真を提供してくださる農家の方、郷土料理研究家の方
