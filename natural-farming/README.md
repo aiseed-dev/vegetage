@@ -37,9 +37,11 @@ natural-farming/
 - **about**:こちらに移す。website 側は短い紹介に書き直す。
 - **カタログエディタの設計書**:`docs/catalog-editor.md` に移した(元は website の `docs/plan/catalog-editor.md`)。
 
+- **URL**:aiseed.page で、今と同じパスを使う(`aiseed.dev/<パス>` → `aiseed.page/<パス>`)。連載の章の slug も日英ともそのまま。対応表は website 側に送った。
+
 ## まだ決まっていないこと
 
-- **公開先と URL**:aiseed.page でよいか。aiseed.page ではまだハッカソン版の Flutter アプリを配信していて、切り替えは急がない。
+- **aiseed.page を切り替える時期**:aiseed.page ではまだハッカソン版の Flutter アプリを配信していて、切り替えは急がない。
 
 ## website 側の削除と転送の順番
 
