@@ -495,7 +495,7 @@ def build_index(articles: list[dict], out_dir: Path, cat: dict) -> None:
 
 # ── Root index (aiseed.page のトップ) ─────────────────
 def build_root_index():
-    """サイトルート。2つのカタログ(野菜辞典・イタリア図鑑)への入口。"""
+    """サイトルート。2つのカタログ(野菜辞典・イタリア図鑑)と読みもの(自然農法・連載)への入口。"""
     (DIST_DIR / "index.html").write_text("""<!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -523,6 +523,10 @@ def build_root_index():
     <span>332種。栽培・栄養・食文化から気候変動への適応まで。</span></a>
   <a class="card" href="/italian/"><b>イタリア野菜図鑑 →</b><br>
     <span>69種。地中海の風土が育んだ伝統野菜と、その食文化の物語。</span></a>
+  <a class="card" href="/natural-farming/"><b>自然農法 →</b><br>
+    <span>福岡正信の四原則と、Light Farming の土壌科学。肥料に頼らない畑づくり。</span></a>
+  <a class="card" href="/phosphorus-and-farming/"><b>連載「リン資源枯渇と自然農法」 →</b><br>
+    <span>序章から第9章。経済と物理が、これからの農法を決める。</span></a>
 </div>
 </body>
 </html>""", encoding="utf-8")

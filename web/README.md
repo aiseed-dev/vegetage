@@ -1,5 +1,35 @@
 # Vegetage Web — 操作ガイド
 
+## 全部まとめてビルド(aiseed.page の公開物)
+
+```bash
+python3 web/build_all.py      # リポジトリ直下で → web/site/
+python3 -m http.server 8099 --directory web/site   # 確認
+```
+
+| ビルダー | 正本 | 出力 |
+|---|---|---|
+| `build.py` | `web/italian/`(イタリア図鑑) | `site/index.html`, `site/italian/` |
+| `build_dict.py` | `frontend/vegetage/assets/data/`(野菜辞典 JSON) | `site/vegetables/` |
+| `build_pages.py` | `web/pages/`(読みもの) | `site/{natural-farming,light-farming,gallery,about,phosphorus-and-farming,en/…,css,images}/` |
+
+各ビルダーは自分の出力だけを消す。`web/site/` を丸ごと消さないこと。
+
+## 読みもの(web/pages/)
+
+自然農法・Light Farming・畑の記録・私たちのアプローチ・連載「リン資源枯渇と自然農法」。
+aiseed.dev から移したもので、**URL は aiseed.dev 時代と同じパス**にしてある
+(website 側の 301 を `/<パス>/* → https://aiseed.page/<パス>/:splat` で済ませるため)。
+
+- `web/pages/<パス>.md` → `/<パス>/`、`web/pages/<パス>/index.md` → `/<パス>/`
+- 英語版は `web/pages/en/` に同じパスで置く。日英が揃っていれば言語切替リンクと hreflang が付く
+- フロントマター: `title` `subtitle` `label` `description` `image`(`/images/…`、ヒーローと og:image)
+- 連載: `phosphorus-and-farming/index.md` の `chapters:` が章の順番。章の slug は変えない
+  (各章は `toc_title` `summary` `date` を持つ)
+- 写真は `web/pages/images/`
+- 見た目は `static/style.css` + `static/pages.css`
+- 文章のライセンスは CC BY 4.0(辞典データは CC BY-SA 4.0)
+
 ## ディレクトリ構成
 
 ```

@@ -1,0 +1,182 @@
+/* ============================================
+   Vegetage — 読みものページ(自然農法・連載)
+   style.css の上に重ねる
+   ============================================ */
+
+/* --- ヘッダーのナビ: 項目が多いので折り返す --- */
+.reading-page .site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.4rem 1.2rem;
+}
+.reading-page .site-nav a { margin-left: 0; }
+.reading-page .site-nav .lang-link {
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  padding: 0 0.7rem;
+}
+
+/* --- ヒーロー --- */
+.page-hero {
+  background: var(--color-accent-light);
+  padding: 3.5rem 1.5rem 3rem;
+}
+.page-hero.has-image {
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  color: #fff;
+  min-height: 300px;
+  display: flex;
+  align-items: flex-end;
+}
+.page-hero.has-image::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(20, 32, 22, 0.78), rgba(20, 32, 22, 0.25));
+}
+.page-hero-inner {
+  position: relative;
+  max-width: var(--max-width-wide);
+  margin: 0 auto;
+  width: 100%;
+}
+.hero-label {
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.85;
+  margin-bottom: 0.5rem;
+}
+.hero-title {
+  font-family: var(--font-heading);
+  font-size: 2.1rem;
+  line-height: 1.35;
+  color: var(--color-accent-dark);
+}
+.page-hero.has-image .hero-title { color: #fff; }
+.hero-subtitle {
+  margin-top: 0.8rem;
+  font-size: 1.05rem;
+  opacity: 0.92;
+}
+
+/* --- 一段組の本文 --- */
+.article-content.single-column {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+.article-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  display: block;
+  margin: 1.5rem auto;
+}
+.article-content ul { padding-left: 1.5em; margin: 0 0 1.2rem; }
+
+/* --- 写真の並び --- */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.2rem;
+  margin: 1.5rem 0 2rem;
+}
+.gallery-grid figure {
+  margin: 0;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.gallery-grid img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  margin: 0;
+  border-radius: 0;
+}
+.gallery-grid figcaption {
+  padding: 0.8rem 1rem 1rem;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+.gallery-grid figcaption strong {
+  display: block;
+  color: var(--color-text);
+  font-family: var(--font-heading);
+  margin-bottom: 0.2rem;
+}
+
+/* --- 連載の目次 --- */
+.series-cards {
+  display: grid;
+  gap: 1rem;
+  max-width: var(--max-width);
+  margin: 0 auto 2.5rem;
+}
+.series-card {
+  display: block;
+  padding: 1.2rem 1.4rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  text-decoration: none;
+  color: inherit;
+}
+.series-card:hover { border-color: var(--color-accent); }
+.series-card-title {
+  display: block;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--color-accent-dark);
+  margin-bottom: 0.4rem;
+}
+.series-card-summary {
+  display: block;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+}
+
+/* --- 章のページ --- */
+.chapter-date {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 1.5rem;
+}
+.series-chapters {
+  padding-left: 1.3em;
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+.series-chapters li { margin-bottom: 0.45rem; }
+.series-chapters a { color: var(--color-text-secondary); text-decoration: none; }
+.series-chapters a:hover { color: var(--color-accent); }
+.series-chapters .current span { color: var(--color-accent-dark); font-weight: 700; }
+.chapter-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-border);
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+}
+.chapter-nav a { color: var(--color-link); text-decoration: none; }
+
+@media (max-width: 640px) {
+  .reading-page .site-nav { justify-content: center; gap: 0.3rem 0.9rem; }
+  .page-hero { padding: 2.5rem 1rem 2rem; }
+  .page-hero.has-image { min-height: 220px; }
+  .hero-title { font-size: 1.6rem; }
+  .chapter-nav { flex-wrap: wrap; justify-content: center; }
+}
