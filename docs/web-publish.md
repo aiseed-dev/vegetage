@@ -1,4 +1,4 @@
-# Vegitage Web版 公開マニュアル (Cloudflare Pages)
+# Vegetage Web版 公開マニュアル (Cloudflare Pages)
 
 設計の背景・決定事項は [`../DESIGN.md`](../DESIGN.md) を参照。
 これはコマンドだけをまとめた実行手順。
@@ -13,14 +13,14 @@
 - cf-publish: `~/.local/bin/cf-publish`(`pip install --user cf-publish` 済み)
 - Cloudflare認証情報: `~/.config/cloudflare/pages.env` に設定済み
 
-いずれも初回セットアップ済みなら、以下は `frontend/vegitage` ディレクトリで
+いずれも初回セットアップ済みなら、以下は `frontend/vegetage` ディレクトリで
 実行するだけでよい。Zed を使っている場合は同じコマンドがタスクメニュー
 (`.zed/tasks.json`)からも実行できる。
 
 ## 1. ビルド
 
 ```bash
-cd frontend/vegitage
+cd frontend/vegetage
 flutter build web --release --dart-define=FLUTTER_WEB_CANVASKIT_URL=canvaskit/
 ```
 
@@ -37,7 +37,7 @@ flutter build web --release --dart-define=FLUTTER_WEB_CANVASKIT_URL=canvaskit/
 ## 2. デプロイ前確認(dry-run)
 
 ```bash
-cf-publish build/web --project vegitage --dry-run
+cf-publish build/web --project vegetage --dry-run
 ```
 
 ファイル数・サイズが Pages の制限内であることと、送信対象を確認する。
@@ -46,12 +46,12 @@ cf-publish build/web --project vegitage --dry-run
 ## 3. デプロイ
 
 ```bash
-cf-publish build/web --project vegitage
+cf-publish build/web --project vegetage
 ```
 
-初回はプロジェクト `vegitage` が自動作成される。
-完了すると `https://vegitage.pages.dev` で確認できる
-(2回目以降は `https://<デプロイID>.vegitage.pages.dev` のプレビューURLも出る)。
+初回はプロジェクト `vegetage` が自動作成される。
+完了すると `https://vegetage.pages.dev` で確認できる
+(2回目以降は `https://<デプロイID>.vegetage.pages.dev` のプレビューURLも出る)。
 
 表示確認したいポイント:
 
@@ -66,7 +66,7 @@ cf-publish build/web --project vegitage
 
 Cloudflare ダッシュボードで:
 
-1. Workers & Pages → `vegitage` プロジェクトを開く
+1. Workers & Pages → `vegetage` プロジェクトを開く
 2. Custom domains → `aiseed.page` を追加
    (DNS は既に Cloudflare 管理下のためワンクリックで反映)
 3. 反映を確認したら GCE インスタンスを停止してよい

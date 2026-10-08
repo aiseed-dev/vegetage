@@ -301,4 +301,4 @@ AIは、プログラミングの「作業」を民主化し、年齢に関係な
 https://aiseed.page
 
 **▶ Vegitage Project (GitHub):**
-https://github.com/aiseed-dev/vegitage
+https://github.com/aiseed-dev/vegetage

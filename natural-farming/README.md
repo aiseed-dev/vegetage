@@ -32,7 +32,7 @@ natural-farming/
 
 ## 決まったこと(2026-10-08)
 
-- **形式**:`vegitage-data/web/build.py` の形式(Markdown+YAML)に書き直す。`site/` は書き直しの元にするための控え。
+- **形式**:`web/build.py` の形式(Markdown+YAML)に書き直す。`site/` は書き直しの元にするための控え。
 - **ブログと構造分析**:肥料・自然農法を扱ったブログ 004・013・044・045・006 と、構造分析 1-03・3-05 は website に残し、こちらのページからリンクを張る。
 - **about**:こちらに移す。website 側は短い紹介に書き直す。
 - **カタログエディタの設計書**:`docs/catalog-editor.md` に移した(元は website の `docs/plan/catalog-editor.md`)。

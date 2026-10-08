@@ -1,10 +1,10 @@
-# Vegitage サーバー設定マニュアル (GCE / Ubuntu) — 旧手順
+# Vegetage サーバー設定マニュアル (GCE / Ubuntu) — 旧手順
 
 **現在は Cloudflare Pages への移行作業中。新規デプロイは
 [`web-publish.md`](web-publish.md) を参照。** このドキュメントは
 aiseed.page のドメイン切替が完了し GCE を停止するまでの参考として残す。
 
-このドキュメントは、VegitageアプリケーションをGoogle Compute Engine (GCE) 上のUbuntuサーバーにデプロイするための手順をまとめたものです。
+このドキュメントは、VegetageアプリケーションをGoogle Compute Engine (GCE) 上のUbuntuサーバーにデプロイするための手順をまとめたものです。
 
 ## 1. 前提条件
 
@@ -43,33 +43,33 @@ sudo apt install git nginx python3-pip python3-venv -y
     ```bash
     # /var/www ディレクトリにプロジェクトを配置するのが一般的
     cd /var/www
-    sudo git clone https://github.com/your-username/vegitage.git
-    cd vegitage
+    sudo git clone https://github.com/your-username/vegetage.git
+    cd vegetage
     ```
 
 2.  **データディレクトリの配置:**
     AIが生成したJSONデータファイルをサーバーに配置します。
     ```bash
     # データ格納用の親ディレクトリを作成
-    sudo mkdir -p /var/data/vegitage/
+    sudo mkdir -p /var/data/vegetage/
     
     # ローカルからGCS経由、または直接scpでデータディレクトリをコピー
-    # 例: sudo scp -r local/path/to/data_ja /var/data/vegitage/
+    # 例: sudo scp -r local/path/to/data_ja /var/data/vegetage/
     ```
     最終的に以下の構造になるようにデータを配置します。
-    *   `/var/data/vegitage/ja/species/`
-    *   `/var/data/vegitage/ja/varieties/`
-    *   `/var/data/vegitage/ja/species_index.json`
-    *   `/var/data/vegitage/ja/varieties_index.json`
+    *   `/var/data/vegetage/ja/species/`
+    *   `/var/data/vegetage/ja/varieties/`
+    *   `/var/data/vegetage/ja/species_index.json`
+    *   `/var/data/vegetage/ja/varieties_index.json`
     
-    _注意: FastAPIのコード内で、このデータディレクトリパス (`/var/data/vegitage/ja`) を正しく参照するようにしてください。_
+    _注意: FastAPIのコード内で、このデータディレクトリパス (`/var/data/vegetage/ja`) を正しく参照するようにしてください。_
 
 ## 5. バックエンド (FastAPI) の設定
 
 1.  **Python仮想環境のセットアップ:**
     ```bash
     # プロジェクトのルートディレクトリに移動
-    cd /var/www/vegitage/backend # FastAPIのコードがあるディレクトリ
+    cd /var/www/vegetage/backend # FastAPIのコードがあるディレクトリ
 
     # 仮想環境を作成
     sudo python3 -m venv venv
@@ -84,18 +84,18 @@ sudo apt install git nginx python3-pip python3-venv -y
 2.  **UvicornをSystemdサービスとして登録 (推奨):**
     サーバーが再起動してもFastAPIが自動で起動するように、`systemd` サービスとして登録します。
 
-    `sudo nano /etc/systemd/system/vegitage-api.service` を作成し、以下の内容を記述します。
+    `sudo nano /etc/systemd/system/vegetage-api.service` を作成し、以下の内容を記述します。
 
     ```ini
     [Unit]
-    Description=Vegitage API Service
+    Description=Vegetage API Service
     After=network.target
 
     [Service]
     User=www-data # Nginxと同じユーザーで実行するのが一般的
     Group=www-data
-    WorkingDirectory=/var/www/vegitage/backend
-    ExecStart=/var/www/vegitage/backend/venv/bin/uvicorn main:app --host 127.0.0.1 --port 8000
+    WorkingDirectory=/var/www/vegetage/backend
+    ExecStart=/var/www/vegetage/backend/venv/bin/uvicorn main:app --host 127.0.0.1 --port 8000
     Restart=always
 
     [Install]
@@ -105,11 +105,11 @@ sudo apt install git nginx python3-pip python3-venv -y
 3.  **サービスの有効化と起動:**
     ```bash
     sudo systemctl daemon-reload
-    sudo systemctl enable vegitage-api
-    sudo systemctl start vegitage-api
+    sudo systemctl enable vegetage-api
+    sudo systemctl start vegetage-api
 
     # 動作確認
-    sudo systemctl status vegitage-api 
+    sudo systemctl status vegetage-api 
     ```
 
 ## 6. フロントエンド (Flutter Web) のビルドと配置
@@ -121,7 +121,7 @@ sudo apt install git nginx python3-pip python3-venv -y
     ```
 
 2.  **ビルド済みファイルをサーバーにアップロード:**
-    `build/web` ディレクトリの中身を、サーバーの `/var/www/vegitage/frontend` ディレクトリにアップロードします。（ディレクトリは任意）
+    `build/web` ディレクトリの中身を、サーバーの `/var/www/vegetage/frontend` ディレクトリにアップロードします。（ディレクトリは任意）
 
 ## 7. Webサーバー (Nginx) の設定
 
@@ -145,7 +145,7 @@ server {
 
     # Flutter Webアプリの配信設定
     location / {
-        root /var/www/vegitage/frontend; # Flutter Webのファイルを置いた場所
+        root /var/www/vegetage/frontend; # Flutter Webのファイルを置いた場所
         try_files $uri $uri/ /index.html;
     }
 }

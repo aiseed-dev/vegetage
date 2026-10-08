@@ -1,12 +1,12 @@
 # カタログエディタ — aiseed-builder の「商品」プラグイン設計
 
-2026-07-28。vegitage(イタリア野菜図鑑)の編集を最初の利用者として、
+2026-07-28。vegetage(イタリア野菜図鑑)の編集を最初の利用者として、
 aiseed-builder に「品目カタログ」の編集能力を足す。WordPress の語彙で言えば、
 site-editor が「投稿」、これは「カスタムフィールド付きカスタム投稿タイプ=商品」。
 スキーマ駆動にすることで、野菜図鑑も将来の EC 商品も同じエディタで扱える。
 
 **同日追記: 帰属と公開先を変更。** データの正本は独立リポジトリ
-`/home/dev/dev/vegitage`(aiseed-dev/vegitage)の `vegitage-data/` に帰属させ、
+`/home/dev/dev/vegetage`(aiseed-dev/vegetage)の `vegitage-data/`(2026-10 に `web/`・`research/` へ分割)に帰属させ、
 公開は aiseed.dev 配下(/vegitage/)ではなく **独自ドメイン aiseed.page** で行う。
 website 側は vegitage-data/ と symlink を削除済み、旧 URL は
 `/vegitage/* → https://aiseed.page/:splat` の301で引き継ぐ。
@@ -17,8 +17,8 @@ website 側は vegitage-data/ と symlink を削除済み、旧 URL は
 
 | カタログ | データ | 形式 | 品目 | 生成 |
 |---|---|---|---|---|
-| **イタリア図鑑** | `vegitage-data/web/italian/` | Markdown+YAML | 69 | `web/build.py`(既存) |
-| **野菜辞典** | `frontend/vegitage/assets/data/` | 構造化JSON | 332 | **未整備(新規に要る)** |
+| **イタリア図鑑** | `web/italian/` | Markdown+YAML | 69 | `web/build.py`(既存) |
+| **野菜辞典** | `frontend/vegetage/assets/data/` | 構造化JSON | 332 | **未整備(新規に要る)** |
 
 重複する30品目も二重管理でよい(粒度・観点が違う——図鑑はイタリアの食文化史、
 辞典は栽培/栄養/気候変動適応/環境再生農業までの汎用データ)。
@@ -27,7 +27,7 @@ website 側は vegitage-data/ と symlink を削除済み、旧 URL は
 下記「現状の確認」と設計本文(スキーマ・バンドル・状態・UI)はこのカタログの話。
 
 ### カタログB: 野菜辞典(JSON・332)
-- データ源: `frontend/vegitage/assets/data/` に `vegetable_summary/<名>.json`(一覧・
+- データ源: `frontend/vegetage/assets/data/` に `vegetable_summary/<名>.json`(一覧・
   カード用、content.ja に15項目)+ `vegetable_detail/<名>.json`(詳細、15セクション:
   basic_info / classification / cultivation_characteristics / nutritional_functional /
   culinary_applications / climate_change_adaptation / natural_hybridization_potential /
@@ -35,7 +35,7 @@ website 側は vegitage-data/ と symlink を削除済み、旧 URL は
 - **公開手段が無い**: これまで Flutter アプリが JSON を直接読んで表示していた。
   アプリの Web 版は退役 → **JSON→静的HTML ビルダーを新規に作る**必要がある。
   summary が一覧、detail が詳細ページに対応する自然な写像
-- データの置き場所: 現在は Flutter アプリ配下(`frontend/vegitage/assets/data/`)。
+- データの置き場所: 現在は Flutter アプリ配下(`frontend/vegetage/assets/data/`)。
   アプリ(iOS/Android)がまだ読むので**ここが正本のまま**。Web ビルダーは
   このディレクトリを入力にする(コピーせず参照)。要検討: 将来アプリと Web が
   同じ JSON を共有し続けるか、`vegitage-data/` 側へ寄せるか
@@ -46,14 +46,14 @@ website 側は vegitage-data/ と symlink を削除済み、旧 URL は
 
 ## 現状の確認(カタログA・2026-07-28 時点)
 
-- 正本: `vegitage/vegitage-data/web/italian/` に 69 品目。1品目 =
+- 正本: `vegetage/web/italian/` に 69 品目。1品目 =
   `<作物>.md`(YAML フロントマター+概要文)+ `history|cultivation|cuisine/<作物>.md`
   (サブガイド計135ファイル、全651枠中は歯抜けあり=無いタブは出ない仕様)
 - フロントマター: `id`(master_lists と突合・暫定)、`name_ja/it/en`、`aliases`、
   `family/family_latin/botanical`、`index_group`(目次「科」タブ)、`type`(複数)、
   `certification`、`regions`、`season`、`uses`、`hero_image`。
   **行内コメントが情報を持っている**(例: `id: … # master_lists と要突合せ（暫定）`)
-- ビルド: `vegitage-data/web/build.py`(markdown+PyYAML、全ビルドのみ)。
+- ビルド: `web/build.py`(markdown+PyYAML、全ビルドのみ)。
   出力 `web/site/` をそのまま aiseed.page(Cloudflare Pages)へアップロードする。
   URL は `aiseed.page/italian/<作物>.html`(website 時代の /vegitage/ 接頭辞が
   取れるだけで、それ以下の構造は不変)
@@ -64,7 +64,7 @@ website 側は vegitage-data/ と symlink を削除済み、旧 URL は
 ## 設計原則(aiseed-builder の既存原則を踏襲)
 
 1. **パーサとスキーマの正はサイト(データ)側に一つだけ。** builder は読むだけ。
-   → スキーマはカテゴリフォルダに置く: `vegitage-data/web/italian/schema.yaml`
+   → スキーマはカテゴリフォルダに置く: `web/italian/schema.yaml`
 2. **壊れる編集は拒否。** 保存時に必ず再パース+スキーマ検証し、通らなければ戻す
    (site-editor と同じ)。
 3. **プラグインは登録制。** `plugins/catalog/` を足し、site.json の
@@ -167,21 +167,21 @@ EC 商品への布石: `price` や `stock` が必要になったら type を足�
 サイドバーには site.json の `catalogs` 配列の順でカタログ名が並ぶ
 (シリーズ一覧と同格)。「変更を記録(git)」「サイトを公開」は既存機能を共用。
 
-## 5. vegitage を aiseed-builder の「サイト」として開く
+## 5. vegetage を aiseed-builder の「サイト」として開く
 
-website の site.json に相乗りさせるのではなく、**vegitage リポジトリ自身に
+website の site.json に相乗りさせるのではなく、**vegetage リポジトリ自身に
 site.json を置き**、aiseed-builder でサイトとして開く(記事サイトと対等):
 
 ```json
 {
-  "site_name": "Vegitage",
+  "site_name": "Vegetage",
   "builder": {
-    "cf_project": "vegitage",
+    "cf_project": "vegetage",
     "plugins": ["catalog"],
     "catalogs": [
-      {"schema": "vegitage-data/web/italian/schema.yaml",
-       "build": "vegitage-data/web/build.py",
-       "output": "vegitage-data/web/site",
+      {"schema": "web/italian/schema.yaml",
+       "build": "web/build.py",
+       "output": "web/site",
        "preview_path": "/italian/"}
     ]
   }
@@ -196,8 +196,8 @@ site.json を置き**、aiseed-builder でサイトとして開く(記事サイ�
 公開は**済**: `store.deploy` を
 [cf-publish](https://github.com/aiseed-dev/cf-publish)(自作PyPIパッケージ、
 aiseed-builder の依存)に載せ替えた。サイト側に `tools/cloudflare_pages_deploy.py`
-が無くても公開できるようになったので、vegitage も `publish_dir` を
-`vegitage-data/web/site` に設定すれば公開対象になる(2026-07-28 時点で
+が無くても公開できるようになったので、vegetage も `publish_dir` を
+`web/site` に設定すれば公開対象になる(2026-07-28 時点で
 932ファイルの dry-run 確認済み)。ドメイン aiseed.page の割当は完了済み、
 Flutterアプリからの切り替えは保留中。
 
@@ -207,7 +207,7 @@ Flutterアプリからの切り替えは保留中。
    ルート index(/ → /italian/ への案内)を追加、Cloudflare Pages
    プロジェクト作成+ドメイン割当、初回アップロード。website 側の
    301(`/vegitage/*`)が生きているかの確認
-1. **vegitage 側の受け入れ準備**(半日): schema.yaml を書く。build.py に
+1. **vegetage 側の受け入れ準備**(半日): schema.yaml を書く。build.py に
    draft スキップ。既存 69 品目をスキーマに通して表記ゆれの棚卸し
    (閉じた語彙は実データから確定させる)
 2. **catalog プラグイン**(2〜3日): `plugins/catalog/`(store には触らず

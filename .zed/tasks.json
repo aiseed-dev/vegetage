@@ -1,23 +1,23 @@
 [
   {
     "label": "web ビルド (リリース)",
-    "command": "cd frontend/vegitage && flutter build web --release --dart-define=FLUTTER_WEB_CANVASKIT_URL=canvaskit/",
+    "command": "cd frontend/vegetage && flutter build web --release --dart-define=FLUTTER_WEB_CANVASKIT_URL=canvaskit/",
     "env": { "PATH": "$HOME/development/flutter/bin:$PATH" }
   },
   {
     "label": "フォント再生成 (データ更新後)",
-    "command": "cd frontend/vegitage && [ -d .venv-fonts ] || (python3 -m venv .venv-fonts && .venv-fonts/bin/pip install fonttools); .venv-fonts/bin/python tool/subset_fonts.py"
+    "command": "cd frontend/vegetage && [ -d .venv-fonts ] || (python3 -m venv .venv-fonts && .venv-fonts/bin/pip install fonttools); .venv-fonts/bin/python tool/subset_fonts.py"
   },
   {
     "label": "Pages デプロイ (dry-run)",
-    "command": "cd frontend/vegitage && cf-publish build/web --project vegitage --dry-run"
+    "command": "cd frontend/vegetage && cf-publish build/web --project vegetage --dry-run"
   },
   {
     "label": "Pages デプロイ (本番)",
-    "command": "cd frontend/vegitage && cf-publish build/web --project vegitage"
+    "command": "cd frontend/vegetage && cf-publish build/web --project vegetage"
   },
   {
     "label": "ローカル確認 (port 5051)",
-    "command": "cd frontend/vegitage && python3 -m http.server 5051 --directory build/web"
+    "command": "cd frontend/vegetage && python3 -m http.server 5051 --directory build/web"
   }
 ]

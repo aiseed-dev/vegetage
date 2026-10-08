@@ -1,0 +1,30 @@
+[project]
+name = "vegetage-research"
+version = "0.1.0"
+description = "伝統野菜・料理辞典 マルチAIリサーチシステム"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "AGPL-3.0-or-later"
+
+dependencies = [
+    "google-genai>=1.0",
+    "python-dotenv>=1.0",
+    "pydantic>=2.0",
+    "jsonschema>=4.0",
+    "markdown>=3.5",
+    "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.23",
+]
+
+[project.scripts]
+vegetage-research = "src.agents.research_agent:main_cli"
+vegetage-research-min = "src.agents.research_min:main_cli"
+vegetage-research-gemini = "src.agents.gemini_agent:main_cli"
+vegetage-validate = "src.validators.validate_data:main_cli"
+vegetage-batch = "src.agents.batch_runner:main_cli"
+vegetage-pdf2json = "src.agents.pdf_converter:main_cli"

@@ -50,6 +50,17 @@ https://aiseed.page
 **▶ Zennでの開発記:**
 作成中
 
+## 📁 ディレクトリ構成
+
+```
+frontend/vegetage/   Flutter アプリ(iOS / Android / Web)。アプリと野菜辞典が読む JSON は assets/data/
+web/                 辞典サイト。イタリア図鑑の正本(italian/)とビルダー(build_all.py → web/site/)
+research/            調査データ(deep_research・master_lists)とリサーチエージェント(src/)
+natural-farming/     自然農法のページ(website から移行中。web/ の形式へ書き直す予定)
+data_processing/     ハッカソン版のデータ生成パイプライン(プロンプトと生成データ)
+docs/                設計・計画・手順書
+```
+
 ## 🛠️ 技術スタック
 
 *   **AI & データ処理:** Google Gemini API, Python

@@ -28,5 +28,9 @@ private/
 *.log
 
 # ビルド出力(web/build.py が生成)
-vegitage-data/web/site/
+web/site/
 __pycache__/
+
+# フォントのサブセット用の仮想環境(tool/subset_fonts.py)
+.venv-fonts/
+.venv/

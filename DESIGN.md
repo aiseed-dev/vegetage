@@ -1,4 +1,4 @@
-# DESIGN: Vegitage Web版の Cloudflare Pages 公開
+# DESIGN: Vegetage Web版の Cloudflare Pages 公開
 
 日付: 2026-07-08(2026-07-09 決定反映)
 状態: 承認済み・実装済み(デプロイ待ち)
@@ -6,12 +6,12 @@
 ## 決定事項(2026-07-09)
 
 - 外部フェッチは全廃(案2): CanvasKit 同梱版 + Noto Sans CJK JP サブセット同梱
-- 公開先は **aiseed.page 本体**(Pages プロジェクト `vegitage` にカスタムドメインを付与、
+- 公開先は **aiseed.page 本体**(Pages プロジェクト `vegetage` にカスタムドメインを付与、
   GCE からの切替)
 
 ## 目的
 
-vegitage(Flutter アプリ)の Web 版を Cloudflare Pages で公開する。
+vegetage(Flutter アプリ)の Web 版を Cloudflare Pages で公開する。
 現行の GCE + Nginx(aiseed.page)からの移行第一歩。将来的な seed-project への
 組み込みは本設計の範囲外(アプリ本体には手を入れない)。
 
@@ -34,7 +34,7 @@ vegitage(Flutter アプリ)の Web 版を Cloudflare Pages で公開する。
 
 ## 方針(実装済み)
 
-1. **ビルド**(Flutter プロジェクト = `frontend/vegitage` で実行):
+1. **ビルド**(Flutter プロジェクト = `frontend/vegetage` で実行):
    ```bash
    flutter build web --release --dart-define=FLUTTER_WEB_CANVASKIT_URL=canvaskit/
    ```
@@ -55,13 +55,13 @@ vegitage(Flutter アプリ)の Web 版を Cloudflare Pages で公開する。
    なおデータ中の多言語名(アラビア文字・タイ文字等)は UI 未表示のため未収録。
    表示するようになったら対応フォントの追加が必要(スクリプトが警告を出す)。
 3. **デプロイ**: `flutter build web` の成果物 `build/web` をそのまま
-   cf-publish で Pages プロジェクト `vegitage` へ Direct Upload。
+   cf-publish で Pages プロジェクト `vegetage` へ Direct Upload。
    ```bash
-   cf-publish build/web --project vegitage
+   cf-publish build/web --project vegetage
    ```
    デプロイ実行はユーザー自身(外部接続の承認ルール)。
 4. **ドメイン切替**(ユーザー作業、ダッシュボード):
-   Pages プロジェクト `vegitage` → Custom domains → `aiseed.page` を追加
+   Pages プロジェクト `vegetage` → Custom domains → `aiseed.page` を追加
    (DNS は既に Cloudflare にあるためワンクリック)。切替後 GCE は停止可能。
    `aiseed.page/images/*` は 404 になるが、現状も 404 のため回帰なし。
    QR コードの `https://aiseed.page/#/vegetables/{id}` はそのまま生きる。
@@ -96,7 +96,7 @@ vegitage(Flutter アプリ)の Web 版を Cloudflare Pages で公開する。
 
 ### B. Pages プロジェクト名
 
-`vegitage`(→ vegitage.pages.dev)を想定。変更あれば指定。
+`vegetage`(→ vegetage.pages.dev)を想定。変更あれば指定。
 
 ## やらないこと
 
