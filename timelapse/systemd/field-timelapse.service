@@ -1,0 +1,21 @@
+# 畑の写真フォルダを見張って、タイムラプスを自動で作り直す(ユーザーサービス)
+#
+# 入れ方(README.md の「自動で回す」を参照):
+#   1. 下の PHOTOS= を、スマホの写真が同期されるフォルダに書き換える
+#   2. cp systemd/field-timelapse.service ~/.config/systemd/user/
+#   3. systemctl --user daemon-reload && systemctl --user enable --now field-timelapse
+#   4. ログ: journalctl --user -u field-timelapse -f
+
+[Unit]
+Description=畑の写真のタイムラプスを自動で作る(field-timelapse watch)
+
+[Service]
+Environment=PHOTOS=%h/Nextcloud/畑の写真
+Environment=TIMELAPSE=%h/dev/dev/vegetage/timelapse
+ExecStart=/bin/sh -c 'exec "$TIMELAPSE/.venv/bin/field-timelapse" watch "$PHOTOS"'
+Restart=on-failure
+RestartSec=60
+Nice=10
+
+[Install]
+WantedBy=default.target

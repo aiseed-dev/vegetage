@@ -57,6 +57,7 @@ frontend/vegetage/   Flutter アプリ(iOS / Android / Web)。アプリと野菜
 web/                 aiseed.page の公開物。イタリア図鑑(italian/)・読みもの(pages/: 自然農法・連載)とビルダー(build_all.py → web/site/)
 research/            調査データ(deep_research・master_lists)とリサーチエージェント(src/)
 natural-farming/     自然農法のページの website 時代の控え(正本は web/pages/)
+timelapse/           畑の定点タイムラプス。スマホ手持ちの写真を特徴点マッチングで位置合わせして MP4 に
 data_processing/     ハッカソン版のデータ生成パイプライン(プロンプトと生成データ)
 docs/                設計・計画・手順書(aiseed.page の更新・公開は docs/aiseed-page-操作マニュアル.md)
 ```

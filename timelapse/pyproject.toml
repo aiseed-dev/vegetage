@@ -1,0 +1,25 @@
+[project]
+name = "field-timelapse"
+version = "0.1.0"
+description = "スマホで毎日撮った畑の写真を、特徴点マッチングで位置をそろえたタイムラプス動画にする"
+requires-python = ">=3.10"
+license = { text = "GPL-3.0-or-later" }
+dependencies = [
+    "opencv-python-headless>=4.8",
+    "numpy>=1.24",
+    "pillow>=10",
+    "pillow-heif>=0.16",   # iPhone の HEIC
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8"]
+
+[project.scripts]
+field-timelapse = "field_timelapse.cli:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["field_timelapse"]

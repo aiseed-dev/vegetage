@@ -34,3 +34,7 @@ __pycache__/
 # フォントのサブセット用の仮想環境(tool/subset_fonts.py)
 .venv-fonts/
 .venv/
+
+# timelapse(field-timelapse)
+*.egg-info/
+.pytest_cache/
